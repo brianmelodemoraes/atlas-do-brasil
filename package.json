@@ -1,0 +1,26 @@
+{
+  "name": "atlas-do-brasil",
+  "version": "1.0.0",
+  "description": "Atlas do Brasil · by Brexplora — atlas geográfico narrativo, nascido mobile",
+  "private": true,
+  "scripts": {
+    "libs": "bash scripts/fetch-lib.sh",
+    "deploy:web": "bash scripts/deploy-r2.sh",
+    "sync": "npx cap sync",
+    "ios": "npx cap open ios",
+    "android": "npx cap open android",
+    "assets": "npx @capacitor/assets generate --iconBackgroundColor '#EBDFC2' --iconBackgroundColorDark '#101820' --splashBackgroundColor '#EBDFC2' --splashBackgroundColorDark '#101820'"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.1.0",
+    "@capacitor/app": "^6.0.0",
+    "@capacitor/core": "^6.1.0",
+    "@capacitor/ios": "^6.1.0",
+    "@capacitor/splash-screen": "^6.0.0",
+    "@capacitor/status-bar": "^6.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^6.1.0"
+  }
+}

@@ -1,0 +1,17 @@
+node_modules/
+ios/App/Pods/
+ios/App/build/
+android/.gradle/
+android/app/build/
+android/build/
+*.log
+.DS_Store
+www/busca-index.json
+# binários reproduzíveis (npm run libs / scripts/make-assets.py) — o repo guarda só texto
+www/lib/*.woff2
+www/lib/*.pbf
+assets/*.png
+www/lib/maplibre-gl.js
+www/lib/maplibre-gl.css
+www/lib/pmtiles.js
+www/lib/LICENSE-NotoSans.md
