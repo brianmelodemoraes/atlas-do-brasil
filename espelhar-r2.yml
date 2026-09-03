@@ -1,0 +1,30 @@
+# Produção (R2) é a fonte da verdade do HTML. Esta Action copia o atlas.html publicado para www/index.html,
+# byte a byte, sempre que VERSION muda (ou manualmente / todo dia às 6h UTC). Sem segredos: o bucket é público.
+name: espelhar-r2
+on:
+  push:
+    branches: [main]
+    paths: [VERSION]
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6 * * *"
+permissions:
+  contents: write
+jobs:
+  espelhar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Baixar atlas.html do R2
+        run: |
+          curl -fsSL "https://pub-58f587f01b32444d95df39d7dfb2d438.r2.dev/atlas.html?nc=$(date +%s)" -o www/index.html
+          test "$(wc -c < www/index.html)" -gt 100000
+          echo "no ar: $(grep -o '<!-- v[0-9]* -->' www/index.html)  ·  VERSION: $(cat VERSION)"
+      - name: Commitar se mudou
+        run: |
+          git config user.name "atlas-espelho"
+          git config user.email "actions@users.noreply.github.com"
+          git add www/index.html
+          git diff --cached --quiet && echo "sem mudanças" && exit 0
+          git commit -m "Espelho de produção: $(grep -o '<!-- v[0-9]* -->' www/index.html | tr -d '<>! -')"
+          git push
