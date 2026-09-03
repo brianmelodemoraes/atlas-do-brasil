@@ -8,7 +8,7 @@ Atlas geográfico narrativo, nascido mobile: 14 capítulos com *scrollytelling* 
 
 | Peça | Onde | Observação |
 |---|---|---|
-| App (HTML único) | `www/index.html` → publicado como `atlas.html` no R2 | mesmo arquivo no site e dentro do app nativo |
+| App (HTML único) | `www/index.html` = `atlas.html` publicado no R2 | mesmo arquivo no site e dentro do app nativo. **Produção (R2) é a fonte da verdade**: a Action `espelhar-r2` copia o `atlas.html` do R2 para `www/index.html` a cada mudança em `VERSION` (e todo dia às 6h UTC) |
 | Bibliotecas, fontes, glifos | `www/lib/` (auto-hospedado) | **zero CDN** em produção; `npm run libs` reconstrói |
 | Tiles vetoriais | R2: `atlas-base.pmtiles` (449 MB), `atlas-detail.pmtiles` (926 MB), `atlas-overview.pmtiles` (4,0 MB, z0–6 infra + rios ≥120 km) | Cloudflare R2, bucket `atlas-brexplora` |
 | Relevo | AWS Terrain Tiles (Mapzen, terrarium) | público |
@@ -16,6 +16,10 @@ Atlas geográfico narrativo, nascido mobile: 14 capítulos com *scrollytelling* 
 | Conteúdo | Supabase `oolwrsxdwnzofinvjael`: `capitulos`, `blocos`, `verbetes`, `destaques`, `rotulos` | RLS: leitura pública do publicado |
 | Edge Functions | `ficha` (cauda sob demanda, cache em `destaques`), `pergunte` (IA, senha de teste → assinatura) | Supabase; chave Anthropic em Secrets |
 | Índice de busca | R2: `busca-index.json?v=N` | subir `?v` a cada atualização (cache) |
+
+## Versionar
+O app é publicado direto no R2 (dashboard ou `npm run deploy:web`). Para o repositório acompanhar, basta subir o número em `VERSION` —
+a GitHub Action baixa o `atlas.html` publicado e faz o commit de `www/index.html` com os bytes exatos que estão no ar.
 
 ## Publicar o site (R2)
 ```bash
