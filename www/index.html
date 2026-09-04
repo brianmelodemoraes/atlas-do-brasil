@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Atlas do Brasil · by Brexplora</title><!-- v22 -->
+<script src="lib/maplibre-gl.js"></script>
+<style>/* maplibre-gl 4.7.1 (BSD-3) — embutido: R2 serve .css como octet-stream */
+.maplibregl-map{font:12px/20px Helvetica Neue,Arial,Helvetica,sans-serif;overflow:hidden;position:relative;-webkit-tap-highlight-color:rgb(0 0 0/0)}.maplibregl-canvas{left:0;position:absolute;top:0}.maplibregl-map:fullscreen{height:100%;width:100%}.maplibregl-ctrl-group button.maplibregl-ctrl-compass{touch-action:none}.maplibregl-canvas-container.maplibregl-interactive,.maplibregl-ctrl-group button.maplibregl-ctrl-compass{cursor:grab;-webkit-user-select:none;-moz-user-select:none;user-select:none}.maplibregl-canvas-container.maplibregl-interactive.maplibregl-track-pointer{cursor:pointer}.maplibregl-canvas-container.maplibregl-interactive:active,.maplibregl-ctrl-group button.maplibregl-ctrl-compass:active{cursor:grabbing}.maplibregl-canvas-container.maplibregl-touch-zoom-rotate,.maplibregl-canvas-container.maplibregl-touch-zoom-rotate .maplibregl-canvas{touch-action:pan-x pan-y}.maplibregl-canvas-container.maplibregl-touch-drag-pan,.maplibregl-canvas-container.maplibregl-touch-drag-pan .maplibregl-canvas{touch-action:pinch-zoom}.maplibregl-canvas-container.maplibregl-touch-zoom-rotate.maplibregl-touch-drag-pan,.maplibregl-canvas-container.maplibregl-touch-zoom-rotate.maplibregl-touch-drag-pan .maplibregl-canvas{touch-action:none}.maplibregl-canvas-container.maplibregl-touch-drag-pan.maplibregl-cooperative-gestures,.maplibregl-canvas-container.maplibregl-touch-drag-pan.maplibregl-cooperative-gestures .maplibregl-canvas{touch-action:pan-x pan-y}.maplibregl-ctrl-bottom-left,.maplibregl-ctrl-bottom-right,.maplibregl-ctrl-top-left,.maplibregl-ctrl-top-right{pointer-events:none;position:absolute;z-index:2}.maplibregl-ctrl-top-left{left:0;top:0}.maplibregl-ctrl-top-right{right:0;top:0}.maplibregl-ctrl-bottom-left{bottom:0;left:0}.maplibregl-ctrl-bottom-right{bottom:0;right:0}.maplibregl-ctrl{clear:both;pointer-events:auto;transform:translate(0)}.maplibregl-ctrl-top-left .maplibregl-ctrl{float:left;margin:10px 0 0 10px}.maplibregl-ctrl-top-right .maplibregl-ctrl{float:right;margin:10px 10px 0 0}.maplibregl-ctrl-bottom-left .maplibregl-ctrl{float:left;margin:0 0 10px 10px}.maplibregl-ctrl-bottom-right .maplibregl-ctrl{float:right;margin:0 10px 10px 0}.maplibregl-ctrl-group{background:#fff;border-radius:4px}.maplibregl-ctrl-group:not(:empty){box-shadow:0 0 0 2px rgba(0,0,0,.1)}@media (forced-colors:active){.maplibregl-ctrl-group:not(:empty){box-shadow:0 0 0 2px ButtonText}}.maplibregl-ctrl-group button{background-color:transparent;border:0;box-sizing:border-box;cursor:pointer;display:block;height:29px;outline:none;padding:0;width:29px}.maplibregl-ctrl-group button+button{border-top:1px solid #ddd}.maplibregl-ctrl button .maplibregl-ctrl-icon{background-position:50%;background-repeat:no-repeat;display:block;height:100%;width:100%}@media (forced-colors:active){.maplibregl-ctrl-icon{background-color:transparent}.maplibregl-ctrl-group button+button{border-top:1px solid ButtonText}}.maplibregl-ctrl button::-moz-focus-inner{border:0;padding:0}.maplibregl-ctrl-attrib-button:focus,.maplibregl-ctrl-group button:focus{box-shadow:0 0 2px 2px #0096ff}.maplibregl-ctrl button:disabled{cursor:not-allowed}.maplibregl-ctrl button:disabled .maplibregl-ctrl-icon{opacity:.25}.maplibregl-ctrl button:not(:disabled):hover{background-color:rgb(0 0 0/5%)}.maplibregl-ctrl-group button:focus:focus-visible{box-shadow:0 0 2px 2px #0096ff}.maplibregl-ctrl-group button:focus:not(:focus-visible){box-shadow:none}.maplibregl-ctrl-group button:focus:first-child{border-radius:4px 4px 0 0}.maplibregl-ctrl-group button:focus:last-child{border-radius:0 0 4px 4px}.maplibregl-ctrl-group button:focus:only-child{border-radius:inherit}.maplibregl-ctrl button.maplibregl-ctrl-zoom-out .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23333' viewBox='0 0 29 29'%3E%3Cpath d='M10 13c-.75 0-1.5.75-1.5 1.5S9.25 16 10 16h9c.75 0 1.5-.75 1.5-1.5S19.75 13 19 13z'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-zoom-in .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23333' viewBox='0 0 29 29'%3E%3Cpath d='M14.5 8.5c-.75 0-1.5.75-1.5 1.5v3h-3c-.75 0-1.5.75-1.5 1.5S9.25 16 10 16h3v3c0 .75.75 1.5 1.5 1.5S16 19.75 16 19v-3h3c.75 0 1.5-.75 1.5-1.5S19.75 13 19 13h-3v-3c0-.75-.75-1.5-1.5-1.5'/%3E%3C/svg%3E")}@media (forced-colors:active){.maplibregl-ctrl button.maplibregl-ctrl-zoom-out .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23fff' viewBox='0 0 29 29'%3E%3Cpath d='M10 13c-.75 0-1.5.75-1.5 1.5S9.25 16 10 16h9c.75 0 1.5-.75 1.5-1.5S19.75 13 19 13z'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-zoom-in .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23fff' viewBox='0 0 29 29'%3E%3Cpath d='M14.5 8.5c-.75 0-1.5.75-1.5 1.5v3h-3c-.75 0-1.5.75-1.5 1.5S9.25 16 10 16h3v3c0 .75.75 1.5 1.5 1.5S16 19.75 16 19v-3h3c.75 0 1.5-.75 1.5-1.5S19.75 13 19 13h-3v-3c0-.75-.75-1.5-1.5-1.5'/%3E%3C/svg%3E")}}@media (forced-colors:active) and (prefers-color-scheme:light){.maplibregl-ctrl button.maplibregl-ctrl-zoom-out .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' viewBox='0 0 29 29'%3E%3Cpath d='M10 13c-.75 0-1.5.75-1.5 1.5S9.25 16 10 16h9c.75 0 1.5-.75 1.5-1.5S19.75 13 19 13z'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-zoom-in .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' viewBox='0 0 29 29'%3E%3Cpath d='M14.5 8.5c-.75 0-1.5.75-1.5 1.5v3h-3c-.75 0-1.5.75-1.5 1.5S9.25 16 10 16h3v3c0 .75.75 1.5 1.5 1.5S16 19.75 16 19v-3h3c.75 0 1.5-.75 1.5-1.5S19.75 13 19 13h-3v-3c0-.75-.75-1.5-1.5-1.5'/%3E%3C/svg%3E")}}.maplibregl-ctrl button.maplibregl-ctrl-fullscreen .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23333' viewBox='0 0 29 29'%3E%3Cpath d='M24 16v5.5c0 1.75-.75 2.5-2.5 2.5H16v-1l3-1.5-4-5.5 1-1 5.5 4 1.5-3zM6 16l1.5 3 5.5-4 1 1-4 5.5 3 1.5v1H7.5C5.75 24 5 23.25 5 21.5V16zm7-11v1l-3 1.5 4 5.5-1 1-5.5-4L6 13H5V7.5C5 5.75 5.75 5 7.5 5zm11 2.5c0-1.75-.75-2.5-2.5-2.5H16v1l3 1.5-4 5.5 1 1 5.5-4 1.5 3h1z'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-shrink .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' viewBox='0 0 29 29'%3E%3Cpath d='M18.5 16c-1.75 0-2.5.75-2.5 2.5V24h1l1.5-3 5.5 4 1-1-4-5.5 3-1.5v-1zM13 18.5c0-1.75-.75-2.5-2.5-2.5H5v1l3 1.5L4 24l1 1 5.5-4 1.5 3h1zm3-8c0 1.75.75 2.5 2.5 2.5H24v-1l-3-1.5L25 5l-1-1-5.5 4L17 5h-1zM10.5 13c1.75 0 2.5-.75 2.5-2.5V5h-1l-1.5 3L5 4 4 5l4 5.5L5 12v1z'/%3E%3C/svg%3E")}@media (forced-colors:active){.maplibregl-ctrl button.maplibregl-ctrl-fullscreen .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23fff' viewBox='0 0 29 29'%3E%3Cpath d='M24 16v5.5c0 1.75-.75 2.5-2.5 2.5H16v-1l3-1.5-4-5.5 1-1 5.5 4 1.5-3zM6 16l1.5 3 5.5-4 1 1-4 5.5 3 1.5v1H7.5C5.75 24 5 23.25 5 21.5V16zm7-11v1l-3 1.5 4 5.5-1 1-5.5-4L6 13H5V7.5C5 5.75 5.75 5 7.5 5zm11 2.5c0-1.75-.75-2.5-2.5-2.5H16v1l3 1.5-4 5.5 1 1 5.5-4 1.5 3h1z'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-shrink .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23fff' viewBox='0 0 29 29'%3E%3Cpath d='M18.5 16c-1.75 0-2.5.75-2.5 2.5V24h1l1.5-3 5.5 4 1-1-4-5.5 3-1.5v-1zM13 18.5c0-1.75-.75-2.5-2.5-2.5H5v1l3 1.5L4 24l1 1 5.5-4 1.5 3h1zm3-8c0 1.75.75 2.5 2.5 2.5H24v-1l-3-1.5L25 5l-1-1-5.5 4L17 5h-1zM10.5 13c1.75 0 2.5-.75 2.5-2.5V5h-1l-1.5 3L5 4 4 5l4 5.5L5 12v1z'/%3E%3C/svg%3E")}}@media (forced-colors:active) and (prefers-color-scheme:light){.maplibregl-ctrl button.maplibregl-ctrl-fullscreen .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' viewBox='0 0 29 29'%3E%3Cpath d='M24 16v5.5c0 1.75-.75 2.5-2.5 2.5H16v-1l3-1.5-4-5.5 1-1 5.5 4 1.5-3zM6 16l1.5 3 5.5-4 1 1-4 5.5 3 1.5v1H7.5C5.75 24 5 23.25 5 21.5V16zm7-11v1l-3 1.5 4 5.5-1 1-5.5-4L6 13H5V7.5C5 5.75 5.75 5 7.5 5zm11 2.5c0-1.75-.75-2.5-2.5-2.5H16v1l3 1.5-4 5.5 1 1 5.5-4 1.5 3h1z'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-shrink .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' viewBox='0 0 29 29'%3E%3Cpath d='M18.5 16c-1.75 0-2.5.75-2.5 2.5V24h1l1.5-3 5.5 4 1-1-4-5.5 3-1.5v-1zM13 18.5c0-1.75-.75-2.5-2.5-2.5H5v1l3 1.5L4 24l1 1 5.5-4 1.5 3h1zm3-8c0 1.75.75 2.5 2.5 2.5H24v-1l-3-1.5L25 5l-1-1-5.5 4L17 5h-1zM10.5 13c1.75 0 2.5-.75 2.5-2.5V5h-1l-1.5 3L5 4 4 5l4 5.5L5 12v1z'/%3E%3C/svg%3E")}}.maplibregl-ctrl button.maplibregl-ctrl-compass .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23333' viewBox='0 0 29 29'%3E%3Cpath d='m10.5 14 4-8 4 8z'/%3E%3Cpath fill='%23ccc' d='m10.5 16 4 8 4-8z'/%3E%3C/svg%3E")}@media (forced-colors:active){.maplibregl-ctrl button.maplibregl-ctrl-compass .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23fff' viewBox='0 0 29 29'%3E%3Cpath d='m10.5 14 4-8 4 8z'/%3E%3Cpath fill='%23ccc' d='m10.5 16 4 8 4-8z'/%3E%3C/svg%3E")}}@media (forced-colors:active) and (prefers-color-scheme:light){.maplibregl-ctrl button.maplibregl-ctrl-compass .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' viewBox='0 0 29 29'%3E%3Cpath d='m10.5 14 4-8 4 8z'/%3E%3Cpath fill='%23ccc' d='m10.5 16 4 8 4-8z'/%3E%3C/svg%3E")}}.maplibregl-ctrl button.maplibregl-ctrl-terrain .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' fill='%23333' viewBox='0 0 22 22'%3E%3Cpath d='m1.754 13.406 4.453-4.851 3.09 3.09 3.281 3.277.969-.969-3.309-3.312 3.844-4.121 6.148 6.886h1.082v-.855l-7.207-8.07-4.84 5.187L6.169 6.57l-5.48 5.965v.871ZM.688 16.844h20.625v1.375H.688Zm0 0'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-terrain-enabled .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' fill='%2333b5e5' viewBox='0 0 22 22'%3E%3Cpath d='m1.754 13.406 4.453-4.851 3.09 3.09 3.281 3.277.969-.969-3.309-3.312 3.844-4.121 6.148 6.886h1.082v-.855l-7.207-8.07-4.84 5.187L6.169 6.57l-5.48 5.965v.871ZM.688 16.844h20.625v1.375H.688Zm0 0'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23333' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate:disabled .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23aaa' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3Cpath fill='red' d='m14 5 1 1-9 9-1-1z'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate.maplibregl-ctrl-geolocate-active .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%2333b5e5' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate.maplibregl-ctrl-geolocate-active-error .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23e58978' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate.maplibregl-ctrl-geolocate-background .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%2333b5e5' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate.maplibregl-ctrl-geolocate-background-error .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23e54e33' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate.maplibregl-ctrl-geolocate-waiting .maplibregl-ctrl-icon{animation:maplibregl-spin 2s linear infinite}@media (forced-colors:active){.maplibregl-ctrl button.maplibregl-ctrl-geolocate .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23fff' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate:disabled .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23999' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3Cpath fill='red' d='m14 5 1 1-9 9-1-1z'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate.maplibregl-ctrl-geolocate-active .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%2333b5e5' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate.maplibregl-ctrl-geolocate-active-error .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23e58978' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate.maplibregl-ctrl-geolocate-background .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%2333b5e5' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate.maplibregl-ctrl-geolocate-background-error .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23e54e33' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3C/svg%3E")}}@media (forced-colors:active) and (prefers-color-scheme:light){.maplibregl-ctrl button.maplibregl-ctrl-geolocate .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate:disabled .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23666' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3Cpath fill='red' d='m14 5 1 1-9 9-1-1z'/%3E%3C/svg%3E")}}@keyframes maplibregl-spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}a.maplibregl-ctrl-logo{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='23' fill='none'%3E%3Cpath fill='%23000' fill-opacity='.4' fill-rule='evenodd' d='M17.408 16.796h-1.827l2.501-12.095h.198l3.324 6.533.988 2.19.988-2.19 3.258-6.533h.181l2.6 12.095h-1.81l-1.218-5.644-.362-1.71-.658 1.71-2.929 5.644h-.098l-2.914-5.644-.757-1.71-.345 1.71zm1.958-3.42-.726 3.663a1.255 1.255 0 0 1-1.232 1.011h-1.827a1.255 1.255 0 0 1-1.229-1.509l2.501-12.095a1.255 1.255 0 0 1 1.23-1.001h.197a1.25 1.25 0 0 1 1.12.685l3.19 6.273 3.125-6.263a1.25 1.25 0 0 1 1.123-.695h.181a1.255 1.255 0 0 1 1.227.991l1.443 6.71a5 5 0 0 1 .314-.787l.009-.016a4.6 4.6 0 0 1 1.777-1.887c.782-.46 1.668-.667 2.611-.667a4.6 4.6 0 0 1 1.7.32l.306.134c.21-.16.474-.256.759-.256h1.694a1.255 1.255 0 0 1 1.212.925 1.255 1.255 0 0 1 1.212-.925h1.711c.284 0 .545.094.755.252.613-.3 1.312-.45 2.075-.45 1.356 0 2.557.445 3.482 1.4q.47.48.763 1.064V4.701a1.255 1.255 0 0 1 1.255-1.255h1.86A1.255 1.255 0 0 1 54.44 4.7v9.194h2.217c.19 0 .37.043.532.118v-4.77c0-.356.147-.678.385-.906a2.42 2.42 0 0 1-.682-1.71c0-.665.267-1.253.735-1.7a2.45 2.45 0 0 1 1.722-.674 2.43 2.43 0 0 1 1.705.675q.318.302.504.683V4.7a1.255 1.255 0 0 1 1.255-1.255h1.744A1.255 1.255 0 0 1 65.812 4.7v3.335a4.8 4.8 0 0 1 1.526-.246c.938 0 1.817.214 2.59.69a4.47 4.47 0 0 1 1.67 1.743v-.98a1.255 1.255 0 0 1 1.256-1.256h1.777c.233 0 .451.064.639.174a3.4 3.4 0 0 1 1.567-.372c.346 0 .861.02 1.285.232a1.25 1.25 0 0 1 .689 1.004 4.7 4.7 0 0 1 .853-.588c.795-.44 1.675-.647 2.61-.647 1.385 0 2.65.39 3.525 1.396.836.938 1.168 2.173 1.168 3.528q-.001.515-.056 1.051a1.255 1.255 0 0 1-.947 1.09l.408.952a1.255 1.255 0 0 1-.477 1.552c-.418.268-.92.463-1.458.612-.613.171-1.304.244-2.049.244-1.06 0-2.043-.207-2.886-.698l-.015-.008c-.798-.48-1.419-1.135-1.818-1.963l-.004-.008a5.8 5.8 0 0 1-.548-2.512q0-.429.053-.843a1.3 1.3 0 0 1-.333-.086l-.166-.004c-.223 0-.426.062-.643.228-.03.024-.142.139-.142.59v3.883a1.255 1.255 0 0 1-1.256 1.256h-1.777a1.255 1.255 0 0 1-1.256-1.256V15.69l-.032.057a4.8 4.8 0 0 1-1.86 1.833 5.04 5.04 0 0 1-2.484.634 4.5 4.5 0 0 1-1.935-.424 1.25 1.25 0 0 1-.764.258h-1.71a1.255 1.255 0 0 1-1.256-1.255V7.687a2.4 2.4 0 0 1-.428.625c.253.23.412.561.412.93v7.553a1.255 1.255 0 0 1-1.256 1.255h-1.843a1.25 1.25 0 0 1-.894-.373c-.228.23-.544.373-.894.373H51.32a1.255 1.255 0 0 1-1.256-1.255v-1.251l-.061.117a4.7 4.7 0 0 1-1.782 1.884 4.77 4.77 0 0 1-2.485.67 5.6 5.6 0 0 1-1.485-.188l.009 2.764a1.255 1.255 0 0 1-1.255 1.259h-1.729a1.255 1.255 0 0 1-1.255-1.255v-3.537a1.255 1.255 0 0 1-1.167.793h-1.679a1.25 1.25 0 0 1-.77-.263 4.5 4.5 0 0 1-1.945.429c-.885 0-1.724-.21-2.495-.632l-.017-.01a5 5 0 0 1-1.081-.836 1.255 1.255 0 0 1-1.254 1.312h-1.81a1.255 1.255 0 0 1-1.228-.99l-.782-3.625-2.044 3.939a1.25 1.25 0 0 1-1.115.676h-.098a1.25 1.25 0 0 1-1.116-.68l-2.061-3.994zM35.92 16.63l.207-.114.223-.15q.493-.356.735-.785l.061-.118.033 1.332h1.678V9.242h-1.694l-.033 1.267q-.133-.329-.526-.658l-.032-.028a3.2 3.2 0 0 0-.668-.428l-.27-.12a3.3 3.3 0 0 0-1.235-.23q-1.136-.001-1.974.493a3.36 3.36 0 0 0-1.3 1.382q-.445.89-.444 2.074 0 1.2.51 2.107a3.8 3.8 0 0 0 1.382 1.381 3.9 3.9 0 0 0 1.893.477q.795 0 1.455-.33zm-2.789-5.38q-.576.675-.575 1.762 0 1.102.559 1.794.576.675 1.645.675a2.25 2.25 0 0 0 .934-.19 2.2 2.2 0 0 0 .468-.29l.178-.161a2.2 2.2 0 0 0 .397-.561q.244-.5.244-1.15v-.115q0-.708-.296-1.267l-.043-.077a2.2 2.2 0 0 0-.633-.709l-.13-.086-.047-.028a2.1 2.1 0 0 0-1.073-.285q-1.052 0-1.629.692zm2.316 2.706c.163-.17.28-.407.28-.83v-.114c0-.292-.06-.508-.15-.68a.96.96 0 0 0-.353-.389.85.85 0 0 0-.464-.127c-.4 0-.56.114-.664.239l-.01.012c-.148.174-.275.45-.275.945 0 .506.122.801.27.99.097.11.266.224.68.224.303 0 .504-.09.687-.269zm7.545 1.705a2.6 2.6 0 0 0 .331.423q.319.33.755.548l.173.074q.65.255 1.49.255 1.02 0 1.844-.493a3.45 3.45 0 0 0 1.316-1.4q.493-.904.493-2.089 0-1.909-.988-2.913-.988-1.02-2.584-1.02-.898 0-1.575.347a3 3 0 0 0-.415.262l-.199.166a3.4 3.4 0 0 0-.64.82V9.242h-1.712v11.553h1.729l-.017-5.134zm.53-1.138q.206.29.48.5l.155.11.053.034q.51.296 1.119.297 1.07 0 1.645-.675.577-.69.576-1.762 0-1.119-.576-1.777-.558-.675-1.645-.675-.435 0-.835.16a2 2 0 0 0-.284.136 2 2 0 0 0-.363.254 2.2 2.2 0 0 0-.46.569l-.082.162a2.6 2.6 0 0 0-.213 1.072v.115q0 .707.296 1.267l.135.211zm.964-.818a1.1 1.1 0 0 0 .367.385.94.94 0 0 0 .476.118c.423 0 .59-.117.687-.23.159-.194.28-.478.28-.95 0-.53-.133-.8-.266-.952l-.021-.025c-.078-.094-.231-.221-.68-.221a1 1 0 0 0-.503.135l-.012.007a.86.86 0 0 0-.335.343c-.073.133-.132.324-.132.614v.115a1.4 1.4 0 0 0 .14.66zm15.7-6.222q.347-.346.346-.856a1.05 1.05 0 0 0-.345-.79 1.18 1.18 0 0 0-.84-.329q-.51 0-.855.33a1.05 1.05 0 0 0-.346.79q0 .51.346.855.345.346.856.346.51 0 .839-.346zm4.337 9.314.033-1.332q.191.403.59.747l.098.081a4 4 0 0 0 .316.224l.223.122a3.2 3.2 0 0 0 1.44.322 3.8 3.8 0 0 0 1.875-.477 3.5 3.5 0 0 0 1.382-1.366q.527-.89.526-2.09 0-1.184-.444-2.073a3.24 3.24 0 0 0-1.283-1.399q-.823-.51-1.942-.51a3.5 3.5 0 0 0-1.527.344l-.086.043-.165.09a3 3 0 0 0-.33.214q-.432.315-.656.707a2 2 0 0 0-.099.198l.082-1.283V4.701h-1.744v12.095zm.473-2.509a2.5 2.5 0 0 0 .566.7q.117.098.245.18l.144.08a2.1 2.1 0 0 0 .975.232q1.07 0 1.645-.675.576-.69.576-1.778 0-1.102-.576-1.777-.56-.691-1.645-.692a2.2 2.2 0 0 0-1.015.235q-.22.113-.415.282l-.15.142a2.1 2.1 0 0 0-.42.594q-.223.479-.223 1.1v.115q0 .705.293 1.26zm2.616-.293c.157-.191.28-.479.28-.967 0-.51-.13-.79-.276-.961l-.021-.026c-.082-.1-.232-.225-.67-.225a.87.87 0 0 0-.681.279l-.012.011c-.154.155-.274.38-.274.807v.115c0 .285.057.499.144.669a1.1 1.1 0 0 0 .367.405c.137.082.28.123.455.123.423 0 .59-.118.686-.23zm8.266-3.013q.345-.13.724-.14l.069-.002q.493 0 .642.099l.247-1.794q-.196-.099-.717-.099a2.3 2.3 0 0 0-.545.063 2 2 0 0 0-.411.148 2.2 2.2 0 0 0-.4.249 2.5 2.5 0 0 0-.485.499 2.7 2.7 0 0 0-.32.581l-.05.137v-1.48h-1.778v7.553h1.777v-3.884q0-.546.159-.943a1.5 1.5 0 0 1 .466-.636 2.5 2.5 0 0 1 .399-.253 2 2 0 0 1 .224-.099zm9.784 2.656.05-.922q0-1.743-.856-2.698-.838-.97-2.584-.97-1.119-.001-2.007.493a3.46 3.46 0 0 0-1.4 1.382q-.493.906-.493 2.106 0 1.07.428 1.975.428.89 1.332 1.432.906.526 2.255.526.973 0 1.668-.185l.044-.012.135-.04q.613-.184.984-.421l-.542-1.267q-.3.162-.642.274l-.297.087q-.51.131-1.3.131-.954 0-1.497-.444a1.6 1.6 0 0 1-.192-.193q-.366-.44-.512-1.234l-.004-.021zm-5.427-1.256-.003.022h3.752v-.138q-.011-.727-.288-1.118a1 1 0 0 0-.156-.176q-.46-.428-1.316-.428-.986 0-1.494.604-.379.45-.494 1.234zm-27.053 2.77V4.7h-1.86v12.095h5.333V15.15zm7.103-5.908v7.553h-1.843V9.242h1.843z'/%3E%3Cpath fill='%23fff' d='m19.63 11.151-.757-1.71-.345 1.71-1.12 5.644h-1.827L18.083 4.7h.197l3.325 6.533.988 2.19.988-2.19L26.839 4.7h.181l2.6 12.095h-1.81l-1.218-5.644-.362-1.71-.658 1.71-2.93 5.644h-.098l-2.913-5.644zm14.836 5.81q-1.02 0-1.893-.478a3.8 3.8 0 0 1-1.381-1.382q-.51-.906-.51-2.106 0-1.185.444-2.074a3.36 3.36 0 0 1 1.3-1.382q.839-.494 1.974-.494a3.3 3.3 0 0 1 1.234.231 3.3 3.3 0 0 1 .97.575q.396.33.527.659l.033-1.267h1.694v7.553H37.18l-.033-1.332q-.279.593-1.02 1.053a3.17 3.17 0 0 1-1.662.444zm.296-1.482q.938 0 1.58-.642.642-.66.642-1.711v-.115q0-.708-.296-1.267a2.2 2.2 0 0 0-.807-.872 2.1 2.1 0 0 0-1.119-.313q-1.053 0-1.629.692-.575.675-.575 1.76 0 1.103.559 1.795.577.675 1.645.675zm6.521-6.237h1.711v1.4q.906-1.597 2.83-1.597 1.596 0 2.584 1.02.988 1.005.988 2.914 0 1.185-.493 2.09a3.46 3.46 0 0 1-1.316 1.399 3.5 3.5 0 0 1-1.844.493q-.954 0-1.662-.329a2.67 2.67 0 0 1-1.086-.97l.017 5.134h-1.728zm4.048 6.22q1.07 0 1.645-.674.577-.69.576-1.762 0-1.119-.576-1.777-.558-.675-1.645-.675-.592 0-1.12.296-.51.28-.822.823-.296.527-.296 1.234v.115q0 .708.296 1.267.313.543.823.855.51.296 1.119.297z'/%3E%3Cpath fill='%23e1e3e9' d='M51.325 4.7h1.86v10.45h3.473v1.646h-5.333zm7.12 4.542h1.843v7.553h-1.843zm.905-1.415a1.16 1.16 0 0 1-.856-.346 1.17 1.17 0 0 1-.346-.856 1.05 1.05 0 0 1 .346-.79q.346-.329.856-.329.494 0 .839.33a1.05 1.05 0 0 1 .345.79 1.16 1.16 0 0 1-.345.855q-.33.346-.84.346zm7.875 9.133a3.17 3.17 0 0 1-1.662-.444q-.723-.46-1.004-1.053l-.033 1.332h-1.71V4.701h1.743v4.657l-.082 1.283q.279-.658 1.086-1.119a3.5 3.5 0 0 1 1.778-.477q1.119 0 1.942.51a3.24 3.24 0 0 1 1.283 1.4q.445.888.444 2.072 0 1.201-.526 2.09a3.5 3.5 0 0 1-1.382 1.366 3.8 3.8 0 0 1-1.876.477zm-.296-1.481q1.069 0 1.645-.675.577-.69.577-1.778 0-1.102-.577-1.776-.56-.691-1.645-.692a2.12 2.12 0 0 0-1.58.659q-.642.641-.642 1.694v.115q0 .71.296 1.267a2.4 2.4 0 0 0 .807.872 2.1 2.1 0 0 0 1.119.313zm5.927-6.237h1.777v1.481q.263-.757.856-1.217a2.14 2.14 0 0 1 1.349-.46q.527 0 .724.098l-.247 1.794q-.149-.099-.642-.099-.774 0-1.416.494-.626.493-.626 1.58v3.883h-1.777V9.242zm9.534 7.718q-1.35 0-2.255-.526-.904-.543-1.332-1.432a4.6 4.6 0 0 1-.428-1.975q0-1.2.493-2.106a3.46 3.46 0 0 1 1.4-1.382q.889-.495 2.007-.494 1.744 0 2.584.97.855.956.856 2.7 0 .444-.05.92h-5.43q.18 1.005.708 1.45.542.443 1.497.443.79 0 1.3-.131a4 4 0 0 0 .938-.362l.542 1.267q-.411.263-1.119.46-.708.198-1.711.197zm1.596-4.558q.016-1.02-.444-1.432-.46-.428-1.316-.428-1.728 0-1.991 1.86z'/%3E%3Cpath d='M5.074 15.948a.484.657 0 0 0-.486.659v1.84a.484.657 0 0 0 .486.659h4.101a.484.657 0 0 0 .486-.659v-1.84a.484.657 0 0 0-.486-.659zm3.56 1.16H5.617v.838h3.017z' style='fill:%23fff;fill-rule:evenodd;stroke-width:1.03600001'/%3E%3Cg style='stroke-width:1.12603545'%3E%3Cpath d='M-9.408-1.416c-3.833-.025-7.056 2.912-7.08 6.615-.02 3.08 1.653 4.832 3.107 6.268.903.892 1.721 1.74 2.32 2.902l-.525-.004c-.543-.003-.992.304-1.24.639a1.87 1.87 0 0 0-.362 1.121l-.011 1.877c-.003.402.104.787.347 1.125.244.338.688.653 1.23.656l4.142.028c.542.003.99-.306 1.238-.641a1.87 1.87 0 0 0 .363-1.121l.012-1.875a1.87 1.87 0 0 0-.348-1.127c-.243-.338-.688-.653-1.23-.656l-.518-.004c.597-1.145 1.425-1.983 2.348-2.87 1.473-1.414 3.18-3.149 3.2-6.226-.016-3.59-2.923-6.684-6.993-6.707m-.006 1.1v.002c3.274.02 5.92 2.532 5.9 5.6-.017 2.706-1.39 4.026-2.863 5.44-1.034.994-2.118 2.033-2.814 3.633-.018.041-.052.055-.075.065q-.013.004-.02.01a.34.34 0 0 1-.226.084.34.34 0 0 1-.224-.086l-.092-.077c-.699-1.615-1.768-2.669-2.781-3.67-1.454-1.435-2.797-2.762-2.78-5.478.02-3.067 2.7-5.545 5.975-5.523m-.02 2.826c-1.62-.01-2.944 1.315-2.955 2.96-.01 1.646 1.295 2.988 2.916 2.999h.002c1.621.01 2.943-1.316 2.953-2.961.011-1.646-1.294-2.988-2.916-2.998m-.005 1.1c1.017.006 1.829.83 1.822 1.89s-.83 1.874-1.848 1.867c-1.018-.006-1.829-.83-1.822-1.89s.83-1.874 1.848-1.868m-2.155 11.857 4.14.025c.271.002.49.305.487.676l-.013 1.875c-.003.37-.224.67-.495.668l-4.14-.025c-.27-.002-.487-.306-.485-.676l.012-1.875c.003-.37.224-.67.494-.668' style='color:%23000;font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:%23000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:evenodd;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:%23000;solid-opacity:1;vector-effect:none;fill:%23000;fill-opacity:.4;fill-rule:evenodd;stroke:none;stroke-width:2.47727823;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto' transform='translate(15.553 2.85)scale(.88807)'/%3E%3Cpath d='M-9.415-.316C-12.69-.338-15.37 2.14-15.39 5.207c-.017 2.716 1.326 4.041 2.78 5.477 1.013 1 2.081 2.055 2.78 3.67l.092.076a.34.34 0 0 0 .225.086.34.34 0 0 0 .227-.083l.019-.01c.022-.009.057-.024.074-.064.697-1.6 1.78-2.64 2.814-3.634 1.473-1.414 2.847-2.733 2.864-5.44.02-3.067-2.627-5.58-5.901-5.601m-.057 8.784c1.621.011 2.944-1.315 2.955-2.96.01-1.646-1.295-2.988-2.916-2.999-1.622-.01-2.945 1.315-2.955 2.96s1.295 2.989 2.916 3' style='clip-rule:evenodd;fill:%23e1e3e9;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.47727823;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:.4' transform='translate(15.553 2.85)scale(.88807)'/%3E%3Cpath d='M-11.594 15.465c-.27-.002-.492.297-.494.668l-.012 1.876c-.003.371.214.673.485.675l4.14.027c.271.002.492-.298.495-.668l.012-1.877c.003-.37-.215-.672-.485-.674z' style='clip-rule:evenodd;fill:%23fff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.47727823;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:.4' transform='translate(15.553 2.85)scale(.88807)'/%3E%3C/g%3E%3C/svg%3E");background-repeat:no-repeat;cursor:pointer;display:block;height:23px;margin:0 0 -4px -4px;overflow:hidden;width:88px}a.maplibregl-ctrl-logo.maplibregl-compact{width:14px}@media (forced-colors:active){a.maplibregl-ctrl-logo{background-color:transparent;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='23' fill='none'%3E%3Cpath fill='%23000' fill-opacity='.4' fill-rule='evenodd' d='M17.408 16.796h-1.827l2.501-12.095h.198l3.324 6.533.988 2.19.988-2.19 3.258-6.533h.181l2.6 12.095h-1.81l-1.218-5.644-.362-1.71-.658 1.71-2.929 5.644h-.098l-2.914-5.644-.757-1.71-.345 1.71zm1.958-3.42-.726 3.663a1.255 1.255 0 0 1-1.232 1.011h-1.827a1.255 1.255 0 0 1-1.229-1.509l2.501-12.095a1.255 1.255 0 0 1 1.23-1.001h.197a1.25 1.25 0 0 1 1.12.685l3.19 6.273 3.125-6.263a1.25 1.25 0 0 1 1.123-.695h.181a1.255 1.255 0 0 1 1.227.991l1.443 6.71a5 5 0 0 1 .314-.787l.009-.016a4.6 4.6 0 0 1 1.777-1.887c.782-.46 1.668-.667 2.611-.667a4.6 4.6 0 0 1 1.7.32l.306.134c.21-.16.474-.256.759-.256h1.694a1.255 1.255 0 0 1 1.212.925 1.255 1.255 0 0 1 1.212-.925h1.711c.284 0 .545.094.755.252.613-.3 1.312-.45 2.075-.45 1.356 0 2.557.445 3.482 1.4q.47.48.763 1.064V4.701a1.255 1.255 0 0 1 1.255-1.255h1.86A1.255 1.255 0 0 1 54.44 4.7v9.194h2.217c.19 0 .37.043.532.118v-4.77c0-.356.147-.678.385-.906a2.42 2.42 0 0 1-.682-1.71c0-.665.267-1.253.735-1.7a2.45 2.45 0 0 1 1.722-.674 2.43 2.43 0 0 1 1.705.675q.318.302.504.683V4.7a1.255 1.255 0 0 1 1.255-1.255h1.744A1.255 1.255 0 0 1 65.812 4.7v3.335a4.8 4.8 0 0 1 1.526-.246c.938 0 1.817.214 2.59.69a4.47 4.47 0 0 1 1.67 1.743v-.98a1.255 1.255 0 0 1 1.256-1.256h1.777c.233 0 .451.064.639.174a3.4 3.4 0 0 1 1.567-.372c.346 0 .861.02 1.285.232a1.25 1.25 0 0 1 .689 1.004 4.7 4.7 0 0 1 .853-.588c.795-.44 1.675-.647 2.61-.647 1.385 0 2.65.39 3.525 1.396.836.938 1.168 2.173 1.168 3.528q-.001.515-.056 1.051a1.255 1.255 0 0 1-.947 1.09l.408.952a1.255 1.255 0 0 1-.477 1.552c-.418.268-.92.463-1.458.612-.613.171-1.304.244-2.049.244-1.06 0-2.043-.207-2.886-.698l-.015-.008c-.798-.48-1.419-1.135-1.818-1.963l-.004-.008a5.8 5.8 0 0 1-.548-2.512q0-.429.053-.843a1.3 1.3 0 0 1-.333-.086l-.166-.004c-.223 0-.426.062-.643.228-.03.024-.142.139-.142.59v3.883a1.255 1.255 0 0 1-1.256 1.256h-1.777a1.255 1.255 0 0 1-1.256-1.256V15.69l-.032.057a4.8 4.8 0 0 1-1.86 1.833 5.04 5.04 0 0 1-2.484.634 4.5 4.5 0 0 1-1.935-.424 1.25 1.25 0 0 1-.764.258h-1.71a1.255 1.255 0 0 1-1.256-1.255V7.687a2.4 2.4 0 0 1-.428.625c.253.23.412.561.412.93v7.553a1.255 1.255 0 0 1-1.256 1.255h-1.843a1.25 1.25 0 0 1-.894-.373c-.228.23-.544.373-.894.373H51.32a1.255 1.255 0 0 1-1.256-1.255v-1.251l-.061.117a4.7 4.7 0 0 1-1.782 1.884 4.77 4.77 0 0 1-2.485.67 5.6 5.6 0 0 1-1.485-.188l.009 2.764a1.255 1.255 0 0 1-1.255 1.259h-1.729a1.255 1.255 0 0 1-1.255-1.255v-3.537a1.255 1.255 0 0 1-1.167.793h-1.679a1.25 1.25 0 0 1-.77-.263 4.5 4.5 0 0 1-1.945.429c-.885 0-1.724-.21-2.495-.632l-.017-.01a5 5 0 0 1-1.081-.836 1.255 1.255 0 0 1-1.254 1.312h-1.81a1.255 1.255 0 0 1-1.228-.99l-.782-3.625-2.044 3.939a1.25 1.25 0 0 1-1.115.676h-.098a1.25 1.25 0 0 1-1.116-.68l-2.061-3.994zM35.92 16.63l.207-.114.223-.15q.493-.356.735-.785l.061-.118.033 1.332h1.678V9.242h-1.694l-.033 1.267q-.133-.329-.526-.658l-.032-.028a3.2 3.2 0 0 0-.668-.428l-.27-.12a3.3 3.3 0 0 0-1.235-.23q-1.136-.001-1.974.493a3.36 3.36 0 0 0-1.3 1.382q-.445.89-.444 2.074 0 1.2.51 2.107a3.8 3.8 0 0 0 1.382 1.381 3.9 3.9 0 0 0 1.893.477q.795 0 1.455-.33zm-2.789-5.38q-.576.675-.575 1.762 0 1.102.559 1.794.576.675 1.645.675a2.25 2.25 0 0 0 .934-.19 2.2 2.2 0 0 0 .468-.29l.178-.161a2.2 2.2 0 0 0 .397-.561q.244-.5.244-1.15v-.115q0-.708-.296-1.267l-.043-.077a2.2 2.2 0 0 0-.633-.709l-.13-.086-.047-.028a2.1 2.1 0 0 0-1.073-.285q-1.052 0-1.629.692zm2.316 2.706c.163-.17.28-.407.28-.83v-.114c0-.292-.06-.508-.15-.68a.96.96 0 0 0-.353-.389.85.85 0 0 0-.464-.127c-.4 0-.56.114-.664.239l-.01.012c-.148.174-.275.45-.275.945 0 .506.122.801.27.99.097.11.266.224.68.224.303 0 .504-.09.687-.269zm7.545 1.705a2.6 2.6 0 0 0 .331.423q.319.33.755.548l.173.074q.65.255 1.49.255 1.02 0 1.844-.493a3.45 3.45 0 0 0 1.316-1.4q.493-.904.493-2.089 0-1.909-.988-2.913-.988-1.02-2.584-1.02-.898 0-1.575.347a3 3 0 0 0-.415.262l-.199.166a3.4 3.4 0 0 0-.64.82V9.242h-1.712v11.553h1.729l-.017-5.134zm.53-1.138q.206.29.48.5l.155.11.053.034q.51.296 1.119.297 1.07 0 1.645-.675.577-.69.576-1.762 0-1.119-.576-1.777-.558-.675-1.645-.675-.435 0-.835.16a2 2 0 0 0-.284.136 2 2 0 0 0-.363.254 2.2 2.2 0 0 0-.46.569l-.082.162a2.6 2.6 0 0 0-.213 1.072v.115q0 .707.296 1.267l.135.211zm.964-.818a1.1 1.1 0 0 0 .367.385.94.94 0 0 0 .476.118c.423 0 .59-.117.687-.23.159-.194.28-.478.28-.95 0-.53-.133-.8-.266-.952l-.021-.025c-.078-.094-.231-.221-.68-.221a1 1 0 0 0-.503.135l-.012.007a.86.86 0 0 0-.335.343c-.073.133-.132.324-.132.614v.115a1.4 1.4 0 0 0 .14.66zm15.7-6.222q.347-.346.346-.856a1.05 1.05 0 0 0-.345-.79 1.18 1.18 0 0 0-.84-.329q-.51 0-.855.33a1.05 1.05 0 0 0-.346.79q0 .51.346.855.345.346.856.346.51 0 .839-.346zm4.337 9.314.033-1.332q.191.403.59.747l.098.081a4 4 0 0 0 .316.224l.223.122a3.2 3.2 0 0 0 1.44.322 3.8 3.8 0 0 0 1.875-.477 3.5 3.5 0 0 0 1.382-1.366q.527-.89.526-2.09 0-1.184-.444-2.073a3.24 3.24 0 0 0-1.283-1.399q-.823-.51-1.942-.51a3.5 3.5 0 0 0-1.527.344l-.086.043-.165.09a3 3 0 0 0-.33.214q-.432.315-.656.707a2 2 0 0 0-.099.198l.082-1.283V4.701h-1.744v12.095zm.473-2.509a2.5 2.5 0 0 0 .566.7q.117.098.245.18l.144.08a2.1 2.1 0 0 0 .975.232q1.07 0 1.645-.675.576-.69.576-1.778 0-1.102-.576-1.777-.56-.691-1.645-.692a2.2 2.2 0 0 0-1.015.235q-.22.113-.415.282l-.15.142a2.1 2.1 0 0 0-.42.594q-.223.479-.223 1.1v.115q0 .705.293 1.26zm2.616-.293c.157-.191.28-.479.28-.967 0-.51-.13-.79-.276-.961l-.021-.026c-.082-.1-.232-.225-.67-.225a.87.87 0 0 0-.681.279l-.012.011c-.154.155-.274.38-.274.807v.115c0 .285.057.499.144.669a1.1 1.1 0 0 0 .367.405c.137.082.28.123.455.123.423 0 .59-.118.686-.23zm8.266-3.013q.345-.13.724-.14l.069-.002q.493 0 .642.099l.247-1.794q-.196-.099-.717-.099a2.3 2.3 0 0 0-.545.063 2 2 0 0 0-.411.148 2.2 2.2 0 0 0-.4.249 2.5 2.5 0 0 0-.485.499 2.7 2.7 0 0 0-.32.581l-.05.137v-1.48h-1.778v7.553h1.777v-3.884q0-.546.159-.943a1.5 1.5 0 0 1 .466-.636 2.5 2.5 0 0 1 .399-.253 2 2 0 0 1 .224-.099zm9.784 2.656.05-.922q0-1.743-.856-2.698-.838-.97-2.584-.97-1.119-.001-2.007.493a3.46 3.46 0 0 0-1.4 1.382q-.493.906-.493 2.106 0 1.07.428 1.975.428.89 1.332 1.432.906.526 2.255.526.973 0 1.668-.185l.044-.012.135-.04q.613-.184.984-.421l-.542-1.267q-.3.162-.642.274l-.297.087q-.51.131-1.3.131-.954 0-1.497-.444a1.6 1.6 0 0 1-.192-.193q-.366-.44-.512-1.234l-.004-.021zm-5.427-1.256-.003.022h3.752v-.138q-.011-.727-.288-1.118a1 1 0 0 0-.156-.176q-.46-.428-1.316-.428-.986 0-1.494.604-.379.45-.494 1.234zm-27.053 2.77V4.7h-1.86v12.095h5.333V15.15zm7.103-5.908v7.553h-1.843V9.242h1.843z'/%3E%3Cpath fill='%23fff' d='m19.63 11.151-.757-1.71-.345 1.71-1.12 5.644h-1.827L18.083 4.7h.197l3.325 6.533.988 2.19.988-2.19L26.839 4.7h.181l2.6 12.095h-1.81l-1.218-5.644-.362-1.71-.658 1.71-2.93 5.644h-.098l-2.913-5.644zm14.836 5.81q-1.02 0-1.893-.478a3.8 3.8 0 0 1-1.381-1.382q-.51-.906-.51-2.106 0-1.185.444-2.074a3.36 3.36 0 0 1 1.3-1.382q.839-.494 1.974-.494a3.3 3.3 0 0 1 1.234.231 3.3 3.3 0 0 1 .97.575q.396.33.527.659l.033-1.267h1.694v7.553H37.18l-.033-1.332q-.279.593-1.02 1.053a3.17 3.17 0 0 1-1.662.444zm.296-1.482q.938 0 1.58-.642.642-.66.642-1.711v-.115q0-.708-.296-1.267a2.2 2.2 0 0 0-.807-.872 2.1 2.1 0 0 0-1.119-.313q-1.053 0-1.629.692-.575.675-.575 1.76 0 1.103.559 1.795.577.675 1.645.675zm6.521-6.237h1.711v1.4q.906-1.597 2.83-1.597 1.596 0 2.584 1.02.988 1.005.988 2.914 0 1.185-.493 2.09a3.46 3.46 0 0 1-1.316 1.399 3.5 3.5 0 0 1-1.844.493q-.954 0-1.662-.329a2.67 2.67 0 0 1-1.086-.97l.017 5.134h-1.728zm4.048 6.22q1.07 0 1.645-.674.577-.69.576-1.762 0-1.119-.576-1.777-.558-.675-1.645-.675-.592 0-1.12.296-.51.28-.822.823-.296.527-.296 1.234v.115q0 .708.296 1.267.313.543.823.855.51.296 1.119.297z'/%3E%3Cpath fill='%23e1e3e9' d='M51.325 4.7h1.86v10.45h3.473v1.646h-5.333zm7.12 4.542h1.843v7.553h-1.843zm.905-1.415a1.16 1.16 0 0 1-.856-.346 1.17 1.17 0 0 1-.346-.856 1.05 1.05 0 0 1 .346-.79q.346-.329.856-.329.494 0 .839.33a1.05 1.05 0 0 1 .345.79 1.16 1.16 0 0 1-.345.855q-.33.346-.84.346zm7.875 9.133a3.17 3.17 0 0 1-1.662-.444q-.723-.46-1.004-1.053l-.033 1.332h-1.71V4.701h1.743v4.657l-.082 1.283q.279-.658 1.086-1.119a3.5 3.5 0 0 1 1.778-.477q1.119 0 1.942.51a3.24 3.24 0 0 1 1.283 1.4q.445.888.444 2.072 0 1.201-.526 2.09a3.5 3.5 0 0 1-1.382 1.366 3.8 3.8 0 0 1-1.876.477zm-.296-1.481q1.069 0 1.645-.675.577-.69.577-1.778 0-1.102-.577-1.776-.56-.691-1.645-.692a2.12 2.12 0 0 0-1.58.659q-.642.641-.642 1.694v.115q0 .71.296 1.267a2.4 2.4 0 0 0 .807.872 2.1 2.1 0 0 0 1.119.313zm5.927-6.237h1.777v1.481q.263-.757.856-1.217a2.14 2.14 0 0 1 1.349-.46q.527 0 .724.098l-.247 1.794q-.149-.099-.642-.099-.774 0-1.416.494-.626.493-.626 1.58v3.883h-1.777V9.242zm9.534 7.718q-1.35 0-2.255-.526-.904-.543-1.332-1.432a4.6 4.6 0 0 1-.428-1.975q0-1.2.493-2.106a3.46 3.46 0 0 1 1.4-1.382q.889-.495 2.007-.494 1.744 0 2.584.97.855.956.856 2.7 0 .444-.05.92h-5.43q.18 1.005.708 1.45.542.443 1.497.443.79 0 1.3-.131a4 4 0 0 0 .938-.362l.542 1.267q-.411.263-1.119.46-.708.198-1.711.197zm1.596-4.558q.016-1.02-.444-1.432-.46-.428-1.316-.428-1.728 0-1.991 1.86z'/%3E%3Cpath d='M5.074 15.948a.484.657 0 0 0-.486.659v1.84a.484.657 0 0 0 .486.659h4.101a.484.657 0 0 0 .486-.659v-1.84a.484.657 0 0 0-.486-.659zm3.56 1.16H5.617v.838h3.017z' style='fill:%23fff;fill-rule:evenodd;stroke-width:1.03600001'/%3E%3Cg style='stroke-width:1.12603545'%3E%3Cpath d='M-9.408-1.416c-3.833-.025-7.056 2.912-7.08 6.615-.02 3.08 1.653 4.832 3.107 6.268.903.892 1.721 1.74 2.32 2.902l-.525-.004c-.543-.003-.992.304-1.24.639a1.87 1.87 0 0 0-.362 1.121l-.011 1.877c-.003.402.104.787.347 1.125.244.338.688.653 1.23.656l4.142.028c.542.003.99-.306 1.238-.641a1.87 1.87 0 0 0 .363-1.121l.012-1.875a1.87 1.87 0 0 0-.348-1.127c-.243-.338-.688-.653-1.23-.656l-.518-.004c.597-1.145 1.425-1.983 2.348-2.87 1.473-1.414 3.18-3.149 3.2-6.226-.016-3.59-2.923-6.684-6.993-6.707m-.006 1.1v.002c3.274.02 5.92 2.532 5.9 5.6-.017 2.706-1.39 4.026-2.863 5.44-1.034.994-2.118 2.033-2.814 3.633-.018.041-.052.055-.075.065q-.013.004-.02.01a.34.34 0 0 1-.226.084.34.34 0 0 1-.224-.086l-.092-.077c-.699-1.615-1.768-2.669-2.781-3.67-1.454-1.435-2.797-2.762-2.78-5.478.02-3.067 2.7-5.545 5.975-5.523m-.02 2.826c-1.62-.01-2.944 1.315-2.955 2.96-.01 1.646 1.295 2.988 2.916 2.999h.002c1.621.01 2.943-1.316 2.953-2.961.011-1.646-1.294-2.988-2.916-2.998m-.005 1.1c1.017.006 1.829.83 1.822 1.89s-.83 1.874-1.848 1.867c-1.018-.006-1.829-.83-1.822-1.89s.83-1.874 1.848-1.868m-2.155 11.857 4.14.025c.271.002.49.305.487.676l-.013 1.875c-.003.37-.224.67-.495.668l-4.14-.025c-.27-.002-.487-.306-.485-.676l.012-1.875c.003-.37.224-.67.494-.668' style='color:%23000;font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:%23000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:evenodd;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:%23000;solid-opacity:1;vector-effect:none;fill:%23000;fill-opacity:.4;fill-rule:evenodd;stroke:none;stroke-width:2.47727823;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto' transform='translate(15.553 2.85)scale(.88807)'/%3E%3Cpath d='M-9.415-.316C-12.69-.338-15.37 2.14-15.39 5.207c-.017 2.716 1.326 4.041 2.78 5.477 1.013 1 2.081 2.055 2.78 3.67l.092.076a.34.34 0 0 0 .225.086.34.34 0 0 0 .227-.083l.019-.01c.022-.009.057-.024.074-.064.697-1.6 1.78-2.64 2.814-3.634 1.473-1.414 2.847-2.733 2.864-5.44.02-3.067-2.627-5.58-5.901-5.601m-.057 8.784c1.621.011 2.944-1.315 2.955-2.96.01-1.646-1.295-2.988-2.916-2.999-1.622-.01-2.945 1.315-2.955 2.96s1.295 2.989 2.916 3' style='clip-rule:evenodd;fill:%23e1e3e9;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.47727823;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:.4' transform='translate(15.553 2.85)scale(.88807)'/%3E%3Cpath d='M-11.594 15.465c-.27-.002-.492.297-.494.668l-.012 1.876c-.003.371.214.673.485.675l4.14.027c.271.002.492-.298.495-.668l.012-1.877c.003-.37-.215-.672-.485-.674z' style='clip-rule:evenodd;fill:%23fff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.47727823;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:.4' transform='translate(15.553 2.85)scale(.88807)'/%3E%3C/g%3E%3C/svg%3E")}}@media (forced-colors:active) and (prefers-color-scheme:light){a.maplibregl-ctrl-logo{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='23' fill='none'%3E%3Cpath fill='%23000' fill-opacity='.4' fill-rule='evenodd' d='M17.408 16.796h-1.827l2.501-12.095h.198l3.324 6.533.988 2.19.988-2.19 3.258-6.533h.181l2.6 12.095h-1.81l-1.218-5.644-.362-1.71-.658 1.71-2.929 5.644h-.098l-2.914-5.644-.757-1.71-.345 1.71zm1.958-3.42-.726 3.663a1.255 1.255 0 0 1-1.232 1.011h-1.827a1.255 1.255 0 0 1-1.229-1.509l2.501-12.095a1.255 1.255 0 0 1 1.23-1.001h.197a1.25 1.25 0 0 1 1.12.685l3.19 6.273 3.125-6.263a1.25 1.25 0 0 1 1.123-.695h.181a1.255 1.255 0 0 1 1.227.991l1.443 6.71a5 5 0 0 1 .314-.787l.009-.016a4.6 4.6 0 0 1 1.777-1.887c.782-.46 1.668-.667 2.611-.667a4.6 4.6 0 0 1 1.7.32l.306.134c.21-.16.474-.256.759-.256h1.694a1.255 1.255 0 0 1 1.212.925 1.255 1.255 0 0 1 1.212-.925h1.711c.284 0 .545.094.755.252.613-.3 1.312-.45 2.075-.45 1.356 0 2.557.445 3.482 1.4q.47.48.763 1.064V4.701a1.255 1.255 0 0 1 1.255-1.255h1.86A1.255 1.255 0 0 1 54.44 4.7v9.194h2.217c.19 0 .37.043.532.118v-4.77c0-.356.147-.678.385-.906a2.42 2.42 0 0 1-.682-1.71c0-.665.267-1.253.735-1.7a2.45 2.45 0 0 1 1.722-.674 2.43 2.43 0 0 1 1.705.675q.318.302.504.683V4.7a1.255 1.255 0 0 1 1.255-1.255h1.744A1.255 1.255 0 0 1 65.812 4.7v3.335a4.8 4.8 0 0 1 1.526-.246c.938 0 1.817.214 2.59.69a4.47 4.47 0 0 1 1.67 1.743v-.98a1.255 1.255 0 0 1 1.256-1.256h1.777c.233 0 .451.064.639.174a3.4 3.4 0 0 1 1.567-.372c.346 0 .861.02 1.285.232a1.25 1.25 0 0 1 .689 1.004 4.7 4.7 0 0 1 .853-.588c.795-.44 1.675-.647 2.61-.647 1.385 0 2.65.39 3.525 1.396.836.938 1.168 2.173 1.168 3.528q-.001.515-.056 1.051a1.255 1.255 0 0 1-.947 1.09l.408.952a1.255 1.255 0 0 1-.477 1.552c-.418.268-.92.463-1.458.612-.613.171-1.304.244-2.049.244-1.06 0-2.043-.207-2.886-.698l-.015-.008c-.798-.48-1.419-1.135-1.818-1.963l-.004-.008a5.8 5.8 0 0 1-.548-2.512q0-.429.053-.843a1.3 1.3 0 0 1-.333-.086l-.166-.004c-.223 0-.426.062-.643.228-.03.024-.142.139-.142.59v3.883a1.255 1.255 0 0 1-1.256 1.256h-1.777a1.255 1.255 0 0 1-1.256-1.256V15.69l-.032.057a4.8 4.8 0 0 1-1.86 1.833 5.04 5.04 0 0 1-2.484.634 4.5 4.5 0 0 1-1.935-.424 1.25 1.25 0 0 1-.764.258h-1.71a1.255 1.255 0 0 1-1.256-1.255V7.687a2.4 2.4 0 0 1-.428.625c.253.23.412.561.412.93v7.553a1.255 1.255 0 0 1-1.256 1.255h-1.843a1.25 1.25 0 0 1-.894-.373c-.228.23-.544.373-.894.373H51.32a1.255 1.255 0 0 1-1.256-1.255v-1.251l-.061.117a4.7 4.7 0 0 1-1.782 1.884 4.77 4.77 0 0 1-2.485.67 5.6 5.6 0 0 1-1.485-.188l.009 2.764a1.255 1.255 0 0 1-1.255 1.259h-1.729a1.255 1.255 0 0 1-1.255-1.255v-3.537a1.255 1.255 0 0 1-1.167.793h-1.679a1.25 1.25 0 0 1-.77-.263 4.5 4.5 0 0 1-1.945.429c-.885 0-1.724-.21-2.495-.632l-.017-.01a5 5 0 0 1-1.081-.836 1.255 1.255 0 0 1-1.254 1.312h-1.81a1.255 1.255 0 0 1-1.228-.99l-.782-3.625-2.044 3.939a1.25 1.25 0 0 1-1.115.676h-.098a1.25 1.25 0 0 1-1.116-.68l-2.061-3.994zM35.92 16.63l.207-.114.223-.15q.493-.356.735-.785l.061-.118.033 1.332h1.678V9.242h-1.694l-.033 1.267q-.133-.329-.526-.658l-.032-.028a3.2 3.2 0 0 0-.668-.428l-.27-.12a3.3 3.3 0 0 0-1.235-.23q-1.136-.001-1.974.493a3.36 3.36 0 0 0-1.3 1.382q-.445.89-.444 2.074 0 1.2.51 2.107a3.8 3.8 0 0 0 1.382 1.381 3.9 3.9 0 0 0 1.893.477q.795 0 1.455-.33zm-2.789-5.38q-.576.675-.575 1.762 0 1.102.559 1.794.576.675 1.645.675a2.25 2.25 0 0 0 .934-.19 2.2 2.2 0 0 0 .468-.29l.178-.161a2.2 2.2 0 0 0 .397-.561q.244-.5.244-1.15v-.115q0-.708-.296-1.267l-.043-.077a2.2 2.2 0 0 0-.633-.709l-.13-.086-.047-.028a2.1 2.1 0 0 0-1.073-.285q-1.052 0-1.629.692zm2.316 2.706c.163-.17.28-.407.28-.83v-.114c0-.292-.06-.508-.15-.68a.96.96 0 0 0-.353-.389.85.85 0 0 0-.464-.127c-.4 0-.56.114-.664.239l-.01.012c-.148.174-.275.45-.275.945 0 .506.122.801.27.99.097.11.266.224.68.224.303 0 .504-.09.687-.269zm7.545 1.705a2.6 2.6 0 0 0 .331.423q.319.33.755.548l.173.074q.65.255 1.49.255 1.02 0 1.844-.493a3.45 3.45 0 0 0 1.316-1.4q.493-.904.493-2.089 0-1.909-.988-2.913-.988-1.02-2.584-1.02-.898 0-1.575.347a3 3 0 0 0-.415.262l-.199.166a3.4 3.4 0 0 0-.64.82V9.242h-1.712v11.553h1.729l-.017-5.134zm.53-1.138q.206.29.48.5l.155.11.053.034q.51.296 1.119.297 1.07 0 1.645-.675.577-.69.576-1.762 0-1.119-.576-1.777-.558-.675-1.645-.675-.435 0-.835.16a2 2 0 0 0-.284.136 2 2 0 0 0-.363.254 2.2 2.2 0 0 0-.46.569l-.082.162a2.6 2.6 0 0 0-.213 1.072v.115q0 .707.296 1.267l.135.211zm.964-.818a1.1 1.1 0 0 0 .367.385.94.94 0 0 0 .476.118c.423 0 .59-.117.687-.23.159-.194.28-.478.28-.95 0-.53-.133-.8-.266-.952l-.021-.025c-.078-.094-.231-.221-.68-.221a1 1 0 0 0-.503.135l-.012.007a.86.86 0 0 0-.335.343c-.073.133-.132.324-.132.614v.115a1.4 1.4 0 0 0 .14.66zm15.7-6.222q.347-.346.346-.856a1.05 1.05 0 0 0-.345-.79 1.18 1.18 0 0 0-.84-.329q-.51 0-.855.33a1.05 1.05 0 0 0-.346.79q0 .51.346.855.345.346.856.346.51 0 .839-.346zm4.337 9.314.033-1.332q.191.403.59.747l.098.081a4 4 0 0 0 .316.224l.223.122a3.2 3.2 0 0 0 1.44.322 3.8 3.8 0 0 0 1.875-.477 3.5 3.5 0 0 0 1.382-1.366q.527-.89.526-2.09 0-1.184-.444-2.073a3.24 3.24 0 0 0-1.283-1.399q-.823-.51-1.942-.51a3.5 3.5 0 0 0-1.527.344l-.086.043-.165.09a3 3 0 0 0-.33.214q-.432.315-.656.707a2 2 0 0 0-.099.198l.082-1.283V4.701h-1.744v12.095zm.473-2.509a2.5 2.5 0 0 0 .566.7q.117.098.245.18l.144.08a2.1 2.1 0 0 0 .975.232q1.07 0 1.645-.675.576-.69.576-1.778 0-1.102-.576-1.777-.56-.691-1.645-.692a2.2 2.2 0 0 0-1.015.235q-.22.113-.415.282l-.15.142a2.1 2.1 0 0 0-.42.594q-.223.479-.223 1.1v.115q0 .705.293 1.26zm2.616-.293c.157-.191.28-.479.28-.967 0-.51-.13-.79-.276-.961l-.021-.026c-.082-.1-.232-.225-.67-.225a.87.87 0 0 0-.681.279l-.012.011c-.154.155-.274.38-.274.807v.115c0 .285.057.499.144.669a1.1 1.1 0 0 0 .367.405c.137.082.28.123.455.123.423 0 .59-.118.686-.23zm8.266-3.013q.345-.13.724-.14l.069-.002q.493 0 .642.099l.247-1.794q-.196-.099-.717-.099a2.3 2.3 0 0 0-.545.063 2 2 0 0 0-.411.148 2.2 2.2 0 0 0-.4.249 2.5 2.5 0 0 0-.485.499 2.7 2.7 0 0 0-.32.581l-.05.137v-1.48h-1.778v7.553h1.777v-3.884q0-.546.159-.943a1.5 1.5 0 0 1 .466-.636 2.5 2.5 0 0 1 .399-.253 2 2 0 0 1 .224-.099zm9.784 2.656.05-.922q0-1.743-.856-2.698-.838-.97-2.584-.97-1.119-.001-2.007.493a3.46 3.46 0 0 0-1.4 1.382q-.493.906-.493 2.106 0 1.07.428 1.975.428.89 1.332 1.432.906.526 2.255.526.973 0 1.668-.185l.044-.012.135-.04q.613-.184.984-.421l-.542-1.267q-.3.162-.642.274l-.297.087q-.51.131-1.3.131-.954 0-1.497-.444a1.6 1.6 0 0 1-.192-.193q-.366-.44-.512-1.234l-.004-.021zm-5.427-1.256-.003.022h3.752v-.138q-.011-.727-.288-1.118a1 1 0 0 0-.156-.176q-.46-.428-1.316-.428-.986 0-1.494.604-.379.45-.494 1.234zm-27.053 2.77V4.7h-1.86v12.095h5.333V15.15zm7.103-5.908v7.553h-1.843V9.242h1.843z'/%3E%3Cpath fill='%23fff' d='m19.63 11.151-.757-1.71-.345 1.71-1.12 5.644h-1.827L18.083 4.7h.197l3.325 6.533.988 2.19.988-2.19L26.839 4.7h.181l2.6 12.095h-1.81l-1.218-5.644-.362-1.71-.658 1.71-2.93 5.644h-.098l-2.913-5.644zm14.836 5.81q-1.02 0-1.893-.478a3.8 3.8 0 0 1-1.381-1.382q-.51-.906-.51-2.106 0-1.185.444-2.074a3.36 3.36 0 0 1 1.3-1.382q.839-.494 1.974-.494a3.3 3.3 0 0 1 1.234.231 3.3 3.3 0 0 1 .97.575q.396.33.527.659l.033-1.267h1.694v7.553H37.18l-.033-1.332q-.279.593-1.02 1.053a3.17 3.17 0 0 1-1.662.444zm.296-1.482q.938 0 1.58-.642.642-.66.642-1.711v-.115q0-.708-.296-1.267a2.2 2.2 0 0 0-.807-.872 2.1 2.1 0 0 0-1.119-.313q-1.053 0-1.629.692-.575.675-.575 1.76 0 1.103.559 1.795.577.675 1.645.675zm6.521-6.237h1.711v1.4q.906-1.597 2.83-1.597 1.596 0 2.584 1.02.988 1.005.988 2.914 0 1.185-.493 2.09a3.46 3.46 0 0 1-1.316 1.399 3.5 3.5 0 0 1-1.844.493q-.954 0-1.662-.329a2.67 2.67 0 0 1-1.086-.97l.017 5.134h-1.728zm4.048 6.22q1.07 0 1.645-.674.577-.69.576-1.762 0-1.119-.576-1.777-.558-.675-1.645-.675-.592 0-1.12.296-.51.28-.822.823-.296.527-.296 1.234v.115q0 .708.296 1.267.313.543.823.855.51.296 1.119.297z'/%3E%3Cpath fill='%23e1e3e9' d='M51.325 4.7h1.86v10.45h3.473v1.646h-5.333zm7.12 4.542h1.843v7.553h-1.843zm.905-1.415a1.16 1.16 0 0 1-.856-.346 1.17 1.17 0 0 1-.346-.856 1.05 1.05 0 0 1 .346-.79q.346-.329.856-.329.494 0 .839.33a1.05 1.05 0 0 1 .345.79 1.16 1.16 0 0 1-.345.855q-.33.346-.84.346zm7.875 9.133a3.17 3.17 0 0 1-1.662-.444q-.723-.46-1.004-1.053l-.033 1.332h-1.71V4.701h1.743v4.657l-.082 1.283q.279-.658 1.086-1.119a3.5 3.5 0 0 1 1.778-.477q1.119 0 1.942.51a3.24 3.24 0 0 1 1.283 1.4q.445.888.444 2.072 0 1.201-.526 2.09a3.5 3.5 0 0 1-1.382 1.366 3.8 3.8 0 0 1-1.876.477zm-.296-1.481q1.069 0 1.645-.675.577-.69.577-1.778 0-1.102-.577-1.776-.56-.691-1.645-.692a2.12 2.12 0 0 0-1.58.659q-.642.641-.642 1.694v.115q0 .71.296 1.267a2.4 2.4 0 0 0 .807.872 2.1 2.1 0 0 0 1.119.313zm5.927-6.237h1.777v1.481q.263-.757.856-1.217a2.14 2.14 0 0 1 1.349-.46q.527 0 .724.098l-.247 1.794q-.149-.099-.642-.099-.774 0-1.416.494-.626.493-.626 1.58v3.883h-1.777V9.242zm9.534 7.718q-1.35 0-2.255-.526-.904-.543-1.332-1.432a4.6 4.6 0 0 1-.428-1.975q0-1.2.493-2.106a3.46 3.46 0 0 1 1.4-1.382q.889-.495 2.007-.494 1.744 0 2.584.97.855.956.856 2.7 0 .444-.05.92h-5.43q.18 1.005.708 1.45.542.443 1.497.443.79 0 1.3-.131a4 4 0 0 0 .938-.362l.542 1.267q-.411.263-1.119.46-.708.198-1.711.197zm1.596-4.558q.016-1.02-.444-1.432-.46-.428-1.316-.428-1.728 0-1.991 1.86z'/%3E%3Cpath d='M5.074 15.948a.484.657 0 0 0-.486.659v1.84a.484.657 0 0 0 .486.659h4.101a.484.657 0 0 0 .486-.659v-1.84a.484.657 0 0 0-.486-.659zm3.56 1.16H5.617v.838h3.017z' style='fill:%23fff;fill-rule:evenodd;stroke-width:1.03600001'/%3E%3Cg style='stroke-width:1.12603545'%3E%3Cpath d='M-9.408-1.416c-3.833-.025-7.056 2.912-7.08 6.615-.02 3.08 1.653 4.832 3.107 6.268.903.892 1.721 1.74 2.32 2.902l-.525-.004c-.543-.003-.992.304-1.24.639a1.87 1.87 0 0 0-.362 1.121l-.011 1.877c-.003.402.104.787.347 1.125.244.338.688.653 1.23.656l4.142.028c.542.003.99-.306 1.238-.641a1.87 1.87 0 0 0 .363-1.121l.012-1.875a1.87 1.87 0 0 0-.348-1.127c-.243-.338-.688-.653-1.23-.656l-.518-.004c.597-1.145 1.425-1.983 2.348-2.87 1.473-1.414 3.18-3.149 3.2-6.226-.016-3.59-2.923-6.684-6.993-6.707m-.006 1.1v.002c3.274.02 5.92 2.532 5.9 5.6-.017 2.706-1.39 4.026-2.863 5.44-1.034.994-2.118 2.033-2.814 3.633-.018.041-.052.055-.075.065q-.013.004-.02.01a.34.34 0 0 1-.226.084.34.34 0 0 1-.224-.086l-.092-.077c-.699-1.615-1.768-2.669-2.781-3.67-1.454-1.435-2.797-2.762-2.78-5.478.02-3.067 2.7-5.545 5.975-5.523m-.02 2.826c-1.62-.01-2.944 1.315-2.955 2.96-.01 1.646 1.295 2.988 2.916 2.999h.002c1.621.01 2.943-1.316 2.953-2.961.011-1.646-1.294-2.988-2.916-2.998m-.005 1.1c1.017.006 1.829.83 1.822 1.89s-.83 1.874-1.848 1.867c-1.018-.006-1.829-.83-1.822-1.89s.83-1.874 1.848-1.868m-2.155 11.857 4.14.025c.271.002.49.305.487.676l-.013 1.875c-.003.37-.224.67-.495.668l-4.14-.025c-.27-.002-.487-.306-.485-.676l.012-1.875c.003-.37.224-.67.494-.668' style='color:%23000;font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:%23000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:evenodd;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:%23000;solid-opacity:1;vector-effect:none;fill:%23000;fill-opacity:.4;fill-rule:evenodd;stroke:none;stroke-width:2.47727823;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto' transform='translate(15.553 2.85)scale(.88807)'/%3E%3Cpath d='M-9.415-.316C-12.69-.338-15.37 2.14-15.39 5.207c-.017 2.716 1.326 4.041 2.78 5.477 1.013 1 2.081 2.055 2.78 3.67l.092.076a.34.34 0 0 0 .225.086.34.34 0 0 0 .227-.083l.019-.01c.022-.009.057-.024.074-.064.697-1.6 1.78-2.64 2.814-3.634 1.473-1.414 2.847-2.733 2.864-5.44.02-3.067-2.627-5.58-5.901-5.601m-.057 8.784c1.621.011 2.944-1.315 2.955-2.96.01-1.646-1.295-2.988-2.916-2.999-1.622-.01-2.945 1.315-2.955 2.96s1.295 2.989 2.916 3' style='clip-rule:evenodd;fill:%23e1e3e9;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.47727823;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:.4' transform='translate(15.553 2.85)scale(.88807)'/%3E%3Cpath d='M-11.594 15.465c-.27-.002-.492.297-.494.668l-.012 1.876c-.003.371.214.673.485.675l4.14.027c.271.002.492-.298.495-.668l.012-1.877c.003-.37-.215-.672-.485-.674z' style='clip-rule:evenodd;fill:%23fff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.47727823;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:.4' transform='translate(15.553 2.85)scale(.88807)'/%3E%3C/g%3E%3C/svg%3E")}}.maplibregl-ctrl.maplibregl-ctrl-attrib{background-color:hsla(0,0%,100%,.5);margin:0;padding:0 5px}@media screen{.maplibregl-ctrl-attrib.maplibregl-compact{background-color:#fff;border-radius:12px;box-sizing:content-box;color:#000;margin:10px;min-height:20px;padding:2px 24px 2px 0;position:relative}.maplibregl-ctrl-attrib.maplibregl-compact-show{padding:2px 28px 2px 8px;visibility:visible}.maplibregl-ctrl-bottom-left>.maplibregl-ctrl-attrib.maplibregl-compact-show,.maplibregl-ctrl-top-left>.maplibregl-ctrl-attrib.maplibregl-compact-show{border-radius:12px;padding:2px 8px 2px 28px}.maplibregl-ctrl-attrib.maplibregl-compact .maplibregl-ctrl-attrib-inner{display:none}.maplibregl-ctrl-attrib-button{background-color:hsla(0,0%,100%,.5);background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill-rule='evenodd' viewBox='0 0 20 20'%3E%3Cpath d='M4 10a6 6 0 1 0 12 0 6 6 0 1 0-12 0m5-3a1 1 0 1 0 2 0 1 1 0 1 0-2 0m0 3a1 1 0 1 1 2 0v3a1 1 0 1 1-2 0'/%3E%3C/svg%3E");border:0;border-radius:12px;box-sizing:border-box;cursor:pointer;display:none;height:24px;outline:none;position:absolute;right:0;top:0;width:24px}.maplibregl-ctrl-attrib summary.maplibregl-ctrl-attrib-button{-webkit-appearance:none;-moz-appearance:none;appearance:none;list-style:none}.maplibregl-ctrl-attrib summary.maplibregl-ctrl-attrib-button::-webkit-details-marker{display:none}.maplibregl-ctrl-bottom-left .maplibregl-ctrl-attrib-button,.maplibregl-ctrl-top-left .maplibregl-ctrl-attrib-button{left:0}.maplibregl-ctrl-attrib.maplibregl-compact .maplibregl-ctrl-attrib-button,.maplibregl-ctrl-attrib.maplibregl-compact-show .maplibregl-ctrl-attrib-inner{display:block}.maplibregl-ctrl-attrib.maplibregl-compact-show .maplibregl-ctrl-attrib-button{background-color:rgb(0 0 0/5%)}.maplibregl-ctrl-bottom-right>.maplibregl-ctrl-attrib.maplibregl-compact:after{bottom:0;right:0}.maplibregl-ctrl-top-right>.maplibregl-ctrl-attrib.maplibregl-compact:after{right:0;top:0}.maplibregl-ctrl-top-left>.maplibregl-ctrl-attrib.maplibregl-compact:after{left:0;top:0}.maplibregl-ctrl-bottom-left>.maplibregl-ctrl-attrib.maplibregl-compact:after{bottom:0;left:0}}@media screen and (forced-colors:active){.maplibregl-ctrl-attrib.maplibregl-compact:after{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='%23fff' fill-rule='evenodd' viewBox='0 0 20 20'%3E%3Cpath d='M4 10a6 6 0 1 0 12 0 6 6 0 1 0-12 0m5-3a1 1 0 1 0 2 0 1 1 0 1 0-2 0m0 3a1 1 0 1 1 2 0v3a1 1 0 1 1-2 0'/%3E%3C/svg%3E")}}@media screen and (forced-colors:active) and (prefers-color-scheme:light){.maplibregl-ctrl-attrib.maplibregl-compact:after{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill-rule='evenodd' viewBox='0 0 20 20'%3E%3Cpath d='M4 10a6 6 0 1 0 12 0 6 6 0 1 0-12 0m5-3a1 1 0 1 0 2 0 1 1 0 1 0-2 0m0 3a1 1 0 1 1 2 0v3a1 1 0 1 1-2 0'/%3E%3C/svg%3E")}}.maplibregl-ctrl-attrib a{color:rgba(0,0,0,.75);text-decoration:none}.maplibregl-ctrl-attrib a:hover{color:inherit;text-decoration:underline}.maplibregl-attrib-empty{display:none}.maplibregl-ctrl-scale{background-color:hsla(0,0%,100%,.75);border:2px solid #333;border-top:#333;box-sizing:border-box;color:#333;font-size:10px;padding:0 5px}.maplibregl-popup{display:flex;left:0;pointer-events:none;position:absolute;top:0;will-change:transform}.maplibregl-popup-anchor-top,.maplibregl-popup-anchor-top-left,.maplibregl-popup-anchor-top-right{flex-direction:column}.maplibregl-popup-anchor-bottom,.maplibregl-popup-anchor-bottom-left,.maplibregl-popup-anchor-bottom-right{flex-direction:column-reverse}.maplibregl-popup-anchor-left{flex-direction:row}.maplibregl-popup-anchor-right{flex-direction:row-reverse}.maplibregl-popup-tip{border:10px solid transparent;height:0;width:0;z-index:1}.maplibregl-popup-anchor-top .maplibregl-popup-tip{align-self:center;border-bottom-color:#fff;border-top:none}.maplibregl-popup-anchor-top-left .maplibregl-popup-tip{align-self:flex-start;border-bottom-color:#fff;border-left:none;border-top:none}.maplibregl-popup-anchor-top-right .maplibregl-popup-tip{align-self:flex-end;border-bottom-color:#fff;border-right:none;border-top:none}.maplibregl-popup-anchor-bottom .maplibregl-popup-tip{align-self:center;border-bottom:none;border-top-color:#fff}.maplibregl-popup-anchor-bottom-left .maplibregl-popup-tip{align-self:flex-start;border-bottom:none;border-left:none;border-top-color:#fff}.maplibregl-popup-anchor-bottom-right .maplibregl-popup-tip{align-self:flex-end;border-bottom:none;border-right:none;border-top-color:#fff}.maplibregl-popup-anchor-left .maplibregl-popup-tip{align-self:center;border-left:none;border-right-color:#fff}.maplibregl-popup-anchor-right .maplibregl-popup-tip{align-self:center;border-left-color:#fff;border-right:none}.maplibregl-popup-close-button{background-color:transparent;border:0;border-radius:0 3px 0 0;cursor:pointer;position:absolute;right:0;top:0}.maplibregl-popup-close-button:hover{background-color:rgb(0 0 0/5%)}.maplibregl-popup-content{background:#fff;border-radius:3px;box-shadow:0 1px 2px rgba(0,0,0,.1);padding:15px 10px;pointer-events:auto;position:relative}.maplibregl-popup-anchor-top-left .maplibregl-popup-content{border-top-left-radius:0}.maplibregl-popup-anchor-top-right .maplibregl-popup-content{border-top-right-radius:0}.maplibregl-popup-anchor-bottom-left .maplibregl-popup-content{border-bottom-left-radius:0}.maplibregl-popup-anchor-bottom-right .maplibregl-popup-content{border-bottom-right-radius:0}.maplibregl-popup-track-pointer{display:none}.maplibregl-popup-track-pointer *{pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.maplibregl-map:hover .maplibregl-popup-track-pointer{display:flex}.maplibregl-map:active .maplibregl-popup-track-pointer{display:none}.maplibregl-marker{left:0;position:absolute;top:0;transition:opacity .2s;will-change:transform}.maplibregl-user-location-dot,.maplibregl-user-location-dot:before{background-color:#1da1f2;border-radius:50%;height:15px;width:15px}.maplibregl-user-location-dot:before{animation:maplibregl-user-location-dot-pulse 2s infinite;content:"";position:absolute}.maplibregl-user-location-dot:after{border:2px solid #fff;border-radius:50%;box-shadow:0 0 3px rgba(0,0,0,.35);box-sizing:border-box;content:"";height:19px;left:-2px;position:absolute;top:-2px;width:19px}@keyframes maplibregl-user-location-dot-pulse{0%{opacity:1;transform:scale(1)}70%{opacity:0;transform:scale(3)}to{opacity:0;transform:scale(1)}}.maplibregl-user-location-dot-stale{background-color:#aaa}.maplibregl-user-location-dot-stale:after{display:none}.maplibregl-user-location-accuracy-circle{background-color:#1da1f233;border-radius:100%;height:1px;width:1px}.maplibregl-crosshair,.maplibregl-crosshair .maplibregl-interactive,.maplibregl-crosshair .maplibregl-interactive:active{cursor:crosshair}.maplibregl-boxzoom{background:#fff;border:2px dotted #202020;height:0;left:0;opacity:.5;position:absolute;top:0;width:0}.maplibregl-cooperative-gesture-screen{align-items:center;background:rgba(0,0,0,.4);color:#fff;display:flex;font-size:1.4em;inset:0;justify-content:center;line-height:1.2;opacity:0;padding:1rem;pointer-events:none;position:absolute;transition:opacity 1s ease 1s;z-index:99999}.maplibregl-cooperative-gesture-screen.maplibregl-show{opacity:1;transition:opacity .05s}.maplibregl-cooperative-gesture-screen .maplibregl-mobile-message{display:none}@media (hover:none),(width <= 480px){.maplibregl-cooperative-gesture-screen .maplibregl-desktop-message{display:none}.maplibregl-cooperative-gesture-screen .maplibregl-mobile-message{display:block}}.maplibregl-pseudo-fullscreen{height:100%!important;left:0!important;position:fixed!important;top:0!important;width:100%!important;z-index:99999}
+</style>
+<script src="lib/pmtiles.js"></script>
+<style>
+@font-face { font-family:'Instrument Serif'; font-style:normal; font-weight:400; font-display:swap; src:url(lib/instrument-serif-latin-400-normal.woff2) format('woff2'); }
+@font-face { font-family:'Instrument Serif'; font-style:italic; font-weight:400; font-display:swap; src:url(lib/instrument-serif-latin-400-italic.woff2) format('woff2'); }
+@font-face { font-family:'Instrument Sans'; font-style:normal; font-weight:400; font-display:swap; src:url(lib/instrument-sans-latin-400-normal.woff2) format('woff2'); }
+@font-face { font-family:'Instrument Sans'; font-style:italic; font-weight:400; font-display:swap; src:url(lib/instrument-sans-latin-400-italic.woff2) format('woff2'); }
+@font-face { font-family:'Instrument Sans'; font-style:normal; font-weight:500; font-display:swap; src:url(lib/instrument-sans-latin-500-normal.woff2) format('woff2'); }
+@font-face { font-family:'Instrument Sans'; font-style:normal; font-weight:600; font-display:swap; src:url(lib/instrument-sans-latin-600-normal.woff2) format('woff2'); }
+@font-face { font-family:'IBM Plex Mono'; font-style:normal; font-weight:400; font-display:swap; src:url(lib/ibm-plex-mono-latin-400-normal.woff2) format('woff2'); }
+@font-face { font-family:'IBM Plex Mono'; font-style:normal; font-weight:500; font-display:swap; src:url(lib/ibm-plex-mono-latin-500-normal.woff2) format('woff2'); }
+
+:root {
+  --paper:#EBDFC2; --paper-hi:#F3EAD3; --paper-deep:#DECBA0;
+  --ink:#37301F; --ink-soft:#6B5F45; --ink-faint:#988B6C;
+  --red:#A93E2A; --azul:#7397A4; --terra:#E9D6AA; --oceano:#C2D2C6;
+  --serif:'Instrument Serif', Georgia, serif;
+  --sans:'Instrument Sans', system-ui, sans-serif;
+  --mono:'IBM Plex Mono', monospace;
+}
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+html, body { height:100%; }
+body { font-family:var(--sans); background:var(--paper); color:var(--ink); overflow:hidden; }
+
+#map { position:fixed; inset:0; z-index:0; }
+.paperfx { position:fixed; inset:0; z-index:1; pointer-events:none; }
+.grain { opacity:.45; mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.30 0 0 0 0 0.20 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.vinheta { background:radial-gradient(ellipse at 50% 42%, transparent 55%, rgba(90,70,35,.22) 100%); }
+body.noturno .grain { opacity:.25; }
+
+.eyebrow { font-family:var(--mono); font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--ink-soft); }
+.eyebrow.red { color:var(--red); }
+.cartucho { border:1.5px solid var(--ink); padding:3px; background:var(--paper-hi); box-shadow:2px 3px 0 rgba(55,48,31,.18); }
+.cartucho > div { border:.5px solid var(--ink-soft); padding:16px 18px; }
+.cartucho.mini > div { padding:11px 14px; }
+.trico { display:flex; width:44px; height:3px; border-radius:2px; overflow:hidden; }
+.trico i { flex:1; } .trico i:nth-child(1){background:#8FC97E} .trico i:nth-child(2){background:#E8B54A} .trico i:nth-child(3){background:#D96F42}
+
+/* ═══ vistas ═══ */
+.vista { position:fixed; inset:0; z-index:10; display:none; }
+.vista.ativa { display:block; }
+
+/* ─── ÍNDICE ─── */
+#v-indice { background:var(--paper); overflow-y:auto; z-index:12; }
+#v-indice .conteudo { max-width:460px; margin:0 auto; padding:calc(env(safe-area-inset-top) + 26px) 22px 40px; }
+.capa { border:2px solid var(--ink); padding:4px; }
+.capa > div { border:.5px solid var(--ink-soft); padding:26px 18px 22px; text-align:center; }
+.capa .t1 { font-family:var(--serif); font-size:44px; line-height:.98; margin:12px 0 2px; }
+.capa .t2 { font-family:var(--serif); font-style:italic; font-size:30px; line-height:1; }
+.capa .by { font-family:var(--mono); font-size:10px; letter-spacing:.3em; color:var(--red); margin-top:12px; }
+.capa .ed { font-family:var(--mono); font-size:9px; letter-spacing:.12em; color:var(--ink-faint); margin-top:10px; }
+.sumario-item { display:flex; align-items:baseline; gap:12px; width:100%; padding:13px 2px;
+  background:none; border:none; border-bottom:.5px solid rgba(152,139,108,.33);
+  text-align:left; font-family:var(--sans); cursor:pointer; }
+.sumario-item .num { font-family:var(--serif); font-size:20px; color:var(--red); width:34px; flex-shrink:0; }
+.sumario-item .tit { font-family:var(--serif); font-size:19px; color:var(--ink); flex:1; }
+.sumario-item .meta { font-family:var(--mono); font-size:9.5px; color:var(--ink-soft); }
+.sumario-item .breve { font-family:var(--mono); font-size:8.5px; letter-spacing:.1em; color:var(--ink-soft);
+  border:.5px solid var(--ink-soft); padding:2px 7px; transform:rotate(-2deg); }
+.sumario-item.off { opacity:.5; cursor:default; }
+.divisor { display:flex; align-items:center; gap:10px; margin:24px 0; opacity:.7; }
+.divisor .l { flex:1; height:1px; background:var(--ink-faint); }
+
+/* ─── CAPÍTULO ─── */
+#v-capitulo { overflow-y:auto; scroll-snap-type:y proximity; }
+#topo-cap { position:sticky; top:0; z-index:20; background:var(--paper); border-bottom:1px solid var(--ink);
+  padding:calc(env(safe-area-inset-top) + 10px) 16px 10px; display:flex; align-items:center; gap:10px; }
+#topo-cap .eb { font-family:var(--mono); font-size:9.5px; letter-spacing:.18em; color:var(--ink-soft); }
+#barra-prog { position:absolute; bottom:-3px; left:0; height:3px; background:var(--red); width:0%; }
+.pagina { background:var(--paper); border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);
+  box-shadow:0 6px 24px rgba(40,32,16,.25); position:relative; }
+.pagina .miolo { max-width:440px; margin:0 auto; padding:30px 22px 34px; }
+.cena { min-height:100svh; display:flex; align-items:flex-end; justify-content:center;
+  padding:0 16px calc(env(safe-area-inset-bottom) + 22px); pointer-events:none; scroll-snap-align:start; }
+.cena .legenda-card { max-width:400px; width:100%; pointer-events:auto; }
+.prosa { font-size:15.5px; line-height:1.78; margin:14px 0; }
+.prosa .capitular { font-family:var(--serif); font-size:52px; line-height:.8; float:left; margin:6px 8px 0 0; color:var(--red); }
+.numero { text-align:center; margin:8px 0; }
+.numero .v { font-family:var(--serif); font-size:78px; line-height:1; }
+.numero .r { width:64px; height:2px; background:var(--red); margin:6px auto 8px; }
+.numero .t { font-size:14px; color:var(--ink-soft); }
+.cena .numero .v { font-size:56px; } .cena .numero { margin:2px 0; }
+.comp .linha { display:flex; align-items:center; margin-top:12px; }
+.comp .lado { flex:1; text-align:center; }
+.comp .lado .n { font-family:var(--serif); font-size:19px; }
+.comp .lado .v { font-family:var(--serif); font-size:33px; line-height:1.05; }
+.comp .lado .u { font-family:var(--mono); font-size:9px; color:var(--ink-soft); }
+.comp .vs { font-family:var(--serif); font-style:italic; font-size:17px; color:var(--red); padding:0 8px; }
+.comp .nota { font-size:11.5px; color:var(--ink-faint); text-align:center; margin-top:10px; }
+.sabia { display:flex; gap:14px; align-items:flex-start; margin:16px 0; }
+.sabia .selo { width:74px; height:74px; flex-shrink:0; border-radius:50%; border:1.5px dashed var(--red);
+  display:grid; place-items:center; transform:rotate(-7deg);
+  font-family:var(--mono); font-size:8px; letter-spacing:.08em; color:var(--red); text-align:center; line-height:1.5; }
+.sabia p { font-size:14px; line-height:1.7; }
+.verbete .cols { display:flex; gap:16px; margin-top:10px; }
+.verbete .col { flex:1; } .verbete .sep { width:1px; background:var(--ink-faint); opacity:.5; }
+.verbete .termo { font-family:var(--serif); font-size:21px; }
+.verbete .def { font-size:12.5px; line-height:1.6; color:var(--ink-soft); margin-top:3px; }
+.verbete .nota { font-size:11px; font-style:italic; color:var(--ink-faint); margin-top:10px; }
+.leg-eyebrow { font-family:var(--mono); font-size:9.5px; letter-spacing:.16em; color:var(--red); }
+.leg-texto { font-size:13.5px; line-height:1.55; margin-top:4px; }
+.cta { text-align:center; }
+.cta button { font-family:var(--sans); font-weight:600; font-size:14px; background:var(--ink); color:var(--paper-hi);
+  border:none; padding:12px 26px; cursor:pointer; letter-spacing:.02em; margin-top:12px; }
+.fim { text-align:center; padding:26px 0 8px; font-family:var(--mono); font-size:9.5px; letter-spacing:.14em; color:var(--ink-faint); line-height:1.9; }
+.ab-card h1 { font-family:var(--serif); font-size:32px; line-height:1.02; margin:6px 0 2px; }
+.ab-card h1 em { font-style:italic; }
+.ab-card .sub { font-size:13px; color:var(--ink-soft); margin-top:4px; }
+.ab-card .meta { font-family:var(--mono); font-size:9px; color:var(--ink-faint); margin-top:10px; }
+.ab-card .dica { font-family:var(--mono); font-size:9px; letter-spacing:.12em; color:var(--red); margin-top:8px; }
+.anim { opacity:0; transform:translateY(14px); transition:opacity .7s ease, transform .7s ease; }
+.anim.visivel { opacity:1; transform:none; }
+
+/* ─── ATLAS LIVRE ─── */
+#v-atlas { pointer-events:none; }
+#v-atlas > * { pointer-events:auto; }
+#atlas-topo { position:absolute; top:0; left:0; right:0; display:flex; justify-content:space-between; align-items:flex-start;
+  padding:calc(env(safe-area-inset-top) + 14px) 16px 0; }
+#atlas-topo .marca .eb { font-family:var(--mono); font-size:9px; letter-spacing:.16em; color:var(--ink-soft); }
+#atlas-topo .marca .t { font-family:var(--serif); font-size:24px; line-height:1; color:var(--ink); }
+.botoes { display:flex; gap:8px; }
+.btn-q { width:44px; height:44px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1px; cursor:pointer;
+  background:var(--paper-hi); border:1.5px solid var(--ink); box-shadow:2px 2px 0 rgba(55,48,31,.18); color:var(--ink); font-family:var(--mono); font-size:13px; }
+.btn-q span { line-height:1; }
+.btn-q small { font-family:var(--mono); font-size:7px; letter-spacing:.1em; color:var(--ink-soft); line-height:1; }
+#busca, #ia { position:absolute; top:calc(env(safe-area-inset-top) + 66px); left:12px; right:12px; max-width:440px; margin:0 auto; z-index:30; }
+#ia-res { max-height:30vh; overflow-y:auto; }
+#busca-res { max-height:40vh; overflow-y:auto; }
+#ia .fecha { float:right; font-family:var(--mono); cursor:pointer; color:var(--ink-soft); margin-left:8px; }
+#ia-focos:empty { display:none; }
+#ia-focos .chip.off { opacity:.55; cursor:default; }
+#ia-sug:empty { display:none; }
+#ia-sug .chip { font-size:11.5px; font-weight:500; }
+#legenda { position:absolute; left:12px; bottom:calc(env(safe-area-inset-bottom) + 60px); max-width:236px; z-index:5; display:none; }
+#legenda .corpo { max-height:24vh; overflow-y:auto; }
+.leg-cam { font-family:var(--mono); font-size:9px; letter-spacing:.12em; color:var(--red); margin:7px 0 2px; text-transform:uppercase; }
+.leg-cam:first-child { margin-top:0; }
+.leg-item { display:flex; align-items:center; gap:7px; padding:2.5px 0; font-size:11.5px; line-height:1.3; color:var(--ink-soft); }
+.leg-item.foco { color:var(--ink); font-weight:600; }
+.leg-item.foco::after { content:"◂"; color:var(--red); margin-left:2px; }
+.leg-sw { width:12px; height:12px; flex:0 0 auto; border:.5px solid rgba(55,48,31,.25); }
+#boasvindas { position:fixed; inset:0; z-index:45; background:rgba(55,48,31,.55); display:flex; align-items:center; justify-content:center; padding:20px; }
+.bv-item { font-size:13.5px; line-height:1.6; color:var(--ink-soft); padding:8px 0; border-top:.5px solid rgba(152,139,108,.35); }
+.bv-item b { color:var(--ink); font-weight:600; } .bv-item i { color:var(--red); font-style:normal; font-family:var(--mono); font-size:11px; }
+#toast { position:fixed; left:50%; transform:translateX(-50%); bottom:calc(env(safe-area-inset-bottom) + 78px);
+  background:var(--ink); color:var(--paper-hi); font-family:var(--mono); font-size:10px; letter-spacing:.08em;
+  padding:9px 15px; z-index:60; display:none; box-shadow:2px 3px 0 rgba(55,48,31,.25); }
+#f-ia { margin-top:12px; font-family:var(--mono); font-size:10px; letter-spacing:.1em; color:var(--red); cursor:pointer; text-transform:uppercase; display:none; }
+#vistas { flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; padding-bottom:2px; }
+#vistas::-webkit-scrollbar { display:none; }
+#vistas .chip { white-space:nowrap; flex:0 0 auto; }
+#busca-res .item { display:flex; align-items:baseline; gap:8px; padding:8px 2px; border-top:.5px solid rgba(152,139,108,.3); cursor:pointer; }
+#busca-res .item .n { font-family:var(--serif); font-size:16px; flex:1; }
+#busca-res .item .t { font-family:var(--mono); font-size:9px; letter-spacing:.1em; text-transform:uppercase; color:var(--red); }
+#painel { position:absolute; left:12px; right:12px; bottom:calc(env(safe-area-inset-bottom) + 12px); max-width:440px; margin:0 auto; }
+#painel .corpo { max-height:26vh; overflow-y:auto; }
+#painel.fechado #painel-miolo { display:none; }
+#bases .chip { font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; padding:5px 10px; }
+.grupo-nome { font-family:var(--serif); font-size:15px; margin:10px 0 5px; }
+.chips { display:flex; flex-wrap:wrap; gap:6px; }
+.chip { padding:6px 13px; font-size:12.5px; font-weight:600; cursor:pointer;
+  border:1px solid var(--ink-soft); background:transparent; color:var(--ink); font-family:var(--sans); }
+.chip.on { background:var(--ink); color:var(--paper-hi); border-color:var(--ink); }
+.linha-filtro { display:flex; align-items:center; gap:10px; margin-top:10px; font-family:var(--mono); font-size:10px; color:var(--ink-soft); }
+.linha-filtro input { flex:1; accent-color:var(--red); }
+.creditos { font-family:var(--mono); font-size:8px; line-height:1.6; letter-spacing:.04em; color:var(--ink-faint); margin-top:10px; border-top:.5px solid rgba(152,139,108,.3); padding-top:8px; }
+.creditos a { color:var(--ink-soft); }
+#ficha { position:fixed; left:12px; right:12px; bottom:calc(env(safe-area-inset-bottom) + 12px); max-width:440px; margin:0 auto; display:none; z-index:35; }
+#ficha .f-texto { max-height:34vh; overflow-y:auto; }
+/* modo explorar: o capítulo deixa os toques passarem para o mapa; só o topo e os cartuchos seguem clicáveis */
+#v-capitulo.explorar { pointer-events:none; }
+#v-capitulo.explorar #topo-cap, #v-capitulo.explorar .legenda-card { pointer-events:auto; }
+#v-capitulo.explorar .pagina { pointer-events:auto; }
+.explorar-btn { margin-top:8px; text-align:center; font-family:var(--mono); font-size:9.5px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--red); background:var(--paper-hi); border:1px solid var(--red); padding:8px 10px; cursor:pointer; pointer-events:auto; }
+#v-capitulo.explorar .explorar-btn { background:var(--red); color:var(--paper-hi); }
+#ficha .fecha { float:right; font-family:var(--mono); cursor:pointer; color:var(--ink-soft); }
+#ficha .f-titulo { font-family:var(--serif); font-size:23px; line-height:1.05; margin:2px 0 4px; }
+#ficha .f-sub { font-family:var(--mono); font-size:9.5px; letter-spacing:.14em; color:var(--red); text-transform:uppercase; }
+#ficha .f-texto { font-size:13px; line-height:1.6; color:var(--ink-soft); margin-top:8px; }
+#ficha .f-dados { margin-top:10px; }
+#ficha .f-linha { display:flex; justify-content:space-between; gap:12px; padding:5px 0; border-bottom:.5px solid rgba(152,139,108,.3); font-size:13px; }
+#ficha .f-linha .k { color:var(--ink-soft); }
+#ficha .f-linha .v { font-weight:600; text-align:right; }
+
+body.noturno { --paper:#101820; --paper-hi:#16212C; --paper-deep:#0B1119;
+  --ink:#EAF1F7; --ink-soft:#93A3B4; --ink-faint:#5C7085;
+  --red:#E8B54A; --terra:#15202E; --oceano:#070D15; color:var(--ink); }
+body.noturno .cartucho { box-shadow:2px 3px 0 rgba(0,0,0,.5); }
+
+#carregando { position:fixed; inset:0; z-index:50; background:var(--paper);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; transition:opacity .6s; }
+#carregando .t { font-family:var(--serif); font-size:26px; color:var(--ink); }
+#carregando .s { font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--ink-soft); }
+.rosa { animation:girar 9s linear infinite; }
+@keyframes girar { to { transform:rotate(360deg); } }
+</style>
+</head>
+<body>
+
+<div id="carregando">
+  <svg class="rosa" width="76" height="76" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="30" fill="none" stroke="#8a7c5a" stroke-width="0.8"/>
+    <g><path d="M50 8 L54 46 L50 50 L46 46 Z" fill="#A93E2A"/><path d="M50 92 L54 54 L50 50 L46 54 Z" fill="#8a7c5a"/><path d="M8 50 L46 46 L50 50 L46 54 Z" fill="#8a7c5a"/><path d="M92 50 L54 46 L50 50 L54 54 Z" fill="#8a7c5a"/></g>
+    <circle cx="50" cy="50" r="3" fill="#8a7c5a"/>
+  </svg>
+  <div class="t">Atlas <em>do Brasil</em></div>
+  <div class="s">PREPARANDO A EXPEDIÇÃO…</div>
+</div>
+
+<div id="map"></div>
+<div class="paperfx grain"></div>
+<div class="paperfx vinheta"></div>
+
+<!-- ÍNDICE -->
+<div class="vista" id="v-indice">
+  <div class="conteudo">
+    <div class="capa"><div>
+      <div class="eyebrow">Enciclopédia geográfica ilustrada</div>
+      <div class="t1">ATLAS</div><div class="t2">do Brasil</div>
+      <div style="display:flex;justify-content:center;margin:16px 0 4px">
+        <svg width="72" height="72" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="0.9"/>
+          <circle cx="50" cy="50" r="24" fill="none" stroke="currentColor" stroke-width="0.5" stroke-dasharray="1.5 2.5"/>
+          <g><path d="M50 8 L54 46 L50 50 L46 46 Z" fill="#A93E2A"/><path d="M50 92 L54 54 L50 50 L46 54 Z" fill="currentColor"/><path d="M8 50 L46 46 L50 50 L46 54 Z" fill="currentColor"/><path d="M92 50 L54 46 L50 50 L54 54 Z" fill="currentColor"/></g>
+          <circle cx="50" cy="50" r="3" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="by">· BY BREXPLORA ·</div>
+      <div class="ed">EDIÇÃO MMXXVI · 43 CAMADAS · IBGE · ANA · DNIT</div>
+    </div></div>
+    <div class="divisor"><div class="l"></div><svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 0 V14 M0 7 H14" stroke="#A93E2A" stroke-width="1"/></svg><div class="l"></div></div>
+    <div class="eyebrow" style="color:var(--ink)">Sumário</div>
+    <div id="sumario" style="margin-top:10px"></div>
+    <div style="margin-top:22px">
+      <div class="cartucho mini" style="cursor:pointer" onclick="location.hash='#atlas'"><div style="display:flex;align-items:center;gap:12px">
+        <svg width="30" height="30" viewBox="0 0 30 30"><rect x="3" y="3" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1"/><path d="M8 22 L14 12 L18 17 L22 9" fill="none" stroke="#7397A4" stroke-width="1.6"/><circle cx="22" cy="9" r="1.6" fill="#A93E2A"/></svg>
+        <div style="flex:1"><div style="font-family:var(--serif);font-size:16.5px">Atlas Livre</div>
+        <div style="font-size:12px;color:var(--ink-soft)">Todas as camadas, exploração sem roteiro</div></div>
+        <span style="font-family:var(--mono);font-size:11px;color:var(--red)">→</span>
+      </div></div>
+      <div class="creditos" style="margin-top:22px">Atlas do Brasil · by Brexplora · edição MMXXVI. Dados: IBGE · ANA · DNIT · ANEEL · ICMBio · FUNAI · INCRA · CPRM · Embrapa. Relevo: Mapzen/AWS Terrain Tiles. Satélite: Sentinel-2 cloudless 2016 by EOX IT Services GmbH, CC BY 4.0. Rótulos: Noto Sans (OFL). Mapa: MapLibre GL (BSD).</div>
+    </div>
+  </div>
+</div>
+
+<!-- CAPÍTULO -->
+<div class="vista" id="v-capitulo">
+  <div id="topo-cap">
+    <span style="font-family:var(--mono);font-size:13px;cursor:pointer" onclick="location.hash=''">←</span>
+    <span class="eb" id="cap-titulo">CAPÍTULO</span>
+    <div id="barra-prog"></div>
+  </div>
+  <div id="cap-corpo"></div>
+</div>
+
+<!-- ATLAS LIVRE -->
+<div class="vista" id="v-atlas">
+  <div id="atlas-topo">
+    <div class="marca">
+      <div class="eb">BY BREXPLORA · ATLAS LIVRE</div>
+      <div class="t">Atlas <em style="font-style:italic">do Brasil</em></div>
+    </div>
+    <div class="botoes">
+      <div class="btn-q" id="btn-ia" title="Pergunte ao Atlas" style="display:none"><span>✦</span><small>IA</small></div>
+      <div class="btn-q" id="btn-busca" title="Buscar"><span>⌕</span><small>BUSCA</small></div>
+      <div class="btn-q" id="btn-tema" title="Papel / Noturno"><span>◐</span><small>TEMA</small></div>
+      <div class="btn-q" onclick="location.hash=''" title="Voltar"><span>←</span><small>VOLTAR</small></div>
+    </div>
+  </div>
+  <div id="ia" class="cartucho mini" style="display:none"><div>
+    <span class="fecha" onclick="document.getElementById('ia').style.display='none'">✕</span>
+    <div class="eyebrow" style="margin-bottom:6px">Pergunte ao Atlas <span style="color:var(--red)">· beta</span></div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <input id="ia-in" type="text" placeholder="onde nasce o São Francisco? qual o clima de Bonito?" autocomplete="off" enterkeyhint="send"
+        style="flex:1;border:none;outline:none;background:transparent;font-family:var(--sans);font-size:15px;color:var(--ink)">
+      <button id="ia-go" class="chip" style="flex:0 0 auto;font-size:15px;line-height:1;padding:8px 13px">➤</button>
+    </div>
+    <div id="ia-res" style="font-size:13px;line-height:1.6;color:var(--ink-soft);margin-top:8px"></div>
+    <div id="ia-sug" class="chips" style="margin-top:8px"></div>
+    <div id="ia-focos" class="chips" style="margin-top:8px"></div>
+  </div></div>
+  <div id="busca" class="cartucho mini" style="display:none"><div>
+    <input id="busca-in" type="text" placeholder="cidade, aeroporto, terra indígena…" autocomplete="off"
+      style="width:100%;border:none;outline:none;background:transparent;font-family:var(--sans);font-size:15px;color:var(--ink)">
+    <div id="busca-res"></div>
+  </div></div>
+  <div id="painel" class="cartucho mini"><div>
+    <div style="display:flex;align-items:center;gap:4px;cursor:pointer" id="painel-cab">
+      <span class="eyebrow" style="flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Camadas · toque no mapa para a ficha</span>
+      <span id="btn-share" title="Compartilhar esta vista" style="color:var(--ink-soft);cursor:pointer;padding:8px 12px;margin-right:6px;display:inline-flex"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13v6a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-6"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg></span>
+      <span id="painel-seta" style="font-family:var(--mono);font-size:12px;color:var(--red);padding:8px 6px 8px 10px">▾</span>
+    </div>
+    <div id="painel-miolo">
+      <div class="grupo-nome" style="margin-top:8px">Expedições · comece por aqui</div>
+      <div class="chips" id="vistas"></div>
+      <div class="chips" id="bases" style="margin:8px 0 2px"></div>
+      <div class="corpo" id="painel-grupos"></div>
+      <div class="linha-filtro" id="filtro-rios" style="display:none">
+        RIOS · ORDEM ≤ <input type="range" min="1" max="8" value="8" id="slider-ordem"><span id="ordem-v">8</span>
+      </div>
+      <div class="creditos">Dados: IBGE · ANA · DNIT · ANEEL · ICMBio · FUNAI · INCRA · CPRM · Embrapa. Relevo: Mapzen/AWS Terrain Tiles. Satélite: <a href="https://s2maps.eu" target="_blank" rel="noopener">Sentinel-2 cloudless 2016</a> by EOX IT Services GmbH, CC BY 4.0 (contém dados Copernicus Sentinel modificados). Mapa: MapLibre GL.</div>
+    </div>
+  </div></div>
+  <div id="legenda" class="cartucho mini"><div><div class="corpo" id="legenda-corpo"></div></div></div>
+</div>
+<!-- FICHA e TOAST: fora das vistas — aparecem no Atlas Livre e no capítulo em modo explorar -->
+<div id="ficha" class="cartucho"><div>
+  <span class="fecha" onclick="fecharFicha()">✕</span>
+  <div class="f-sub" id="f-sub"></div>
+  <div class="f-titulo" id="f-titulo"></div>
+  <div class="f-texto" id="f-texto" style="display:none"></div>
+  <div class="f-dados" id="f-dados"></div>
+  <div id="f-ia">✦ Perguntar ao Atlas sobre este lugar</div>
+</div></div>
+<div id="toast"></div>
+
+<script>
+/* ═══════════ CONFIG & DADOS ═══════════ */
+const SB_URL = "https://oolwrsxdwnzofinvjael.supabase.co";
+const SB_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9vbHdyc3hkd256b2ZpbnZqYWVsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcyNTA2NTUsImV4cCI6MjEwMjgyNjY1NX0.u2UbK_N8N5rVOXtUIf2qL2Cvd4_W9lXIITUo0ytYdp0";
+const R2 = "https://pub-58f587f01b32444d95df39d7dfb2d438.r2.dev";
+const BASE_URL = location.href.replace(/[#?].*$/, "").replace(/[^/]*$/, "");   // pasta do app (R2 ou bundle nativo)
+const sb = async (p) => { const r = await fetch(`${SB_URL}/rest/v1/${p}`, { headers:{ apikey:SB_KEY, Authorization:`Bearer ${SB_KEY}` } }); if (!r.ok) throw new Error(`Supabase ${r.status}`); return r.json(); };
+
+/* temas do mapa */
+const TEMAS = {
+  papel: { oceano:"#C2D2C6", terra:"#E9D6AA", grat:"#A93E2A", ink:"#37301F", halo:"#F3EAD3",
+    azul:"#7397A4", teal:"#8FAFA8", salmao:"#DFA284", ocre:"#CE9C3F", oliva:"#9EA05F", verde:"#7E9B6E",
+    red:"#A93E2A", cidade:"#37301F", estados:.3,
+    hs:{ ex:.4, sombra:"rgba(93,74,42,0.6)", luz:"#FBF4E0", acento:"#DECBA0" } },
+  noturno: { oceano:"#070D15", terra:"#15202E", grat:"#3E5A74", ink:"#EAF1F7", halo:"#0B1119",
+    azul:"#63B8F0", teal:"#5BA3A0", salmao:"#D97B5A", ocre:"#E8B54A", oliva:"#9EA05F", verde:"#3E9A6F",
+    red:"#E8B54A", cidade:"#EAF1F7", estados:.35,
+    hs:{ ex:.55, sombra:"#000000", luz:"#5C7085", acento:"#15202E" } },
+};
+TEMAS.sat = { oceano:"#0B0E12", terra:"rgba(0,0,0,0)", grat:"rgba(255,255,255,0.2)", ink:"#FFFFFF", halo:"rgba(0,0,0,0.78)",
+  azul:"#63B8F0", teal:"#5FD0C8", salmao:"#FF9E7A", ocre:"#FFC85E", oliva:"#C6C97A", verde:"#7FE29A",
+  red:"#FF6B4A", cidade:"#FFFFFF", estados:.55, hs:{ ex:0, sombra:"#000", luz:"#fff", acento:"#000" } };
+TEMAS.hib = { ...TEMAS.sat, estados:.8 };
+const BASES = [["papel","Papel"],["noturno","Noturno"],["sat","Satélite"],["hib","Híbrido"]];
+let tema = "papel";
+
+/* cores por categoria — valores reais extraídos das camadas */
+const CAT = {
+  biomas: { campo:"Bioma", outros:"#9EA05F", mapa:{ "Amazônia":"#5E8C5A", "Cerrado":"#CE9C3F", "Caatinga":"#DFA284", "Mata Atlântica":"#3E6E52", "Pampa":"#9EA05F", "Pantanal":"#8FAFA8" } },
+  zonas_climaticas: { campo:"CLIMA_K", outros:"#7397A4", mapa:{ "Af":"#2E7D52", "Am":"#55925F", "Aw":"#7E9B6E", "As":"#9EA05F", "BSh":"#DFA284", "Cfa":"#7397A4", "Cfb":"#5B8FD9", "Cwa":"#CE9C3F", "Cwb":"#8FAFA8" } },
+  cobertura_vegetal: { campo:"CVN_DS_VEG", outros:"#9EA05F", mapa:{ "Floresta Ombrófila Densa":"#2E7D52", "Floresta Ombrófila Aberta":"#55925F", "Floresta Ombrófila Mista":"#3E6E52", "Floresta Estacional Semidecidual":"#7E9B6E", "Floresta Estacional Decidual":"#9EA05F", "Savana":"#CE9C3F", "Savana Estépica":"#DFA284", "Estepe":"#C9B27A", "Campinarana":"#8FAFA8", "Áreas de Tensão Ecológica":"#A5A06B", "Áreas das Formações Pioneiras":"#B8C49A", "Refúgio Ecológico":"#A66FB5", "Água":"#7397A4" } },
+  geologia: { campo:"GLO_DS_ERA", outros:"#B08468", mapa:{ "Cenozoico":"#EAD9A0", "Mesozoico":"#CE9C3F", "Paleozoico":"#C4653A", "Neoproterozoico":"#A66FB5", "Mesoproterozoico":"#8a6fb5", "Paleoproterozoico":"#7397A4", "Neoarqueano":"#6B5F45", "Mesoarqueano":"#5C5240", "Eoarqueano":"#4A4234", "Paleoarqueano":"#55483A" } },
+  pedologia: { campo:"ordem", outros:"#C9915E", mapa:{ "LATOSSOLO":"#C4653A", "ARGISSOLO":"#CE9C3F", "NEOSSOLO":"#DFA284", "GLEISSOLO":"#7397A4", "CAMBISSOLO":"#9EA05F", "PLINTOSSOLO":"#B0653A", "ESPODOSSOLO":"#B8C49A", "PLANOSSOLO":"#8FAFA8", "NITOSSOLO":"#A65438", "LUVISSOLO":"#C9B27A", "CHERNOSSOLO":"#6B5F45", "ORGANOSSOLO":"#4A4234", "VERTISSOLO":"#8a6fb5", "AFLORAMENTOS DE ROCHAS":"#999080", "DUNAS":"#EDE3C0" } },
+  aquiferos: { campo:"SAA_NM_SIS", outros:"#4FA3C7", mapa:{ "POROSO":"#8FAFA8", "CARSTICO":"#A66FB5", "FRATURADO":"#C4653A" } },
+};
+
+/* registro de camadas (id = source-layer) */
+const REG = {
+  /* água */
+  rios:{ src:"detail", tipo:"line", grupo:"Água", label:"Rios", cor:t=>t.azul, w:[3,.5,7,1.4,11,2.6], op:.85 },
+  rios_nomeados:{ src:"detail", tipo:"line", grupo:"Água", label:"Rios", oculto:true, cor:t=>t.azul, w:[4,.8,7,1.7,11,3], op:.9, rot:{ campo:"NORIOCOMP", min:6.5, linha:true } },
+  massas_dagua:{ src:"detail", tipo:"fill", grupo:"Água", label:"Lagos e represas", cor:t=>t.azul, op:.65, rot:{ campo:"nmoriginal", min:8 } },
+  hidrovias:{ src:"detail", tipo:"line", grupo:"Água", label:"Hidrovias", cor:()=>"#3D7A70", w:[3,1.4,9,3.2], op:.95, dash:[2,1], rot:{ campo:"nome", min:5, linha:true } },
+  bacia_2:{ src:"base", tipo:"fill", grupo:"Água", label:"Bacias", cor:"pfaf", op:.5 },
+  aquiferos:{ src:"base", tipo:"fill", grupo:"Água", label:"Aquíferos", cor:"cat", op:.45, rot:{ campo:"SAA_NM_AQU", min:6.5 } },
+  /* físico */
+  geomorfologia:{ src:"base", tipo:"fill", grupo:"Físico", label:"Relevo", cor:"hipso", op:.45, rot:{ campo:"GEM_DS_C_1", min:6 } },
+  biomas:{ src:"base", tipo:"fill", grupo:"Físico", label:"Biomas", cor:"cat", op:.5, rot:{ campo:"Bioma", min:4 } },
+  zonas_climaticas:{ src:"base", tipo:"fill", grupo:"Físico", label:"Clima", cor:"cat", op:.5, rot:{ campo:"CLIMA_K", min:5 } },
+  cobertura_vegetal:{ src:"base", tipo:"fill", grupo:"Físico", label:"Vegetação", cor:"cat", op:.5, rot:{ campo:"CVN_DS_VEG", min:7 } },
+  geologia:{ src:"base", tipo:"fill", grupo:"Físico", label:"Geologia", cor:"cat", op:.5, rot:{ campo:"GLO_NM_UNI", min:8.5 } },
+  pedologia:{ src:"base", tipo:"fill", grupo:"Físico", label:"Solos", cor:"cat", op:.5, rot:{ campo:"ordem", min:7.5 } },
+  /* território */
+  municipios:{ src:"base", tipo:"line", grupo:"Território", label:"Municípios", cor:t=>t.ink, w:[5,.3,10,.8], op:.4, ctr:true, rot:{ campo:"n", min:8.5 } },
+  bairros:{ src:"detail", tipo:"line", grupo:"Território", label:"Bairros", cor:t=>t.ink, w:[9,.3,13,.9], op:.5, rot:{ campo:"NM_BAIRRO", min:11.5, minLen:4 } },
+  areas_urbanizadas:{ src:"detail", tipo:"fill", grupo:"Território", label:"Áreas urbanas", cor:t=>t.ocre, op:.4, rot:{ campo:"nome", min:9 } },
+  capitais:{ src:"detail", tipo:"circle", grupo:"Território", label:"Capitais", cor:t=>t.cidade, r:3.5 },
+  /* infraestrutura */
+  rodovias_federais:{ src:"detail", tipo:"line", grupo:"Infraestrutura", label:"Rodovias BR", cor:t=>t.ocre, w:[4,.7,10,2.2], op:.9, rot:{ campo:"vl_br", min:5.5, linha:true, prefixo:"BR-" } },
+  rodovias_estaduais:{ src:"detail", tipo:"line", grupo:"Infraestrutura", label:"Estaduais", cor:t=>t.ocre, w:[7,.4,12,1.4], op:.6, rot:{ campo:"ROD_CODIGO", min:8, linha:true } },
+  ferrovias:{ src:"detail", tipo:"line", grupo:"Infraestrutura", label:"Ferrovias", cor:()=>"#8a6fb5", w:[5,.6,11,1.6], op:.8, rot:{ campo:"nome", min:6.5, linha:true } },
+  linhas_transmissao:{ src:"detail", tipo:"line", grupo:"Infraestrutura", label:"Transmissão", cor:t=>t.salmao, w:[6,.5,11,1.3], op:.7, rot:{ campo:"Tensao", min:7.5, linha:true, sufixo:" kV" } },
+  usinas_uhe:{ src:"detail", tipo:"circle", grupo:"Infraestrutura", label:"Hidrelétricas", cor:t=>t.azul, r:4, rot:{ campo:"NOME", min:6.5 } },
+  usinas_pch:{ src:"detail", tipo:"circle", grupo:"Infraestrutura", label:"PCHs", cor:t=>t.teal, r:2.6, rot:{ campo:"NOME", min:8.5 } },
+  usinas_cgh:{ src:"detail", tipo:"circle", grupo:"Infraestrutura", label:"CGHs", cor:t=>t.oliva, r:2.2, rot:{ campo:"NOME", min:9.5 } },
+  aeroportos:{ src:"detail", tipo:"circle", grupo:"Infraestrutura", label:"Aeroportos", cor:t=>t.ink, r:3, rot:{ campo:"AER_NM", min:8.5 } },
+  portos:{ src:"detail", tipo:"circle", grupo:"Infraestrutura", label:"Portos", cor:t=>t.teal, r:3, rot:{ campo:"POR_NM", min:7.5 } },
+  /* proteção e recortes */
+  terras_indigenas:{ src:"base", tipo:"fill", grupo:"Proteção e recortes", label:"Terras indígenas", cor:t=>t.salmao, op:.45, rot:{ campo:"terrai_nom", min:6.5 } },
+  unidades_conservacao:{ src:"base", tipo:"fill", grupo:"Proteção e recortes", label:"Un. conservação", cor:t=>t.verde, op:.45, rot:{ campo:"NOME_UC1", min:7.5 } },
+  quilombos:{ src:"base", tipo:"fill", grupo:"Proteção e recortes", label:"Quilombos", cor:()=>"#A66FB5", op:.5, rot:{ campo:"name", min:9 } },
+  amazonia_legal:{ src:"base", tipo:"line", grupo:"Proteção e recortes", label:"Amazônia Legal", cor:t=>t.verde, w:[3,1.2,8,2.2], op:.9 },
+  semiarido:{ src:"base", tipo:"line", grupo:"Proteção e recortes", label:"Semiárido", cor:t=>t.salmao, w:[3,1,8,2], op:.9 },
+  matopiba:{ src:"base", tipo:"line", grupo:"Proteção e recortes", label:"Matopiba", cor:t=>t.ocre, w:[3,1,8,2], op:.9 },
+  timezones:{ src:"base", tipo:"line", grupo:"Proteção e recortes", label:"Fusos horários", cor:()=>"#8a6fb5", w:[2,1,8,2], op:.8, dash:[3,2] },
+  faixa_fronteira:{ src:"base", tipo:"fill", grupo:"Proteção e recortes", label:"Faixa de fronteira", cor:t=>t.ocre, op:.3 },
+  zee:{ src:"base", tipo:"fill", grupo:"Proteção e recortes", label:"Amazônia Azul (ZEE)", cor:t=>t.azul, op:.28 },
+};
+/* camadas do detail com minzoom alto → espelho "-ov" na fonte overview (z0..OV[id]); o detail assume de OV[id]+1 em diante */
+const OV = { rodovias_federais:3, ferrovias:4, portos:4, usinas_uhe:4, aeroportos:4, linhas_transmissao:5, usinas_pch:5, usinas_cgh:6,
+  rios_nomeados:5 };   // rios ≥120 km contínuos no overview (o detail fragmenta rios em z4–5)
+/* aplica fn a todas as variantes existentes de uma camada (id, id-ov) */
+function variantes(id) { const v = [id]; if (OV[id]) v.push(id + "-ov"); return v; }
+/* estado de visibilidade (atlas livre) */
+const vis = Object.fromEntries(Object.keys(REG).map(k => [k, false]));
+/* elementos multi-trecho: campo que identifica o TODO (seleção acende o traçado inteiro) */
+const SEL_CHAVE = { rodovias_federais:"vl_br", rodovias_estaduais:"ROD_CODIGO", rios_nomeados:"NORIOCOMP", ferrovias:"nome", hidrovias:"nome" };
+function selecionarTodo(camada, props) {
+  const campo = SEL_CHAVE[camada], v = campo ? props[campo] : null;
+  for (const id of Object.keys(SEL_CHAVE)) {
+    const on = id === camada && v != null && v !== "";
+    for (const sel of (OV[id] ? [id+"-sel", id+"-sel-ov"] : [id+"-sel"])) try {
+      map.setPaintProperty(sel, "line-opacity", on ? .95 : 0);
+      if (on) map.setFilter(sel, ["==",["to-string",["get",campo]], String(v)]);
+    } catch(e) {}
+  }
+  return campo != null && v != null && v !== "";
+}
+/* polígonos com camada de DESTAQUE dedicada (focos da IA acendem sem mexer na camada-base) */
+const POLY_HL = {
+  municipios:{ src:"base", campo:"NM_MUN" }, bairros:{ src:"detail", campo:"NM_BAIRRO" },
+  unidades_conservacao:{ src:"base", campo:"NOME_UC1" }, terras_indigenas:{ src:"base", campo:"terrai_nom" },
+};
+function limparHL() {
+  for (const id of Object.keys(POLY_HL))
+    try { map.setPaintProperty(id+"-hl","fill-opacity",0); map.setPaintProperty(id+"-hl-line","line-opacity",0); } catch(e) {}
+}
+/* rótulos de municípios por CENTROIDE (1 por cidade — polígono fatiado em tiles gera rótulo duplicado) */
+let IDX = null;
+async function obterIndice() { if (!IDX) IDX = await (await fetch(`${R2}/busca-index.json?v=15`)).json(); return IDX; }  // ?v: cache-bust a cada atualização do índice
+const norm = s => String(s).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+
+/* ── resolução de focos da IA contra o índice REAL das camadas (nunca acender no vazio) ── */
+const FOCO_TIPO = { rios_nomeados:"rio", municipios:"cidade", aeroportos:"aeroporto", portos:"porto",
+  usinas_uhe:"usina", usinas_pch:"usina", usinas_cgh:"usina", terras_indigenas:"terra indígena",
+  unidades_conservacao:"un. conservação", hidrovias:"hidrovia" };
+const PREF_RIO = ["Rio ","Ribeirão ","Córrego ","Riacho ","Igarapé ","Arroio "];
+let IDXN = null;
+async function indicePorTipo() {
+  if (IDXN) return IDXN;
+  const idx = await obterIndice(); const m = {};
+  for (const e of idx) { const t = (m[e.t] ??= new Map()), k = norm(e.n); (t.get(k) ?? (t.set(k, []), t.get(k))).push(e); }
+  return IDXN = m;
+}
+function maisPerto(lista, centro) {
+  if (!centro || lista.length === 1) return lista[0];
+  let melhor = lista[0], d0 = Infinity;
+  for (const e of lista) { const d = (e.x-centro[0])**2 + (e.y-centro[1])**2; if (d < d0) { d0 = d; melhor = e; } }
+  return melhor;
+}
+function resolverNome(tipo, valor, mapaIdx, centro) {
+  const m = tipo && mapaIdx[tipo]; if (!m) return { ok:true, nome:valor };   // camada sem índice: passa direto
+  const k = norm(valor);
+  if (m.has(k)) { const e = maisPerto(m.get(k), centro); return { ok:true, nome:e.n, e }; }
+  if (tipo === "rio") {                                                      // variantes de prefixo: "Verruga" → "Rio Verruga"
+    const base = valor.replace(/^(rio|ribeirão|ribeirao|riacho|córrego|corrego|igarapé|igarape|arroio)\s+/i, "");
+    for (const p of PREF_RIO) { const kk = norm(p + base);
+      if (m.has(kk)) { const e = maisPerto(m.get(kk), centro); return { ok:true, nome:e.n, e }; } }
+  }
+  /* pontuais e áreas nomeadas: casamento parcial por palavra ("Itaipu" → "Itaipu (Parte Brasileira)";
+     "Chapada Diamantina" → "PARQUE NACIONAL DA CHAPADA DIAMANTINA") — o mais curto e mais perto vence */
+  if (k.length >= 4 && ["usina","aeroporto","porto","un. conservação","terra indígena","hidrovia"].includes(tipo)) {
+    const cand = [];
+    for (const [kk, lista] of m) if (kk.startsWith(k + " ") || kk.startsWith(k + " (") || kk.endsWith(" " + k) || kk.includes(" " + k + " ")) cand.push(...lista);
+    if (cand.length) { cand.sort((a, b) => a.n.length - b.n.length); const e = maisPerto(cand.slice(0, 6), centro); return { ok:true, nome:e.n, e }; }
+  }
+  return { ok:false, nome:valor };
+}
+const tituloCaso = s => s === s.toUpperCase() && /[A-ZÀ-Ú]{3}/.test(s)
+  ? s.toLowerCase().replace(/(^|\s|\()(\p{L})/gu, (a, b, c) => b + c.toUpperCase()).replace(/\b(D[aeo]s?|E)\b/g, w => w.toLowerCase())
+  : s;
+/* valores de banco com grafia crua → leitura humana (por campo, para não colidir: "PI" é grupo de UC, mas também é Piauí) */
+const VALOR_HUMANO = {
+  bitola: { "Metrica":"métrica (1,00 m)", "Larga":"larga (1,60 m)", "Standart":"padrão (1,435 m)", "Mista - Metrica / Larga":"mista (métrica e larga)" },
+  tip_situac: { "Em Operação":"em operação", "Planejada":"planejada", "Estudo":"em estudo", "Desativada":"desativada", "Em Obra":"em obra" },
+  ds_superfi: { "PAV":"pavimentado", "PLA":"planejado", "N_PAV":"não pavimentado", "IMP":"implantado", "LEN":"leito natural" },
+  SAA_NM_SIS: { "POROSO":"poroso", "FRATURADO":"fraturado", "CARSTICO":"cárstico", "CÁRSTICO":"cárstico" },
+  GRUPO4: { "US":"Uso Sustentável", "PI":"Proteção Integral" },
+  geoname: { "Brazilian Exclusive Economic Zone":"Zona Econômica Exclusiva do Brasil" },
+  sprclasse: { "AM_Legal":"Amazônia Legal" } };
+/* 16 nomes de quilombos vieram do INCRA com acentos perdidos ("JATOB?") — corrigidos aqui até a reexportação da base */
+VALOR_HUMANO.name = { "?GUA PRETA":"ÁGUA PRETA", "C?RREGO DE UBARANAS":"CÓRREGO DE UBARANAS", "C?RREGO DOS IUS":"CÓRREGO DOS IUS", "CAJ? DOS NEGROS":"CAJÁ DOS NEGROS",
+  "CONCEI?AO DAS CRIOULAS":"CONCEIÇÃO DAS CRIOULAS", "DEP?SITO":"DEPÓSITO", "I?NA":"IÚNA", "JATOB?":"JATOBÁ", "JIB?IA":"JIBOIA", "MATA DO SAP?":"MATA DO SAPÉ",
+  "OLHOS DAGUA DO BAS?LIO":"OLHOS D'ÁGUA DO BASÍLIO", "S?TIO PAVILH?O":"SÍTIO PAVILHÃO", "S?TIO VEIGA":"SÍTIO VEIGA", "SAMBA?BA":"SAMBAÍBA", "TIJUA?U":"TIJUAÇU", "VILA S?O JO?O / CAVALOS":"VILA SÃO JOÃO / CAVALOS" };
+const humano = (campo, v) => (VALOR_HUMANO[campo] && VALOR_HUMANO[campo][v]) || v;
+const NAO_RIO = new Set(["rio grande do sul","rio grande do norte","rio de janeiro"]);
+function riosDoTexto(texto, mapaIdx) {                                       // rede de segurança: rios citados na resposta
+  const m = mapaIdx["rio"]; if (!m) return [];
+  const re = /(Rio|Ribeirão|Riacho|Córrego|Igarapé|Arroio)(\s+(?:d[aeo]s?\s+)?[A-ZÀ-Ý][\wÀ-ÿ'-]*(?:\s+(?:d[aeo]s?\s+)?[A-ZÀ-Ý][\wÀ-ÿ'-]*)?)/g;
+  const achados = new Set(); let x;
+  while ((x = re.exec(texto))) {
+    let cand = (x[1] + x[2]).replace(/\s+/g, " ").trim();
+    if (NAO_RIO.has(norm(cand))) continue;
+    while (cand) {
+      if (m.has(norm(cand))) { achados.add(m.get(norm(cand))[0].n); break; }
+      const corte = cand.lastIndexOf(" ");
+      if (corte <= x[1].length) break;
+      cand = cand.slice(0, corte);
+    }
+  }
+  return [...achados];
+}
+const MUNCTR = { type:"FeatureCollection", features: [] };
+let munctrOk = false;
+async function carregarMunCtr() {
+  if (munctrOk) return; munctrOk = true;
+  try {
+    const idx = await obterIndice();
+    MUNCTR.features = idx.filter(e => e.t === "cidade").map(e =>
+      ({ type:"Feature", properties:{ n:e.n }, geometry:{ type:"Point", coordinates:[e.x, e.y] } }));
+    try { map.getSource("munctr").setData(MUNCTR); } catch(e) {}
+  } catch(e) { munctrOk = false; }
+}
+vis.rios = true; vis.capitais = true; vis.rodovias_federais = true; vis.rios_nomeados = vis.rios;
+let ordemMax = 8;
+
+/* ═══════════ ESTILO ═══════════ */
+function graticule() {
+  const f = [];
+  for (let lo=-75; lo<=-30; lo+=5) f.push({ type:"Feature", geometry:{ type:"LineString", coordinates:[[lo,7],[lo,-35]] } });
+  for (let la=5; la>=-35; la-=5) f.push({ type:"Feature", geometry:{ type:"LineString", coordinates:[[-76,la],[-28,la]] } });
+  return { type:"FeatureCollection", features:f };
+}
+const wjs = (w) => { const e = ["interpolate",["linear"],["zoom"]]; for (let i=0;i<w.length;i+=2) e.push(w[i], w[i+1]); return e; };
+function corDe(id, c, t) {
+  if (c === "pfaf")
+    return ["match",["slice",["to-string",["get","wts_cd_pfafstetterbasin"]],0,1],"1",t.teal,"2",t.salmao,"3",t.oliva,"4",t.ocre,"5",t.verde,"6",t.salmao,"7",t.teal,"8",t.oliva,"9",t.ocre,t.oliva];
+  if (c === "hipso") {                                        // tricolor hipsométrico
+    const nome = ["to-string",["get","GEM_DS_C_1"]];
+    return ["case",
+      ["in","Depress",nome], "#D96F42",
+      ["any",["in","Planalto",nome],["in","Chapada",nome]], "#CE9C3F",
+      ["any",["in","Planície",nome],["in","Tabuleiro",nome],["in","Pantana",nome],["in","Lençóis",nome],["in","Dunas",nome]], "#8FC97E",
+      "#6B5F45"];                                             // serras, escarpas, patamares
+  }
+  if (c === "cat") {
+    const k = CAT[id];
+    const e = ["match",["to-string",["get",k.campo]]];
+    for (const [v,cor] of Object.entries(k.mapa)) e.push(v, cor);
+    e.push(k.outros);
+    return e;
+  }
+  return c(t);
+}
+
+function construirEstilo() {
+  const t = TEMAS[tema];
+  const sat = tema === "sat" || tema === "hib";
+  const layers = sat ? [
+    { id:"bg", type:"background", paint:{ "background-color":"#0B0E12" } },
+    { id:"sat", type:"raster", source:"sat", paint:{ "raster-saturation":-.05, "raster-brightness-max":.95 } },
+  ] : [
+    { id:"bg", type:"background", paint:{ "background-color":t.oceano } },
+    { id:"grat", type:"line", source:"grat", paint:{ "line-color":t.grat, "line-width":.5, "line-opacity":.4 } },
+    { id:"terra", type:"fill", source:"base", "source-layer":"limite_brasil", paint:{ "fill-color":t.terra } },
+    { id:"hillshade", type:"hillshade", source:"dem",
+      paint:{ "hillshade-exaggeration":t.hs.ex, "hillshade-shadow-color":t.hs.sombra,
+        "hillshade-highlight-color":t.hs.luz, "hillshade-accent-color":t.hs.acento } },
+  ];
+  /* fills invisíveis: tornam o MIOLO de municípios/bairros clicável (a camada visível é só a divisa) */
+  layers.push(
+    { id:"municipios-fill", type:"fill", source:"base", "source-layer":"municipios", paint:{ "fill-color":"#000", "fill-opacity":0 } },
+    { id:"bairros-fill", type:"fill", source:"detail", "source-layer":"bairros", paint:{ "fill-color":"#000", "fill-opacity":0 } });
+  for (const [id, r] of Object.entries(REG)) {
+    const cor = corDe(id, r.cor, t), on = vis[id];
+    if (OV[id]) {                                          // espelho nos zooms baixos (fonte overview)
+      const base = r.tipo === "line"
+        ? { type:"line", layout:{ "line-cap":"round", "line-join":"round" }, paint:{ "line-color":cor, "line-opacity":on ? r.op : 0, "line-width":wjs(r.w), ...(r.dash ? { "line-dasharray":r.dash } : {}) } }
+        : { type:"circle", paint:{ "circle-color":cor, "circle-opacity":on ? 1 : 0, "circle-radius":r.r, "circle-stroke-color":t.halo, "circle-stroke-width":1.3, "circle-stroke-opacity":on ? 1 : 0 } };
+      layers.push({ id:id+"-ov", source:"over", "source-layer":id, maxzoom:OV[id]+1, ...base });
+    }
+    if (r.tipo === "fill")
+      layers.push({ id, type:"fill", source:r.src, "source-layer":id,
+        paint:{ "fill-color":cor, "fill-opacity":on ? r.op : 0, "fill-outline-color":cor, "fill-opacity-transition":{duration:600} } });
+    else if (r.tipo === "line")
+      layers.push({ id, type:"line", source:r.src, "source-layer":id, ...(OV[id] ? { minzoom:OV[id]+1 } : {}),
+        layout:{ "line-cap":"round", "line-join":"round" },
+        paint:{ "line-color":cor, "line-opacity":on ? r.op : 0, "line-width":wjs(r.w),
+          ...(r.dash ? { "line-dasharray":r.dash } : {}), "line-opacity-transition":{duration:600} } });
+    else
+      layers.push({ id, type:"circle", source:r.src, "source-layer":id, ...(OV[id] ? { minzoom:OV[id]+1 } : {}),
+        paint:{ "circle-color":cor, "circle-opacity":on ? 1 : 0, "circle-radius":r.r,
+          "circle-stroke-color":t.halo, "circle-stroke-width":1.3, "circle-stroke-opacity":on ? 1 : 0,
+          "circle-opacity-transition":{duration:600}, "circle-stroke-opacity-transition":{duration:600} } });
+    /* rótulo com nome da feição */
+    if (r.rot && r.ctr) {
+      layers.push({ id:id+"-txt", type:"symbol", source:"munctr", minzoom:r.rot.min,
+        layout:{ "symbol-placement":"point", "text-field":["get","n"],
+          "text-size":["interpolate",["linear"],["zoom"],5,10,12,12.5],
+          "text-font":["NotoRegular"], "text-padding":6, visibility: on ? "visible" : "none" },
+        paint:{ "text-color":t.ink, "text-halo-color":t.halo, "text-halo-width":1.5, "text-opacity":.95 } });
+    } else if (r.rot) {
+      let tf = ["to-string",["get",r.rot.campo]];
+      if (VALOR_HUMANO[r.rot.campo]) {                       // grafias corrigidas também no rótulo do mapa
+        const m = ["match", tf]; for (const [k,v] of Object.entries(VALOR_HUMANO[r.rot.campo])) m.push(k, v); m.push(tf); tf = m;
+      }
+      if (r.rot.prefixo) tf = ["concat", r.rot.prefixo, tf];
+      if (r.rot.sufixo) tf = ["concat", tf, r.rot.sufixo];
+      const lyr = { id:id+"-txt", type:"symbol", source:r.src, "source-layer":id, minzoom:r.rot.min,
+        layout:{ "symbol-placement": r.rot.linha ? "line" : "point",
+          "text-field":tf, "text-size":["interpolate",["linear"],["zoom"],5,10,12,12.5],
+          "text-font":["NotoRegular"], "text-padding":6,
+          visibility: on ? "visible" : "none" },
+        paint:{ "text-color":t.ink, "text-halo-color":t.halo, "text-halo-width":1.5, "text-opacity":.95 } };
+      if (r.rot.minLen) lyr.filter = [">=",["length",["to-string",["get",r.rot.campo]]], r.rot.minLen];
+      layers.push(lyr);
+    }
+  }
+  layers.push(
+    { id:"estados-l", type:"line", source:"base", "source-layer":"estados", paint:{ "line-color":sat ? "#FFFFFF" : t.ink, "line-width":sat ? .8 : .5, "line-opacity":t.estados } },
+    { id:"br-out", type:"line", source:"base", "source-layer":"limite_brasil", paint:{ "line-color":sat ? "#FFFFFF" : t.ink, "line-width":1.1, "line-opacity":.85 } },
+    { id:"estados-txt", type:"symbol", source:"base", "source-layer":"estados", minzoom:5,
+      layout:{ "text-field":["get","SIGLA_UF"], "text-size":11, "text-font":["NotoRegular"], "text-letter-spacing":.25 },
+      paint:{ "text-color":t.ink, "text-halo-color":t.halo, "text-halo-width":1.4, "text-opacity":.65 } },
+    { id:"capitais-txt", type:"symbol", source:"detail", "source-layer":"capitais",
+      layout:{ "text-field":["coalesce",["get","CPT_NM"],["get","nome"],["get","NM_MUN"],["get","name"],["get","NOME"],["get","NM_MUNICIP"]],
+        "text-size":11, "text-offset":[.7,.1], "text-anchor":"left", "text-font":["NotoRegular"] },
+      paint:{ "text-color":t.ink, "text-opacity":vis.capitais ? 1 : 0, "text-halo-color":t.terra, "text-halo-width":1.3, "text-opacity-transition":{duration:600} } },
+    /* seleção destacada — traçado INTEIRO de elementos multi-trecho (mesma BR, mesmo rio…) via filtro na camada vetorial */
+    ...Object.entries(SEL_CHAVE).flatMap(([id, campo]) => {
+      const sel = (sufixo, src, extra) => ({ id: id+sufixo, type:"line", source:src, "source-layer":id, ...extra,
+        layout:{ "line-cap":"round", "line-join":"round" },
+        paint:{ "line-color":t.red, "line-opacity":0, "line-width":wjs(REG[id].w.map((v,i)=> i%2 ? v*1.7+1 : v)) },
+        filter:["==",["to-string",["get",campo]],"__nada__"] });
+      return OV[id] ? [sel("-sel", REG[id].src, { minzoom:OV[id]+1 }), sel("-sel-ov", "over", { maxzoom:OV[id]+1 })] : [sel("-sel", REG[id].src, {})];
+    }),
+    /* destaque de POLÍGONOS (focos da IA): preenchimento leve + divisa forte, sem filtrar a camada-base */
+    ...Object.entries(POLY_HL).flatMap(([id, p]) => [
+      { id:id+"-hl", type:"fill", source:p.src, "source-layer":id,
+        paint:{ "fill-color":t.red, "fill-opacity":0 }, filter:["==",["to-string",["get",p.campo]],"__nada__"] },
+      { id:id+"-hl-line", type:"line", source:p.src, "source-layer":id, layout:{ "line-cap":"round","line-join":"round" },
+        paint:{ "line-color":t.red, "line-width":2.2, "line-opacity":0 }, filter:["==",["to-string",["get",p.campo]],"__nada__"] },
+    ]),
+    { id:"sel-fill", type:"fill", source:"sel", paint:{ "fill-color":t.red, "fill-opacity":.22 }, filter:["==",["geometry-type"],"Polygon"] },
+    { id:"sel-line", type:"line", source:"sel", layout:{ "line-cap":"round", "line-join":"round" },
+      paint:{ "line-color":t.red, "line-width":3, "line-opacity":.95 } },
+    { id:"sel-pt", type:"circle", source:"sel", paint:{ "circle-radius":9, "circle-color":"rgba(0,0,0,0)", "circle-stroke-color":t.red, "circle-stroke-width":2.2 }, filter:["==",["geometry-type"],"Point"] },
+    /* marcadores editoriais */
+    { id:"marc-pulso", type:"circle", source:"marc", paint:{ "circle-radius":10, "circle-color":"rgba(0,0,0,0)", "circle-stroke-color":t.red, "circle-stroke-width":1.6, "circle-stroke-opacity":.9 } },
+    { id:"marc-ponto", type:"circle", source:"marc", paint:{ "circle-radius":3.4, "circle-color":t.red, "circle-stroke-color":t.halo, "circle-stroke-width":1.4 } },
+    { id:"marc-rotulo", type:"symbol", source:"marc",
+      layout:{ "text-field":["get","rotulo"], "text-size":13, "text-offset":[0,-1.6], "text-anchor":"bottom", "text-font":["NotoItalic"] },
+      paint:{ "text-color":t.ink, "text-halo-color":t.halo, "text-halo-width":1.6 } },
+  );
+  return { version:8, glyphs:BASE_URL + "lib/glyphs-{fontstack}-{range}.pbf",
+    sources:{
+      base:{ type:"vector", url:`pmtiles://${R2}/atlas-base.pmtiles` },
+      detail:{ type:"vector", url:`pmtiles://${R2}/atlas-detail.pmtiles` },
+      over:{ type:"vector", url:`pmtiles://${R2}/atlas-overview.pmtiles` },
+      dem:{ type:"raster-dem", encoding:"terrarium", tileSize:256, maxzoom:13,
+        tiles:["https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png"],
+        attribution:"Terrain: AWS/Mapzen · Dados: IBGE, ANA, DNIT, ANEEL" },
+      /* satélite: Sentinel-2 cloudless 2016 (EOX) — CC BY 4.0, uso comercial permitido COM atribuição.
+         (Edições 2018–2024 são CC BY-NC-SA: NÃO usar sem licença comercial da EOX.) */
+      sat:{ type:"raster", tileSize:256, maxzoom:14,
+        tiles:["https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless_3857/default/g/{z}/{y}/{x}.jpg"],
+        attribution:"Sentinel-2 cloudless 2016 by EOX IT Services GmbH (CC BY 4.0)" },
+      grat:{ type:"geojson", data:graticule() },
+      marc:{ type:"geojson", data:{ type:"FeatureCollection", features:[] } },
+      sel:{ type:"geojson", data:{ type:"FeatureCollection", features:[] } },
+      munctr:{ type:"geojson", data:MUNCTR },
+    }, layers };
+}
+
+/* ═══════════ MAPA ═══════════ */
+maplibregl.addProtocol("pmtiles", new pmtiles.Protocol().tile);
+const map = new maplibregl.Map({ container:"map", style:construirEstilo(),
+  center:[-53,-14.5], zoom:3.4, minZoom:2.5, maxZoom:14, attributionControl:false });
+const HANDLERS = ["scrollZoom","dragPan","touchZoomRotate","doubleClickZoom","keyboard","boxZoom","dragRotate"];
+function interagir(sim) { HANDLERS.forEach(h => { try { sim ? map[h].enable() : map[h].disable(); } catch(e) {} }); }
+interagir(false);
+
+/* pulso só anima quando há marcador (setPaintProperty todo frame
+   desde o boot impede o mapa de ficar idle — bug corrigido na v2.1.1) */
+let temMarc = false;
+let t0 = performance.now();
+(function pulso(now) {
+  if (temMarc) {
+    const k = (Math.sin((now - t0) / 480) + 1) / 2;
+    try { map.setPaintProperty("marc-pulso","circle-radius", 8 + k*12);
+          map.setPaintProperty("marc-pulso","circle-stroke-opacity", .95 - k*.75); } catch(e) {}
+  }
+  requestAnimationFrame(pulso);
+})(t0);
+
+function limparFiltro(node) {
+  const s = JSON.stringify(node || null);
+  if (!node || s.includes("PENDENTE")) return null;
+  const wrap = (n) => Array.isArray(n) ? (n[0]==="get" && n[1]==="nuordemcda" ? ["to-number",n] : n.map(wrap)) : n;
+  return wrap(node);
+}
+function setCam(id, on, filtro, op) {
+  const r = REG[id]; if (!r) return;
+  if (id === "municipios" && on) carregarMunCtr();
+  const alvo = on ? (op ?? (r.tipo==="circle" ? 1 : r.op)) : 0;
+  const prop = r.tipo==="fill" ? "fill-opacity" : r.tipo==="line" ? "line-opacity" : "circle-opacity";
+  try {
+    const f = on ? limparFiltro(filtro) : null;
+    for (const v of variantes(id)) {
+      map.setPaintProperty(v, prop, alvo);
+      if (r.tipo==="circle") map.setPaintProperty(v, "circle-stroke-opacity", on ? 1 : 0);
+      map.setFilter(v, f);
+    }
+    if (id==="capitais") map.setPaintProperty("capitais-txt","text-opacity", on ? 1 : 0);
+    if (r.rot && map.getLayer(id+"-txt")) {
+      let ft = r.ctr ? null : f;   // rótulos por centroide (munctr) não têm os campos da camada — filtro os apagaria
+      if (r.rot.minLen) {
+        const lenF = [">=",["length",["to-string",["get",r.rot.campo]]], r.rot.minLen];
+        ft = f ? ["all", lenF, f] : lenF;
+      }
+      map.setLayoutProperty(id+"-txt","visibility", on ? "visible" : "none");
+      map.setFilter(id+"-txt", ft);
+    }
+  } catch(e) {}
+}
+function aplicarMapState(ms) {
+  if (!ms) return;
+  selecionarTodo(null, {}); limparHL();                 // cena nova, destaques novos
+  const ativos = {}; (ms.camadas||[]).forEach(c => ativos[c.id] = c);
+  for (const id of Object.keys(REG)) {
+    const on = ativos[id];
+    setCam(id, !!on, on?.filtro, on?.opacidade);
+  }
+  if (ativos.rios && !ativos.rios_nomeados) setCam("rios_nomeados", true, null, ativos.rios.opacidade);
+  /* focos editoriais: os elementos CITADOS no texto acendem em vermelho (mesmo motor da IA) */
+  if (Array.isArray(ms.focos) && ms.focos.length)
+    indicePorTipo().then(idx => acenderFocos(ms.focos, idx, ms.center)).catch(() => {});
+  try { map.getSource("marc").setData({ type:"FeatureCollection",
+    features:(ms.marcadores||[]).map(m => ({ type:"Feature", properties:{ rotulo:m.rotulo||"" }, geometry:{ type:"Point", coordinates:[m.lon,m.lat] } })) }); } catch(e) {}
+  temMarc = (ms.marcadores||[]).length > 0;
+  const cam = { center:ms.center, zoom:ms.zoom, pitch:ms.pitch||0, bearing:ms.bearing||0 };
+  if (ms.transicao==="corte") map.jumpTo(cam);
+  else if (ms.transicao==="fade") map.easeTo({ ...cam, duration:1000 });
+  else map.flyTo({ ...cam, duration:2400, essential:true });
+}
+
+/* ── MOTOR DE FOCOS (IA e capítulos): valida contra o índice real e acende cada elemento do jeito certo ── */
+function acenderFocos(focos, mapaIdx, centro) {
+  const acesos = [], perdidos = [], marcas = [];
+  const selGrupos = {}, polyGrupos = {}, catGrupos = {}, filGrupos = {};
+  legendaFoco = {};
+  for (const fo of focos) {
+    if (!fo || !REG[fo.camada]) continue;
+    const rr = resolverNome(FOCO_TIPO[fo.camada], String(fo.valor), mapaIdx, centro);
+    if (!rr.ok) { perdidos.push({ nome:rr.nome, camada:fo.camada }); continue; }
+    vis[fo.camada] = true;
+    if (fo.camada === "rios_nomeados") { vis.rios = true; setCam("rios", true, null, .5); }
+    const alvo = SEL_CHAVE[fo.camada] === fo.campo ? selGrupos
+               : POLY_HL[fo.camada] ? polyGrupos
+               : (CAT[fo.camada] && CAT[fo.camada].campo === fo.campo) ? catGrupos
+               : filGrupos;
+    ((alvo[fo.camada] ??= { campo: POLY_HL[fo.camada]?.campo || fo.campo, valores: [] }).valores).push(rr.nome);
+    acesos.push({ nome:rr.nome, camada:fo.camada, e:rr.e });
+    /* marcador: rótulo vazio quando a própria camada já escreve o nome (evita etiqueta duplicada) */
+    if (rr.e && fo.camada !== "rios_nomeados")
+      marcas.push({ lon:rr.e.x, lat:rr.e.y, rotulo: POLY_HL[fo.camada] ? "" : rr.nome });
+  }
+  for (const id of Object.keys(SEL_CHAVE)) {       // linhas: traçado inteiro em vermelho (multi-valor)
+    const g = selGrupos[id];
+    try {
+      for (const sel of (OV[id] ? [id+"-sel", id+"-sel-ov"] : [id+"-sel"])) {
+        map.setPaintProperty(sel, "line-opacity", g ? .95 : 0);
+        if (g) map.setFilter(sel, ["in", ["to-string",["get",g.campo]], ["literal", g.valores]]);
+      }
+      if (g) setCam(id, true, null, REG[id].tipo === "line" ? .8 : .6);
+    } catch(e) {}
+  }
+  for (const id of Object.keys(POLY_HL)) {         // polígonos: destaque dedicado; camada-base fica de contexto
+    const g = polyGrupos[id];
+    try {
+      const f = ["in", ["to-string",["get",POLY_HL[id].campo]], ["literal", g ? g.valores : ["__nada__"]]];
+      map.setFilter(id+"-hl", f); map.setFilter(id+"-hl-line", f);
+      map.setPaintProperty(id+"-hl", "fill-opacity", g ? .14 : 0);
+      map.setPaintProperty(id+"-hl-line", "line-opacity", g ? .9 : 0);
+      if (g) setCam(id, true, null);
+    } catch(e) {}
+  }
+  for (const [id, g] of Object.entries(catGrupos)) {
+    /* camada CATEGÓRICA (clima, bioma, geologia, solo…): filtrar numa classe só pinta lascas —
+       liga a camada INTEIRA colorida e destaca a classe na legenda */
+    setCam(id, true, null, .55);
+    legendaFoco[id] = new Set(g.valores.map(norm));
+  }
+  for (const [id, g] of Object.entries(filGrupos)) // pontos e demais: só os elementos, acesos
+    setCam(id, true, ["in", ["to-string",["get",g.campo]], ["literal", g.valores]], .8);
+  vis.rios_nomeados = !!vis.rios || !!selGrupos.rios_nomeados;
+  return { acesos, perdidos, marcas };
+}
+/* map_state da IA: ADITIVO — voa a câmera e acrescenta contexto, sem apagar as camadas do leitor */
+function aplicarMapStateIA(ms, marcas, acesos) {
+  (ms?.camadas || []).forEach(c => { if (REG[c.id]) { vis[c.id] = true; setCam(c.id, true, limparFiltro(c.filtro), c.opacidade); } });
+  const vistos = new Set();
+  const feats = [ ...((ms?.marcadores) || []), ...(marcas || []) ]
+    .filter(m => typeof m.lon === "number" && typeof m.lat === "number")
+    .filter(m => { const k = norm(String(m.rotulo || "")) || (m.lon + "," + m.lat); if (vistos.has(k)) return false; vistos.add(k); return true; })
+    .slice(0, 8)
+    .map(m => ({ type:"Feature", properties:{ rotulo:m.rotulo || "" }, geometry:{ type:"Point", coordinates:[m.lon, m.lat] } }));
+  try { map.getSource("marc").setData({ type:"FeatureCollection", features:feats }); } catch(e) {}
+  temMarc = feats.length > 0;
+  /* o cartucho da resposta cobre o topo — desloca o alvo para a área VISÍVEL abaixo dele */
+  const cardFundo = (() => { try { const el = document.getElementById("ia");
+    return el.style.display !== "none" ? Math.min(el.getBoundingClientRect().bottom, innerHeight * .6) : 0; } catch(e) { return 0; } })();
+  if (ms?.center) map.flyTo({ center:ms.center, zoom:ms.zoom, pitch:0, bearing:0,
+    offset:[0, Math.round(cardFundo / 2)], duration:2400, essential:true });
+  else {
+    const pts = (acesos || []).filter(a => a.e).map(a => [a.e.x, a.e.y]);
+    if (pts.length) {
+      const b = pts.reduce((bb, p) => bb.extend(p), new maplibregl.LngLatBounds(pts[0], pts[0]));
+      map.fitBounds(b, { padding:{ top: cardFundo + 50, bottom: 70, left: 50, right: 50 }, maxZoom:10.5, duration:2000 });
+    }
+  }
+}
+/* feedback visível: o que a IA ACENDEU no mapa (e o que não foi encontrado) */
+function renderFocosChips(acesos, perdidos) {
+  const el = document.getElementById("ia-focos"); el.innerHTML = "";
+  const ZF = { rios_nomeados:9.2, municipios:10, bairros:12, aeroportos:12, portos:12 };
+  const ROTC = { zonas_climaticas:"Clima ", geologia:"Era ", pedologia:"Solo ", aquiferos:"Aquífero " };
+  acesos.forEach(a => {
+    const c = $("button","chip on","● " + (ROTC[a.camada] || "") + tituloCaso(a.nome));
+    if (a.e) c.onclick = () => map.flyTo({ center:[a.e.x, a.e.y], zoom: ZF[a.camada] || 10, duration:1600, essential:true });
+    el.appendChild(c);
+  });
+  perdidos.forEach(p => el.appendChild($("button","chip off","○ " + tituloCaso(p.nome) + " · não mapeado")));
+  if (acesos.length + perdidos.length === 0)
+    el.innerHTML = '<span style="font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--ink-faint)">RESPOSTA SEM ELEMENTOS MAPEÁVEIS</span>';
+  if (visAntesIA) {                                     // desfazer a cena curada: volta as camadas do leitor
+    const r = $("button","chip","↺ camadas de antes");
+    r.onclick = () => {
+      Object.assign(vis, visAntesIA); visAntesIA = null; legendaFoco = {};
+      selecionarTodo(null, {}); limparHL(); aplicarVisAtlas();
+      document.querySelectorAll("#painel-grupos .chip").forEach(c => c.classList.toggle("on", !!vis[c.dataset.cid]));
+      el.innerHTML = ""; atualizarLegenda(); toast("CAMADAS RESTAURADAS");
+    };
+    el.appendChild(r);
+  }
+}
+/* ── legenda dinâmica: chave de cores das camadas categóricas ativas ── */
+const CLIMA_NOME = { Af:"Equatorial úmido", Am:"Tropical monçônico", Aw:"Tropical · inverno seco", As:"Tropical · verão seco",
+  BSh:"Semiárido quente", Cfa:"Subtropical úmido", Cfb:"Oceânico ameno", Cwa:"Subtropical · inverno seco", Cwb:"Tropical de altitude" };
+function atualizarLegenda() {
+  const el = document.getElementById("legenda"); if (!el) return;
+  const corpo = document.getElementById("legenda-corpo");
+  const painel = document.getElementById("painel");
+  const semLugar = painel.style.display === "none" || !painel.classList.contains("fechado");
+  const ativos = Object.keys(CAT).filter(id => vis[id]);
+  if (semLugar || (!ativos.length && !vis.geomorfologia)) { el.style.display = "none"; return; }
+  corpo.innerHTML = "";
+  const bloco = (titulo, linhas) => corpo.insertAdjacentHTML("beforeend",
+    `<div class="leg-cam">${titulo}</div>` +
+    linhas.map(([cor, nome, foco]) => `<div class="leg-item${foco ? " foco" : ""}"><span class="leg-sw" style="background:${cor}"></span>${nome}</div>`).join(""));
+  if (vis.geomorfologia) bloco("Relevo", [["#D96F42","Depressões"],["#CE9C3F","Planaltos e chapadas"],["#8FC97E","Planícies"],["#6B5F45","Serras e escarpas"]]);
+  for (const id of ativos) {
+    const k = CAT[id];
+    const linhas = Object.entries(k.mapa).map(([v, c]) => {
+      let n = v;
+      if (id === "zonas_climaticas") n = `${v} · ${CLIMA_NOME[v] || ""}`;
+      else if (id === "pedologia") n = v.charAt(0) + v.slice(1).toLowerCase();
+      else if (n.length > 30) n = n.slice(0, 29) + "…";
+      return [c, n, !!legendaFoco[id]?.has(norm(v))];
+    });
+    linhas.sort((a, b) => (b[2] ? 1 : 0) - (a[2] ? 1 : 0));   // classe em foco sobe pro topo
+    bloco(REG[id].label, linhas);
+  }
+  el.style.display = "block";
+}
+/* ── toast + compartilhar vista (URL com o estado do mapa — NUNCA inclui a senha da IA) ── */
+let toastT = null;
+function toast(msg) {
+  const t = document.getElementById("toast"); if (!t) return;
+  t.textContent = msg; t.style.display = "block";
+  clearTimeout(toastT); toastT = setTimeout(() => { t.style.display = "none"; }, 2200);
+}
+function linkDaVista() {
+  const c = map.getCenter();
+  const ids = Object.keys(REG).filter(id => vis[id] && !REG[id].oculto);
+  const s = [c.lng.toFixed(3), c.lat.toFixed(3), map.getZoom().toFixed(2), tema, ids.join(".")].join("~");
+  return location.origin + location.pathname + "#atlas?s=" + encodeURIComponent(s);
+}
+async function compartilharVista() {
+  const url = linkDaVista();
+  if (navigator.share) { try { await navigator.share({ title:"Atlas do Brasil · by Brexplora", url }); } catch(e) {} return; }
+  try { await navigator.clipboard.writeText(url); toast("LINK DA VISTA COPIADO"); }
+  catch(e) { toast("NÃO CONSEGUI COPIAR O LINK"); }
+}
+let legendaFoco = {};       // camada categórica -> Set(valores em foco) — negrito + ◂ na legenda
+let visAntesIA = null;      // camadas do leitor antes da 1ª pergunta (para o ↺)
+let vistaAplicada = false;  // #atlas?s=… aplicado uma única vez
+let retomar = null;         // slug para restaurar a rolagem via "continuar lendo"
+let visAtlasSalvo = null;   // camadas do Atlas Livre preservadas enquanto o leitor está num capítulo
+function aplicarVisAtlas() {
+  for (const id of Object.keys(REG))
+    setCam(id, vis[id], id==="rios" && ordemMax < 8 ? ["<=",["get","nuordemcda"],ordemMax] : null);
+  try { map.getSource("marc").setData({ type:"FeatureCollection", features:[] }); } catch(e) {}
+  temMarc = false;
+}
+
+/* ═══════════ DADOS EDITORIAIS ═══════════ */
+let CAPS=[], CAP=null, BLOCOS=[], VERBETES={}, ROTULOS={}, DESTAQUES=[];
+const BLOCOS_CACHE = {};
+async function carregarDados() {
+  CAPS = await sb("capitulos?select=*&order=ordem.asc");   // RLS: só 'publicado' chega
+  VERBETES = Object.fromEntries((await sb("verbetes?select=*")).map(v => [v.termo, v]));
+  (await sb("rotulos?select=*&order=ordem.asc")).forEach(r => { (ROTULOS[r.camada] ??= []).push(r); });
+  DESTAQUES = await sb("destaques?select=*");
+}
+async function blocosDe(cap) {
+  return BLOCOS_CACHE[cap.slug] ??= await sb(`blocos?capitulo_id=eq.${cap.id}&select=*&order=ordem.asc`);
+}
+
+/* ═══════════ VISTA: ÍNDICE ═══════════ */
+function montarIndice() {
+  const el = document.getElementById("sumario");
+  el.innerHTML = "";
+  const item = (num, tit, meta, on, ir) => {
+    const b = document.createElement("button");
+    b.className = "sumario-item" + (on ? "" : " off");
+    b.innerHTML = `<span class="num">${num}</span><span class="tit">${tit}</span>` +
+      (on ? `<span class="meta">${meta} →</span>` : `<span class="breve">EM BREVE</span>`);
+    if (on) b.onclick = ir;
+    el.appendChild(b);
+  };
+  CAPS.forEach(c => item(c.numero_romano, c.titulo, c.tempo_leitura, true, () => location.hash = "#capitulo/" + c.slug));
+  const tem = new Set(CAPS.map(c => c.numero_romano));
+  [["II","O Relevo"],["III","Os Seis Biomas"],["IV","Fronteiras & Extremos"],["V","A Energia do País"],["VI","Povos & Territórios"]]
+    .filter(([n]) => !tem.has(n)).forEach(([n,t]) => item(n, t, "", false));
+}
+
+/* ═══════════ VISTA: CAPÍTULO ═══════════ */
+const $ = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
+const cartucho = (inner, mini) => { const c = $("div","cartucho"+(mini?" mini":"")); const d = $("div"); d.innerHTML = inner; c.appendChild(d); return c; };
+const divisorEl = () => $("div","divisor",`<div class="l"></div><svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 0 V14 M0 7 H14" stroke="#A93E2A" stroke-width="1"/></svg><div class="l"></div>`);
+
+function miolo(b, emCena) {
+  const c = b.conteudo || {};
+  switch (b.tipo) {
+    case "abertura": return `<div class="ab-card"><div class="eyebrow red">Capítulo ${CAP.numero_romano}</div>
+      <h1>${c.titulo.replace(" do Brasil"," <em>do Brasil</em>")}</h1>
+      <div class="sub">${c.subtitulo||""}</div><div class="meta">${c.meta||""}</div>
+      <div class="dica">▼ ROLE PARA COMEÇAR</div></div>`;
+    case "prosa": {
+      const t = (c.capitular && !emCena) ? `<span class="capitular">${c.texto[0]}</span>${c.texto.slice(1)}` : c.texto;
+      return emCena ? `<div class="leg-texto">${t}</div>` : `<div class="prosa">${t}</div>`;
+    }
+    case "numero": return `<div class="numero"><div class="eyebrow">${c.eyebrow||""}</div><div class="v">${c.valor}</div><div class="r"></div><div class="t">${c.texto}</div></div>`;
+    case "comparacao": return `<div class="eyebrow">${c.eyebrow||""}</div><div class="comp"><div class="linha">
+      <div class="lado"><div class="n">${c.a.nome}</div><div class="v">${c.a.valor}</div><div class="u">${c.a.unidade}</div></div>
+      <div class="vs">vs</div>
+      <div class="lado" style="opacity:.75"><div class="n">${c.b.nome}</div><div class="v">${c.b.valor}</div><div class="u">${c.b.unidade}</div></div>
+      </div><div class="nota">${c.nota||""}</div></div>`;
+    case "verbete_ref": {
+      const ts = (c.termos||[]).map(t => VERBETES[t]).filter(Boolean);
+      if (!ts.length) return "";
+      const cols = ts.map(v => `<div class="col"><div class="termo">${v.termo}</div><div class="def">${v.definicao}</div></div>`).join(`<div class="sep"></div>`);
+      const nota = ts.find(v => v.nota)?.nota;
+      return `<div class="eyebrow red">Verbete · do glossário</div><div class="verbete"><div class="cols">${cols}</div>${nota?`<div class="nota">${nota}</div>`:""}</div>`;
+    }
+    case "voce_sabia": return `<div class="sabia"><div class="selo">VOCÊ<br>SABIA<br>?</div><p>${c.texto}</p></div>`;
+    case "mapa_momento": return `<div class="leg-eyebrow">PRANCHA ${c.prancha||""}</div><div class="leg-texto">${c.legenda||""}</div>`;
+    case "cta": return `<div class="cta"><div style="font-family:var(--serif);font-size:20px">${c.titulo.replace("você","<em>você</em>")}</div>
+      <div style="font-size:13px;color:var(--ink-soft);margin-top:6px">${c.texto}</div>
+      <button onclick="location.hash='#atlas'">Abrir o Atlas Livre</button></div>`;
+    default: return "";
+  }
+}
+
+let capSlugMontado = null, ultimoEstado = null, ioCena = null, ioAnim = null;
+/* MODO EXPLORAR: o leitor toca o mapa do capítulo (zoom, arrasto, clique → ficha) sem sair da leitura */
+let explorando = false;
+function modoExplorar(on) {
+  explorando = on;
+  document.getElementById("v-capitulo").classList.toggle("explorar", on);
+  interagir(on);
+  document.querySelectorAll(".explorar-btn").forEach(b => b.innerHTML = on
+    ? "← voltar à leitura" : "✋ explorar este mapa <span style=\"opacity:.6\">· toque nos elementos</span>");
+  if (!on) {
+    fecharFicha();
+    const b = BLOCOS.find(x => String(x.ordem) === ultimoEstado);
+    if (b?.map_state) aplicarMapState(b.map_state);   // devolve a câmera e a cena da leitura
+  }
+}
+async function montarCapitulo(slug) {
+  const cap = CAPS.find(c => c.slug === slug) || CAPS[0];
+  if (!cap) return;
+  CAP = cap;
+  BLOCOS = await blocosDe(cap);
+  if (capSlugMontado === cap.slug) return;
+  capSlugMontado = cap.slug;
+  if (ioCena) ioCena.disconnect();
+  if (ioAnim) ioAnim.disconnect();
+  document.getElementById("cap-titulo").textContent = `CAPÍTULO ${CAP.numero_romano} · ${CAP.titulo.toUpperCase()}`;
+  const raiz = document.getElementById("cap-corpo");
+  raiz.innerHTML = "";
+  let pag = null;
+  BLOCOS.forEach(b => {
+    if (b.map_state) {
+      pag = null;
+      const cena = $("div","cena"); cena.dataset.ordem = b.ordem;
+      const card = $("div","legenda-card anim");
+      card.appendChild(cartucho(miolo(b,true), !["abertura","cta"].includes(b.tipo)));
+      const ex = $("div","explorar-btn", "✋ explorar este mapa <span style=\"opacity:.6\">· toque nos elementos</span>");
+      ex.onclick = () => modoExplorar(!explorando);
+      card.appendChild(ex);
+      cena.appendChild(card); raiz.appendChild(cena);
+    } else {
+      if (!pag) { pag = $("div","pagina"); pag.appendChild($("div","miolo")); raiz.appendChild(pag); }
+      const m = pag.querySelector(".miolo");
+      const el = $("div","anim");
+      if (["comparacao","verbete_ref"].includes(b.tipo)) el.appendChild(cartucho(miolo(b,false)));
+      else el.innerHTML = miolo(b,false);
+      if (m.children.length && b.tipo !== "prosa") m.appendChild(divisorEl());
+      m.appendChild(el);
+    }
+  });
+  const prox = CAPS[CAPS.indexOf(cap) + 1];
+  const aSeguir = prox ? `${prox.numero_romano} · ${prox.titulo.toUpperCase()} →` : "NOVOS CAPÍTULOS EM BREVE";
+  if (pag) pag.querySelector(".miolo").appendChild($("div","fim",`FIM DO CAPÍTULO ${CAP.numero_romano}<br><span style="color:var(--ink-soft)">A SEGUIR · ${aSeguir}</span>`));
+
+  const estados = Object.fromEntries(BLOCOS.map(b => [String(b.ordem), b.map_state]));
+  const vcap = document.getElementById("v-capitulo");
+  ioCena = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    const ms = estados[e.target.dataset.ordem];
+    if (ms && e.target.dataset.ordem !== ultimoEstado) { if (explorando) modoExplorar(false); ultimoEstado = e.target.dataset.ordem; aplicarMapState(ms); }
+  }), { root:vcap, threshold:.35 });
+  raiz.querySelectorAll(".cena").forEach(el => ioCena.observe(el));
+  ioAnim = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add("visivel"); }), { root:vcap, threshold:.2 });
+  raiz.querySelectorAll(".anim").forEach(el => ioAnim.observe(el));
+  if (!vcap.dataset.scrollOk) {
+    vcap.dataset.scrollOk = "1";
+    let ultSave = 0;
+    vcap.addEventListener("scroll", () => {
+      document.getElementById("barra-prog").style.width = (vcap.scrollTop / (vcap.scrollHeight - vcap.clientHeight) * 100) + "%";
+      const agora = Date.now();                             // salva o ponto de leitura (p/ "continuar lendo")
+      if (agora - ultSave > 900) { ultSave = agora;
+        try { localStorage.setItem("atlas_cap_scroll", String(Math.round(vcap.scrollTop))); } catch(e) {} }
+    }, { passive:true });
+  }
+}
+
+/* ═══════════ VISTA: ATLAS LIVRE ═══════════ */
+let atlasMontado = false;
+function montarAtlas() {
+  if (atlasMontado) return; atlasMontado = true;
+  const raiz = document.getElementById("painel-grupos");
+  const grupos = {};
+  Object.entries(REG).forEach(([id,r]) => { if (!r.oculto) (grupos[r.grupo] ??= []).push([id,r]); });
+  for (const [g, itens] of Object.entries(grupos)) {
+    raiz.appendChild($("div","grupo-nome",g));
+    const chips = $("div","chips");
+    itens.forEach(([id,r]) => {
+      const c = $("button","chip"+(vis[id]?" on":""), r.label);
+      c.dataset.cid = id;
+      c.onclick = () => { vis[id] = !vis[id]; c.classList.toggle("on", vis[id]);
+        setCam(id, vis[id], id==="rios" && ordemMax<8 ? ["<=",["get","nuordemcda"],ordemMax] : null);
+        if (id==="rios") { vis.rios_nomeados = vis.rios; setCam("rios_nomeados", vis.rios, null); }
+        if (id==="municipios" && vis.municipios) carregarMunCtr();
+        document.getElementById("filtro-rios").style.display = vis.rios ? "flex" : "none";
+        atualizarLegenda(); };
+      chips.appendChild(c);
+    });
+    raiz.appendChild(chips);
+  }
+  document.getElementById("filtro-rios").style.display = vis.rios ? "flex" : "none";
+  const slider = document.getElementById("slider-ordem");
+  slider.oninput = () => { ordemMax = +slider.value; document.getElementById("ordem-v").textContent = ordemMax;
+    setCam("rios", vis.rios, ordemMax<8 ? ["<=",["get","nuordemcda"],ordemMax] : null); };
+
+  /* painel colapsável — abrir o painel fecha os overlays do topo (nada de dois abertos) */
+  document.getElementById("painel-cab").onclick = () => {
+    const abrindo = document.getElementById("painel").classList.contains("fechado");
+    colapsarPainel(!abrindo);
+    if (abrindo) mostrarTopo(null);
+    atualizarLegenda();
+  };
+  document.getElementById("btn-share").onclick = (e) => { e.stopPropagation(); compartilharVista(); };
+
+  /* seletor de base (Papel · Noturno · Satélite · Híbrido) */
+  function setBase(b) {
+    tema = b;
+    document.body.classList.toggle("noturno", b === "noturno");
+    map.setStyle(construirEstilo());
+    map.once("styledata", () => { if (rota()==="atlas") aplicarVisAtlas(); });
+    document.querySelectorAll("#bases .chip").forEach(c => {
+      const on = c.dataset.b === b;
+      c.classList.toggle("on", on);
+    });
+    renderPainelTema();
+  }
+  const basesEl = document.getElementById("bases");
+  BASES.forEach(([b, label]) => {
+    const c = $("button","chip"+(tema===b?" on":""), label);
+    c.dataset.b = b;
+    c.onclick = () => setBase(b);
+    basesEl.appendChild(c);
+  });
+  function renderPainelTema() {} // chips usam CSS vars, nada a fazer
+  window.__setBase = setBase;    // usado pela vista compartilhada (#atlas?s=…)
+  document.getElementById("btn-tema").onclick = () => {
+    const i = BASES.findIndex(([b]) => b === tema);
+    setBase(BASES[(i + 1) % BASES.length][0]);
+  };
+
+  /* ── expedições prontas (vistas curadas: camadas + câmera + base num toque) ── */
+  const VISTAS = [
+    { n:"Brasil das Águas", tema:"papel", cam:["rios","massas_dagua","hidrovias"], c:[-53,-14.5], z:3.4 },
+    { n:"País Elétrico", tema:"noturno", cam:["usinas_uhe","usinas_pch","usinas_cgh","linhas_transmissao","rios"], c:[-50,-15], z:3.6 },
+    { n:"Terra Protegida", tema:"papel", cam:["terras_indigenas","unidades_conservacao","quilombos"], c:[-56,-10], z:3.4 },
+    { n:"Caminhos do Brasil", tema:"papel", cam:["rodovias_federais","ferrovias","hidrovias","portos","aeroportos"], c:[-51,-15], z:3.8 },
+    { n:"Seis Brasis", tema:"papel", cam:["biomas"], c:[-53,-14.5], z:3.4 },
+    { n:"O Chão do País", tema:"papel", cam:["geomorfologia"], c:[-53,-14.5], z:3.6 },
+    { n:"Brasil Profundo", tema:"papel", cam:["geologia","aquiferos"], c:[-49,-13], z:3.6 },
+    { n:"Fronteiras & Mar", tema:"papel", cam:["faixa_fronteira","zee","timezones","capitais"], c:[-49,-14], z:3.1 },
+  ];
+  function aplicarVista(v) {
+    for (const id of Object.keys(REG)) vis[id] = false;
+    v.cam.forEach(id => { if (REG[id]) vis[id] = true; });
+    vis.rios_nomeados = !!vis.rios;
+    if (v.tema && tema !== v.tema) setBase(v.tema);   // styledata → aplicarVisAtlas com o novo vis
+    else aplicarVisAtlas();
+    document.querySelectorAll("#painel-grupos .chip").forEach(c => c.classList.toggle("on", !!vis[c.dataset.cid]));
+    document.getElementById("filtro-rios").style.display = vis.rios ? "flex" : "none";
+    map.flyTo({ center:v.c, zoom:v.z, pitch:0, bearing:0, duration:2200, essential:true });
+    selecionarTodo(null, {}); limparHL();          // expedição limpa destaques de IA/ficha anteriores
+    visAntesIA = null; legendaFoco = {};
+    colapsarPainel(true);
+    atualizarLegenda();
+  }
+  const vistasEl = document.getElementById("vistas");
+  VISTAS.forEach(v => { const c = $("button","chip", v.n); c.onclick = () => aplicarVista(v); vistasEl.appendChild(c); });
+
+  /* ── busca com lupa ── */
+  let INDICE = null;
+  const ZOOM_TIPO = { "cidade":10, "aeroporto":12, "porto":12, "usina":11, "terra indígena":7.5, "un. conservação":8.5, "hidrovia":6.5, "rio":8.4 };
+  const buscaEl = document.getElementById("busca"), buscaIn = document.getElementById("busca-in"), buscaRes = document.getElementById("busca-res");
+  document.getElementById("btn-busca").onclick = async () => {
+    const abrir = buscaEl.style.display === "none";
+    mostrarTopo(abrir ? "busca" : null);
+    if (!abrir) return;
+    buscaIn.focus();
+    if (!INDICE) {
+      buscaRes.innerHTML = `<div class="item"><span class="n" style="color:var(--ink-soft)">carregando índice…</span></div>`;
+      try { INDICE = (await obterIndice()).map(e => ({ ...e, k: norm(e.n) })); buscaRes.innerHTML = ""; }
+      catch(err) { buscaRes.innerHTML = `<div class="item"><span class="n">índice indisponível</span></div>`; }
+    }
+  };
+  buscaIn.oninput = () => {
+    if (!INDICE) return;
+    const q = norm(buscaIn.value.trim());
+    if (q.length < 2) { buscaRes.innerHTML = ""; return; }
+    const começa = [], contem = [];
+    for (const e of INDICE) {
+      if (e.k.startsWith(q)) começa.push(e);
+      else if (e.k.includes(q)) contem.push(e);
+      if (começa.length > 30) break;
+    }
+    const top = começa.concat(contem).slice(0, 8);
+    buscaRes.innerHTML = "";
+    top.forEach(e => {
+      const d = $("div","item",`<span class="n">${e.n}${e.uf ? " · " + e.uf : ""}</span><span class="t">${e.t}</span>`);
+      d.onclick = () => {
+        buscaEl.style.display = "none"; buscaIn.value = ""; buscaRes.innerHTML = "";
+        map.flyTo({ center:[e.x, e.y], zoom: ZOOM_TIPO[e.t] || 9, duration: 1800, essential:true });
+        try { map.getSource("marc").setData({ type:"FeatureCollection",
+          features:[{ type:"Feature", properties:{ rotulo:e.n }, geometry:{ type:"Point", coordinates:[e.x, e.y] } }] }); } catch(err) {}
+        temMarc = true;
+      };
+      buscaRes.appendChild(d);
+    });
+  };
+  /* ── Pergunte ao Atlas (módulo IA — trancado: só aparece com chave; depois vira assinatura) ── */
+  const iaParam = new URLSearchParams(location.search).get("ia");
+  if (iaParam) { try { localStorage.setItem("atlas_ia", iaParam); } catch(e) {} }
+  let iaChave = null; try { iaChave = localStorage.getItem("atlas_ia"); } catch(e) {}
+  const iaEl = document.getElementById("ia"), iaIn = document.getElementById("ia-in"), iaRes = document.getElementById("ia-res");
+  if (iaChave) document.getElementById("btn-ia").style.display = "flex";
+  /* estado vazio da IA: perguntas de exemplo que ensinam o que dá pra pedir */
+  const SUGESTOES = ["Rios da cidade de Sorocaba", "Qual o clima de Gramado?", "Onde nasce o Rio São Francisco?", "Terras indígenas de Roraima"];
+  function mostrarSugestoes() {
+    const sug = document.getElementById("ia-sug");
+    if (iaRes.textContent) { sug.innerHTML = ""; return; }
+    sug.innerHTML = "";
+    SUGESTOES.forEach(q => { const c = $("button","chip", q);
+      c.onclick = () => { iaIn.value = q; perguntarAtlas(); };
+      sug.appendChild(c); });
+  }
+  document.getElementById("btn-ia").onclick = () => {
+    const abrir = iaEl.style.display === "none";
+    mostrarTopo(abrir ? "ia" : null);
+    if (abrir) { mostrarSugestoes(); iaIn.focus(); }
+  };
+  let iaOcupado = false;
+  async function perguntarAtlas() {
+    const q = iaIn.value.trim(); if (q.length < 3) return;
+    if (iaOcupado) { toast("AGUARDE A RESPOSTA…"); return; }
+    const go = document.getElementById("ia-go");
+    iaOcupado = true; go.disabled = true; go.textContent = "…"; go.style.opacity = ".5";
+    iaRes.textContent = "✦ consultando o Atlas…";
+    document.getElementById("ia-focos").innerHTML = "";
+    document.getElementById("ia-sug").innerHTML = "";
+    try {
+      const r = await fetch(`${SB_URL}/functions/v1/pergunte`, { method:"POST",
+        headers:{ "Content-Type":"application/json", apikey:SB_KEY, Authorization:`Bearer ${SB_KEY}` },
+        body: JSON.stringify({ pergunta:q, senha:iaChave }) });
+      const j = await r.json().catch(() => null);
+      if (!r.ok || !j?.resposta) {
+        iaRes.textContent = j?.erro === "senha" ? "este módulo é exclusivo para assinantes" : "não consegui responder agora — tente de novo";
+      } else {
+        iaRes.textContent = String(j.resposta).replace(/\*\*?/g, "");
+        selecionarTodo(null, {}); limparHL();            // limpa seleção da pergunta anterior
+        const centro = j.map_state?.center || null;
+        let mapaIdx = {}; try { mapaIdx = await indicePorTipo(); } catch(e) {}
+        /* focos do servidor + rede de segurança: rios citados no texto que existem no índice */
+        const focos = (Array.isArray(j.focos) ? j.focos : (j.foco ? [j.foco] : [])).slice();
+        /* a pergunta CURA o mapa (como uma expedição): zera as camadas herdadas e monta a cena
+           só com focos + contexto — pergunta de clima mostra clima, não os rios de antes */
+        if (focos.length || j.map_state) {
+          if (!visAntesIA) visAntesIA = { ...vis };      // guarda as camadas do leitor p/ o ↺
+          for (const id of Object.keys(REG)) vis[id] = false; aplicarVisAtlas();
+        }
+        const jaTem = new Set(focos.filter(f => f?.camada === "rios_nomeados").map(f => norm(String(f.valor))));
+        for (const nomeRio of riosDoTexto(iaRes.textContent, mapaIdx))
+          if (!jaTem.has(norm(nomeRio))) focos.push({ camada:"rios_nomeados", campo:"NORIOCOMP", valor:nomeRio });
+        const { acesos, perdidos, marcas } = acenderFocos(focos, mapaIdx, centro);
+        /* mapa: voo + contexto ADITIVO (nunca apaga as camadas do leitor) + marcadores nos pontos resolvidos */
+        aplicarMapStateIA(j.map_state, marcas, acesos);
+        document.querySelectorAll("#painel-grupos .chip").forEach(c => c.classList.toggle("on", !!vis[c.dataset.cid]));
+        renderFocosChips(acesos, perdidos);
+        atualizarLegenda();
+      }
+    } catch(e) { iaRes.textContent = "não consegui responder agora — tente de novo"; }
+    iaOcupado = false; go.disabled = false; go.textContent = "➤"; go.style.opacity = "1";
+  }
+  iaIn.onkeydown = (e) => { if (e.key === "Enter") { e.preventDefault(); perguntarAtlas(); } };
+  document.getElementById("ia-go").onclick = perguntarAtlas;
+
+  map.on("click", (e) => {
+    if (rota() !== "atlas" && !explorando) return;
+    const ids = camadasVisiveis();
+    /* área de toque tolerante (linhas finas no celular) */
+    const R = 14;
+    const caixa = [[e.point.x - R, e.point.y - R], [e.point.x + R, e.point.y + R]];
+    let fs = map.queryRenderedFeatures(caixa, { layers: ids });
+    if (fs.length > 1) {      // prioriza linhas/pontos sobre polígonos gigantes
+      const peso = f => f.layer.type === "circle" ? 0 : f.layer.type === "line" ? 1 : 2;
+      fs = fs.sort((a, b) => peso(a) - peso(b));
+    }
+    if (!fs.length) { fecharFicha(); return; }
+    abrirFicha(fs[0], e.point);
+  });
+}
+const fmt = (v, f) => {
+  if (v == null || v === "" || /^(sem info|sem informa|n\/?d|null|none|-+)$/i.test(String(v).trim())) return null;
+  const n = Number(String(v).replace(",", "."));
+  switch (f) {
+    case "km2": return isNaN(n) ? v : n <= 0 ? null : n.toLocaleString("pt-BR",{maximumFractionDigits: n < 10 ? 1 : 0}) + " km²";
+    case "inteiro": return isNaN(n) ? v : n.toLocaleString("pt-BR",{maximumFractionDigits:0});
+    case "ano": return String(v).slice(0,4);
+    case "kw": return isNaN(n) ? v : (n/1000).toLocaleString("pt-BR",{maximumFractionDigits:0}) + " MW";
+    case "kv": return v + " kV";
+    case "br": return "BR-" + String(v).padStart(3,"0");
+    default: return v;
+  }
+};
+/* ── cauda sob demanda (Etapa 3): ficha gerada na hora + cache ── */
+const CHAVE_PREF = { municipios:"CD_MUN" };            // homônimos: chave estável
+let fichaTok = 0;
+function seloAuto(ftx) {
+  const s = document.createElement("div");
+  s.style.cssText = "font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--ink-soft);opacity:.75;margin-top:6px;text-transform:uppercase";
+  s.textContent = "✦ ficha gerada automaticamente — em revisão";
+  ftx.appendChild(s);
+}
+function pontoDe(g) {                                    // 1º vértice da geometria (âncora geográfica)
+  let c = g && g.coordinates; while (Array.isArray(c) && Array.isArray(c[0])) c = c[0];
+  return Array.isArray(c) && c.length >= 2 ? [Math.round(c[0]*100)/100, Math.round(c[1]*100)/100] : null;
+}
+async function gerarFicha(camada, campo, valor, nome, props, tok, coords, municipio) {
+  try {
+    const r = await fetch(`${SB_URL}/functions/v1/ficha`, {
+      method:"POST",
+      headers:{ "Content-Type":"application/json", apikey:SB_KEY, Authorization:`Bearer ${SB_KEY}` },
+      body: JSON.stringify({ camada, campo, valor, nome, label: REG[camada]?.label, props, coords, municipio }) });
+    if (!r.ok) return;
+    const { destaque } = await r.json();
+    if (!destaque) return;
+    DESTAQUES.push(destaque);
+    if (tok !== fichaTok) return;                       // usuário já clicou em outra coisa
+    const ftx = document.getElementById("f-texto");
+    document.getElementById("f-titulo").textContent = destaque.titulo || nome;
+    ftx.textContent = destaque.texto; ftx.style.display = "block";
+    if (!destaque.verificado) seloAuto(ftx);
+  } catch(e) {}
+}
+/* camadas realmente visíveis no mapa agora (vale para atlas livre E capítulo em modo explorar) */
+function camadasVisiveis() {
+  const ids = [];
+  for (const id of Object.keys(REG)) {
+    const r = REG[id], prop = r.tipo==="fill" ? "fill-opacity" : r.tipo==="line" ? "line-opacity" : "circle-opacity";
+    if (id === "rios") continue;                       // cursos sem nome: nada a dizer — o toque cai no rio nomeado
+    try { if (map.getPaintProperty(id, prop) > 0) { ids.push(id); if (OV[id]) ids.push(id+"-ov"); } } catch(e) {}
+  }
+  if (ids.includes("municipios")) ids.push("municipios-fill");   // miolo clicável (a camada visível é só divisa)
+  if (ids.includes("bairros")) ids.push("bairros-fill");
+  return ids;
+}
+/* ─── MÁQUINA DE ESTADOS DA UI: no máximo UM overlay em evidência (busca | ia | ficha | painel aberto) ─── */
+function colapsarPainel(sim) {
+  const p = document.getElementById("painel");
+  p.classList.toggle("fechado", sim);
+  document.getElementById("painel-seta").textContent = sim ? "▴" : "▾";
+}
+function mostrarTopo(qual) {           // "ia" | "busca" | null — abrir um fecha todo o resto
+  document.getElementById("ia").style.display = qual === "ia" ? "block" : "none";
+  document.getElementById("busca").style.display = qual === "busca" ? "block" : "none";
+  if (qual) {
+    colapsarPainel(true);
+    if (document.getElementById("ficha").style.display === "block") fecharFicha();
+  }
+  atualizarLegenda();
+}
+/* nomes humanos para campos que escapam das regras (nunca mostrar chave de banco) */
+const CAMPO_HUMANO = { NORIOCOMP:"Nome oficial (ANA)", nuordemcda:"Ordem do curso", wts_gm_area:"Área", wts_cd_pfafstetterbasin:"Código Pfafstetter",
+  NM_MUN:"Município", SIGLA_UF:"UF", AREA_KM2:"Área", NOME:"Nome", nome:"Nome", RIO:"Rio", Tensao:"Tensão", POT_KW:"Potência", vl_br:"Rodovia", sg_uf:"UF" };
+function abrirFicha(f, ponto) {
+  mostrarTopo(null); limparHL();
+  const camada = f.layer.id.replace(/-(fill|ov)$/, ""), props = f.properties || {};
+  const regras = ROTULOS[camada] || [];
+  const dest = DESTAQUES.find(d => d.camada===camada && d.valor_chave && String(props[d.campo_chave])===String(d.valor_chave));
+  const todoAceso = selecionarTodo(camada, props);
+  try { map.getSource("sel").setData({ type:"FeatureCollection",
+    features: todoAceso ? [] : [{ type:"Feature", properties:{}, geometry:f.geometry }] }); } catch(e) {}
+  const rot = REG[camada];
+  const tok = ++fichaTok;
+  const tituloCampo = regras.find(r => r.label_humano && r.ordem === 1);
+  const ehBacia = /^bacia_/.test(camada);
+  /* título: a FEIÇÃO manda quando a ficha curada é de uma classe mais ampla (geologia: unidade × era);
+     linhas de transmissão não têm identidade própria → título fixo + tensão no subtítulo */
+  const TITULO_DA_FEICAO = { geologia: true };
+  const nomeBruto = tituloCampo && fmt(humano(tituloCampo.campo_origem, props[tituloCampo.campo_origem]), "texto");
+  const nomeFeicao = nomeBruto && !/\d/.test(String(nomeBruto)) ? tituloCaso(String(nomeBruto)) : nomeBruto;   // "TERMINAL TABATINGA" → "Terminal Tabatinga"; "UTC-03:00"/"JUI-008" ficam
+  /* ferrovias sem concessionária (planejadas, em estudo, desativadas): identidade pelo trecho EF-xxx */
+  const tituloFerrovia = camada === "ferrovias" && !nomeFeicao
+    ? "Ferrovia" + (fmt(props.label, "texto") ? " " + tituloCaso(props.label) : fmt(props.sigla, "texto") ? " " + props.sigla : "") : null;
+  const titulo = camada === "linhas_transmissao" ? "Linha de transmissão"
+    : (TITULO_DA_FEICAO[camada] && nomeFeicao) || dest?.titulo || nomeFeicao || tituloFerrovia
+    || (ehBacia && props.wts_cd_pfafstetterbasin ? "Ottobacia " + props.wts_cd_pfafstetterbasin : null) || rot?.label || "—";
+  document.getElementById("f-titulo").textContent = titulo;
+  /* contexto instantâneo, do próprio mapa: em que município o leitor tocou (sem rede, sem IA) */
+  let contexto = "";
+  if (ponto && !["municipios","bairros","estados","capitais"].includes(camada)) {
+    try { const m = map.queryRenderedFeatures(ponto, { layers:["municipios-fill"] })[0]?.properties;
+      if (m?.NM_MUN) contexto = `em ${m.NM_MUN}${m.SIGLA_UF ? " · " + m.SIGLA_UF : ""}`; } catch(e) {}
+  }
+  if (ehBacia) contexto = `ottobacia de nível ${props.wts_cd_pfafstetterbasincodelevel || 2}` + (contexto ? " · " + contexto : "");
+  if (camada === "linhas_transmissao" && props.Tensao) contexto = `${props.Tensao} kV` + (contexto ? " · " + contexto : "");
+  if (camada === "ferrovias" && fmt(props.tip_situac, "texto")) contexto = humano("tip_situac", props.tip_situac) + (contexto ? " · " + contexto : "");
+  if (TITULO_DA_FEICAO[camada] && dest?.titulo && dest.titulo !== titulo) contexto = dest.titulo + (contexto ? " · " + contexto : "");
+  document.getElementById("f-sub").textContent = (rot ? rot.label : camada) + (contexto ? " · " + contexto : "");
+  const ftx = document.getElementById("f-texto"); ftx.innerHTML = "";
+  if (dest?.texto) {
+    ftx.textContent = dest.texto; ftx.style.display = "block";
+    if (!dest.verificado) seloAuto(ftx);
+  } else {
+    ftx.style.display = "none";
+    /* sem ficha: se a feição tem nome, pede uma à Edge Function (1ª vez gera, depois é cache) */
+    const SEM_IA = { linhas_transmissao: true, timezones: true };
+    const campoNome = SEM_IA[camada] ? null : (tituloCampo?.campo_origem || (ehBacia ? "wts_cd_pfafstetterbasin" : null));
+    const nome = ehBacia && props.wts_cd_pfafstetterbasin ? `Ottobacia nível 2, código ${props.wts_cd_pfafstetterbasin}` : (campoNome ? nomeFeicao : null);
+    /* nome que é só código de projeto ("JUI-008", "A34PA250") ou veio corrompido ("JATOB?") não vai à IA: ela inventaria */
+    const nomeSensato = nome && String(nome).trim().length > 2 && (camada === "rodovias_estaduais" || !/^[A-Z]{1,4}-?\d{2,}/i.test(String(nome).trim())) && !/\?/.test(String(nome));
+    if (nomeSensato) {
+      const campo = CHAVE_PREF[camada] && props[CHAVE_PREF[camada]] != null ? CHAVE_PREF[camada] : campoNome;
+      const valor = String(props[campo]);
+      ftx.textContent = "✍ escrevendo a ficha deste lugar…"; ftx.style.display = "block"; ftx.style.opacity = ".6";
+      setTimeout(() => { ftx.style.opacity = "1"; }, 60);
+      setTimeout(() => { if (tok === fichaTok && ftx.textContent.startsWith("✍")) ftx.textContent = "✍ escrevendo a ficha deste lugar… (quase lá)"; }, 9000);
+      setTimeout(() => { if (tok === fichaTok && ftx.textContent.startsWith("✍")) ftx.textContent = "A ficha deste lugar ainda não pôde ser escrita. Toque de novo mais tarde."; }, 25000);
+      gerarFicha(camada, campo, valor, String(nome), props, tok, pontoDe(f.geometry), contexto.replace(/^em /, "")).then(() => {
+        if (tok === fichaTok && ftx.textContent.startsWith("✍")) ftx.style.display = "none";
+      });
+    }
+  }
+  const dados = document.getElementById("f-dados"); dados.innerHTML = "";
+  /* linha que só repete o que já está no título/subtítulo ("Clima: Am" sob "Clima de Monção (Am)") não entra */
+  const jaDito = (titulo + " · " + contexto).toLowerCase();
+  const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const repetido = v => v != null && new RegExp("(^|[^\\p{L}\\p{N}])" + esc(String(v).trim().toLowerCase()) + "([^\\p{L}\\p{N}]|$)", "u").test(jaDito);
+  const SEM_LINHAS = { timezones: true };                  // o título curado já diz tudo ("UTC−3 · Horário de Brasília")
+  regras.filter(r => r.label_humano && !SEM_LINHAS[camada] && !repetido(props[r.campo_origem]))
+    .forEach(r => { const v = fmt(humano(r.campo_origem, props[r.campo_origem]), r.formato);
+      if (v != null && !repetido(v)) dados.appendChild($("div","f-linha",`<span class="k">${r.label_humano}</span><span class="v">${v}</span>`)); });
+  if (!dados.children.length && !dest && !regras.length) {
+    /* fallback só para camadas SEM regras: valores com cara de texto e chave humanizada — nunca código de banco */
+    const CHAVE_FEIA = /^(cd_|gid$|fid$|id\d*$|objectid|wts_pk|esp_cd|shape_|.*_cd$|.*_pk$|cod_|leg_|created|last_edi)/i;
+    const limpos = Object.entries(props).filter(([k,v]) =>
+      !CHAVE_FEIA.test(k) && typeof v === "string" && v.length > 2 && /[A-Za-zÀ-úà-ÿ]{3,}/.test(v) && !/^urn:|^\d+$/.test(v) && v !== titulo
+    ).slice(0,3);
+    dados.innerHTML = limpos.map(([k,v]) =>
+      `<div class="f-linha"><span class="k">${CAMPO_HUMANO[k] || k.toLowerCase().replace(/_/g," ").replace(/^\w/, c => c.toUpperCase())}</span><span class="v">${v}</span></div>`).join("");
+  }
+  /* ponte ficha → IA: pergunta já contextualizada neste lugar (só com o módulo liberado) */
+  const fIA = document.getElementById("f-ia");
+  let temIA = false; try { temIA = !!localStorage.getItem("atlas_ia"); } catch(e) {}
+  fIA.style.display = temIA && rota() === "atlas" && titulo && titulo !== "—" ? "block" : "none";
+  fIA.onclick = () => {
+    mostrarTopo("ia");
+    const inp = document.getElementById("ia-in");
+    inp.value = "Me conte sobre " + titulo; inp.focus();
+  };
+  document.getElementById("painel").style.display = "none";
+  document.getElementById("ficha").style.display = "block";
+  atualizarLegenda();
+}
+function fecharFicha() {
+  document.getElementById("ficha").style.display = "none";
+  document.getElementById("painel").style.display = "block";
+  try { map.getSource("sel").setData({ type:"FeatureCollection", features:[] }); } catch(e) {}
+  selecionarTodo(null, {}); limparHL();
+  atualizarLegenda();
+}
+
+/* ═══════════ ROTEADOR ═══════════ */
+const rota = () => location.hash.startsWith("#capitulo") ? "capitulo" : location.hash.startsWith("#atlas") ? "atlas" : "indice";
+const rotaSlug = () => (location.hash.split("/")[1] || "").split("?")[0];
+async function navegar() {
+  const r = rota();
+  document.querySelectorAll(".vista").forEach(v => v.classList.remove("ativa"));
+  document.getElementById("v-" + (r==="indice" ? "indice" : r)).classList.add("ativa");
+  if (explorando) modoExplorar(false);
+  if (r === "capitulo") {
+    if (!visAtlasSalvo) visAtlasSalvo = { ...vis };
+    const slug = rotaSlug();
+    await montarCapitulo(slug); interagir(false); fecharFicha();
+    ultimoEstado = null;
+    const primeiro = BLOCOS.find(b => b.map_state);
+    if (primeiro) { ultimoEstado = String(primeiro.ordem); aplicarMapState(primeiro.map_state); }
+    try { localStorage.setItem("atlas_cap_slug", slug); } catch(e) {}
+    const vcap = document.getElementById("v-capitulo");
+    if (retomar === slug) {                                 // "continuar lendo": volta ao ponto salvo
+      let sv = 0; try { sv = +(localStorage.getItem("atlas_cap_scroll") || 0); } catch(e) {}
+      vcap.scrollTop = sv; retomar = null;
+    } else vcap.scrollTop = 0;
+  } else if (r === "atlas") {
+    if (visAtlasSalvo) { Object.assign(vis, visAtlasSalvo); visAtlasSalvo = null; }
+    selecionarTodo(null, {}); limparHL(); legendaFoco = {};
+    montarAtlas(); interagir(true);
+    const s = new URLSearchParams(location.hash.split("?")[1] || "").get("s");
+    if (s && !vistaAplicada) {                              // vista compartilhada: restaura camadas+câmera+base
+      vistaAplicada = true;
+      try {
+        const [lng, lat, z, tm, ids] = decodeURIComponent(s).split("~");
+        for (const id of Object.keys(REG)) vis[id] = false;
+        (ids ? ids.split(".") : []).forEach(id => { if (REG[id]) vis[id] = true; });
+        vis.rios_nomeados = !!vis.rios;
+        if (tm && TEMAS[tm] && tema !== tm && window.__setBase) window.__setBase(tm);
+        else aplicarVisAtlas();
+        document.querySelectorAll("#painel-grupos .chip").forEach(c => c.classList.toggle("on", !!vis[c.dataset.cid]));
+        document.getElementById("filtro-rios").style.display = vis.rios ? "flex" : "none";
+        try { map.jumpTo({ center:[+lng, +lat], zoom:+z, pitch:0, bearing:0 }); } catch(e) {}
+        colapsarPainel(true);
+      } catch(e) { aplicarVisAtlas(); }
+    } else {
+      aplicarVisAtlas();
+      map.easeTo({ center:[-53,-14.5], zoom:3.6, pitch:0, bearing:0, duration:900 });
+    }
+    atualizarLegenda();
+  } else {
+    interagir(false); fecharFicha(); montarContinuar();
+  }
+}
+/* "continuar lendo" no índice: retoma o último capítulo aberto */
+function montarContinuar() {
+  let slug = null; try { slug = localStorage.getItem("atlas_cap_slug"); } catch(e) {}
+  const alvo = slug && CAPS.find(c => c.slug === slug);
+  let el = document.getElementById("continuar");
+  if (!alvo) { if (el) el.remove(); return; }
+  if (!el) {
+    el = document.createElement("div"); el.id = "continuar";
+    const sum = document.getElementById("sumario");
+    sum.parentNode.insertBefore(el, sum);
+  }
+  el.innerHTML = `<div class="cartucho mini" style="cursor:pointer;margin:10px 0 14px"><div style="display:flex;align-items:center;gap:10px">
+    <span style="font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--red);flex:0 0 auto">CONTINUAR<br>LENDO</span>
+    <span style="font-family:var(--serif);font-size:15.5px;flex:1;line-height:1.15">${alvo.numero_romano} · ${alvo.titulo}</span>
+    <span style="font-family:var(--mono);font-size:11px;color:var(--red)">→</span></div></div>`;
+  el.onclick = () => { retomar = alvo.slug; location.hash = "#capitulo/" + alvo.slug; };
+}
+addEventListener("hashchange", navegar);
+
+/* ═══════════ BOOT ═══════════ */
+(async function boot() {
+  try {
+    await carregarDados();
+    montarIndice();
+    navegar();
+    /* "load" (primeira renderização completa) + fallback: nunca prende na abertura */
+    const liberar = () => {
+      const l = document.getElementById("carregando");
+      if (!l) return;
+      l.style.opacity = 0; setTimeout(() => l.remove(), 600);
+    };
+    map.once("load", liberar);
+    setTimeout(liberar, 12000);
+    boasVindas();
+  } catch (err) {
+    /* sem rede / Supabase fora: mensagem humana + tentar de novo (nunca tela branca) */
+    const semRede = !navigator.onLine || /fetch|network|Failed/i.test(String(err.message));
+    document.getElementById("carregando").innerHTML =
+      `<div class="t">${semRede ? "Sem conexão" : "Não consegui abrir o Atlas"}</div>
+       <div class="s" style="max-width:280px;text-align:center;line-height:1.8">${semRede
+         ? "O Atlas precisa de internet para carregar os capítulos e o mapa. Conecte-se e tente de novo."
+         : "Algo deu errado ao buscar os capítulos. Tente de novo em instantes."}</div>
+       <button onclick="location.reload()" style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;background:var(--ink);color:var(--paper-hi);border:none;padding:11px 20px;cursor:pointer;margin-top:6px">TENTAR DE NOVO</button>`;
+    console.error(err);
+  }
+})();
+/* casca nativa (Capacitor): botão voltar do Android navega pelo hash; na raiz, sai do app */
+(function nativo() {
+  const App = window.Capacitor?.Plugins?.App; if (!App) return;
+  App.addListener("backButton", () => {
+    if (document.getElementById("ficha")?.style.display === "block") { fecharFicha(); return; }
+    if (location.hash) history.back(); else App.exitApp();
+  });
+})();
+/* aviso de conexão durante o uso (tiles e IA dependem de rede) */
+addEventListener("offline", () => toast("SEM CONEXÃO — MAPA E IA PAUSADOS"));
+addEventListener("online", () => toast("CONEXÃO DE VOLTA"));
+/* primeira abertura: três dicas, uma vez só */
+function boasVindas() {
+  let visto = null; try { visto = localStorage.getItem("atlas_boasvindas"); } catch(e) {}
+  if (visto) return;
+  const el = document.createElement("div"); el.id = "boasvindas";
+  el.innerHTML = `<div class="cartucho" style="max-width:380px;width:100%"><div>
+    <div class="eyebrow red">Bem-vindo à expedição</div>
+    <div style="font-family:var(--serif);font-size:26px;line-height:1.05;margin:6px 0 14px">Um atlas que se move enquanto você lê.</div>
+    <div class="bv-item"><b>Capítulos</b> — o mapa acompanha o texto. Nas pranchas, toque em <i>explorar este mapa</i> para dar zoom e abrir fichas.</div>
+    <div class="bv-item"><b>Atlas Livre</b> — ligue camadas, comece por uma Expedição, toque em qualquer lugar para a ficha.</div>
+    <div class="bv-item"><b>Busca</b> — 34 mil lugares: cidades, rios, parques, usinas, aeroportos.</div>
+    <button id="bv-ok" style="width:100%;margin-top:14px;font-family:var(--sans);font-weight:600;font-size:14px;background:var(--ink);color:var(--paper-hi);border:none;padding:12px;cursor:pointer">Começar</button>
+  </div></div>`;
+  document.body.appendChild(el);
+  document.getElementById("bv-ok").onclick = () => { try { localStorage.setItem("atlas_boasvindas", "1"); } catch(e) {} el.remove(); };
+}
+</script>
+</body>
+</html>
