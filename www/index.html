@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Atlas do Brasil · by Brexplora</title><!-- v22 -->
+<title>Atlas do Brasil · by Brexplora</title><!-- v23 -->
 <script src="lib/maplibre-gl.js"></script>
 <style>/* maplibre-gl 4.7.1 (BSD-3) — embutido: R2 serve .css como octet-stream */
 .maplibregl-map{font:12px/20px Helvetica Neue,Arial,Helvetica,sans-serif;overflow:hidden;position:relative;-webkit-tap-highlight-color:rgb(0 0 0/0)}.maplibregl-canvas{left:0;position:absolute;top:0}.maplibregl-map:fullscreen{height:100%;width:100%}.maplibregl-ctrl-group button.maplibregl-ctrl-compass{touch-action:none}.maplibregl-canvas-container.maplibregl-interactive,.maplibregl-ctrl-group button.maplibregl-ctrl-compass{cursor:grab;-webkit-user-select:none;-moz-user-select:none;user-select:none}.maplibregl-canvas-container.maplibregl-interactive.maplibregl-track-pointer{cursor:pointer}.maplibregl-canvas-container.maplibregl-interactive:active,.maplibregl-ctrl-group button.maplibregl-ctrl-compass:active{cursor:grabbing}.maplibregl-canvas-container.maplibregl-touch-zoom-rotate,.maplibregl-canvas-container.maplibregl-touch-zoom-rotate .maplibregl-canvas{touch-action:pan-x pan-y}.maplibregl-canvas-container.maplibregl-touch-drag-pan,.maplibregl-canvas-container.maplibregl-touch-drag-pan .maplibregl-canvas{touch-action:pinch-zoom}.maplibregl-canvas-container.maplibregl-touch-zoom-rotate.maplibregl-touch-drag-pan,.maplibregl-canvas-container.maplibregl-touch-zoom-rotate.maplibregl-touch-drag-pan .maplibregl-canvas{touch-action:none}.maplibregl-canvas-container.maplibregl-touch-drag-pan.maplibregl-cooperative-gestures,.maplibregl-canvas-container.maplibregl-touch-drag-pan.maplibregl-cooperative-gestures .maplibregl-canvas{touch-action:pan-x pan-y}.maplibregl-ctrl-bottom-left,.maplibregl-ctrl-bottom-right,.maplibregl-ctrl-top-left,.maplibregl-ctrl-top-right{pointer-events:none;position:absolute;z-index:2}.maplibregl-ctrl-top-left{left:0;top:0}.maplibregl-ctrl-top-right{right:0;top:0}.maplibregl-ctrl-bottom-left{bottom:0;left:0}.maplibregl-ctrl-bottom-right{bottom:0;right:0}.maplibregl-ctrl{clear:both;pointer-events:auto;transform:translate(0)}.maplibregl-ctrl-top-left .maplibregl-ctrl{float:left;margin:10px 0 0 10px}.maplibregl-ctrl-top-right .maplibregl-ctrl{float:right;margin:10px 10px 0 0}.maplibregl-ctrl-bottom-left .maplibregl-ctrl{float:left;margin:0 0 10px 10px}.maplibregl-ctrl-bottom-right .maplibregl-ctrl{float:right;margin:0 10px 10px 0}.maplibregl-ctrl-group{background:#fff;border-radius:4px}.maplibregl-ctrl-group:not(:empty){box-shadow:0 0 0 2px rgba(0,0,0,.1)}@media (forced-colors:active){.maplibregl-ctrl-group:not(:empty){box-shadow:0 0 0 2px ButtonText}}.maplibregl-ctrl-group button{background-color:transparent;border:0;box-sizing:border-box;cursor:pointer;display:block;height:29px;outline:none;padding:0;width:29px}.maplibregl-ctrl-group button+button{border-top:1px solid #ddd}.maplibregl-ctrl button .maplibregl-ctrl-icon{background-position:50%;background-repeat:no-repeat;display:block;height:100%;width:100%}@media (forced-colors:active){.maplibregl-ctrl-icon{background-color:transparent}.maplibregl-ctrl-group button+button{border-top:1px solid ButtonText}}.maplibregl-ctrl button::-moz-focus-inner{border:0;padding:0}.maplibregl-ctrl-attrib-button:focus,.maplibregl-ctrl-group button:focus{box-shadow:0 0 2px 2px #0096ff}.maplibregl-ctrl button:disabled{cursor:not-allowed}.maplibregl-ctrl button:disabled .maplibregl-ctrl-icon{opacity:.25}.maplibregl-ctrl button:not(:disabled):hover{background-color:rgb(0 0 0/5%)}.maplibregl-ctrl-group button:focus:focus-visible{box-shadow:0 0 2px 2px #0096ff}.maplibregl-ctrl-group button:focus:not(:focus-visible){box-shadow:none}.maplibregl-ctrl-group button:focus:first-child{border-radius:4px 4px 0 0}.maplibregl-ctrl-group button:focus:last-child{border-radius:0 0 4px 4px}.maplibregl-ctrl-group button:focus:only-child{border-radius:inherit}.maplibregl-ctrl button.maplibregl-ctrl-zoom-out .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23333' viewBox='0 0 29 29'%3E%3Cpath d='M10 13c-.75 0-1.5.75-1.5 1.5S9.25 16 10 16h9c.75 0 1.5-.75 1.5-1.5S19.75 13 19 13z'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-zoom-in .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23333' viewBox='0 0 29 29'%3E%3Cpath d='M14.5 8.5c-.75 0-1.5.75-1.5 1.5v3h-3c-.75 0-1.5.75-1.5 1.5S9.25 16 10 16h3v3c0 .75.75 1.5 1.5 1.5S16 19.75 16 19v-3h3c.75 0 1.5-.75 1.5-1.5S19.75 13 19 13h-3v-3c0-.75-.75-1.5-1.5-1.5'/%3E%3C/svg%3E")}@media (forced-colors:active){.maplibregl-ctrl button.maplibregl-ctrl-zoom-out .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23fff' viewBox='0 0 29 29'%3E%3Cpath d='M10 13c-.75 0-1.5.75-1.5 1.5S9.25 16 10 16h9c.75 0 1.5-.75 1.5-1.5S19.75 13 19 13z'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-zoom-in .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23fff' viewBox='0 0 29 29'%3E%3Cpath d='M14.5 8.5c-.75 0-1.5.75-1.5 1.5v3h-3c-.75 0-1.5.75-1.5 1.5S9.25 16 10 16h3v3c0 .75.75 1.5 1.5 1.5S16 19.75 16 19v-3h3c.75 0 1.5-.75 1.5-1.5S19.75 13 19 13h-3v-3c0-.75-.75-1.5-1.5-1.5'/%3E%3C/svg%3E")}}@media (forced-colors:active) and (prefers-color-scheme:light){.maplibregl-ctrl button.maplibregl-ctrl-zoom-out .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' viewBox='0 0 29 29'%3E%3Cpath d='M10 13c-.75 0-1.5.75-1.5 1.5S9.25 16 10 16h9c.75 0 1.5-.75 1.5-1.5S19.75 13 19 13z'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-zoom-in .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' viewBox='0 0 29 29'%3E%3Cpath d='M14.5 8.5c-.75 0-1.5.75-1.5 1.5v3h-3c-.75 0-1.5.75-1.5 1.5S9.25 16 10 16h3v3c0 .75.75 1.5 1.5 1.5S16 19.75 16 19v-3h3c.75 0 1.5-.75 1.5-1.5S19.75 13 19 13h-3v-3c0-.75-.75-1.5-1.5-1.5'/%3E%3C/svg%3E")}}.maplibregl-ctrl button.maplibregl-ctrl-fullscreen .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23333' viewBox='0 0 29 29'%3E%3Cpath d='M24 16v5.5c0 1.75-.75 2.5-2.5 2.5H16v-1l3-1.5-4-5.5 1-1 5.5 4 1.5-3zM6 16l1.5 3 5.5-4 1 1-4 5.5 3 1.5v1H7.5C5.75 24 5 23.25 5 21.5V16zm7-11v1l-3 1.5 4 5.5-1 1-5.5-4L6 13H5V7.5C5 5.75 5.75 5 7.5 5zm11 2.5c0-1.75-.75-2.5-2.5-2.5H16v1l3 1.5-4 5.5 1 1 5.5-4 1.5 3h1z'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-shrink .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' viewBox='0 0 29 29'%3E%3Cpath d='M18.5 16c-1.75 0-2.5.75-2.5 2.5V24h1l1.5-3 5.5 4 1-1-4-5.5 3-1.5v-1zM13 18.5c0-1.75-.75-2.5-2.5-2.5H5v1l3 1.5L4 24l1 1 5.5-4 1.5 3h1zm3-8c0 1.75.75 2.5 2.5 2.5H24v-1l-3-1.5L25 5l-1-1-5.5 4L17 5h-1zM10.5 13c1.75 0 2.5-.75 2.5-2.5V5h-1l-1.5 3L5 4 4 5l4 5.5L5 12v1z'/%3E%3C/svg%3E")}@media (forced-colors:active){.maplibregl-ctrl button.maplibregl-ctrl-fullscreen .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23fff' viewBox='0 0 29 29'%3E%3Cpath d='M24 16v5.5c0 1.75-.75 2.5-2.5 2.5H16v-1l3-1.5-4-5.5 1-1 5.5 4 1.5-3zM6 16l1.5 3 5.5-4 1 1-4 5.5 3 1.5v1H7.5C5.75 24 5 23.25 5 21.5V16zm7-11v1l-3 1.5 4 5.5-1 1-5.5-4L6 13H5V7.5C5 5.75 5.75 5 7.5 5zm11 2.5c0-1.75-.75-2.5-2.5-2.5H16v1l3 1.5-4 5.5 1 1 5.5-4 1.5 3h1z'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-shrink .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23fff' viewBox='0 0 29 29'%3E%3Cpath d='M18.5 16c-1.75 0-2.5.75-2.5 2.5V24h1l1.5-3 5.5 4 1-1-4-5.5 3-1.5v-1zM13 18.5c0-1.75-.75-2.5-2.5-2.5H5v1l3 1.5L4 24l1 1 5.5-4 1.5 3h1zm3-8c0 1.75.75 2.5 2.5 2.5H24v-1l-3-1.5L25 5l-1-1-5.5 4L17 5h-1zM10.5 13c1.75 0 2.5-.75 2.5-2.5V5h-1l-1.5 3L5 4 4 5l4 5.5L5 12v1z'/%3E%3C/svg%3E")}}@media (forced-colors:active) and (prefers-color-scheme:light){.maplibregl-ctrl button.maplibregl-ctrl-fullscreen .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' viewBox='0 0 29 29'%3E%3Cpath d='M24 16v5.5c0 1.75-.75 2.5-2.5 2.5H16v-1l3-1.5-4-5.5 1-1 5.5 4 1.5-3zM6 16l1.5 3 5.5-4 1 1-4 5.5 3 1.5v1H7.5C5.75 24 5 23.25 5 21.5V16zm7-11v1l-3 1.5 4 5.5-1 1-5.5-4L6 13H5V7.5C5 5.75 5.75 5 7.5 5zm11 2.5c0-1.75-.75-2.5-2.5-2.5H16v1l3 1.5-4 5.5 1 1 5.5-4 1.5 3h1z'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-shrink .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' viewBox='0 0 29 29'%3E%3Cpath d='M18.5 16c-1.75 0-2.5.75-2.5 2.5V24h1l1.5-3 5.5 4 1-1-4-5.5 3-1.5v-1zM13 18.5c0-1.75-.75-2.5-2.5-2.5H5v1l3 1.5L4 24l1 1 5.5-4 1.5 3h1zm3-8c0 1.75.75 2.5 2.5 2.5H24v-1l-3-1.5L25 5l-1-1-5.5 4L17 5h-1zM10.5 13c1.75 0 2.5-.75 2.5-2.5V5h-1l-1.5 3L5 4 4 5l4 5.5L5 12v1z'/%3E%3C/svg%3E")}}.maplibregl-ctrl button.maplibregl-ctrl-compass .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23333' viewBox='0 0 29 29'%3E%3Cpath d='m10.5 14 4-8 4 8z'/%3E%3Cpath fill='%23ccc' d='m10.5 16 4 8 4-8z'/%3E%3C/svg%3E")}@media (forced-colors:active){.maplibregl-ctrl button.maplibregl-ctrl-compass .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23fff' viewBox='0 0 29 29'%3E%3Cpath d='m10.5 14 4-8 4 8z'/%3E%3Cpath fill='%23ccc' d='m10.5 16 4 8 4-8z'/%3E%3C/svg%3E")}}@media (forced-colors:active) and (prefers-color-scheme:light){.maplibregl-ctrl button.maplibregl-ctrl-compass .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' viewBox='0 0 29 29'%3E%3Cpath d='m10.5 14 4-8 4 8z'/%3E%3Cpath fill='%23ccc' d='m10.5 16 4 8 4-8z'/%3E%3C/svg%3E")}}.maplibregl-ctrl button.maplibregl-ctrl-terrain .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' fill='%23333' viewBox='0 0 22 22'%3E%3Cpath d='m1.754 13.406 4.453-4.851 3.09 3.09 3.281 3.277.969-.969-3.309-3.312 3.844-4.121 6.148 6.886h1.082v-.855l-7.207-8.07-4.84 5.187L6.169 6.57l-5.48 5.965v.871ZM.688 16.844h20.625v1.375H.688Zm0 0'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-terrain-enabled .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' fill='%2333b5e5' viewBox='0 0 22 22'%3E%3Cpath d='m1.754 13.406 4.453-4.851 3.09 3.09 3.281 3.277.969-.969-3.309-3.312 3.844-4.121 6.148 6.886h1.082v-.855l-7.207-8.07-4.84 5.187L6.169 6.57l-5.48 5.965v.871ZM.688 16.844h20.625v1.375H.688Zm0 0'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23333' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate:disabled .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23aaa' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3Cpath fill='red' d='m14 5 1 1-9 9-1-1z'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate.maplibregl-ctrl-geolocate-active .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%2333b5e5' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate.maplibregl-ctrl-geolocate-active-error .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23e58978' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate.maplibregl-ctrl-geolocate-background .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%2333b5e5' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate.maplibregl-ctrl-geolocate-background-error .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23e54e33' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate.maplibregl-ctrl-geolocate-waiting .maplibregl-ctrl-icon{animation:maplibregl-spin 2s linear infinite}@media (forced-colors:active){.maplibregl-ctrl button.maplibregl-ctrl-geolocate .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23fff' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate:disabled .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23999' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3Cpath fill='red' d='m14 5 1 1-9 9-1-1z'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate.maplibregl-ctrl-geolocate-active .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%2333b5e5' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate.maplibregl-ctrl-geolocate-active-error .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23e58978' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate.maplibregl-ctrl-geolocate-background .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%2333b5e5' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate.maplibregl-ctrl-geolocate-background-error .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23e54e33' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3C/svg%3E")}}@media (forced-colors:active) and (prefers-color-scheme:light){.maplibregl-ctrl button.maplibregl-ctrl-geolocate .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3C/svg%3E")}.maplibregl-ctrl button.maplibregl-ctrl-geolocate:disabled .maplibregl-ctrl-icon{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='29' height='29' fill='%23666' viewBox='0 0 20 20'%3E%3Cpath d='M10 4C9 4 9 5 9 5v.1A5 5 0 0 0 5.1 9H5s-1 0-1 1 1 1 1 1h.1A5 5 0 0 0 9 14.9v.1s0 1 1 1 1-1 1-1v-.1a5 5 0 0 0 3.9-3.9h.1s1 0 1-1-1-1-1-1h-.1A5 5 0 0 0 11 5.1V5s0-1-1-1m0 2.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 1 0-7'/%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3Cpath fill='red' d='m14 5 1 1-9 9-1-1z'/%3E%3C/svg%3E")}}@keyframes maplibregl-spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}a.maplibregl-ctrl-logo{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='23' fill='none'%3E%3Cpath fill='%23000' fill-opacity='.4' fill-rule='evenodd' d='M17.408 16.796h-1.827l2.501-12.095h.198l3.324 6.533.988 2.19.988-2.19 3.258-6.533h.181l2.6 12.095h-1.81l-1.218-5.644-.362-1.71-.658 1.71-2.929 5.644h-.098l-2.914-5.644-.757-1.71-.345 1.71zm1.958-3.42-.726 3.663a1.255 1.255 0 0 1-1.232 1.011h-1.827a1.255 1.255 0 0 1-1.229-1.509l2.501-12.095a1.255 1.255 0 0 1 1.23-1.001h.197a1.25 1.25 0 0 1 1.12.685l3.19 6.273 3.125-6.263a1.25 1.25 0 0 1 1.123-.695h.181a1.255 1.255 0 0 1 1.227.991l1.443 6.71a5 5 0 0 1 .314-.787l.009-.016a4.6 4.6 0 0 1 1.777-1.887c.782-.46 1.668-.667 2.611-.667a4.6 4.6 0 0 1 1.7.32l.306.134c.21-.16.474-.256.759-.256h1.694a1.255 1.255 0 0 1 1.212.925 1.255 1.255 0 0 1 1.212-.925h1.711c.284 0 .545.094.755.252.613-.3 1.312-.45 2.075-.45 1.356 0 2.557.445 3.482 1.4q.47.48.763 1.064V4.701a1.255 1.255 0 0 1 1.255-1.255h1.86A1.255 1.255 0 0 1 54.44 4.7v9.194h2.217c.19 0 .37.043.532.118v-4.77c0-.356.147-.678.385-.906a2.42 2.42 0 0 1-.682-1.71c0-.665.267-1.253.735-1.7a2.45 2.45 0 0 1 1.722-.674 2.43 2.43 0 0 1 1.705.675q.318.302.504.683V4.7a1.255 1.255 0 0 1 1.255-1.255h1.744A1.255 1.255 0 0 1 65.812 4.7v3.335a4.8 4.8 0 0 1 1.526-.246c.938 0 1.817.214 2.59.69a4.47 4.47 0 0 1 1.67 1.743v-.98a1.255 1.255 0 0 1 1.256-1.256h1.777c.233 0 .451.064.639.174a3.4 3.4 0 0 1 1.567-.372c.346 0 .861.02 1.285.232a1.25 1.25 0 0 1 .689 1.004 4.7 4.7 0 0 1 .853-.588c.795-.44 1.675-.647 2.61-.647 1.385 0 2.65.39 3.525 1.396.836.938 1.168 2.173 1.168 3.528q-.001.515-.056 1.051a1.255 1.255 0 0 1-.947 1.09l.408.952a1.255 1.255 0 0 1-.477 1.552c-.418.268-.92.463-1.458.612-.613.171-1.304.244-2.049.244-1.06 0-2.043-.207-2.886-.698l-.015-.008c-.798-.48-1.419-1.135-1.818-1.963l-.004-.008a5.8 5.8 0 0 1-.548-2.512q0-.429.053-.843a1.3 1.3 0 0 1-.333-.086l-.166-.004c-.223 0-.426.062-.643.228-.03.024-.142.139-.142.59v3.883a1.255 1.255 0 0 1-1.256 1.256h-1.777a1.255 1.255 0 0 1-1.256-1.256V15.69l-.032.057a4.8 4.8 0 0 1-1.86 1.833 5.04 5.04 0 0 1-2.484.634 4.5 4.5 0 0 1-1.935-.424 1.25 1.25 0 0 1-.764.258h-1.71a1.255 1.255 0 0 1-1.256-1.255V7.687a2.4 2.4 0 0 1-.428.625c.253.23.412.561.412.93v7.553a1.255 1.255 0 0 1-1.256 1.255h-1.843a1.25 1.25 0 0 1-.894-.373c-.228.23-.544.373-.894.373H51.32a1.255 1.255 0 0 1-1.256-1.255v-1.251l-.061.117a4.7 4.7 0 0 1-1.782 1.884 4.77 4.77 0 0 1-2.485.67 5.6 5.6 0 0 1-1.485-.188l.009 2.764a1.255 1.255 0 0 1-1.255 1.259h-1.729a1.255 1.255 0 0 1-1.255-1.255v-3.537a1.255 1.255 0 0 1-1.167.793h-1.679a1.25 1.25 0 0 1-.77-.263 4.5 4.5 0 0 1-1.945.429c-.885 0-1.724-.21-2.495-.632l-.017-.01a5 5 0 0 1-1.081-.836 1.255 1.255 0 0 1-1.254 1.312h-1.81a1.255 1.255 0 0 1-1.228-.99l-.782-3.625-2.044 3.939a1.25 1.25 0 0 1-1.115.676h-.098a1.25 1.25 0 0 1-1.116-.68l-2.061-3.994zM35.92 16.63l.207-.114.223-.15q.493-.356.735-.785l.061-.118.033 1.332h1.678V9.242h-1.694l-.033 1.267q-.133-.329-.526-.658l-.032-.028a3.2 3.2 0 0 0-.668-.428l-.27-.12a3.3 3.3 0 0 0-1.235-.23q-1.136-.001-1.974.493a3.36 3.36 0 0 0-1.3 1.382q-.445.89-.444 2.074 0 1.2.51 2.107a3.8 3.8 0 0 0 1.382 1.381 3.9 3.9 0 0 0 1.893.477q.795 0 1.455-.33zm-2.789-5.38q-.576.675-.575 1.762 0 1.102.559 1.794.576.675 1.645.675a2.25 2.25 0 0 0 .934-.19 2.2 2.2 0 0 0 .468-.29l.178-.161a2.2 2.2 0 0 0 .397-.561q.244-.5.244-1.15v-.115q0-.708-.296-1.267l-.043-.077a2.2 2.2 0 0 0-.633-.709l-.13-.086-.047-.028a2.1 2.1 0 0 0-1.073-.285q-1.052 0-1.629.692zm2.316 2.706c.163-.17.28-.407.28-.83v-.114c0-.292-.06-.508-.15-.68a.96.96 0 0 0-.353-.389.85.85 0 0 0-.464-.127c-.4 0-.56.114-.664.239l-.01.012c-.148.174-.275.45-.275.945 0 .506.122.801.27.99.097.11.266.224.68.224.303 0 .504-.09.687-.269zm7.545 1.705a2.6 2.6 0 0 0 .331.423q.319.33.755.548l.173.074q.65.255 1.49.255 1.02 0 1.844-.493a3.45 3.45 0 0 0 1.316-1.4q.493-.904.493-2.089 0-1.909-.988-2.913-.988-1.02-2.584-1.02-.898 0-1.575.347a3 3 0 0 0-.415.262l-.199.166a3.4 3.4 0 0 0-.64.82V9.242h-1.712v11.553h1.729l-.017-5.134zm.53-1.138q.206.29.48.5l.155.11.053.034q.51.296 1.119.297 1.07 0 1.645-.675.577-.69.576-1.762 0-1.119-.576-1.777-.558-.675-1.645-.675-.435 0-.835.16a2 2 0 0 0-.284.136 2 2 0 0 0-.363.254 2.2 2.2 0 0 0-.46.569l-.082.162a2.6 2.6 0 0 0-.213 1.072v.115q0 .707.296 1.267l.135.211zm.964-.818a1.1 1.1 0 0 0 .367.385.94.94 0 0 0 .476.118c.423 0 .59-.117.687-.23.159-.194.28-.478.28-.95 0-.53-.133-.8-.266-.952l-.021-.025c-.078-.094-.231-.221-.68-.221a1 1 0 0 0-.503.135l-.012.007a.86.86 0 0 0-.335.343c-.073.133-.132.324-.132.614v.115a1.4 1.4 0 0 0 .14.66zm15.7-6.222q.347-.346.346-.856a1.05 1.05 0 0 0-.345-.79 1.18 1.18 0 0 0-.84-.329q-.51 0-.855.33a1.05 1.05 0 0 0-.346.79q0 .51.346.855.345.346.856.346.51 0 .839-.346zm4.337 9.314.033-1.332q.191.403.59.747l.098.081a4 4 0 0 0 .316.224l.223.122a3.2 3.2 0 0 0 1.44.322 3.8 3.8 0 0 0 1.875-.477 3.5 3.5 0 0 0 1.382-1.366q.527-.89.526-2.09 0-1.184-.444-2.073a3.24 3.24 0 0 0-1.283-1.399q-.823-.51-1.942-.51a3.5 3.5 0 0 0-1.527.344l-.086.043-.165.09a3 3 0 0 0-.33.214q-.432.315-.656.707a2 2 0 0 0-.099.198l.082-1.283V4.701h-1.744v12.095zm.473-2.509a2.5 2.5 0 0 0 .566.7q.117.098.245.18l.144.08a2.1 2.1 0 0 0 .975.232q1.07 0 1.645-.675.576-.69.576-1.778 0-1.102-.576-1.777-.56-.691-1.645-.692a2.2 2.2 0 0 0-1.015.235q-.22.113-.415.282l-.15.142a2.1 2.1 0 0 0-.42.594q-.223.479-.223 1.1v.115q0 .705.293 1.26zm2.616-.293c.157-.191.28-.479.28-.967 0-.51-.13-.79-.276-.961l-.021-.026c-.082-.1-.232-.225-.67-.225a.87.87 0 0 0-.681.279l-.012.011c-.154.155-.274.38-.274.807v.115c0 .285.057.499.144.669a1.1 1.1 0 0 0 .367.405c.137.082.28.123.455.123.423 0 .59-.118.686-.23zm8.266-3.013q.345-.13.724-.14l.069-.002q.493 0 .642.099l.247-1.794q-.196-.099-.717-.099a2.3 2.3 0 0 0-.545.063 2 2 0 0 0-.411.148 2.2 2.2 0 0 0-.4.249 2.5 2.5 0 0 0-.485.499 2.7 2.7 0 0 0-.32.581l-.05.137v-1.48h-1.778v7.553h1.777v-3.884q0-.546.159-.943a1.5 1.5 0 0 1 .466-.636 2.5 2.5 0 0 1 .399-.253 2 2 0 0 1 .224-.099zm9.784 2.656.05-.922q0-1.743-.856-2.698-.838-.97-2.584-.97-1.119-.001-2.007.493a3.46 3.46 0 0 0-1.4 1.382q-.493.906-.493 2.106 0 1.07.428 1.975.428.89 1.332 1.432.906.526 2.255.526.973 0 1.668-.185l.044-.012.135-.04q.613-.184.984-.421l-.542-1.267q-.3.162-.642.274l-.297.087q-.51.131-1.3.131-.954 0-1.497-.444a1.6 1.6 0 0 1-.192-.193q-.366-.44-.512-1.234l-.004-.021zm-5.427-1.256-.003.022h3.752v-.138q-.011-.727-.288-1.118a1 1 0 0 0-.156-.176q-.46-.428-1.316-.428-.986 0-1.494.604-.379.45-.494 1.234zm-27.053 2.77V4.7h-1.86v12.095h5.333V15.15zm7.103-5.908v7.553h-1.843V9.242h1.843z'/%3E%3Cpath fill='%23fff' d='m19.63 11.151-.757-1.71-.345 1.71-1.12 5.644h-1.827L18.083 4.7h.197l3.325 6.533.988 2.19.988-2.19L26.839 4.7h.181l2.6 12.095h-1.81l-1.218-5.644-.362-1.71-.658 1.71-2.93 5.644h-.098l-2.913-5.644zm14.836 5.81q-1.02 0-1.893-.478a3.8 3.8 0 0 1-1.381-1.382q-.51-.906-.51-2.106 0-1.185.444-2.074a3.36 3.36 0 0 1 1.3-1.382q.839-.494 1.974-.494a3.3 3.3 0 0 1 1.234.231 3.3 3.3 0 0 1 .97.575q.396.33.527.659l.033-1.267h1.694v7.553H37.18l-.033-1.332q-.279.593-1.02 1.053a3.17 3.17 0 0 1-1.662.444zm.296-1.482q.938 0 1.58-.642.642-.66.642-1.711v-.115q0-.708-.296-1.267a2.2 2.2 0 0 0-.807-.872 2.1 2.1 0 0 0-1.119-.313q-1.053 0-1.629.692-.575.675-.575 1.76 0 1.103.559 1.795.577.675 1.645.675zm6.521-6.237h1.711v1.4q.906-1.597 2.83-1.597 1.596 0 2.584 1.02.988 1.005.988 2.914 0 1.185-.493 2.09a3.46 3.46 0 0 1-1.316 1.399 3.5 3.5 0 0 1-1.844.493q-.954 0-1.662-.329a2.67 2.67 0 0 1-1.086-.97l.017 5.134h-1.728zm4.048 6.22q1.07 0 1.645-.674.577-.69.576-1.762 0-1.119-.576-1.777-.558-.675-1.645-.675-.592 0-1.12.296-.51.28-.822.823-.296.527-.296 1.234v.115q0 .708.296 1.267.313.543.823.855.51.296 1.119.297z'/%3E%3Cpath fill='%23e1e3e9' d='M51.325 4.7h1.86v10.45h3.473v1.646h-5.333zm7.12 4.542h1.843v7.553h-1.843zm.905-1.415a1.16 1.16 0 0 1-.856-.346 1.17 1.17 0 0 1-.346-.856 1.05 1.05 0 0 1 .346-.79q.346-.329.856-.329.494 0 .839.33a1.05 1.05 0 0 1 .345.79 1.16 1.16 0 0 1-.345.855q-.33.346-.84.346zm7.875 9.133a3.17 3.17 0 0 1-1.662-.444q-.723-.46-1.004-1.053l-.033 1.332h-1.71V4.701h1.743v4.657l-.082 1.283q.279-.658 1.086-1.119a3.5 3.5 0 0 1 1.778-.477q1.119 0 1.942.51a3.24 3.24 0 0 1 1.283 1.4q.445.888.444 2.072 0 1.201-.526 2.09a3.5 3.5 0 0 1-1.382 1.366 3.8 3.8 0 0 1-1.876.477zm-.296-1.481q1.069 0 1.645-.675.577-.69.577-1.778 0-1.102-.577-1.776-.56-.691-1.645-.692a2.12 2.12 0 0 0-1.58.659q-.642.641-.642 1.694v.115q0 .71.296 1.267a2.4 2.4 0 0 0 .807.872 2.1 2.1 0 0 0 1.119.313zm5.927-6.237h1.777v1.481q.263-.757.856-1.217a2.14 2.14 0 0 1 1.349-.46q.527 0 .724.098l-.247 1.794q-.149-.099-.642-.099-.774 0-1.416.494-.626.493-.626 1.58v3.883h-1.777V9.242zm9.534 7.718q-1.35 0-2.255-.526-.904-.543-1.332-1.432a4.6 4.6 0 0 1-.428-1.975q0-1.2.493-2.106a3.46 3.46 0 0 1 1.4-1.382q.889-.495 2.007-.494 1.744 0 2.584.97.855.956.856 2.7 0 .444-.05.92h-5.43q.18 1.005.708 1.45.542.443 1.497.443.79 0 1.3-.131a4 4 0 0 0 .938-.362l.542 1.267q-.411.263-1.119.46-.708.198-1.711.197zm1.596-4.558q.016-1.02-.444-1.432-.46-.428-1.316-.428-1.728 0-1.991 1.86z'/%3E%3Cpath d='M5.074 15.948a.484.657 0 0 0-.486.659v1.84a.484.657 0 0 0 .486.659h4.101a.484.657 0 0 0 .486-.659v-1.84a.484.657 0 0 0-.486-.659zm3.56 1.16H5.617v.838h3.017z' style='fill:%23fff;fill-rule:evenodd;stroke-width:1.03600001'/%3E%3Cg style='stroke-width:1.12603545'%3E%3Cpath d='M-9.408-1.416c-3.833-.025-7.056 2.912-7.08 6.615-.02 3.08 1.653 4.832 3.107 6.268.903.892 1.721 1.74 2.32 2.902l-.525-.004c-.543-.003-.992.304-1.24.639a1.87 1.87 0 0 0-.362 1.121l-.011 1.877c-.003.402.104.787.347 1.125.244.338.688.653 1.23.656l4.142.028c.542.003.99-.306 1.238-.641a1.87 1.87 0 0 0 .363-1.121l.012-1.875a1.87 1.87 0 0 0-.348-1.127c-.243-.338-.688-.653-1.23-.656l-.518-.004c.597-1.145 1.425-1.983 2.348-2.87 1.473-1.414 3.18-3.149 3.2-6.226-.016-3.59-2.923-6.684-6.993-6.707m-.006 1.1v.002c3.274.02 5.92 2.532 5.9 5.6-.017 2.706-1.39 4.026-2.863 5.44-1.034.994-2.118 2.033-2.814 3.633-.018.041-.052.055-.075.065q-.013.004-.02.01a.34.34 0 0 1-.226.084.34.34 0 0 1-.224-.086l-.092-.077c-.699-1.615-1.768-2.669-2.781-3.67-1.454-1.435-2.797-2.762-2.78-5.478.02-3.067 2.7-5.545 5.975-5.523m-.02 2.826c-1.62-.01-2.944 1.315-2.955 2.96-.01 1.646 1.295 2.988 2.916 2.999h.002c1.621.01 2.943-1.316 2.953-2.961.011-1.646-1.294-2.988-2.916-2.998m-.005 1.1c1.017.006 1.829.83 1.822 1.89s-.83 1.874-1.848 1.867c-1.018-.006-1.829-.83-1.822-1.89s.83-1.874 1.848-1.868m-2.155 11.857 4.14.025c.271.002.49.305.487.676l-.013 1.875c-.003.37-.224.67-.495.668l-4.14-.025c-.27-.002-.487-.306-.485-.676l.012-1.875c.003-.37.224-.67.494-.668' style='color:%23000;font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:%23000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:evenodd;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:%23000;solid-opacity:1;vector-effect:none;fill:%23000;fill-opacity:.4;fill-rule:evenodd;stroke:none;stroke-width:2.47727823;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto' transform='translate(15.553 2.85)scale(.88807)'/%3E%3Cpath d='M-9.415-.316C-12.69-.338-15.37 2.14-15.39 5.207c-.017 2.716 1.326 4.041 2.78 5.477 1.013 1 2.081 2.055 2.78 3.67l.092.076a.34.34 0 0 0 .225.086.34.34 0 0 0 .227-.083l.019-.01c.022-.009.057-.024.074-.064.697-1.6 1.78-2.64 2.814-3.634 1.473-1.414 2.847-2.733 2.864-5.44.02-3.067-2.627-5.58-5.901-5.601m-.057 8.784c1.621.011 2.944-1.315 2.955-2.96.01-1.646-1.295-2.988-2.916-2.999-1.622-.01-2.945 1.315-2.955 2.96s1.295 2.989 2.916 3' style='clip-rule:evenodd;fill:%23e1e3e9;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.47727823;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:.4' transform='translate(15.553 2.85)scale(.88807)'/%3E%3Cpath d='M-11.594 15.465c-.27-.002-.492.297-.494.668l-.012 1.876c-.003.371.214.673.485.675l4.14.027c.271.002.492-.298.495-.668l.012-1.877c.003-.37-.215-.672-.485-.674z' style='clip-rule:evenodd;fill:%23fff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.47727823;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:.4' transform='translate(15.553 2.85)scale(.88807)'/%3E%3C/g%3E%3C/svg%3E");background-repeat:no-repeat;cursor:pointer;display:block;height:23px;margin:0 0 -4px -4px;overflow:hidden;width:88px}a.maplibregl-ctrl-logo.maplibregl-compact{width:14px}@media (forced-colors:active){a.maplibregl-ctrl-logo{background-color:transparent;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='23' fill='none'%3E%3Cpath fill='%23000' fill-opacity='.4' fill-rule='evenodd' d='M17.408 16.796h-1.827l2.501-12.095h.198l3.324 6.533.988 2.19.988-2.19 3.258-6.533h.181l2.6 12.095h-1.81l-1.218-5.644-.362-1.71-.658 1.71-2.929 5.644h-.098l-2.914-5.644-.757-1.71-.345 1.71zm1.958-3.42-.726 3.663a1.255 1.255 0 0 1-1.232 1.011h-1.827a1.255 1.255 0 0 1-1.229-1.509l2.501-12.095a1.255 1.255 0 0 1 1.23-1.001h.197a1.25 1.25 0 0 1 1.12.685l3.19 6.273 3.125-6.263a1.25 1.25 0 0 1 1.123-.695h.181a1.255 1.255 0 0 1 1.227.991l1.443 6.71a5 5 0 0 1 .314-.787l.009-.016a4.6 4.6 0 0 1 1.777-1.887c.782-.46 1.668-.667 2.611-.667a4.6 4.6 0 0 1 1.7.32l.306.134c.21-.16.474-.256.759-.256h1.694a1.255 1.255 0 0 1 1.212.925 1.255 1.255 0 0 1 1.212-.925h1.711c.284 0 .545.094.755.252.613-.3 1.312-.45 2.075-.45 1.356 0 2.557.445 3.482 1.4q.47.48.763 1.064V4.701a1.255 1.255 0 0 1 1.255-1.255h1.86A1.255 1.255 0 0 1 54.44 4.7v9.194h2.217c.19 0 .37.043.532.118v-4.77c0-.356.147-.678.385-.906a2.42 2.42 0 0 1-.682-1.71c0-.665.267-1.253.735-1.7a2.45 2.45 0 0 1 1.722-.674 2.43 2.43 0 0 1 1.705.675q.318.302.504.683V4.7a1.255 1.255 0 0 1 1.255-1.255h1.744A1.255 1.255 0 0 1 65.812 4.7v3.335a4.8 4.8 0 0 1 1.526-.246c.938 0 1.817.214 2.59.69a4.47 4.47 0 0 1 1.67 1.743v-.98a1.255 1.255 0 0 1 1.256-1.256h1.777c.233 0 .451.064.639.174a3.4 3.4 0 0 1 1.567-.372c.346 0 .861.02 1.285.232a1.25 1.25 0 0 1 .689 1.004 4.7 4.7 0 0 1 .853-.588c.795-.44 1.675-.647 2.61-.647 1.385 0 2.65.39 3.525 1.396.836.938 1.168 2.173 1.168 3.528q-.001.515-.056 1.051a1.255 1.255 0 0 1-.947 1.09l.408.952a1.255 1.255 0 0 1-.477 1.552c-.418.268-.92.463-1.458.612-.613.171-1.304.244-2.049.244-1.06 0-2.043-.207-2.886-.698l-.015-.008c-.798-.48-1.419-1.135-1.818-1.963l-.004-.008a5.8 5.8 0 0 1-.548-2.512q0-.429.053-.843a1.3 1.3 0 0 1-.333-.086l-.166-.004c-.223 0-.426.062-.643.228-.03.024-.142.139-.142.59v3.883a1.255 1.255 0 0 1-1.256 1.256h-1.777a1.255 1.255 0 0 1-1.256-1.256V15.69l-.032.057a4.8 4.8 0 0 1-1.86 1.833 5.04 5.04 0 0 1-2.484.634 4.5 4.5 0 0 1-1.935-.424 1.25 1.25 0 0 1-.764.258h-1.71a1.255 1.255 0 0 1-1.256-1.255V7.687a2.4 2.4 0 0 1-.428.625c.253.23.412.561.412.93v7.553a1.255 1.255 0 0 1-1.256 1.255h-1.843a1.25 1.25 0 0 1-.894-.373c-.228.23-.544.373-.894.373H51.32a1.255 1.255 0 0 1-1.256-1.255v-1.251l-.061.117a4.7 4.7 0 0 1-1.782 1.884 4.77 4.77 0 0 1-2.485.67 5.6 5.6 0 0 1-1.485-.188l.009 2.764a1.255 1.255 0 0 1-1.255 1.259h-1.729a1.255 1.255 0 0 1-1.255-1.255v-3.537a1.255 1.255 0 0 1-1.167.793h-1.679a1.25 1.25 0 0 1-.77-.263 4.5 4.5 0 0 1-1.945.429c-.885 0-1.724-.21-2.495-.632l-.017-.01a5 5 0 0 1-1.081-.836 1.255 1.255 0 0 1-1.254 1.312h-1.81a1.255 1.255 0 0 1-1.228-.99l-.782-3.625-2.044 3.939a1.25 1.25 0 0 1-1.115.676h-.098a1.25 1.25 0 0 1-1.116-.68l-2.061-3.994zM35.92 16.63l.207-.114.223-.15q.493-.356.735-.785l.061-.118.033 1.332h1.678V9.242h-1.694l-.033 1.267q-.133-.329-.526-.658l-.032-.028a3.2 3.2 0 0 0-.668-.428l-.27-.12a3.3 3.3 0 0 0-1.235-.23q-1.136-.001-1.974.493a3.36 3.36 0 0 0-1.3 1.382q-.445.89-.444 2.074 0 1.2.51 2.107a3.8 3.8 0 0 0 1.382 1.381 3.9 3.9 0 0 0 1.893.477q.795 0 1.455-.33zm-2.789-5.38q-.576.675-.575 1.762 0 1.102.559 1.794.576.675 1.645.675a2.25 2.25 0 0 0 .934-.19 2.2 2.2 0 0 0 .468-.29l.178-.161a2.2 2.2 0 0 0 .397-.561q.244-.5.244-1.15v-.115q0-.708-.296-1.267l-.043-.077a2.2 2.2 0 0 0-.633-.709l-.13-.086-.047-.028a2.1 2.1 0 0 0-1.073-.285q-1.052 0-1.629.692zm2.316 2.706c.163-.17.28-.407.28-.83v-.114c0-.292-.06-.508-.15-.68a.96.96 0 0 0-.353-.389.85.85 0 0 0-.464-.127c-.4 0-.56.114-.664.239l-.01.012c-.148.174-.275.45-.275.945 0 .506.122.801.27.99.097.11.266.224.68.224.303 0 .504-.09.687-.269zm7.545 1.705a2.6 2.6 0 0 0 .331.423q.319.33.755.548l.173.074q.65.255 1.49.255 1.02 0 1.844-.493a3.45 3.45 0 0 0 1.316-1.4q.493-.904.493-2.089 0-1.909-.988-2.913-.988-1.02-2.584-1.02-.898 0-1.575.347a3 3 0 0 0-.415.262l-.199.166a3.4 3.4 0 0 0-.64.82V9.242h-1.712v11.553h1.729l-.017-5.134zm.53-1.138q.206.29.48.5l.155.11.053.034q.51.296 1.119.297 1.07 0 1.645-.675.577-.69.576-1.762 0-1.119-.576-1.777-.558-.675-1.645-.675-.435 0-.835.16a2 2 0 0 0-.284.136 2 2 0 0 0-.363.254 2.2 2.2 0 0 0-.46.569l-.082.162a2.6 2.6 0 0 0-.213 1.072v.115q0 .707.296 1.267l.135.211zm.964-.818a1.1 1.1 0 0 0 .367.385.94.94 0 0 0 .476.118c.423 0 .59-.117.687-.23.159-.194.28-.478.28-.95 0-.53-.133-.8-.266-.952l-.021-.025c-.078-.094-.231-.221-.68-.221a1 1 0 0 0-.503.135l-.012.007a.86.86 0 0 0-.335.343c-.073.133-.132.324-.132.614v.115a1.4 1.4 0 0 0 .14.66zm15.7-6.222q.347-.346.346-.856a1.05 1.05 0 0 0-.345-.79 1.18 1.18 0 0 0-.84-.329q-.51 0-.855.33a1.05 1.05 0 0 0-.346.79q0 .51.346.855.345.346.856.346.51 0 .839-.346zm4.337 9.314.033-1.332q.191.403.59.747l.098.081a4 4 0 0 0 .316.224l.223.122a3.2 3.2 0 0 0 1.44.322 3.8 3.8 0 0 0 1.875-.477 3.5 3.5 0 0 0 1.382-1.366q.527-.89.526-2.09 0-1.184-.444-2.073a3.24 3.24 0 0 0-1.283-1.399q-.823-.51-1.942-.51a3.5 3.5 0 0 0-1.527.344l-.086.043-.165.09a3 3 0 0 0-.33.214q-.432.315-.656.707a2 2 0 0 0-.099.198l.082-1.283V4.701h-1.744v12.095zm.473-2.509a2.5 2.5 0 0 0 .566.7q.117.098.245.18l.144.08a2.1 2.1 0 0 0 .975.232q1.07 0 1.645-.675.576-.69.576-1.778 0-1.102-.576-1.777-.56-.691-1.645-.692a2.2 2.2 0 0 0-1.015.235q-.22.113-.415.282l-.15.142a2.1 2.1 0 0 0-.42.594q-.223.479-.223 1.1v.115q0 .705.293 1.26zm2.616-.293c.157-.191.28-.479.28-.967 0-.51-.13-.79-.276-.961l-.021-.026c-.082-.1-.232-.225-.67-.225a.87.87 0 0 0-.681.279l-.012.011c-.154.155-.274.38-.274.807v.115c0 .285.057.499.144.669a1.1 1.1 0 0 0 .367.405c.137.082.28.123.455.123.423 0 .59-.118.686-.23zm8.266-3.013q.345-.13.724-.14l.069-.002q.493 0 .642.099l.247-1.794q-.196-.099-.717-.099a2.3 2.3 0 0 0-.545.063 2 2 0 0 0-.411.148 2.2 2.2 0 0 0-.4.249 2.5 2.5 0 0 0-.485.499 2.7 2.7 0 0 0-.32.581l-.05.137v-1.48h-1.778v7.553h1.777v-3.884q0-.546.159-.943a1.5 1.5 0 0 1 .466-.636 2.5 2.5 0 0 1 .399-.253 2 2 0 0 1 .224-.099zm9.784 2.656.05-.922q0-1.743-.856-2.698-.838-.97-2.584-.97-1.119-.001-2.007.493a3.46 3.46 0 0 0-1.4 1.382q-.493.906-.493 2.106 0 1.07.428 1.975.428.89 1.332 1.432.906.526 2.255.526.973 0 1.668-.185l.044-.012.135-.04q.613-.184.984-.421l-.542-1.267q-.3.162-.642.274l-.297.087q-.51.131-1.3.131-.954 0-1.497-.444a1.6 1.6 0 0 1-.192-.193q-.366-.44-.512-1.234l-.004-.021zm-5.427-1.256-.003.022h3.752v-.138q-.011-.727-.288-1.118a1 1 0 0 0-.156-.176q-.46-.428-1.316-.428-.986 0-1.494.604-.379.45-.494 1.234zm-27.053 2.77V4.7h-1.86v12.095h5.333V15.15zm7.103-5.908v7.553h-1.843V9.242h1.843z'/%3E%3Cpath fill='%23fff' d='m19.63 11.151-.757-1.71-.345 1.71-1.12 5.644h-1.827L18.083 4.7h.197l3.325 6.533.988 2.19.988-2.19L26.839 4.7h.181l2.6 12.095h-1.81l-1.218-5.644-.362-1.71-.658 1.71-2.93 5.644h-.098l-2.913-5.644zm14.836 5.81q-1.02 0-1.893-.478a3.8 3.8 0 0 1-1.381-1.382q-.51-.906-.51-2.106 0-1.185.444-2.074a3.36 3.36 0 0 1 1.3-1.382q.839-.494 1.974-.494a3.3 3.3 0 0 1 1.234.231 3.3 3.3 0 0 1 .97.575q.396.33.527.659l.033-1.267h1.694v7.553H37.18l-.033-1.332q-.279.593-1.02 1.053a3.17 3.17 0 0 1-1.662.444zm.296-1.482q.938 0 1.58-.642.642-.66.642-1.711v-.115q0-.708-.296-1.267a2.2 2.2 0 0 0-.807-.872 2.1 2.1 0 0 0-1.119-.313q-1.053 0-1.629.692-.575.675-.575 1.76 0 1.103.559 1.795.577.675 1.645.675zm6.521-6.237h1.711v1.4q.906-1.597 2.83-1.597 1.596 0 2.584 1.02.988 1.005.988 2.914 0 1.185-.493 2.09a3.46 3.46 0 0 1-1.316 1.399 3.5 3.5 0 0 1-1.844.493q-.954 0-1.662-.329a2.67 2.67 0 0 1-1.086-.97l.017 5.134h-1.728zm4.048 6.22q1.07 0 1.645-.674.577-.69.576-1.762 0-1.119-.576-1.777-.558-.675-1.645-.675-.592 0-1.12.296-.51.28-.822.823-.296.527-.296 1.234v.115q0 .708.296 1.267.313.543.823.855.51.296 1.119.297z'/%3E%3Cpath fill='%23e1e3e9' d='M51.325 4.7h1.86v10.45h3.473v1.646h-5.333zm7.12 4.542h1.843v7.553h-1.843zm.905-1.415a1.16 1.16 0 0 1-.856-.346 1.17 1.17 0 0 1-.346-.856 1.05 1.05 0 0 1 .346-.79q.346-.329.856-.329.494 0 .839.33a1.05 1.05 0 0 1 .345.79 1.16 1.16 0 0 1-.345.855q-.33.346-.84.346zm7.875 9.133a3.17 3.17 0 0 1-1.662-.444q-.723-.46-1.004-1.053l-.033 1.332h-1.71V4.701h1.743v4.657l-.082 1.283q.279-.658 1.086-1.119a3.5 3.5 0 0 1 1.778-.477q1.119 0 1.942.51a3.24 3.24 0 0 1 1.283 1.4q.445.888.444 2.072 0 1.201-.526 2.09a3.5 3.5 0 0 1-1.382 1.366 3.8 3.8 0 0 1-1.876.477zm-.296-1.481q1.069 0 1.645-.675.577-.69.577-1.778 0-1.102-.577-1.776-.56-.691-1.645-.692a2.12 2.12 0 0 0-1.58.659q-.642.641-.642 1.694v.115q0 .71.296 1.267a2.4 2.4 0 0 0 .807.872 2.1 2.1 0 0 0 1.119.313zm5.927-6.237h1.777v1.481q.263-.757.856-1.217a2.14 2.14 0 0 1 1.349-.46q.527 0 .724.098l-.247 1.794q-.149-.099-.642-.099-.774 0-1.416.494-.626.493-.626 1.58v3.883h-1.777V9.242zm9.534 7.718q-1.35 0-2.255-.526-.904-.543-1.332-1.432a4.6 4.6 0 0 1-.428-1.975q0-1.2.493-2.106a3.46 3.46 0 0 1 1.4-1.382q.889-.495 2.007-.494 1.744 0 2.584.97.855.956.856 2.7 0 .444-.05.92h-5.43q.18 1.005.708 1.45.542.443 1.497.443.79 0 1.3-.131a4 4 0 0 0 .938-.362l.542 1.267q-.411.263-1.119.46-.708.198-1.711.197zm1.596-4.558q.016-1.02-.444-1.432-.46-.428-1.316-.428-1.728 0-1.991 1.86z'/%3E%3Cpath d='M5.074 15.948a.484.657 0 0 0-.486.659v1.84a.484.657 0 0 0 .486.659h4.101a.484.657 0 0 0 .486-.659v-1.84a.484.657 0 0 0-.486-.659zm3.56 1.16H5.617v.838h3.017z' style='fill:%23fff;fill-rule:evenodd;stroke-width:1.03600001'/%3E%3Cg style='stroke-width:1.12603545'%3E%3Cpath d='M-9.408-1.416c-3.833-.025-7.056 2.912-7.08 6.615-.02 3.08 1.653 4.832 3.107 6.268.903.892 1.721 1.74 2.32 2.902l-.525-.004c-.543-.003-.992.304-1.24.639a1.87 1.87 0 0 0-.362 1.121l-.011 1.877c-.003.402.104.787.347 1.125.244.338.688.653 1.23.656l4.142.028c.542.003.99-.306 1.238-.641a1.87 1.87 0 0 0 .363-1.121l.012-1.875a1.87 1.87 0 0 0-.348-1.127c-.243-.338-.688-.653-1.23-.656l-.518-.004c.597-1.145 1.425-1.983 2.348-2.87 1.473-1.414 3.18-3.149 3.2-6.226-.016-3.59-2.923-6.684-6.993-6.707m-.006 1.1v.002c3.274.02 5.92 2.532 5.9 5.6-.017 2.706-1.39 4.026-2.863 5.44-1.034.994-2.118 2.033-2.814 3.633-.018.041-.052.055-.075.065q-.013.004-.02.01a.34.34 0 0 1-.226.084.34.34 0 0 1-.224-.086l-.092-.077c-.699-1.615-1.768-2.669-2.781-3.67-1.454-1.435-2.797-2.762-2.78-5.478.02-3.067 2.7-5.545 5.975-5.523m-.02 2.826c-1.62-.01-2.944 1.315-2.955 2.96-.01 1.646 1.295 2.988 2.916 2.999h.002c1.621.01 2.943-1.316 2.953-2.961.011-1.646-1.294-2.988-2.916-2.998m-.005 1.1c1.017.006 1.829.83 1.822 1.89s-.83 1.874-1.848 1.867c-1.018-.006-1.829-.83-1.822-1.89s.83-1.874 1.848-1.868m-2.155 11.857 4.14.025c.271.002.49.305.487.676l-.013 1.875c-.003.37-.224.67-.495.668l-4.14-.025c-.27-.002-.487-.306-.485-.676l.012-1.875c.003-.37.224-.67.494-.668' style='color:%23000;font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:%23000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:evenodd;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:%23000;solid-opacity:1;vector-effect:none;fill:%23000;fill-opacity:.4;fill-rule:evenodd;stroke:none;stroke-width:2.47727823;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto' transform='translate(15.553 2.85)scale(.88807)'/%3E%3Cpath d='M-9.415-.316C-12.69-.338-15.37 2.14-15.39 5.207c-.017 2.716 1.326 4.041 2.78 5.477 1.013 1 2.081 2.055 2.78 3.67l.092.076a.34.34 0 0 0 .225.086.34.34 0 0 0 .227-.083l.019-.01c.022-.009.057-.024.074-.064.697-1.6 1.78-2.64 2.814-3.634 1.473-1.414 2.847-2.733 2.864-5.44.02-3.067-2.627-5.58-5.901-5.601m-.057 8.784c1.621.011 2.944-1.315 2.955-2.96.01-1.646-1.295-2.988-2.916-2.999-1.622-.01-2.945 1.315-2.955 2.96s1.295 2.989 2.916 3' style='clip-rule:evenodd;fill:%23e1e3e9;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.47727823;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:.4' transform='translate(15.553 2.85)scale(.88807)'/%3E%3Cpath d='M-11.594 15.465c-.27-.002-.492.297-.494.668l-.012 1.876c-.003.371.214.673.485.675l4.14.027c.271.002.492-.298.495-.668l.012-1.877c.003-.37-.215-.672-.485-.674z' style='clip-rule:evenodd;fill:%23fff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.47727823;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:.4' transform='translate(15.553 2.85)scale(.88807)'/%3E%3C/g%3E%3C/svg%3E")}}@media (forced-colors:active) and (prefers-color-scheme:light){a.maplibregl-ctrl-logo{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='23' fill='none'%3E%3Cpath fill='%23000' fill-opacity='.4' fill-rule='evenodd' d='M17.408 16.796h-1.827l2.501-12.095h.198l3.324 6.533.988 2.19.988-2.19 3.258-6.533h.181l2.6 12.095h-1.81l-1.218-5.644-.362-1.71-.658 1.71-2.929 5.644h-.098l-2.914-5.644-.757-1.71-.345 1.71zm1.958-3.42-.726 3.663a1.255 1.255 0 0 1-1.232 1.011h-1.827a1.255 1.255 0 0 1-1.229-1.509l2.501-12.095a1.255 1.255 0 0 1 1.23-1.001h.197a1.25 1.25 0 0 1 1.12.685l3.19 6.273 3.125-6.263a1.25 1.25 0 0 1 1.123-.695h.181a1.255 1.255 0 0 1 1.227.991l1.443 6.71a5 5 0 0 1 .314-.787l.009-.016a4.6 4.6 0 0 1 1.777-1.887c.782-.46 1.668-.667 2.611-.667a4.6 4.6 0 0 1 1.7.32l.306.134c.21-.16.474-.256.759-.256h1.694a1.255 1.255 0 0 1 1.212.925 1.255 1.255 0 0 1 1.212-.925h1.711c.284 0 .545.094.755.252.613-.3 1.312-.45 2.075-.45 1.356 0 2.557.445 3.482 1.4q.47.48.763 1.064V4.701a1.255 1.255 0 0 1 1.255-1.255h1.86A1.255 1.255 0 0 1 54.44 4.7v9.194h2.217c.19 0 .37.043.532.118v-4.77c0-.356.147-.678.385-.906a2.42 2.42 0 0 1-.682-1.71c0-.665.267-1.253.735-1.7a2.45 2.45 0 0 1 1.722-.674 2.43 2.43 0 0 1 1.705.675q.318.302.504.683V4.7a1.255 1.255 0 0 1 1.255-1.255h1.744A1.255 1.255 0 0 1 65.812 4.7v3.335a4.8 4.8 0 0 1 1.526-.246c.938 0 1.817.214 2.59.69a4.47 4.47 0 0 1 1.67 1.743v-.98a1.255 1.255 0 0 1 1.256-1.256h1.777c.233 0 .451.064.639.174a3.4 3.4 0 0 1 1.567-.372c.346 0 .861.02 1.285.232a1.25 1.25 0 0 1 .689 1.004 4.7 4.7 0 0 1 .853-.588c.795-.44 1.675-.647 2.61-.647 1.385 0 2.65.39 3.525 1.396.836.938 1.168 2.173 1.168 3.528q-.001.515-.056 1.051a1.255 1.255 0 0 1-.947 1.09l.408.952a1.255 1.255 0 0 1-.477 1.552c-.418.268-.92.463-1.458.612-.613.171-1.304.244-2.049.244-1.06 0-2.043-.207-2.886-.698l-.015-.008c-.798-.48-1.419-1.135-1.818-1.963l-.004-.008a5.8 5.8 0 0 1-.548-2.512q0-.429.053-.843a1.3 1.3 0 0 1-.333-.086l-.166-.004c-.223 0-.426.062-.643.228-.03.024-.142.139-.142.59v3.883a1.255 1.255 0 0 1-1.256 1.256h-1.777a1.255 1.255 0 0 1-1.256-1.256V15.69l-.032.057a4.8 4.8 0 0 1-1.86 1.833 5.04 5.04 0 0 1-2.484.634 4.5 4.5 0 0 1-1.935-.424 1.25 1.25 0 0 1-.764.258h-1.71a1.255 1.255 0 0 1-1.256-1.255V7.687a2.4 2.4 0 0 1-.428.625c.253.23.412.561.412.93v7.553a1.255 1.255 0 0 1-1.256 1.255h-1.843a1.25 1.25 0 0 1-.894-.373c-.228.23-.544.373-.894.373H51.32a1.255 1.255 0 0 1-1.256-1.255v-1.251l-.061.117a4.7 4.7 0 0 1-1.782 1.884 4.77 4.77 0 0 1-2.485.67 5.6 5.6 0 0 1-1.485-.188l.009 2.764a1.255 1.255 0 0 1-1.255 1.259h-1.729a1.255 1.255 0 0 1-1.255-1.255v-3.537a1.255 1.255 0 0 1-1.167.793h-1.679a1.25 1.25 0 0 1-.77-.263 4.5 4.5 0 0 1-1.945.429c-.885 0-1.724-.21-2.495-.632l-.017-.01a5 5 0 0 1-1.081-.836 1.255 1.255 0 0 1-1.254 1.312h-1.81a1.255 1.255 0 0 1-1.228-.99l-.782-3.625-2.044 3.939a1.25 1.25 0 0 1-1.115.676h-.098a1.25 1.25 0 0 1-1.116-.68l-2.061-3.994zM35.92 16.63l.207-.114.223-.15q.493-.356.735-.785l.061-.118.033 1.332h1.678V9.242h-1.694l-.033 1.267q-.133-.329-.526-.658l-.032-.028a3.2 3.2 0 0 0-.668-.428l-.27-.12a3.3 3.3 0 0 0-1.235-.23q-1.136-.001-1.974.493a3.36 3.36 0 0 0-1.3 1.382q-.445.89-.444 2.074 0 1.2.51 2.107a3.8 3.8 0 0 0 1.382 1.381 3.9 3.9 0 0 0 1.893.477q.795 0 1.455-.33zm-2.789-5.38q-.576.675-.575 1.762 0 1.102.559 1.794.576.675 1.645.675a2.25 2.25 0 0 0 .934-.19 2.2 2.2 0 0 0 .468-.29l.178-.161a2.2 2.2 0 0 0 .397-.561q.244-.5.244-1.15v-.115q0-.708-.296-1.267l-.043-.077a2.2 2.2 0 0 0-.633-.709l-.13-.086-.047-.028a2.1 2.1 0 0 0-1.073-.285q-1.052 0-1.629.692zm2.316 2.706c.163-.17.28-.407.28-.83v-.114c0-.292-.06-.508-.15-.68a.96.96 0 0 0-.353-.389.85.85 0 0 0-.464-.127c-.4 0-.56.114-.664.239l-.01.012c-.148.174-.275.45-.275.945 0 .506.122.801.27.99.097.11.266.224.68.224.303 0 .504-.09.687-.269zm7.545 1.705a2.6 2.6 0 0 0 .331.423q.319.33.755.548l.173.074q.65.255 1.49.255 1.02 0 1.844-.493a3.45 3.45 0 0 0 1.316-1.4q.493-.904.493-2.089 0-1.909-.988-2.913-.988-1.02-2.584-1.02-.898 0-1.575.347a3 3 0 0 0-.415.262l-.199.166a3.4 3.4 0 0 0-.64.82V9.242h-1.712v11.553h1.729l-.017-5.134zm.53-1.138q.206.29.48.5l.155.11.053.034q.51.296 1.119.297 1.07 0 1.645-.675.577-.69.576-1.762 0-1.119-.576-1.777-.558-.675-1.645-.675-.435 0-.835.16a2 2 0 0 0-.284.136 2 2 0 0 0-.363.254 2.2 2.2 0 0 0-.46.569l-.082.162a2.6 2.6 0 0 0-.213 1.072v.115q0 .707.296 1.267l.135.211zm.964-.818a1.1 1.1 0 0 0 .367.385.94.94 0 0 0 .476.118c.423 0 .59-.117.687-.23.159-.194.28-.478.28-.95 0-.53-.133-.8-.266-.952l-.021-.025c-.078-.094-.231-.221-.68-.221a1 1 0 0 0-.503.135l-.012.007a.86.86 0 0 0-.335.343c-.073.133-.132.324-.132.614v.115a1.4 1.4 0 0 0 .14.66zm15.7-6.222q.347-.346.346-.856a1.05 1.05 0 0 0-.345-.79 1.18 1.18 0 0 0-.84-.329q-.51 0-.855.33a1.05 1.05 0 0 0-.346.79q0 .51.346.855.345.346.856.346.51 0 .839-.346zm4.337 9.314.033-1.332q.191.403.59.747l.098.081a4 4 0 0 0 .316.224l.223.122a3.2 3.2 0 0 0 1.44.322 3.8 3.8 0 0 0 1.875-.477 3.5 3.5 0 0 0 1.382-1.366q.527-.89.526-2.09 0-1.184-.444-2.073a3.24 3.24 0 0 0-1.283-1.399q-.823-.51-1.942-.51a3.5 3.5 0 0 0-1.527.344l-.086.043-.165.09a3 3 0 0 0-.33.214q-.432.315-.656.707a2 2 0 0 0-.099.198l.082-1.283V4.701h-1.744v12.095zm.473-2.509a2.5 2.5 0 0 0 .566.7q.117.098.245.18l.144.08a2.1 2.1 0 0 0 .975.232q1.07 0 1.645-.675.576-.69.576-1.778 0-1.102-.576-1.777-.56-.691-1.645-.692a2.2 2.2 0 0 0-1.015.235q-.22.113-.415.282l-.15.142a2.1 2.1 0 0 0-.42.594q-.223.479-.223 1.1v.115q0 .705.293 1.26zm2.616-.293c.157-.191.28-.479.28-.967 0-.51-.13-.79-.276-.961l-.021-.026c-.082-.1-.232-.225-.67-.225a.87.87 0 0 0-.681.279l-.012.011c-.154.155-.274.38-.274.807v.115c0 .285.057.499.144.669a1.1 1.1 0 0 0 .367.405c.137.082.28.123.455.123.423 0 .59-.118.686-.23zm8.266-3.013q.345-.13.724-.14l.069-.002q.493 0 .642.099l.247-1.794q-.196-.099-.717-.099a2.3 2.3 0 0 0-.545.063 2 2 0 0 0-.411.148 2.2 2.2 0 0 0-.4.249 2.5 2.5 0 0 0-.485.499 2.7 2.7 0 0 0-.32.581l-.05.137v-1.48h-1.778v7.553h1.777v-3.884q0-.546.159-.943a1.5 1.5 0 0 1 .466-.636 2.5 2.5 0 0 1 .399-.253 2 2 0 0 1 .224-.099zm9.784 2.656.05-.922q0-1.743-.856-2.698-.838-.97-2.584-.97-1.119-.001-2.007.493a3.46 3.46 0 0 0-1.4 1.382q-.493.906-.493 2.106 0 1.07.428 1.975.428.89 1.332 1.432.906.526 2.255.526.973 0 1.668-.185l.044-.012.135-.04q.613-.184.984-.421l-.542-1.267q-.3.162-.642.274l-.297.087q-.51.131-1.3.131-.954 0-1.497-.444a1.6 1.6 0 0 1-.192-.193q-.366-.44-.512-1.234l-.004-.021zm-5.427-1.256-.003.022h3.752v-.138q-.011-.727-.288-1.118a1 1 0 0 0-.156-.176q-.46-.428-1.316-.428-.986 0-1.494.604-.379.45-.494 1.234zm-27.053 2.77V4.7h-1.86v12.095h5.333V15.15zm7.103-5.908v7.553h-1.843V9.242h1.843z'/%3E%3Cpath fill='%23fff' d='m19.63 11.151-.757-1.71-.345 1.71-1.12 5.644h-1.827L18.083 4.7h.197l3.325 6.533.988 2.19.988-2.19L26.839 4.7h.181l2.6 12.095h-1.81l-1.218-5.644-.362-1.71-.658 1.71-2.93 5.644h-.098l-2.913-5.644zm14.836 5.81q-1.02 0-1.893-.478a3.8 3.8 0 0 1-1.381-1.382q-.51-.906-.51-2.106 0-1.185.444-2.074a3.36 3.36 0 0 1 1.3-1.382q.839-.494 1.974-.494a3.3 3.3 0 0 1 1.234.231 3.3 3.3 0 0 1 .97.575q.396.33.527.659l.033-1.267h1.694v7.553H37.18l-.033-1.332q-.279.593-1.02 1.053a3.17 3.17 0 0 1-1.662.444zm.296-1.482q.938 0 1.58-.642.642-.66.642-1.711v-.115q0-.708-.296-1.267a2.2 2.2 0 0 0-.807-.872 2.1 2.1 0 0 0-1.119-.313q-1.053 0-1.629.692-.575.675-.575 1.76 0 1.103.559 1.795.577.675 1.645.675zm6.521-6.237h1.711v1.4q.906-1.597 2.83-1.597 1.596 0 2.584 1.02.988 1.005.988 2.914 0 1.185-.493 2.09a3.46 3.46 0 0 1-1.316 1.399 3.5 3.5 0 0 1-1.844.493q-.954 0-1.662-.329a2.67 2.67 0 0 1-1.086-.97l.017 5.134h-1.728zm4.048 6.22q1.07 0 1.645-.674.577-.69.576-1.762 0-1.119-.576-1.777-.558-.675-1.645-.675-.592 0-1.12.296-.51.28-.822.823-.296.527-.296 1.234v.115q0 .708.296 1.267.313.543.823.855.51.296 1.119.297z'/%3E%3Cpath fill='%23e1e3e9' d='M51.325 4.7h1.86v10.45h3.473v1.646h-5.333zm7.12 4.542h1.843v7.553h-1.843zm.905-1.415a1.16 1.16 0 0 1-.856-.346 1.17 1.17 0 0 1-.346-.856 1.05 1.05 0 0 1 .346-.79q.346-.329.856-.329.494 0 .839.33a1.05 1.05 0 0 1 .345.79 1.16 1.16 0 0 1-.345.855q-.33.346-.84.346zm7.875 9.133a3.17 3.17 0 0 1-1.662-.444q-.723-.46-1.004-1.053l-.033 1.332h-1.71V4.701h1.743v4.657l-.082 1.283q.279-.658 1.086-1.119a3.5 3.5 0 0 1 1.778-.477q1.119 0 1.942.51a3.24 3.24 0 0 1 1.283 1.4q.445.888.444 2.072 0 1.201-.526 2.09a3.5 3.5 0 0 1-1.382 1.366 3.8 3.8 0 0 1-1.876.477zm-.296-1.481q1.069 0 1.645-.675.577-.69.577-1.778 0-1.102-.577-1.776-.56-.691-1.645-.692a2.12 2.12 0 0 0-1.58.659q-.642.641-.642 1.694v.115q0 .71.296 1.267a2.4 2.4 0 0 0 .807.872 2.1 2.1 0 0 0 1.119.313zm5.927-6.237h1.777v1.481q.263-.757.856-1.217a2.14 2.14 0 0 1 1.349-.46q.527 0 .724.098l-.247 1.794q-.149-.099-.642-.099-.774 0-1.416.494-.626.493-.626 1.58v3.883h-1.777V9.242zm9.534 7.718q-1.35 0-2.255-.526-.904-.543-1.332-1.432a4.6 4.6 0 0 1-.428-1.975q0-1.2.493-2.106a3.46 3.46 0 0 1 1.4-1.382q.889-.495 2.007-.494 1.744 0 2.584.97.855.956.856 2.7 0 .444-.05.92h-5.43q.18 1.005.708 1.45.542.443 1.497.443.79 0 1.3-.131a4 4 0 0 0 .938-.362l.542 1.267q-.411.263-1.119.46-.708.198-1.711.197zm1.596-4.558q.016-1.02-.444-1.432-.46-.428-1.316-.428-1.728 0-1.991 1.86z'/%3E%3Cpath d='M5.074 15.948a.484.657 0 0 0-.486.659v1.84a.484.657 0 0 0 .486.659h4.101a.484.657 0 0 0 .486-.659v-1.84a.484.657 0 0 0-.486-.659zm3.56 1.16H5.617v.838h3.017z' style='fill:%23fff;fill-rule:evenodd;stroke-width:1.03600001'/%3E%3Cg style='stroke-width:1.12603545'%3E%3Cpath d='M-9.408-1.416c-3.833-.025-7.056 2.912-7.08 6.615-.02 3.08 1.653 4.832 3.107 6.268.903.892 1.721 1.74 2.32 2.902l-.525-.004c-.543-.003-.992.304-1.24.639a1.87 1.87 0 0 0-.362 1.121l-.011 1.877c-.003.402.104.787.347 1.125.244.338.688.653 1.23.656l4.142.028c.542.003.99-.306 1.238-.641a1.87 1.87 0 0 0 .363-1.121l.012-1.875a1.87 1.87 0 0 0-.348-1.127c-.243-.338-.688-.653-1.23-.656l-.518-.004c.597-1.145 1.425-1.983 2.348-2.87 1.473-1.414 3.18-3.149 3.2-6.226-.016-3.59-2.923-6.684-6.993-6.707m-.006 1.1v.002c3.274.02 5.92 2.532 5.9 5.6-.017 2.706-1.39 4.026-2.863 5.44-1.034.994-2.118 2.033-2.814 3.633-.018.041-.052.055-.075.065q-.013.004-.02.01a.34.34 0 0 1-.226.084.34.34 0 0 1-.224-.086l-.092-.077c-.699-1.615-1.768-2.669-2.781-3.67-1.454-1.435-2.797-2.762-2.78-5.478.02-3.067 2.7-5.545 5.975-5.523m-.02 2.826c-1.62-.01-2.944 1.315-2.955 2.96-.01 1.646 1.295 2.988 2.916 2.999h.002c1.621.01 2.943-1.316 2.953-2.961.011-1.646-1.294-2.988-2.916-2.998m-.005 1.1c1.017.006 1.829.83 1.822 1.89s-.83 1.874-1.848 1.867c-1.018-.006-1.829-.83-1.822-1.89s.83-1.874 1.848-1.868m-2.155 11.857 4.14.025c.271.002.49.305.487.676l-.013 1.875c-.003.37-.224.67-.495.668l-4.14-.025c-.27-.002-.487-.306-.485-.676l.012-1.875c.003-.37.224-.67.494-.668' style='color:%23000;font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:%23000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:evenodd;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:%23000;solid-opacity:1;vector-effect:none;fill:%23000;fill-opacity:.4;fill-rule:evenodd;stroke:none;stroke-width:2.47727823;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto' transform='translate(15.553 2.85)scale(.88807)'/%3E%3Cpath d='M-9.415-.316C-12.69-.338-15.37 2.14-15.39 5.207c-.017 2.716 1.326 4.041 2.78 5.477 1.013 1 2.081 2.055 2.78 3.67l.092.076a.34.34 0 0 0 .225.086.34.34 0 0 0 .227-.083l.019-.01c.022-.009.057-.024.074-.064.697-1.6 1.78-2.64 2.814-3.634 1.473-1.414 2.847-2.733 2.864-5.44.02-3.067-2.627-5.58-5.901-5.601m-.057 8.784c1.621.011 2.944-1.315 2.955-2.96.01-1.646-1.295-2.988-2.916-2.999-1.622-.01-2.945 1.315-2.955 2.96s1.295 2.989 2.916 3' style='clip-rule:evenodd;fill:%23e1e3e9;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.47727823;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:.4' transform='translate(15.553 2.85)scale(.88807)'/%3E%3Cpath d='M-11.594 15.465c-.27-.002-.492.297-.494.668l-.012 1.876c-.003.371.214.673.485.675l4.14.027c.271.002.492-.298.495-.668l.012-1.877c.003-.37-.215-.672-.485-.674z' style='clip-rule:evenodd;fill:%23fff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.47727823;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:.4' transform='translate(15.553 2.85)scale(.88807)'/%3E%3C/g%3E%3C/svg%3E")}}.maplibregl-ctrl.maplibregl-ctrl-attrib{background-color:hsla(0,0%,100%,.5);margin:0;padding:0 5px}@media screen{.maplibregl-ctrl-attrib.maplibregl-compact{background-color:#fff;border-radius:12px;box-sizing:content-box;color:#000;margin:10px;min-height:20px;padding:2px 24px 2px 0;position:relative}.maplibregl-ctrl-attrib.maplibregl-compact-show{padding:2px 28px 2px 8px;visibility:visible}.maplibregl-ctrl-bottom-left>.maplibregl-ctrl-attrib.maplibregl-compact-show,.maplibregl-ctrl-top-left>.maplibregl-ctrl-attrib.maplibregl-compact-show{border-radius:12px;padding:2px 8px 2px 28px}.maplibregl-ctrl-attrib.maplibregl-compact .maplibregl-ctrl-attrib-inner{display:none}.maplibregl-ctrl-attrib-button{background-color:hsla(0,0%,100%,.5);background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill-rule='evenodd' viewBox='0 0 20 20'%3E%3Cpath d='M4 10a6 6 0 1 0 12 0 6 6 0 1 0-12 0m5-3a1 1 0 1 0 2 0 1 1 0 1 0-2 0m0 3a1 1 0 1 1 2 0v3a1 1 0 1 1-2 0'/%3E%3C/svg%3E");border:0;border-radius:12px;box-sizing:border-box;cursor:pointer;display:none;height:24px;outline:none;position:absolute;right:0;top:0;width:24px}.maplibregl-ctrl-attrib summary.maplibregl-ctrl-attrib-button{-webkit-appearance:none;-moz-appearance:none;appearance:none;list-style:none}.maplibregl-ctrl-attrib summary.maplibregl-ctrl-attrib-button::-webkit-details-marker{display:none}.maplibregl-ctrl-bottom-left .maplibregl-ctrl-attrib-button,.maplibregl-ctrl-top-left .maplibregl-ctrl-attrib-button{left:0}.maplibregl-ctrl-attrib.maplibregl-compact .maplibregl-ctrl-attrib-button,.maplibregl-ctrl-attrib.maplibregl-compact-show .maplibregl-ctrl-attrib-inner{display:block}.maplibregl-ctrl-attrib.maplibregl-compact-show .maplibregl-ctrl-attrib-button{background-color:rgb(0 0 0/5%)}.maplibregl-ctrl-bottom-right>.maplibregl-ctrl-attrib.maplibregl-compact:after{bottom:0;right:0}.maplibregl-ctrl-top-right>.maplibregl-ctrl-attrib.maplibregl-compact:after{right:0;top:0}.maplibregl-ctrl-top-left>.maplibregl-ctrl-attrib.maplibregl-compact:after{left:0;top:0}.maplibregl-ctrl-bottom-left>.maplibregl-ctrl-attrib.maplibregl-compact:after{bottom:0;left:0}}@media screen and (forced-colors:active){.maplibregl-ctrl-attrib.maplibregl-compact:after{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='%23fff' fill-rule='evenodd' viewBox='0 0 20 20'%3E%3Cpath d='M4 10a6 6 0 1 0 12 0 6 6 0 1 0-12 0m5-3a1 1 0 1 0 2 0 1 1 0 1 0-2 0m0 3a1 1 0 1 1 2 0v3a1 1 0 1 1-2 0'/%3E%3C/svg%3E")}}@media screen and (forced-colors:active) and (prefers-color-scheme:light){.maplibregl-ctrl-attrib.maplibregl-compact:after{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill-rule='evenodd' viewBox='0 0 20 20'%3E%3Cpath d='M4 10a6 6 0 1 0 12 0 6 6 0 1 0-12 0m5-3a1 1 0 1 0 2 0 1 1 0 1 0-2 0m0 3a1 1 0 1 1 2 0v3a1 1 0 1 1-2 0'/%3E%3C/svg%3E")}}.maplibregl-ctrl-attrib a{color:rgba(0,0,0,.75);text-decoration:none}.maplibregl-ctrl-attrib a:hover{color:inherit;text-decoration:underline}.maplibregl-attrib-empty{display:none}.maplibregl-ctrl-scale{background-color:hsla(0,0%,100%,.75);border:2px solid #333;border-top:#333;box-sizing:border-box;color:#333;font-size:10px;padding:0 5px}.maplibregl-popup{display:flex;left:0;pointer-events:none;position:absolute;top:0;will-change:transform}.maplibregl-popup-anchor-top,.maplibregl-popup-anchor-top-left,.maplibregl-popup-anchor-top-right{flex-direction:column}.maplibregl-popup-anchor-bottom,.maplibregl-popup-anchor-bottom-left,.maplibregl-popup-anchor-bottom-right{flex-direction:column-reverse}.maplibregl-popup-anchor-left{flex-direction:row}.maplibregl-popup-anchor-right{flex-direction:row-reverse}.maplibregl-popup-tip{border:10px solid transparent;height:0;width:0;z-index:1}.maplibregl-popup-anchor-top .maplibregl-popup-tip{align-self:center;border-bottom-color:#fff;border-top:none}.maplibregl-popup-anchor-top-left .maplibregl-popup-tip{align-self:flex-start;border-bottom-color:#fff;border-left:none;border-top:none}.maplibregl-popup-anchor-top-right .maplibregl-popup-tip{align-self:flex-end;border-bottom-color:#fff;border-right:none;border-top:none}.maplibregl-popup-anchor-bottom .maplibregl-popup-tip{align-self:center;border-bottom:none;border-top-color:#fff}.maplibregl-popup-anchor-bottom-left .maplibregl-popup-tip{align-self:flex-start;border-bottom:none;border-left:none;border-top-color:#fff}.maplibregl-popup-anchor-bottom-right .maplibregl-popup-tip{align-self:flex-end;border-bottom:none;border-right:none;border-top-color:#fff}.maplibregl-popup-anchor-left .maplibregl-popup-tip{align-self:center;border-left:none;border-right-color:#fff}.maplibregl-popup-anchor-right .maplibregl-popup-tip{align-self:center;border-left-color:#fff;border-right:none}.maplibregl-popup-close-button{background-color:transparent;border:0;border-radius:0 3px 0 0;cursor:pointer;position:absolute;right:0;top:0}.maplibregl-popup-close-button:hover{background-color:rgb(0 0 0/5%)}.maplibregl-popup-content{background:#fff;border-radius:3px;box-shadow:0 1px 2px rgba(0,0,0,.1);padding:15px 10px;pointer-events:auto;position:relative}.maplibregl-popup-anchor-top-left .maplibregl-popup-content{border-top-left-radius:0}.maplibregl-popup-anchor-top-right .maplibregl-popup-content{border-top-right-radius:0}.maplibregl-popup-anchor-bottom-left .maplibregl-popup-content{border-bottom-left-radius:0}.maplibregl-popup-anchor-bottom-right .maplibregl-popup-content{border-bottom-right-radius:0}.maplibregl-popup-track-pointer{display:none}.maplibregl-popup-track-pointer *{pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.maplibregl-map:hover .maplibregl-popup-track-pointer{display:flex}.maplibregl-map:active .maplibregl-popup-track-pointer{display:none}.maplibregl-marker{left:0;position:absolute;top:0;transition:opacity .2s;will-change:transform}.maplibregl-user-location-dot,.maplibregl-user-location-dot:before{background-color:#1da1f2;border-radius:50%;height:15px;width:15px}.maplibregl-user-location-dot:before{animation:maplibregl-user-location-dot-pulse 2s infinite;content:"";position:absolute}.maplibregl-user-location-dot:after{border:2px solid #fff;border-radius:50%;box-shadow:0 0 3px rgba(0,0,0,.35);box-sizing:border-box;content:"";height:19px;left:-2px;position:absolute;top:-2px;width:19px}@keyframes maplibregl-user-location-dot-pulse{0%{opacity:1;transform:scale(1)}70%{opacity:0;transform:scale(3)}to{opacity:0;transform:scale(1)}}.maplibregl-user-location-dot-stale{background-color:#aaa}.maplibregl-user-location-dot-stale:after{display:none}.maplibregl-user-location-accuracy-circle{background-color:#1da1f233;border-radius:100%;height:1px;width:1px}.maplibregl-crosshair,.maplibregl-crosshair .maplibregl-interactive,.maplibregl-crosshair .maplibregl-interactive:active{cursor:crosshair}.maplibregl-boxzoom{background:#fff;border:2px dotted #202020;height:0;left:0;opacity:.5;position:absolute;top:0;width:0}.maplibregl-cooperative-gesture-screen{align-items:center;background:rgba(0,0,0,.4);color:#fff;display:flex;font-size:1.4em;inset:0;justify-content:center;line-height:1.2;opacity:0;padding:1rem;pointer-events:none;position:absolute;transition:opacity 1s ease 1s;z-index:99999}.maplibregl-cooperative-gesture-screen.maplibregl-show{opacity:1;transition:opacity .05s}.maplibregl-cooperative-gesture-screen .maplibregl-mobile-message{display:none}@media (hover:none),(width <= 480px){.maplibregl-cooperative-gesture-screen .maplibregl-desktop-message{display:none}.maplibregl-cooperative-gesture-screen .maplibregl-mobile-message{display:block}}.maplibregl-pseudo-fullscreen{height:100%!important;left:0!important;position:fixed!important;top:0!important;width:100%!important;z-index:99999}
@@ -337,16 +337,16 @@ const sb = async (p) => { const r = await fetch(`${SB_URL}/rest/v1/${p}`, { head
 const TEMAS = {
   papel: { oceano:"#C2D2C6", terra:"#E9D6AA", grat:"#A93E2A", ink:"#37301F", halo:"#F3EAD3",
     azul:"#7397A4", teal:"#8FAFA8", salmao:"#DFA284", ocre:"#CE9C3F", oliva:"#9EA05F", verde:"#7E9B6E",
-    red:"#A93E2A", cidade:"#37301F", estados:.3,
+    red:"#A93E2A", cidade:"#37301F", estados:.3, estrada:"#A8702A",
     hs:{ ex:.4, sombra:"rgba(93,74,42,0.6)", luz:"#FBF4E0", acento:"#DECBA0" } },
   noturno: { oceano:"#070D15", terra:"#15202E", grat:"#3E5A74", ink:"#EAF1F7", halo:"#0B1119",
     azul:"#63B8F0", teal:"#5BA3A0", salmao:"#D97B5A", ocre:"#E8B54A", oliva:"#9EA05F", verde:"#3E9A6F",
-    red:"#E8B54A", cidade:"#EAF1F7", estados:.35,
+    red:"#E8B54A", cidade:"#EAF1F7", estados:.35, estrada:"#E8B54A",
     hs:{ ex:.55, sombra:"#000000", luz:"#5C7085", acento:"#15202E" } },
 };
 TEMAS.sat = { oceano:"#0B0E12", terra:"rgba(0,0,0,0)", grat:"rgba(255,255,255,0.2)", ink:"#FFFFFF", halo:"rgba(0,0,0,0.78)",
   azul:"#63B8F0", teal:"#5FD0C8", salmao:"#FF9E7A", ocre:"#FFC85E", oliva:"#C6C97A", verde:"#7FE29A",
-  red:"#FF6B4A", cidade:"#FFFFFF", estados:.55, hs:{ ex:0, sombra:"#000", luz:"#fff", acento:"#000" } };
+  red:"#FF6B4A", cidade:"#FFFFFF", estados:.55, estrada:"#FFC85E", hs:{ ex:0, sombra:"#000", luz:"#fff", acento:"#000" } };
 TEMAS.hib = { ...TEMAS.sat, estados:.8 };
 const BASES = [["papel","Papel"],["noturno","Noturno"],["sat","Satélite"],["hib","Híbrido"]];
 let tema = "papel";
@@ -356,9 +356,12 @@ const CAT = {
   biomas: { campo:"Bioma", outros:"#9EA05F", mapa:{ "Amazônia":"#5E8C5A", "Cerrado":"#CE9C3F", "Caatinga":"#DFA284", "Mata Atlântica":"#3E6E52", "Pampa":"#9EA05F", "Pantanal":"#8FAFA8" } },
   zonas_climaticas: { campo:"CLIMA_K", outros:"#7397A4", mapa:{ "Af":"#2E7D52", "Am":"#55925F", "Aw":"#7E9B6E", "As":"#9EA05F", "BSh":"#DFA284", "Cfa":"#7397A4", "Cfb":"#5B8FD9", "Cwa":"#CE9C3F", "Cwb":"#8FAFA8" } },
   cobertura_vegetal: { campo:"CVN_DS_VEG", outros:"#9EA05F", mapa:{ "Floresta Ombrófila Densa":"#2E7D52", "Floresta Ombrófila Aberta":"#55925F", "Floresta Ombrófila Mista":"#3E6E52", "Floresta Estacional Semidecidual":"#7E9B6E", "Floresta Estacional Decidual":"#9EA05F", "Savana":"#CE9C3F", "Savana Estépica":"#DFA284", "Estepe":"#C9B27A", "Campinarana":"#8FAFA8", "Áreas de Tensão Ecológica":"#A5A06B", "Áreas das Formações Pioneiras":"#B8C49A", "Refúgio Ecológico":"#A66FB5", "Água":"#7397A4" } },
-  geologia: { campo:"GLO_DS_ERA", outros:"#B08468", mapa:{ "Cenozoico":"#EAD9A0", "Mesozoico":"#CE9C3F", "Paleozoico":"#C4653A", "Neoproterozoico":"#A66FB5", "Mesoproterozoico":"#8a6fb5", "Paleoproterozoico":"#7397A4", "Neoarqueano":"#6B5F45", "Mesoarqueano":"#5C5240", "Eoarqueano":"#4A4234", "Paleoarqueano":"#55483A" } },
+  geologia: { campo:"GLO_DS_ERA", outros:"#B08468", mapa:{ "Cenozoico":"#EDD35A", "Mesozoico":"#CE9C3F", "Paleozoico":"#C4653A", "Neoproterozoico":"#A66FB5", "Mesoproterozoico":"#8a6fb5", "Paleoproterozoico":"#7397A4", "Neoarqueano":"#6B5F45", "Mesoarqueano":"#5C5240", "Eoarqueano":"#4A4234", "Paleoarqueano":"#55483A" } },
   pedologia: { campo:"ordem", outros:"#C9915E", mapa:{ "LATOSSOLO":"#C4653A", "ARGISSOLO":"#CE9C3F", "NEOSSOLO":"#DFA284", "GLEISSOLO":"#7397A4", "CAMBISSOLO":"#9EA05F", "PLINTOSSOLO":"#B0653A", "ESPODOSSOLO":"#B8C49A", "PLANOSSOLO":"#8FAFA8", "NITOSSOLO":"#A65438", "LUVISSOLO":"#C9B27A", "CHERNOSSOLO":"#6B5F45", "ORGANOSSOLO":"#4A4234", "VERTISSOLO":"#8a6fb5", "AFLORAMENTOS DE ROCHAS":"#999080", "DUNAS":"#EDE3C0" } },
   aquiferos: { campo:"SAA_NM_SIS", outros:"#4FA3C7", mapa:{ "POROSO":"#8FAFA8", "CARSTICO":"#A66FB5", "FRATURADO":"#C4653A" } },
+  regioes_hidrograficas: { campo:"nome", outros:"#8FAFA8", mapa:{ "Amazônica":"#5E8C5A", "Tocantins-Araguaia":"#9EA05F", "Atlântico Nordeste Ocidental":"#8FAFA8",
+    "Parnaíba":"#CE9C3F", "Atlântico Nordeste Oriental":"#DFA284", "São Francisco":"#C4653A", "Atlântico Leste":"#B8C49A", "Atlântico Sudeste":"#7397A4",
+    "Atlântico Sul":"#5B8FD9", "Uruguai":"#A66FB5", "Paraná":"#7E9B6E", "Paraguai":"#C9B27A" } },
 };
 
 /* registro de camadas (id = source-layer) */
@@ -366,38 +369,40 @@ const REG = {
   /* água */
   rios:{ src:"detail", tipo:"line", grupo:"Água", label:"Rios", cor:t=>t.azul, w:[3,.5,7,1.4,11,2.6], op:.85 },
   rios_nomeados:{ src:"detail", tipo:"line", grupo:"Água", label:"Rios", oculto:true, cor:t=>t.azul, w:[4,.8,7,1.7,11,3], op:.9, rot:{ campo:"NORIOCOMP", min:6.5, linha:true } },
-  massas_dagua:{ src:"detail", tipo:"fill", grupo:"Água", label:"Lagos e represas", cor:t=>t.azul, op:.65, rot:{ campo:"nmoriginal", min:8 } },
+  massas_dagua:{ src:"detail", tipo:"fill", grupo:"Água", label:"Lagos e represas", cor:t=>t.azul, op:.65, rot:{ campo:"nmoriginal", min:9.5 } },
   hidrovias:{ src:"detail", tipo:"line", grupo:"Água", label:"Hidrovias", cor:()=>"#3D7A70", w:[3,1.4,9,3.2], op:.95, dash:[2,1], rot:{ campo:"nome", min:5, linha:true } },
-  bacia_2:{ src:"base", tipo:"fill", grupo:"Água", label:"Bacias", cor:"pfaf", op:.5 },
-  aquiferos:{ src:"base", tipo:"fill", grupo:"Água", label:"Aquíferos", cor:"cat", op:.45, rot:{ campo:"SAA_NM_AQU", min:6.5 } },
+  regioes_hidrograficas:{ src:"over", tipo:"fill", grupo:"Água", label:"Regiões hidrográficas", cor:"cat", op:.5, rot:{ campo:"nome", min:2.6, camada:"rotulos_poly" } },
+  bacia_2:{ src:"base", tipo:"fill", grupo:"Água", label:"Ottobacias", cor:"pfaf", op:.5 },
+  aquiferos:{ src:"base", tipo:"fill", grupo:"Água", label:"Aquíferos", cor:"cat", op:.45, rot:{ campo:"SAA_NM_AQU", min:6.5, camada:"rotulos_poly" } },
   /* físico */
-  geomorfologia:{ src:"base", tipo:"fill", grupo:"Físico", label:"Relevo", cor:"hipso", op:.45, rot:{ campo:"GEM_DS_C_1", min:6 } },
-  biomas:{ src:"base", tipo:"fill", grupo:"Físico", label:"Biomas", cor:"cat", op:.5, rot:{ campo:"Bioma", min:4 } },
-  zonas_climaticas:{ src:"base", tipo:"fill", grupo:"Físico", label:"Clima", cor:"cat", op:.5, rot:{ campo:"CLIMA_K", min:5 } },
-  cobertura_vegetal:{ src:"base", tipo:"fill", grupo:"Físico", label:"Vegetação", cor:"cat", op:.5, rot:{ campo:"CVN_DS_VEG", min:7 } },
+  geomorfologia:{ src:"base", tipo:"fill", grupo:"Físico", label:"Relevo", cor:"hipso", op:.45, rot:{ campo:"GEM_DS_C_1", min:6, camada:"rotulos_poly" } },
+  biomas:{ src:"base", tipo:"fill", grupo:"Físico", label:"Biomas", cor:"cat", op:.5, rot:{ campo:"Bioma", min:4, camada:"rotulos_poly" } },
+  zonas_climaticas:{ src:"base", tipo:"fill", grupo:"Físico", label:"Clima", cor:"cat", op:.5, rot:{ campo:"CLIMA_K", min:5, camada:"rotulos_poly" } },
+  cobertura_vegetal:{ src:"base", tipo:"fill", grupo:"Físico", label:"Vegetação", cor:"cat", op:.5, rot:{ campo:"CVN_DS_VEG", min:7, camada:"rotulos_poly" } },
   geologia:{ src:"base", tipo:"fill", grupo:"Físico", label:"Geologia", cor:"cat", op:.5, rot:{ campo:"GLO_NM_UNI", min:8.5 } },
   pedologia:{ src:"base", tipo:"fill", grupo:"Físico", label:"Solos", cor:"cat", op:.5, rot:{ campo:"ordem", min:7.5 } },
   /* território */
   municipios:{ src:"base", tipo:"line", grupo:"Território", label:"Municípios", cor:t=>t.ink, w:[5,.3,10,.8], op:.4, ctr:true, rot:{ campo:"n", min:8.5 } },
   bairros:{ src:"detail", tipo:"line", grupo:"Território", label:"Bairros", cor:t=>t.ink, w:[9,.3,13,.9], op:.5, rot:{ campo:"NM_BAIRRO", min:11.5, minLen:4 } },
-  areas_urbanizadas:{ src:"detail", tipo:"fill", grupo:"Território", label:"Áreas urbanas", cor:t=>t.ocre, op:.4, rot:{ campo:"nome", min:9 } },
+  areas_urbanizadas:{ src:"detail", tipo:"fill", grupo:"Território", label:"Áreas urbanas", cor:t=>t.ocre, op:.4, r:1.6, rot:{ campo:"nome", min:9 } },
+  regioes_metropolitanas:{ src:"over", tipo:"fill", grupo:"Território", label:"Regiões metropolitanas", cor:t=>t.ocre, op:.35, rot:{ campo:"RME_NM", min:5.2, camada:"rotulos_poly" } },
   capitais:{ src:"detail", tipo:"circle", grupo:"Território", label:"Capitais", cor:t=>t.cidade, r:3.5 },
   /* infraestrutura */
-  rodovias_federais:{ src:"detail", tipo:"line", grupo:"Infraestrutura", label:"Rodovias BR", cor:t=>t.ocre, w:[4,.7,10,2.2], op:.9, rot:{ campo:"vl_br", min:5.5, linha:true, prefixo:"BR-" } },
-  rodovias_estaduais:{ src:"detail", tipo:"line", grupo:"Infraestrutura", label:"Estaduais", cor:t=>t.ocre, w:[7,.4,12,1.4], op:.6, rot:{ campo:"ROD_CODIGO", min:8, linha:true } },
+  rodovias_federais:{ src:"detail", tipo:"line", grupo:"Infraestrutura", label:"Rodovias BR", cor:t=>t.estrada, w:[3,1.1,6,1.5,10,2.4], op:.9, rot:{ campo:"vl_br", min:5.5, linha:true, prefixo:"BR-" } },
+  rodovias_estaduais:{ src:"detail", tipo:"line", grupo:"Infraestrutura", label:"Estaduais", cor:t=>t.estrada, w:[7,.5,12,1.4], op:.6, rot:{ campo:"ROD_CODIGO", min:8, linha:true } },
   ferrovias:{ src:"detail", tipo:"line", grupo:"Infraestrutura", label:"Ferrovias", cor:()=>"#8a6fb5", w:[5,.6,11,1.6], op:.8, rot:{ campo:"nome", min:6.5, linha:true } },
   linhas_transmissao:{ src:"detail", tipo:"line", grupo:"Infraestrutura", label:"Transmissão", cor:t=>t.salmao, w:[6,.5,11,1.3], op:.7, rot:{ campo:"Tensao", min:7.5, linha:true, sufixo:" kV" } },
   usinas_uhe:{ src:"detail", tipo:"circle", grupo:"Infraestrutura", label:"Hidrelétricas", cor:t=>t.azul, r:4, rot:{ campo:"NOME", min:6.5 } },
   usinas_pch:{ src:"detail", tipo:"circle", grupo:"Infraestrutura", label:"PCHs", cor:t=>t.teal, r:2.6, rot:{ campo:"NOME", min:8.5 } },
   usinas_cgh:{ src:"detail", tipo:"circle", grupo:"Infraestrutura", label:"CGHs", cor:t=>t.oliva, r:2.2, rot:{ campo:"NOME", min:9.5 } },
   aeroportos:{ src:"detail", tipo:"circle", grupo:"Infraestrutura", label:"Aeroportos", cor:t=>t.ink, r:3, rot:{ campo:"AER_NM", min:8.5 } },
-  portos:{ src:"detail", tipo:"circle", grupo:"Infraestrutura", label:"Portos", cor:t=>t.teal, r:3, rot:{ campo:"POR_NM", min:7.5 } },
+  portos:{ src:"detail", tipo:"circle", grupo:"Infraestrutura", label:"Portos", cor:t=>t.teal, r:3.6, rot:{ campo:"POR_NM", min:7.5 } },
   /* proteção e recortes */
-  terras_indigenas:{ src:"base", tipo:"fill", grupo:"Proteção e recortes", label:"Terras indígenas", cor:t=>t.salmao, op:.45, rot:{ campo:"terrai_nom", min:6.5 } },
-  unidades_conservacao:{ src:"base", tipo:"fill", grupo:"Proteção e recortes", label:"Un. conservação", cor:t=>t.verde, op:.45, rot:{ campo:"NOME_UC1", min:7.5 } },
-  quilombos:{ src:"base", tipo:"fill", grupo:"Proteção e recortes", label:"Quilombos", cor:()=>"#A66FB5", op:.5, rot:{ campo:"name", min:9 } },
+  terras_indigenas:{ src:"base", tipo:"fill", grupo:"Proteção e recortes", label:"Terras indígenas", cor:t=>t.salmao, op:.45, rot:{ campo:"terrai_nom", min:6.5, camada:"rotulos_poly" } },
+  unidades_conservacao:{ src:"base", tipo:"fill", grupo:"Proteção e recortes", label:"Un. conservação", cor:t=>t.verde, op:.45, rot:{ campo:"NOME_UC1", min:7.5, camada:"rotulos_poly" } },
+  quilombos:{ src:"base", tipo:"fill", grupo:"Proteção e recortes", label:"Quilombos", cor:()=>"#A66FB5", op:.5, rot:{ campo:"name", min:9, camada:"rotulos_poly" } },
   amazonia_legal:{ src:"base", tipo:"line", grupo:"Proteção e recortes", label:"Amazônia Legal", cor:t=>t.verde, w:[3,1.2,8,2.2], op:.9 },
-  semiarido:{ src:"base", tipo:"line", grupo:"Proteção e recortes", label:"Semiárido", cor:t=>t.salmao, w:[3,1,8,2], op:.9 },
+  semiarido:{ src:"base", tipo:"line", grupo:"Proteção e recortes", label:"Semiárido", cor:t=>t.red, w:[3,1.2,8,2.4], op:.9, dash:[3,1.5] },
   matopiba:{ src:"base", tipo:"line", grupo:"Proteção e recortes", label:"Matopiba", cor:t=>t.ocre, w:[3,1,8,2], op:.9 },
   timezones:{ src:"base", tipo:"line", grupo:"Proteção e recortes", label:"Fusos horários", cor:()=>"#8a6fb5", w:[2,1,8,2], op:.8, dash:[3,2] },
   faixa_fronteira:{ src:"base", tipo:"fill", grupo:"Proteção e recortes", label:"Faixa de fronteira", cor:t=>t.ocre, op:.3 },
@@ -405,28 +410,87 @@ const REG = {
 };
 /* camadas do detail com minzoom alto → espelho "-ov" na fonte overview (z0..OV[id]); o detail assume de OV[id]+1 em diante */
 const OV = { rodovias_federais:3, ferrovias:4, portos:4, usinas_uhe:4, aeroportos:4, linhas_transmissao:5, usinas_pch:5, usinas_cgh:6,
-  rios_nomeados:5 };   // rios ≥120 km contínuos no overview (o detail fragmenta rios em z4–5)
+  rios_nomeados:5, areas_urbanizadas:5 };   // áreas urbanas: 7.921 manchas viram PONTOS no overview (o detail só começa em z6)   // rios ≥120 km contínuos no overview (o detail fragmenta rios em z4–5)
 /* aplica fn a todas as variantes existentes de uma camada (id, id-ov) */
 function variantes(id) { const v = [id]; if (OV[id]) v.push(id + "-ov"); return v; }
 /* estado de visibilidade (atlas livre) */
 const vis = Object.fromEntries(Object.keys(REG).map(k => [k, false]));
 /* elementos multi-trecho: campo que identifica o TODO (seleção acende o traçado inteiro) */
 const SEL_CHAVE = { rodovias_federais:"vl_br", rodovias_estaduais:"ROD_CODIGO", rios_nomeados:"NORIOCOMP", ferrovias:"nome", hidrovias:"nome" };
-function selecionarTodo(camada, props) {
+function selecionarTodo(camada, props, centro) {
   const campo = SEL_CHAVE[camada], v = campo ? props[campo] : null;
   for (const id of Object.keys(SEL_CHAVE)) {
     const on = id === camada && v != null && v !== "";
+    refinoTok[id] = (refinoTok[id] || 0) + 1;                    // cancela refino pendente da seleção anterior
     for (const sel of (OV[id] ? [id+"-sel", id+"-sel-ov"] : [id+"-sel"])) try {
       map.setPaintProperty(sel, "line-opacity", on ? .95 : 0);
       if (on) map.setFilter(sel, ["==",["to-string",["get",campo]], String(v)]);
     } catch(e) {}
+    if (on) refinarSelecao(id, campo, [String(v)], centro);
   }
   return campo != null && v != null && v !== "";
 }
+/* ── HOMÔNIMOS (v23) ──
+   "Rio São Francisco" existe no ES, em MG, no sul da BA… O filtro por nome acende todos. Quando os tiles
+   carregam, juntamos os trechos com esse nome em componentes conectados (extremidades/vértices em comum),
+   escolhemos UM (o mais longo, puxado para perto do centro da cena) e restringimos a seleção ao que está
+   a ≤ 25 km dele — expressão `distance` do MapLibre. Sem rebuild de tiles; vale para IA, capítulos e toque. */
+const refinoTok = {};
+function refinarSelecao(id, campo, valores, centro) {
+  const tok = refinoTok[id];
+  const roda = () => {
+    if (tok !== refinoTok[id]) return;
+    /* por NOME: cada valor (Tietê-Paraná, Solimões, Amazonas…) escolhe o próprio componente */
+    const escolhidos = [];
+    for (const valor of valores) {
+      const segs = [];
+      for (const l of variantes(id)) {
+        const lyr = map.getLayer(l); if (!lyr) continue;
+        let fs = []; try { fs = map.querySourceFeatures(lyr.source, { sourceLayer:id, filter:["==", ["to-string",["get",campo]], valor] }); } catch(e) {}
+        for (const f of fs) { const g = f.geometry; if (g.type === "LineString") segs.push(g.coordinates); else if (g.type === "MultiLineString") segs.push(...g.coordinates); }
+      }
+      if (segs.length < 2) { escolhidos.push(...segs); continue; }
+      /* união por vértices compartilhados (grade de ~1 km) + extremidades próximas (≤ ~3 km) */
+      const pai = segs.map((_, i) => i), achar = i => pai[i] === i ? i : (pai[i] = achar(pai[i])), unir = (a, b) => { pai[achar(a)] = achar(b); };
+      const grade = new Map(), chave = c => (Math.round(c[0] * 100) + "," + Math.round(c[1] * 100));
+      segs.forEach((s, i) => { for (let k = 0; k < s.length; k += Math.max(1, Math.floor(s.length / 40))) { const ch = chave(s[k]); if (grade.has(ch)) unir(i, grade.get(ch)); else grade.set(ch, i); } });
+      const pontas = segs.flatMap((s, i) => [[s[0], i], [s[s.length - 1], i]]);
+      for (let a = 0; a < pontas.length; a++) for (let b = a + 1; b < pontas.length; b++) {
+        const dx = pontas[a][0][0] - pontas[b][0][0], dy = pontas[a][0][1] - pontas[b][0][1];
+        if (dx * dx + dy * dy < 0.03 * 0.03) unir(pontas[a][1], pontas[b][1]);
+      }
+      const comps = {};
+      segs.forEach((s, i) => { const c = (comps[achar(i)] ??= { segs:[], len:0, sx:0, sy:0, n:0 }); c.segs.push(s);
+        for (let k = 1; k < s.length; k++) c.len += Math.hypot(s[k][0] - s[k-1][0], s[k][1] - s[k-1][1]);
+        c.sx += s[0][0]; c.sy += s[0][1]; c.n++; });
+      const lista = Object.values(comps);
+      const nota = c => { const d = centro ? Math.hypot(c.sx / c.n - centro[0], c.sy / c.n - centro[1]) : 0; return c.len / (1 + d); };
+      escolhidos.push(...lista.sort((a, b) => nota(b) - nota(a))[0].segs);
+    }
+    if (!escolhidos.length) return;
+    /* geometria enxuta para a expressão (≤ ~1500 vértices) */
+    const total = escolhidos.reduce((n, s) => n + s.length, 0), passo = Math.max(1, Math.ceil(total / 1500));
+    const geo = { type:"MultiLineString", coordinates: escolhidos.map(s => s.filter((_, k) => k % passo === 0 || k === s.length - 1)) };
+    const filtro = ["all", ["in", ["to-string",["get",campo]], ["literal", valores]], ["<", ["distance", geo], 25000]];
+    for (const sel of (OV[id] ? [id+"-sel", id+"-sel-ov"] : [id+"-sel"])) try { map.setFilter(sel, filtro); } catch(e) {}
+  };
+  /* a câmera da cena ainda vai voar depois deste chamado: espera o voo terminar e os tiles chegarem (2 passadas).
+     Sondagem por tempo, não pelo evento "idle" — com uma fonte de relevo falhando o idle pode nunca disparar. */
+  const esperar = (passada, tentativas) => setTimeout(() => {
+    if (tok !== refinoTok[id]) return;
+    if ((!map.isMoving() && map.areTilesLoaded()) || tentativas <= 0) { roda(); if (passada < 2) esperar(2, 12); }
+    else esperar(passada, tentativas - 1);
+  }, passada === 1 && tentativas === 12 ? 400 : 300);
+  esperar(1, 12);
+}
 /* polígonos com camada de DESTAQUE dedicada (focos da IA acendem sem mexer na camada-base) */
 const POLY_HL = {
-  municipios:{ src:"base", campo:"NM_MUN" }, bairros:{ src:"detail", campo:"NM_BAIRRO" },
-  unidades_conservacao:{ src:"base", campo:"NOME_UC1" }, terras_indigenas:{ src:"base", campo:"terrai_nom" },
+  municipios:{ src:"base", campo:"NM_MUN", tematica:true }, bairros:{ src:"detail", campo:"NM_BAIRRO", tematica:true },
+  unidades_conservacao:{ src:"base", campo:"NOME_UC1" }, terras_indigenas:{ src:"base", campo:"terrai_nom" }, quilombos:{ src:"base", campo:"name" },
+  /* v23: áreas temáticas também acendem como polígono (o texto diz "Pantanal", o mapa contorna o Pantanal) */
+  biomas:{ src:"base", campo:"Bioma", tematica:true }, zonas_climaticas:{ src:"base", campo:"CLIMA_K", tematica:true }, aquiferos:{ src:"base", campo:"SAA_NM_AQU", tematica:true },
+  geomorfologia:{ src:"base", campo:"GEM_DS_C_1", tematica:true }, cobertura_vegetal:{ src:"base", campo:"CVN_DS_VEG", tematica:true }, bacia_2:{ src:"base", campo:"wts_cd_pfafstetterbasin", tematica:true },
+  regioes_hidrograficas:{ src:"over", campo:"nome", tematica:true }, regioes_metropolitanas:{ src:"over", campo:"RME_NM" },
 };
 function limparHL() {
   for (const id of Object.keys(POLY_HL))
@@ -434,11 +498,11 @@ function limparHL() {
 }
 /* rótulos de municípios por CENTROIDE (1 por cidade — polígono fatiado em tiles gera rótulo duplicado) */
 let IDX = null;
-async function obterIndice() { if (!IDX) IDX = await (await fetch(`${R2}/busca-index.json?v=15`)).json(); return IDX; }  // ?v: cache-bust a cada atualização do índice
+async function obterIndice() { if (!IDX) IDX = await (await fetch(`${R2}/busca-index.json?v=16`)).json(); return IDX; }  // ?v: cache-bust a cada atualização do índice
 const norm = s => String(s).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
 /* ── resolução de focos da IA contra o índice REAL das camadas (nunca acender no vazio) ── */
-const FOCO_TIPO = { rios_nomeados:"rio", municipios:"cidade", aeroportos:"aeroporto", portos:"porto",
+const FOCO_TIPO = { rios_nomeados:"rio", municipios:"cidade", aeroportos:"aeroporto", portos:"porto", regioes_hidrograficas:"região hidrográfica",
   usinas_uhe:"usina", usinas_pch:"usina", usinas_cgh:"usina", terras_indigenas:"terra indígena",
   unidades_conservacao:"un. conservação", hidrovias:"hidrovia" };
 const PREF_RIO = ["Rio ","Ribeirão ","Córrego ","Riacho ","Igarapé ","Arroio "];
@@ -490,6 +554,9 @@ VALOR_HUMANO.name = { "?GUA PRETA":"ÁGUA PRETA", "C?RREGO DE UBARANAS":"CÓRREG
   "CONCEI?AO DAS CRIOULAS":"CONCEIÇÃO DAS CRIOULAS", "DEP?SITO":"DEPÓSITO", "I?NA":"IÚNA", "JATOB?":"JATOBÁ", "JIB?IA":"JIBOIA", "MATA DO SAP?":"MATA DO SAPÉ",
   "OLHOS DAGUA DO BAS?LIO":"OLHOS D'ÁGUA DO BASÍLIO", "S?TIO PAVILH?O":"SÍTIO PAVILHÃO", "S?TIO VEIGA":"SÍTIO VEIGA", "SAMBA?BA":"SAMBAÍBA", "TIJUA?U":"TIJUAÇU", "VILA S?O JO?O / CAVALOS":"VILA SÃO JOÃO / CAVALOS" };
 const humano = (campo, v) => (VALOR_HUMANO[campo] && VALOR_HUMANO[campo][v]) || v;
+/* filtro permanente por camada (a base de capitais traz Lima, Asunción, Bogotá… — só as 27 do Brasil) */
+const FILTRO_BASE = { capitais: ["==", ["get","CPT_DS_PAI"], "Brasil"] };
+const comBase = (id, f) => FILTRO_BASE[id] ? (f ? ["all", FILTRO_BASE[id], f] : FILTRO_BASE[id]) : f;
 const NAO_RIO = new Set(["rio grande do sul","rio grande do norte","rio de janeiro"]);
 function riosDoTexto(texto, mapaIdx) {                                       // rede de segurança: rios citados na resposta
   const m = mapaIdx["rio"]; if (!m) return [];
@@ -573,8 +640,8 @@ function construirEstilo() {
     if (OV[id]) {                                          // espelho nos zooms baixos (fonte overview)
       const base = r.tipo === "line"
         ? { type:"line", layout:{ "line-cap":"round", "line-join":"round" }, paint:{ "line-color":cor, "line-opacity":on ? r.op : 0, "line-width":wjs(r.w), ...(r.dash ? { "line-dasharray":r.dash } : {}) } }
-        : { type:"circle", paint:{ "circle-color":cor, "circle-opacity":on ? 1 : 0, "circle-radius":r.r, "circle-stroke-color":t.halo, "circle-stroke-width":1.3, "circle-stroke-opacity":on ? 1 : 0 } };
-      layers.push({ id:id+"-ov", source:"over", "source-layer":id, maxzoom:OV[id]+1, ...base });
+        : { type:"circle", paint:{ "circle-color":cor, "circle-opacity":on ? (r.tipo === "fill" ? .9 : 1) : 0, "circle-radius":r.r, "circle-stroke-color":t.halo, "circle-stroke-width":r.tipo === "fill" ? 0 : 1.3, "circle-stroke-opacity":on ? 1 : 0 } };
+      layers.push({ id:id+"-ov", source:"over", "source-layer": r.tipo === "fill" ? id+"_pt" : id, maxzoom:OV[id]+1, ...base });
     }
     if (r.tipo === "fill")
       layers.push({ id, type:"fill", source:r.src, "source-layer":id,
@@ -585,7 +652,7 @@ function construirEstilo() {
         paint:{ "line-color":cor, "line-opacity":on ? r.op : 0, "line-width":wjs(r.w),
           ...(r.dash ? { "line-dasharray":r.dash } : {}), "line-opacity-transition":{duration:600} } });
     else
-      layers.push({ id, type:"circle", source:r.src, "source-layer":id, ...(OV[id] ? { minzoom:OV[id]+1 } : {}),
+      layers.push({ id, type:"circle", source:r.src, "source-layer":id, ...(OV[id] ? { minzoom:OV[id]+1 } : {}), ...(FILTRO_BASE[id] ? { filter:FILTRO_BASE[id] } : {}),
         paint:{ "circle-color":cor, "circle-opacity":on ? 1 : 0, "circle-radius":r.r,
           "circle-stroke-color":t.halo, "circle-stroke-width":1.3, "circle-stroke-opacity":on ? 1 : 0,
           "circle-opacity-transition":{duration:600}, "circle-stroke-opacity-transition":{duration:600} } });
@@ -597,32 +664,36 @@ function construirEstilo() {
           "text-font":["NotoRegular"], "text-padding":6, visibility: on ? "visible" : "none" },
         paint:{ "text-color":t.ink, "text-halo-color":t.halo, "text-halo-width":1.5, "text-opacity":.95 } });
     } else if (r.rot) {
-      let tf = ["to-string",["get",r.rot.campo]];
-      if (VALOR_HUMANO[r.rot.campo]) {                       // grafias corrigidas também no rótulo do mapa
+      /* polígonos: rótulo por PONTO representativo (camada rotulos_poly do overview) — o MapLibre rotula
+         polígonos por tile e repete o nome ("PA" 4×, "Serra Geral" 12×). */
+      const porPonto = r.rot.camada === "rotulos_poly";
+      let tf = porPonto ? ["step",["zoom"], ["coalesce",["get","curto"],["get","nome"]], 4.5, ["get","nome"]] : ["to-string",["get", r.rot.campo]];
+      if (VALOR_HUMANO[r.rot.campo] && !porPonto) {          // grafias corrigidas também no rótulo do mapa (pontos já vêm corrigidos)
         const m = ["match", tf]; for (const [k,v] of Object.entries(VALOR_HUMANO[r.rot.campo])) m.push(k, v); m.push(tf); tf = m;
       }
       if (r.rot.prefixo) tf = ["concat", r.rot.prefixo, tf];
       if (r.rot.sufixo) tf = ["concat", tf, r.rot.sufixo];
-      const lyr = { id:id+"-txt", type:"symbol", source:r.src, "source-layer":id, minzoom:r.rot.min,
+      const lyr = { id:id+"-txt", type:"symbol", source: porPonto ? "over" : r.src, "source-layer":r.rot.camada || id, minzoom:r.rot.min,
         layout:{ "symbol-placement": r.rot.linha ? "line" : "point",
           "text-field":tf, "text-size":["interpolate",["linear"],["zoom"],5,10,12,12.5],
-          "text-font":["NotoRegular"], "text-padding":6,
+          "text-font":["NotoRegular"], "text-padding": porPonto ? 1 : 6, ...(porPonto ? { "text-max-width":7, "symbol-sort-key":["-",0,["coalesce",["get","area"],0]] } : {}),
           visibility: on ? "visible" : "none" },
         paint:{ "text-color":t.ink, "text-halo-color":t.halo, "text-halo-width":1.5, "text-opacity":.95 } };
       if (r.rot.minLen) lyr.filter = [">=",["length",["to-string",["get",r.rot.campo]]], r.rot.minLen];
+      if (porPonto) lyr.filter = ["==",["get","camada"], id];
       layers.push(lyr);
     }
   }
   layers.push(
     { id:"estados-l", type:"line", source:"base", "source-layer":"estados", paint:{ "line-color":sat ? "#FFFFFF" : t.ink, "line-width":sat ? .8 : .5, "line-opacity":t.estados } },
     { id:"br-out", type:"line", source:"base", "source-layer":"limite_brasil", paint:{ "line-color":sat ? "#FFFFFF" : t.ink, "line-width":1.1, "line-opacity":.85 } },
-    { id:"estados-txt", type:"symbol", source:"base", "source-layer":"estados", minzoom:5,
-      layout:{ "text-field":["get","SIGLA_UF"], "text-size":11, "text-font":["NotoRegular"], "text-letter-spacing":.25 },
+    { id:"estados-txt", type:"symbol", source:"over", "source-layer":"rotulos_poly", filter:["==",["get","camada"],"estados"], minzoom:5,
+      layout:{ "text-field":["get","sigla"], "text-size":11, "text-font":["NotoRegular"], "text-letter-spacing":.25 },
       paint:{ "text-color":t.ink, "text-halo-color":t.halo, "text-halo-width":1.4, "text-opacity":.65 } },
-    { id:"capitais-txt", type:"symbol", source:"detail", "source-layer":"capitais",
+    { id:"capitais-txt", type:"symbol", source:"detail", "source-layer":"capitais", filter:["==",["get","CPT_DS_PAI"],"Brasil"],
       layout:{ "text-field":["coalesce",["get","CPT_NM"],["get","nome"],["get","NM_MUN"],["get","name"],["get","NOME"],["get","NM_MUNICIP"]],
-        "text-size":11, "text-offset":[.7,.1], "text-anchor":"left", "text-font":["NotoRegular"] },
-      paint:{ "text-color":t.ink, "text-opacity":vis.capitais ? 1 : 0, "text-halo-color":t.terra, "text-halo-width":1.3, "text-opacity-transition":{duration:600} } },
+        "text-size":11, "text-offset":[.7,.1], "text-anchor":"left", "text-font":["NotoRegular"], visibility: vis.capitais ? "visible" : "none" },
+      paint:{ "text-color":t.ink, "text-halo-color":t.terra, "text-halo-width":1.3 } },
     /* seleção destacada — traçado INTEIRO de elementos multi-trecho (mesma BR, mesmo rio…) via filtro na camada vetorial */
     ...Object.entries(SEL_CHAVE).flatMap(([id, campo]) => {
       const sel = (sufixo, src, extra) => ({ id: id+sufixo, type:"line", source:src, "source-layer":id, ...extra,
@@ -677,6 +748,24 @@ const HANDLERS = ["scrollZoom","dragPan","touchZoomRotate","doubleClickZoom","ke
 function interagir(sim) { HANDLERS.forEach(h => { try { sim ? map[h].enable() : map[h].disable(); } catch(e) {} }); }
 interagir(false);
 
+/* toque no mapa → ficha. Registrado no boot (não dentro de montarAtlas): o leitor que vai do índice direto ao capítulo
+   e liga "explorar" precisa disso funcionando sem nunca ter aberto o Atlas Livre (bug v19–v22). */
+map.on("click", (e) => {
+  if (rota() !== "atlas" && !explorando) return;
+  const ids = camadasVisiveis();
+  /* área de toque tolerante (linhas finas no celular) */
+  const R = 14;
+  const caixa = [[e.point.x - R, e.point.y - R], [e.point.x + R, e.point.y + R]];
+  let fs = map.queryRenderedFeatures(caixa, { layers: ids });
+  if (fs.length > 1) {      // prioriza linhas/pontos sobre polígonos gigantes
+    const peso = f => f.layer.type === "circle" ? 0 : f.layer.type === "line" ? 1 : 2;
+    fs = fs.sort((a, b) => peso(a) - peso(b));
+  }
+  if (!fs.length) { fecharFicha(); return; }
+  abrirFicha(fs[0], e.point);
+});
+
+
 /* pulso só anima quando há marcador (setPaintProperty todo frame
    desde o boot impede o mapa de ficar idle — bug corrigido na v2.1.1) */
 let temMarc = false;
@@ -696,49 +785,120 @@ function limparFiltro(node) {
   const wrap = (n) => Array.isArray(n) ? (n[0]==="get" && n[1]==="nuordemcda" ? ["to-number",n] : n.map(wrap)) : n;
   return wrap(node);
 }
-function setCam(id, on, filtro, op) {
+function setCam(id, on, filtro, op, largura) {
   const r = REG[id]; if (!r) return;
+  if (r.tipo === "line" && r.w) for (const v of variantes(id)) try { map.setPaintProperty(v, "line-width", wjs(r.w.map((x, i) => i % 2 ? x * (largura || 1) : x))); } catch(e) {}
   if (id === "municipios" && on) carregarMunCtr();
   const alvo = on ? (op ?? (r.tipo==="circle" ? 1 : r.op)) : 0;
   const prop = r.tipo==="fill" ? "fill-opacity" : r.tipo==="line" ? "line-opacity" : "circle-opacity";
   try {
-    const f = on ? limparFiltro(filtro) : null;
+    const f = comBase(id, on ? limparFiltro(filtro) : null);
     for (const v of variantes(id)) {
-      map.setPaintProperty(v, prop, alvo);
+      const pontoEspelho = r.tipo==="fill" && v.endsWith("-ov");       // fill no detail, pontos no overview
+      map.setPaintProperty(v, pontoEspelho ? "circle-opacity" : prop, pontoEspelho ? (on ? .9 : 0) : alvo);
       if (r.tipo==="circle") map.setPaintProperty(v, "circle-stroke-opacity", on ? 1 : 0);
-      map.setFilter(v, f);
+      map.setFilter(v, pontoEspelho ? null : f);
     }
-    if (id==="capitais") map.setPaintProperty("capitais-txt","text-opacity", on ? 1 : 0);
+    if (id==="capitais") map.setLayoutProperty("capitais-txt","visibility", on ? "visible" : "none");   // opacidade 0 ainda ocupa espaço na colisão de rótulos
     if (r.rot && map.getLayer(id+"-txt")) {
       let ft = r.ctr ? null : f;   // rótulos por centroide (munctr) não têm os campos da camada — filtro os apagaria
       if (r.rot.minLen) {
         const lenF = [">=",["length",["to-string",["get",r.rot.campo]]], r.rot.minLen];
         ft = f ? ["all", lenF, f] : lenF;
       }
+      if (r.rot.camada === "rotulos_poly") {
+        /* pontos de rótulo: só têm {camada, nome}; o filtro da camada (ex.: Bioma == Cerrado) vira nome == Cerrado */
+        const meu = ["==",["get","camada"], id];
+        const fr = f ? JSON.parse(JSON.stringify(f).split(JSON.stringify(["get", r.rot.campo])).join(JSON.stringify(["get","nome"]))) : null;
+        ft = fr ? ["all", meu, fr] : meu;
+      }
       map.setLayoutProperty(id+"-txt","visibility", on ? "visible" : "none");
       map.setFilter(id+"-txt", ft);
     }
   } catch(e) {}
 }
+/* caixas envolventes dos elementos focáveis (rios ≥120 km, UCs, TIs, biomas, RH…) — arquivo pequeno, carregado 1× */
+let BBOX = null;
+async function obterBBoxes() { if (!BBOX) { try { BBOX = await (await fetch(`${R2}/focos-bbox.json?v=1`)).json(); } catch(e) { BBOX = {}; } } return BBOX; }
+let cenaAtualEl = null;                                     // elemento .cena em leitura (para medir o cartucho)
+let msTok = 0;
+/* enquadramento: a cena mostra TUDO que o texto acende, acima do cartucho — em qualquer tamanho de tela.
+   O zoom/centro editoriais viram teto (nunca aproxima mais que zoom+1.2) e fallback (sem caixa conhecida). */
+const BRASIL_BB = [[-73.99, -33.75], [-34.79, 5.27]];
+function paddingCena(etiquetas) {
+  const card = cenaAtualEl?.querySelector(".legenda-card")?.getBoundingClientRect().height || 220;
+  const topo = document.getElementById("topo-cap")?.getBoundingClientRect().height || 44;
+  const lados = etiquetas ? 52 : 22;                       // etiquetas dos marcadores têm ~100 px e ficam acima do ponto
+  return { top: topo + (etiquetas ? 56 : 26), bottom: Math.min(card + 60, window.innerHeight * .6), left: lados, right: lados };
+}
+/* cena "Brasil inteiro" (capa, número nacional): enquadra o país acima do cartucho, em qualquer tela */
+function enquadrarBrasil(ms) {
+  if (ms.enquadrar === false) return null;
+  if (ms.enquadrar !== "brasil" && !(ms.zoom <= 4.2 && Math.abs((ms.center?.[0] ?? -53) + 53) < 6 && Math.abs((ms.center?.[1] ?? -14.5) + 14.5) < 6)) return null;
+  const p = paddingCena((ms.marcadores || []).length > 0);
+  let bb = [BRASIL_BB[0].slice(), BRASIL_BB[1].slice()];                 // marcadores fora do país (Noronha) entram no quadro
+  for (const m of (ms.marcadores || [])) bb = [[Math.min(bb[0][0], m.lon - .4), Math.min(bb[0][1], m.lat - .4)], [Math.max(bb[1][0], m.lon + .4), Math.max(bb[1][1], m.lat + .4)]];
+  try { return map.cameraForBounds(bb, { padding: { top: p.top - 12, bottom: p.bottom - 40, left: 6, right: 6 } }); } catch(e) { return null; }
+}
+function enquadrar(acesos, ms) {
+  if (ms.enquadrar === "brasil") return enquadrarBrasil(ms);
+  if (ms.enquadrar === false) return null;
+  if (!acesos.length && (ms.marcadores || []).length < 2) return null;   // 1 marcador só: a câmera editorial já o centra
+  /* polígonos são o ASSUNTO (o Pantanal); rios/estradas são contexto (o Paraguai atravessa dois países):
+     se há polígono aceso, enquadra só os polígonos + marcadores */
+  const poly = acesos.filter(a => POLY_HL[a.camada]);
+  const alvos = poly.length ? poly : acesos;
+  let b = null;
+  for (const a of alvos) {
+    let bb = null;
+    if (a.camada === "municipios" && a.e) bb = [a.e.x - .22, a.e.y - .18, a.e.x + .22, a.e.y + .18];
+    else bb = BBOX?.[a.camada]?.[a.nome] || (a.e ? [a.e.x - .12, a.e.y - .1, a.e.x + .12, a.e.y + .1] : null);
+    if (!bb) continue;
+    b = b ? [Math.min(b[0], bb[0]), Math.min(b[1], bb[1]), Math.max(b[2], bb[2]), Math.max(b[3], bb[3])] : bb.slice();
+  }
+  for (const m of (ms.marcadores || [])) b = b ? [Math.min(b[0], m.lon), Math.min(b[1], m.lat), Math.max(b[2], m.lon), Math.max(b[3], m.lat)] : [m.lon - .3, m.lat - .3, m.lon + .3, m.lat + .3];
+  if (!b) return null;
+  const pad = paddingCena((ms.marcadores || []).length > 0 || acesos.some(a => REG[a.camada]?.tipo === "circle"));
+  let cam = null;
+  try { cam = map.cameraForBounds([[b[0], b[1]], [b[2], b[3]]], { padding: pad, maxZoom: (ms.zoom || 9) + 1.2 }); } catch(e) { return null; }
+  /* o autor quis um close (Encontro das Águas a z9) e o enquadramento pediria z4.6: respeita o autor */
+  if (cam && ms.zoom && cam.zoom < ms.zoom - 1.6) return null;
+  return cam;
+}
 function aplicarMapState(ms) {
   if (!ms) return;
+  const tok = ++msTok;
   selecionarTodo(null, {}); limparHL();                 // cena nova, destaques novos
+  try { map.getSource("sel").setData({ type:"FeatureCollection", features:[] }); } catch(e) {}   // anéis da cena anterior
   const ativos = {}; (ms.camadas||[]).forEach(c => ativos[c.id] = c);
   for (const id of Object.keys(REG)) {
     const on = ativos[id];
-    setCam(id, !!on, on?.filtro, on?.opacidade);
+    setCam(id, !!on, on?.filtro, on?.opacidade, on?.largura);
   }
   if (ativos.rios && !ativos.rios_nomeados) setCam("rios_nomeados", true, null, ativos.rios.opacidade);
-  /* focos editoriais: os elementos CITADOS no texto acendem em vermelho (mesmo motor da IA) */
-  if (Array.isArray(ms.focos) && ms.focos.length)
-    indicePorTipo().then(idx => acenderFocos(ms.focos, idx, ms.center)).catch(() => {});
   try { map.getSource("marc").setData({ type:"FeatureCollection",
     features:(ms.marcadores||[]).map(m => ({ type:"Feature", properties:{ rotulo:m.rotulo||"" }, geometry:{ type:"Point", coordinates:[m.lon,m.lat] } })) }); } catch(e) {}
   temMarc = (ms.marcadores||[]).length > 0;
-  const cam = { center:ms.center, zoom:ms.zoom, pitch:ms.pitch||0, bearing:ms.bearing||0 };
-  if (ms.transicao==="corte") map.jumpTo(cam);
-  else if (ms.transicao==="fade") map.easeTo({ ...cam, duration:1000 });
-  else map.flyTo({ ...cam, duration:2400, essential:true });
+  const voar = (cam) => {
+    if (ms.transicao==="corte") map.jumpTo(cam);
+    else if (ms.transicao==="fade") map.easeTo({ ...cam, duration:1000 });
+    else map.flyTo({ ...cam, duration:2400, essential:true });
+  };
+  const camEd = { center:ms.center, zoom:ms.zoom, pitch:ms.pitch||0, bearing:ms.bearing||0 };
+  /* focos editoriais: os elementos CITADOS no texto acendem (mesmo motor da IA) e a câmera enquadra todos eles */
+  if (Array.isArray(ms.focos) && ms.focos.length) {
+    Promise.all([indicePorTipo(), obterBBoxes()]).then(([idx]) => {
+      if (tok !== msTok) return;
+      const r = acenderFocos(ms.focos, idx, ms.center);
+      if (!(ms.marcadores || []).length && r.marcas.length) {                 // focos pontuais viram etiquetas
+        const fs = r.marcas.filter(m => m.rotulo).map(m => ({ type:"Feature", properties:{ rotulo: tituloCaso(m.rotulo) }, geometry:{ type:"Point", coordinates:[m.lon, m.lat] } }));
+        try { map.getSource("marc").setData({ type:"FeatureCollection", features:fs }); } catch(e) {}
+        temMarc = fs.length > 0;
+      }
+      const cam = enquadrar(r.acesos, ms);
+      voar(cam ? { ...camEd, center:cam.center, zoom:cam.zoom } : camEd);
+    }).catch(() => { if (tok === msTok) voar(camEd); });
+  } else { const cam = enquadrarBrasil(ms) || enquadrar([], ms); voar(cam ? { ...camEd, center:cam.center, zoom:cam.zoom } : camEd); }
 }
 
 /* ── MOTOR DE FOCOS (IA e capítulos): valida contra o índice real e acende cada elemento do jeito certo ── */
@@ -769,7 +929,7 @@ function acenderFocos(focos, mapaIdx, centro) {
         map.setPaintProperty(sel, "line-opacity", g ? .95 : 0);
         if (g) map.setFilter(sel, ["in", ["to-string",["get",g.campo]], ["literal", g.valores]]);
       }
-      if (g) setCam(id, true, null, REG[id].tipo === "line" ? .8 : .6);
+      if (g) { setCam(id, true, null, REG[id].tipo === "line" ? .8 : .6); refinoTok[id] = (refinoTok[id] || 0) + 1; refinarSelecao(id, g.campo, g.valores, centro); }
     } catch(e) {}
   }
   for (const id of Object.keys(POLY_HL)) {         // polígonos: destaque dedicado; camada-base fica de contexto
@@ -779,7 +939,13 @@ function acenderFocos(focos, mapaIdx, centro) {
       map.setFilter(id+"-hl", f); map.setFilter(id+"-hl-line", f);
       map.setPaintProperty(id+"-hl", "fill-opacity", g ? .14 : 0);
       map.setPaintProperty(id+"-hl-line", "line-opacity", g ? .9 : 0);
-      if (g) setCam(id, true, null);
+      /* camada temática (bioma, clima, aquífero…) só entra inteira se a cena/leitor já a ligou — senão o
+         Pantanal aceso viria com o Cerrado, a Caatinga e todo o resto por cima; o contorno + preenchimento bastam */
+      if (g) {
+        let ligada = false; try { ligada = map.getPaintProperty(id, REG[id].tipo === "line" ? "line-opacity" : "fill-opacity") > 0; } catch(e) {}
+        if (!POLY_HL[id].tematica && !ligada) setCam(id, true, null);      // já ligada (com o filtro da cena): não mexe
+        if (CAT[id]) legendaFoco[id] = new Set(g.valores.map(norm));
+      }
     } catch(e) {}
   }
   for (const [id, g] of Object.entries(catGrupos)) {
@@ -788,8 +954,15 @@ function acenderFocos(focos, mapaIdx, centro) {
     setCam(id, true, null, .55);
     legendaFoco[id] = new Set(g.valores.map(norm));
   }
-  for (const [id, g] of Object.entries(filGrupos)) // pontos e demais: só os elementos, acesos
-    setCam(id, true, ["in", ["to-string",["get",g.campo]], ["literal", g.valores]], .8);
+  /* pontos (usinas, portos, aeroportos): a camada inteira fica de contexto e os citados ganham um anel vermelho
+     (fonte "sel") — antes o filtro escondia todos os outros, e "139 portos" virava 5 pontinhos */
+  const aneis = [];
+  for (const [id, g] of Object.entries(filGrupos)) {
+    const pontual = REG[id].tipo === "circle";
+    setCam(id, true, pontual ? null : ["in", ["to-string",["get",g.campo]], ["literal", g.valores]], pontual ? .75 : .8);
+    if (pontual) for (const a of acesos) if (a.camada === id && a.e) aneis.push({ type:"Feature", properties:{}, geometry:{ type:"Point", coordinates:[a.e.x, a.e.y] } });
+  }
+  if (aneis.length) try { map.getSource("sel").setData({ type:"FeatureCollection", features:aneis }); } catch(e) {}
   vis.rios_nomeados = !!vis.rios || !!selGrupos.rios_nomeados;
   return { acesos, perdidos, marcas };
 }
@@ -978,7 +1151,7 @@ function modoExplorar(on) {
   document.getElementById("v-capitulo").classList.toggle("explorar", on);
   interagir(on);
   document.querySelectorAll(".explorar-btn").forEach(b => b.innerHTML = on
-    ? "← voltar à leitura" : "✋ explorar este mapa <span style=\"opacity:.6\">· toque nos elementos</span>");
+    ? "← voltar à leitura" : '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>explorar este mapa <span style="opacity:.6">· toque nos elementos</span>');
   if (!on) {
     fecharFicha();
     const b = BLOCOS.find(x => String(x.ordem) === ultimoEstado);
@@ -1004,7 +1177,7 @@ async function montarCapitulo(slug) {
       const cena = $("div","cena"); cena.dataset.ordem = b.ordem;
       const card = $("div","legenda-card anim");
       card.appendChild(cartucho(miolo(b,true), !["abertura","cta"].includes(b.tipo)));
-      const ex = $("div","explorar-btn", "✋ explorar este mapa <span style=\"opacity:.6\">· toque nos elementos</span>");
+      const ex = $("div","explorar-btn", '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>explorar este mapa <span style="opacity:.6">· toque nos elementos</span>');
       ex.onclick = () => modoExplorar(!explorando);
       card.appendChild(ex);
       cena.appendChild(card); raiz.appendChild(cena);
@@ -1027,7 +1200,7 @@ async function montarCapitulo(slug) {
   ioCena = new IntersectionObserver(es => es.forEach(e => {
     if (!e.isIntersecting) return;
     const ms = estados[e.target.dataset.ordem];
-    if (ms && e.target.dataset.ordem !== ultimoEstado) { if (explorando) modoExplorar(false); ultimoEstado = e.target.dataset.ordem; aplicarMapState(ms); }
+    if (ms && e.target.dataset.ordem !== ultimoEstado) { if (explorando) modoExplorar(false); ultimoEstado = e.target.dataset.ordem; cenaAtualEl = e.target; aplicarMapState(ms); }
   }), { root:vcap, threshold:.35 });
   raiz.querySelectorAll(".cena").forEach(el => ioCena.observe(el));
   ioAnim = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add("visivel"); }), { root:vcap, threshold:.2 });
@@ -1137,7 +1310,7 @@ function montarAtlas() {
 
   /* ── busca com lupa ── */
   let INDICE = null;
-  const ZOOM_TIPO = { "cidade":10, "aeroporto":12, "porto":12, "usina":11, "terra indígena":7.5, "un. conservação":8.5, "hidrovia":6.5, "rio":8.4 };
+  const ZOOM_TIPO = { "cidade":10, "aeroporto":12, "porto":12, "usina":11, "terra indígena":7.5, "un. conservação":8.5, "hidrovia":6.5, "rio":8.4, "região hidrográfica":4.6 };
   const buscaEl = document.getElementById("busca"), buscaIn = document.getElementById("busca-in"), buscaRes = document.getElementById("busca-res");
   document.getElementById("btn-busca").onclick = async () => {
     const abrir = buscaEl.style.display === "none";
@@ -1167,6 +1340,7 @@ function montarAtlas() {
       d.onclick = () => {
         buscaEl.style.display = "none"; buscaIn.value = ""; buscaRes.innerHTML = "";
         map.flyTo({ center:[e.x, e.y], zoom: ZOOM_TIPO[e.t] || 9, duration: 1800, essential:true });
+        if (e.t === "região hidrográfica") { vis.regioes_hidrograficas = true; indicePorTipo().then(idx => acenderFocos([{ camada:"regioes_hidrograficas", campo:"nome", valor:e.n }], idx, [e.x, e.y])).catch(() => {}); }
         try { map.getSource("marc").setData({ type:"FeatureCollection",
           features:[{ type:"Feature", properties:{ rotulo:e.n }, geometry:{ type:"Point", coordinates:[e.x, e.y] } }] }); } catch(err) {}
         temMarc = true;
@@ -1240,20 +1414,6 @@ function montarAtlas() {
   iaIn.onkeydown = (e) => { if (e.key === "Enter") { e.preventDefault(); perguntarAtlas(); } };
   document.getElementById("ia-go").onclick = perguntarAtlas;
 
-  map.on("click", (e) => {
-    if (rota() !== "atlas" && !explorando) return;
-    const ids = camadasVisiveis();
-    /* área de toque tolerante (linhas finas no celular) */
-    const R = 14;
-    const caixa = [[e.point.x - R, e.point.y - R], [e.point.x + R, e.point.y + R]];
-    let fs = map.queryRenderedFeatures(caixa, { layers: ids });
-    if (fs.length > 1) {      // prioriza linhas/pontos sobre polígonos gigantes
-      const peso = f => f.layer.type === "circle" ? 0 : f.layer.type === "line" ? 1 : 2;
-      fs = fs.sort((a, b) => peso(a) - peso(b));
-    }
-    if (!fs.length) { fecharFicha(); return; }
-    abrirFicha(fs[0], e.point);
-  });
 }
 const fmt = (v, f) => {
   if (v == null || v === "" || /^(sem info|sem informa|n\/?d|null|none|-+)$/i.test(String(v).trim())) return null;
@@ -1333,7 +1493,7 @@ function abrirFicha(f, ponto) {
   const camada = f.layer.id.replace(/-(fill|ov)$/, ""), props = f.properties || {};
   const regras = ROTULOS[camada] || [];
   const dest = DESTAQUES.find(d => d.camada===camada && d.valor_chave && String(props[d.campo_chave])===String(d.valor_chave));
-  const todoAceso = selecionarTodo(camada, props);
+  const todoAceso = selecionarTodo(camada, props, pontoDe(f.geometry));
   try { map.getSource("sel").setData({ type:"FeatureCollection",
     features: todoAceso ? [] : [{ type:"Feature", properties:{}, geometry:f.geometry }] }); } catch(e) {}
   const rot = REG[camada];
@@ -1344,7 +1504,8 @@ function abrirFicha(f, ponto) {
      linhas de transmissão não têm identidade própria → título fixo + tensão no subtítulo */
   const TITULO_DA_FEICAO = { geologia: true };
   const nomeBruto = tituloCampo && fmt(humano(tituloCampo.campo_origem, props[tituloCampo.campo_origem]), "texto");
-  const nomeFeicao = nomeBruto && !/\d/.test(String(nomeBruto)) ? tituloCaso(String(nomeBruto)) : nomeBruto;   // "TERMINAL TABATINGA" → "Terminal Tabatinga"; "UTC-03:00"/"JUI-008" ficam
+  let nomeFeicao = nomeBruto && !/\d/.test(String(nomeBruto)) ? tituloCaso(String(nomeBruto)) : nomeBruto;   // "TERMINAL TABATINGA" → "Terminal Tabatinga"; "UTC-03:00"/"JUI-008" ficam
+  if (typeof nomeFeicao === "string") nomeFeicao = nomeFeicao.replace(/^(\S+) \1$/, "$1");                         // ANA: "Riozinho Riozinho" (23 casos)
   /* ferrovias sem concessionária (planejadas, em estudo, desativadas): identidade pelo trecho EF-xxx */
   const tituloFerrovia = camada === "ferrovias" && !nomeFeicao
     ? "Ferrovia" + (fmt(props.label, "texto") ? " " + tituloCaso(props.label) : fmt(props.sigla, "texto") ? " " + props.sigla : "") : null;
@@ -1440,7 +1601,7 @@ async function navegar() {
     await montarCapitulo(slug); interagir(false); fecharFicha();
     ultimoEstado = null;
     const primeiro = BLOCOS.find(b => b.map_state);
-    if (primeiro) { ultimoEstado = String(primeiro.ordem); aplicarMapState(primeiro.map_state); }
+    if (primeiro) { ultimoEstado = String(primeiro.ordem); cenaAtualEl = document.querySelector(`#v-capitulo .cena[data-ordem="${primeiro.ordem}"]`); aplicarMapState(primeiro.map_state); }
     try { localStorage.setItem("atlas_cap_slug", slug); } catch(e) {}
     const vcap = document.getElementById("v-capitulo");
     if (retomar === slug) {                                 // "continuar lendo": volta ao ponto salvo
