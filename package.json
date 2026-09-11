@@ -9,13 +9,17 @@
     "sync": "npx cap sync",
     "ios": "npx cap open ios",
     "android": "npx cap open android",
-    "assets": "npx @capacitor/assets generate --iconBackgroundColor '#EBDFC2' --iconBackgroundColorDark '#101820' --splashBackgroundColor '#EBDFC2' --splashBackgroundColorDark '#101820'"
+    "assets": "npx @capacitor/assets generate --iconBackgroundColor '#EBDFC2' --iconBackgroundColorDark '#101820' --splashBackgroundColor '#EBDFC2' --splashBackgroundColorDark '#101820'",
+    "version:json": "node -e \"require('fs').writeFileSync('www/VERSION.json', JSON.stringify({v:+require('fs').readFileSync('VERSION','utf8').trim()}))\""
   },
   "dependencies": {
     "@capacitor/android": "^6.1.0",
     "@capacitor/app": "^6.0.0",
     "@capacitor/core": "^6.1.0",
+    "@capacitor/filesystem": "^6.0.0",
     "@capacitor/ios": "^6.1.0",
+    "@capacitor/local-notifications": "^6.0.0",
+    "@capacitor/share": "^6.0.0",
     "@capacitor/splash-screen": "^6.0.0",
     "@capacitor/status-bar": "^6.0.0"
   },

@@ -10,7 +10,8 @@ const config: CapacitorConfig = {
   android: { backgroundColor: '#EBDFC2', allowMixedContent: false },
   plugins: {
     SplashScreen: { launchShowDuration: 0, launchAutoHide: true, backgroundColor: '#EBDFC2' },
-    StatusBar: { style: 'LIGHT', overlaysWebView: true }
+    StatusBar: { style: 'LIGHT', overlaysWebView: true },
+    LocalNotifications: { iconColor: '#A93E2A' }   // v36: lembrete diário do Desafio (ícone pequeno: padrão do app; personalizar depois em res/drawable)
   }
 };
 

@@ -1,0 +1,8 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      { "appID": "TEAMID.com.brexplora.atlas", "paths": [ "*" ] }
+    ]
+  }
+}
