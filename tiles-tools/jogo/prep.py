@@ -13,7 +13,13 @@ def dist_km(a, b): return math.hypot((a[0]-b[0]) * K * math.cos(math.radians((a[
 
 idx = json.load(open(f'{F}/busca-index.json'))
 cidades = [e for e in idx if e['t'] == 'cidade']
+# o calendário publicado (a partir de 08/09/2026) foi sorteado com Recife como p=1 (erro do índice, corrigido depois);
+# manter a mesma classificação AQUI para não mudar os alvos já jogados — a correção vale só para o mapa/busca
+for e in cidades:
+    if (e['n'], e['uf']) == ('Recife', 'PE'): e['p'] = 1
 por_nome_uf = {(e['n'], e['uf']): e for e in cidades}
+_SD = json.load(open(f'{J}/sedes.json')) if os.path.exists(f'{J}/sedes.json') else {}
+sede_xy = lambda e: _SD.get(f"{e['n']}|{e['uf']}", [e['x'], e['y']])
 
 # ── 1) silhuetas dos municípios candidatos (p ≤ 2) ─────────────────────────────────────────────
 def feats(pm, z):
@@ -69,8 +75,16 @@ print('biomas', collections.Counter(m['bioma'] for m in meta.values()))
 
 # ── 2) rios candidatos (≥150 km, com foz e cadeia) ─────────────────────────────────────────────
 cn = json.load(open(f'{F}/cursos-nomes.json')); nomes = cn['nomes']; foz = cn['foz']
-RH = [["39","Amazônica"],["4","Amazônica"],["5","Amazônica"],["6","Tocantins-Araguaia"],["71","Atlântico Nordeste Ocidental"],["72","Atlântico Nordeste Ocidental"],["73","Atlântico Nordeste Ocidental"],["74","Parnaíba"],["75","Atlântico Nordeste Oriental"],["76","São Francisco"],["77","Atlântico Leste"],["78","Atlântico Sudeste"],["791","Atlântico Sudeste"],["792","Atlântico Sudeste"],["793","Atlântico Sudeste"],["794","Atlântico Sudeste"],["79","Atlântico Sul"],["82","Uruguai"],["86","Paraná"],["89","Paraguai"],["8","Paraná"]]
-def rh_de(c):
+RH = [["7792", "Atlântico Sudeste"], ["7793", "Atlântico Sudeste"], ["7794", "Atlântico Sudeste"], ["7795", "Atlântico Sul"], ["7796", "Atlântico Sul"], ["7797", "Atlântico Sul"], ["7798", "Atlântico Sul"], ["7799", "Atlântico Sul"], ["771", "Atlântico Leste"], ["772", "Atlântico Leste"], ["773", "Atlântico Leste"], ["774", "Atlântico Leste"], ["775", "Atlântico Leste"], ["776", "Atlântico Sudeste"], ["777", "Atlântico Sudeste"], ["778", "Atlântico Sudeste"], ["71", "Atlântico Nordeste Ocidental"], ["72", "Atlântico Nordeste Ocidental"], ["73", "Atlântico Nordeste Ocidental"], ["74", "Parnaíba"], ["75", "Atlântico Nordeste Oriental"], ["76", "São Francisco"], ["78", "Atlântico Sul"], ["79", "Atlântico Sul"], ["82", "Uruguai"], ["86", "Paraná"], ["89", "Paraguai"], ["2", "Atlântico Sul"], ["3", "Amazônica"], ["4", "Amazônica"], ["5", "Amazônica"], ["6", "Tocantins-Araguaia"], ["8", "Paraguai"]]
+from shapely.geometry import Point as _Pt
+_RHP = { (f['properties'].get('nome') or f['properties'].get('NOME')): make_valid(shape(f['geometry'])) for f in json.load(open('/home/claude/atlas/rh/regioes_hidrograficas.geojson'))['features'] }
+def rh_de(c, foz=None, bbox=None, nome=''):
+    # região hidrográfica REAL (polígono da ANA), não o prefixo Otto: 77x inclui Doce/Paraíba do Sul, que são Atlântico Sudeste
+    for n in _RHP:
+        if n.lower() in nome.lower(): return n                       # "Rio Parnaíba", "Rio Paraguai": a foz cai na divisa
+    for pt in ([foz] if foz else []) + ([[(bbox[0]+bbox[2])/2, (bbox[1]+bbox[3])/2]] if bbox else []):
+        for n, pl in _RHP.items():
+            if pl.contains(_Pt(*pt)): return n
     for p, n in RH:
         if c.startswith(p): return n
     return None
@@ -116,7 +130,7 @@ for cod, lst in nomes.items():
         if not desagua: desagua = cadeia[0] if cadeia else ('oceano Atlântico' if len(cod) <= 2 or cod.startswith('7') else None)
         desagua = DESAGUA_FIX.get(n, desagua)
         if desagua and cadeia and desagua != cadeia[0]: cadeia = [desagua] + cadeia
-        rios.append({ 'nome': n, 'cod': cod, 'km': km, 'bbox': [e[1], e[2], e[3], e[4]], 'rh': rh_de(cod), 'foz': fz, 'desagua': desagua, 'cadeia': cadeia[:4] })
+        rios.append({ 'nome': n, 'cod': cod, 'km': km, 'bbox': [e[1], e[2], e[3], e[4]], 'rh': rh_de(cod, fz, [e[1], e[2], e[3], e[4]], n), 'foz': fz, 'desagua': desagua, 'cadeia': cadeia[:4] })
 # um só por nome (o maior)
 melhor = {}
 for r in rios:
@@ -125,20 +139,46 @@ rios = sorted(melhor.values(), key=lambda r: -r['km'])
 print('rios candidatos', len(rios), [r['nome'] for r in rios[:10]])
 
 # ── 3) "onde é?": cidades p ≤ 1 com ponto urbano (mancha) mais próximo do centroide ────────────
+# v38: sede = maior mancha densamente edificada dentro do município (jogo/sedes.py); antes era a mancha mais perto do centroide
+SEDES = json.load(open(f'{J}/sedes.json'))
 au = [f['geometry']['coordinates'] for f in json.load(open('/home/claude/atlas/rh/au_pts.geojson'))['features']]
 onde = []
 for e in cidades:
     if e.get('p', 3) > 1: continue
-    perto = min(au, key=lambda c: dist_km(c, [e['x'], e['y']]))
+    sd = SEDES.get(f"{e['n']}|{e['uf']}")
+    perto = sd or min(au, key=lambda c: dist_km(c, [e['x'], e['y']]))
     pt = perto if dist_km(perto, [e['x'], e['y']]) < 40 else [e['x'], e['y']]
     onde.append({ 'nome': e['n'], 'uf': e['uf'], 'x': round(pt[0], 4), 'y': round(pt[1], 4), 'p': e.get('p', 3), 'bioma': bioma_de(e['x'], e['y']) })
 print('onde é', len(onde))
+
+# ── 3b) capitais e direção (dicas de localização) ────────────────────────────────────────────
+REGIAO_UF = { 'AC':'Norte','AM':'Norte','AP':'Norte','PA':'Norte','RO':'Norte','RR':'Norte','TO':'Norte', 'AL':'Nordeste','BA':'Nordeste','CE':'Nordeste','MA':'Nordeste','PB':'Nordeste','PE':'Nordeste','PI':'Nordeste','RN':'Nordeste','SE':'Nordeste',
+              'DF':'Centro-oeste','GO':'Centro-oeste','MS':'Centro-oeste','MT':'Centro-oeste', 'ES':'Sudeste','MG':'Sudeste','RJ':'Sudeste','SP':'Sudeste', 'PR':'Sul','RS':'Sul','SC':'Sul' }
+CAPITAL_NOME = { 'AC':'Rio Branco','AL':'Maceió','AM':'Manaus','AP':'Macapá','BA':'Salvador','CE':'Fortaleza','DF':'Brasília','ES':'Vitória','GO':'Goiânia','MA':'São Luís','MG':'Belo Horizonte','MS':'Campo Grande','MT':'Cuiabá','PA':'Belém','PB':'João Pessoa','PE':'Recife','PI':'Teresina','PR':'Curitiba','RJ':'Rio de Janeiro','RN':'Natal','RO':'Porto Velho','RR':'Boa Vista','RS':'Porto Alegre','SC':'Florianópolis','SE':'Aracaju','SP':'São Paulo','TO':'Palmas' }
+CAPITAIS = { uf: por_nome_uf[(n, uf)] for uf, n in CAPITAL_NOME.items() if (n, uf) in por_nome_uf }   # explícito: o índice tinha Recife como p=1
+def capital_de(uf): return CAPITAIS.get(uf)
+def rumo(de, para):
+    dx = (para[0]-de[0]) * math.cos(math.radians((de[1]+para[1])/2)); dy = para[1]-de[1]
+    a = (math.degrees(math.atan2(dy, dx)) + 360) % 360
+    return ['a leste','a nordeste','ao norte','a noroeste','a oeste','a sudoeste','ao sul','a sudeste'][int(round(a / 45)) % 8]
+def da_capital(m, cap):
+    if not cap: return "Interior do estado"
+    cx, cy = sede_xy(cap)   # v38: distância a partir da cidade, não do centroide do município (Manaus: 40 km de diferença)
+    d = dist_km([cx, cy], [m['x'], m['y']])
+    if d < 60: return f"A menos de 60 km {'do' if cap['n'] == 'Rio de Janeiro' else 'de'} {cap['n']}, a capital"
+    de = 'do ' if cap['n'] == 'Rio de Janeiro' else 'de '
+    return f"A cerca de {int(round(d, -1))} km {rumo([cx, cy], [m['x'], m['y']])} {de}{cap['n']}, a capital"
+
+RIOS_CTX = json.load(open(f'{J}/rios_ctx.json')) if os.path.exists(f'{J}/rios_ctx.json') else {}
+UF_NOME = { 'AC':'Acre','AL':'Alagoas','AM':'Amazonas','AP':'Amapá','BA':'Bahia','CE':'Ceará','DF':'Distrito Federal','ES':'Espírito Santo','GO':'Goiás','MA':'Maranhão','MG':'Minas Gerais','MS':'Mato Grosso do Sul','MT':'Mato Grosso','PA':'Pará','PB':'Paraíba','PE':'Pernambuco','PI':'Piauí','PR':'Paraná','RJ':'Rio de Janeiro','RN':'Rio Grande do Norte','RO':'Rondônia','RR':'Roraima','RS':'Rio Grande do Sul','SC':'Santa Catarina','SE':'Sergipe','SP':'São Paulo','TO':'Tocantins' }
+def limpa_rio(n): return n.replace('Rio ', '').replace('Ribeirão ', '').split(' ou ')[0].strip().lower()
+def nome_ok(n): return not any(t in n for t in ('"', "'", '“', 'Área', 'Base ', 'Usina', 'Distrito Industrial'))
 
 # ── 4) calendário ─────────────────────────────────────────────────────────────────────────────
 rnd = random.Random(2026)
 muns = sorted(meta.values(), key=lambda m: (m['p'], m['nome'])); capitais = [m for m in muns if m['p'] == 0]; polos = [m for m in muns if m['p'] >= 1]
 rnd.shuffle(polos); rnd.shuffle(capitais); rr = rios[:]; rnd.shuffle(rr); oo = onde[:]; rnd.shuffle(oo)
-# rios: os famosos primeiro (mais reconhecíveis), embaralhados; depois os conhecidos regionalmente; depois o resto
+# rios: os 60 maiores primeiro (mais reconhecíveis), embaralhados; depois o resto
 fam = [r for r in rios if r['nome'] in FAMOSOS]; fam2 = [r for r in rios if r['nome'] in FAMOSOS2 and r not in fam]; resto = [r for r in rios if r not in fam and r not in fam2]
 rr = sorted(fam, key=lambda r: rnd.random()) + sorted(fam2, key=lambda r: rnd.random()) + sorted(resto, key=lambda r: rnd.random())
 print('rios famosos', len(fam), len(fam2), 'faltam', [n for n in FAMOSOS if n not in {r['nome'] for r in rios}])
@@ -162,13 +202,36 @@ for i in range(200):
     else: tipo = 'rio'; m = proximo('rios', i)
     if tipo == 'municipio':
         alvo = { 'cd': m['cd'], 'nome': m['nome'], 'uf': m['uf'], 'x': m['x'], 'y': m['y'], 'area': m['area'], 'bbox': m['bbox'] }
-        dicas = [f"Fica na região {m['regiao']}", f"Bioma: {m['bioma']}" if m['bioma'] else "Bioma: —", f"Estado: {m['uf']}", f"Região intermediária de {m['rgint']}", f"Começa com “{m['nome'][0]}”"]
+        # a dica regional nunca pode ser o próprio nome (polo da região intermediária, capital): vira distância da capital
+        cap = capital_de(m['uf']); eh_cap = cap and cap['n'] == m['nome']
+        regional = (f"Região intermediária {'do' if m['rgint'] == 'Rio de Janeiro' else 'de'} {m['rgint']}" if m['rgint'] and m['rgint'] != m['nome'] and not eh_cap else
+                    ("É capital de estado" if eh_cap else da_capital(m, cap)))
+        dicas = [f"Fica na região {m['regiao']}", f"Bioma: {m['bioma']}" if m['bioma'] else "Bioma: —", f"Estado: {m['uf']}", regional, f"Começa com “{m['nome'][0]}”"]
     elif tipo == 'onde':
         alvo = { 'nome': m['nome'], 'uf': m['uf'], 'x': m['x'], 'y': m['y'] }
-        dicas = [f"Bioma: {m['bioma']}" if m['bioma'] else "Bioma: —", f"Estado: {m['uf']}", f"Começa com “{m['nome'][0]}”"]
+        # o nome já é dado: as dicas só podem ajudar a LOCALIZAR
+        cap = capital_de(m['uf']); eh_cap = cap and cap['n'] == m['nome']
+        dicas = [f"Fica na região {REGIAO_UF.get(m['uf'], '—')}", f"Bioma: {m['bioma']}" if m['bioma'] else "Bioma: —", f"Estado: {m['uf']}",
+                 ("É a capital do estado" if eh_cap else da_capital(m, cap))]
     else:
+        ctx = RIOS_CTX.get(m['cod'] + '|' + m['nome'], {'ufs': [], 'cidades': []})
+        ufs = [UF_NOME.get(u, u) for u in ctx['ufs']][:3]
+        atravessa = ("Corre por " + (ufs[0] if len(ufs) == 1 else ', '.join(ufs[:-1]) + ' e ' + ufs[-1])) if ufs else f"Região hidrográfica: {m['rh']}"
+        cids = [c['n'] for c in ctx['cidades'] if nome_ok(c['n'])][:3]
+        # sem cidade na margem: a região hidrográfica (se ainda não foi usada) ou a cadeia até o mar
+        cad = m.get('cadeia') or []
+        if cids: margem = "Cidades à margem: " + ', '.join(cids)
+        elif ufs and m['rh']: margem = f"Região hidrográfica: {m['rh']}"
+        elif len(cad) >= 2: margem = f"Suas águas chegam ao {cad[1] if cad[1] != 'oceano Atlântico' else 'mar'} pelo {cad[0]}"
+        else: margem = "Poucas cidades na margem"
+        # foz: cidade mais próxima (≤40 km) dá o "perto de" — só se a foz é do próprio rio (código compartilhado com o tronco fica de fora)
+        foz_txt = f"Deságua em: {m['desagua']}" if m['desagua'] else "Deságua no mar"
+        b = m['bbox']
+        if m['foz'] and b[0] - .2 <= m['foz'][0] <= b[2] + .2 and b[1] - .2 <= m['foz'][1] <= b[3] + .2 and ' em ' not in foz_txt and '(' not in foz_txt:
+            pc = min((e for e in cidades if nome_ok(e['n'])), key=lambda e: dist_km(sede_xy(e), m['foz']))
+            if dist_km(sede_xy(pc), m['foz']) <= 40 and limpa_rio(m['nome']) not in pc['n'].lower(): foz_txt += f", perto de {pc['n']} ({pc['uf']})"
         alvo = { 'nome': m['nome'], 'nomes': [(x.strip() if x.strip().split()[0] in ('Rio','Ribeirão','Vereda','Paraná','Braço') else 'Rio ' + x.strip()) for x in m['nome'].split(' ou ')], 'cod': m['cod'], 'km': m['km'], 'bbox': m['bbox'], 'foz': m['foz'], 'desagua': m['desagua'] }
-        dicas = [f"Região hidrográfica: {m['rh']}" if m['rh'] else "Região hidrográfica: —", f"Extensão: cerca de {int(round(m['km'], -1))} km", f"Deságua em: {m['desagua']}" if m['desagua'] else "Deságua no mar", f"Começa com “{letra_rio(m['nome'])}”"]
+        dicas = [atravessa, foz_txt, margem, f"Extensão: cerca de {int(round(m['km'], -1))} km", f"Começa com “{letra_rio(m['nome'])}”"]
     dias.append({ 'dia': d.isoformat(), 'tipo': tipo, 'alvo': alvo, 'dicas': dicas })
 json.dump(dias, open(f'{J}/desafios.json', 'w'), ensure_ascii=False)
 json.dump({ 'municipios': [ { 'cd': m['cd'], 'nome': m['nome'], 'uf': m['uf'], 'x': m['x'], 'y': m['y'] } for m in muns ],
