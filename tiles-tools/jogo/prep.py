@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Desafio diário — preparação de dados.
 Saídas: final/jogo-silhuetas.json (contornos simplificados dos municípios candidatos, por CD_MUN)
-        jogo/desafios.json (calendário: dia → tipo + alvo + dicas), jogo/candidatos.json (listas para autocomplete/feedback)."""
+        jogo/desafios.json (calendário: dia → tipo + alvo + dicas), jogo/candidatos.json (listas para autocomplete/feedback).
+v39: o busca-index passou a guardar a SEDE de cada cidade (jogo/sedes.py), então m['x'], m['y'] já são a cidade, não o centroide."""
 import json, subprocess, collections, math, random, datetime, os
 from shapely.geometry import shape, mapping
 from shapely.ops import unary_union
@@ -56,7 +57,7 @@ for k, gs in grupos.items():
     pr = props[k]; e = por_nome_uf[k]
     cd = pr.get('CD_MUN'); sil[cd] = rings
     meta[cd] = { 'cd': cd, 'nome': k[0], 'uf': k[1], 'x': e['x'], 'y': e['y'], 'p': e.get('p', 3), 'area': round(float(pr.get('AREA_KM2') or 0)),
-                 'rgi': pr.get('NM_RGI'), 'rgint': pr.get('NM_RGINT'), 'regiao': pr.get('NM_REGIAO'), 'bbox': [round(v, 3) for v in s.bounds] }
+                 'rgi': pr.get('NM_RGI'), 'rgint': (pr.get('NM_RGINT') or '').replace('Juíz', 'Juiz') or None, 'regiao': pr.get('NM_REGIAO'), 'bbox': [round(v, 3) for v in s.bounds] }
 json.dump(sil, open(f'{F}/jogo-silhuetas.json', 'w'), separators=(',', ':'))
 print('silhuetas', len(sil), 'bytes', os.path.getsize(f'{F}/jogo-silhuetas.json'))
 
@@ -206,7 +207,9 @@ for i in range(200):
         cap = capital_de(m['uf']); eh_cap = cap and cap['n'] == m['nome']
         regional = (f"Região intermediária {'do' if m['rgint'] == 'Rio de Janeiro' else 'de'} {m['rgint']}" if m['rgint'] and m['rgint'] != m['nome'] and not eh_cap else
                     ("É capital de estado" if eh_cap else da_capital(m, cap)))
-        dicas = [f"Fica na região {m['regiao']}", f"Bioma: {m['bioma']}" if m['bioma'] else "Bioma: —", f"Estado: {m['uf']}", regional, f"Começa com “{m['nome'][0]}”"]
+        # v39: polos começam pelo ESTADO (o mapinha já marca o estado; a região era redundante); capitais mantêm a região primeiro, senão estado = resposta
+        dicas = ([f"Fica na região {m['regiao']}", f"Bioma: {m['bioma']}" if m['bioma'] else "Bioma: —", f"Estado: {m['uf']}", regional, f"Começa com “{m['nome'][0]}”"] if eh_cap else
+                 [f"Estado: {m['uf']}", f"Bioma: {m['bioma']}" if m['bioma'] else "Bioma: —", regional, f"Começa com “{m['nome'][0]}”"])
     elif tipo == 'onde':
         alvo = { 'nome': m['nome'], 'uf': m['uf'], 'x': m['x'], 'y': m['y'] }
         # o nome já é dado: as dicas só podem ajudar a LOCALIZAR
