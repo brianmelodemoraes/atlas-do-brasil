@@ -17,10 +17,14 @@ Tudo o que não está aqui já foi feito (código nativo, ficha das lojas, captu
 - [ ] App Store Connect: criar o app (`com.brexplora.atlas`), colar nome/subtítulo/descrição/palavras-chave, subir capturas de `docs/lojas/shots/ios-6.7`, responder *App Privacy* como na ficha, URL de privacidade, notas ao revisor, escolher o build do TestFlight, enviar.
 - [ ] Play Console: criar o app, ficha da loja (descrição curta/longa, capturas `android/`, *feature graphic*), *Data safety* como na ficha, classificação de conteúdo (questionário — tudo "não"), teste interno → fechado → produção.
 
+## 3b · Duas coisas no GitHub (2 minutos, pelo site mesmo)
+- [ ] Mover `scripts/workflows-pendentes/backup-conteudo.yml` e `espelhar-r2.yml` para `.github/workflows/` (a integração do Claude não tem permissão para gravar ali). No site: abrir o arquivo → lápis → no nome, trocar o caminho → *Commit*. O `espelhar-r2.yml` novo substitui o atual (passa a copiar também painel, privacidade, índice e VERSION.json). Depois, aba *Actions* → `backup-conteudo` → *Run workflow* uma vez para conferir.
+- [ ] Guardar a chave do painel (`https://atlasbrexplora.app/painel.html#chave=…`, está no diário de bordo do projeto) em um lugar seu — ela abre o painel de uso em qualquer navegador.
+
 ## 4 · Decisões que são suas
 - [ ] **Pergunte ao Atlas**: fica desligado nesta versão (é o que a ficha diz). Se quiser ligado ou pago, me avisa antes da submissão — muda a ficha e o questionário de privacidade.
 - [ ] **Rotacionar a chave da Anthropic** (Supabase → Edge Functions → Secrets) — pendente desde a v12.
-- [ ] Silhueta: começar pela **região** (como está) ou já pelo **estado**? Um ajuste de uma linha.
+- [x] Silhueta: começa pelo **estado** (v39) — as capitais continuam começando pela região.
 - [ ] Nome jurídico no © e no contato: "Brexplora" está como marca; se houver CNPJ, me passa a razão social para a política e o rodapé.
 
 ## 5 · Testes com gente (uma semana)
