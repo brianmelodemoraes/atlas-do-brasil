@@ -1,0 +1,35 @@
+# Backup do conteúdo editorial que vive só no Supabase (capítulos, blocos, verbetes, fichas curadas, rótulos, desafios já publicados).
+# Roda todo dia às 5h UTC (2h em Brasília) e a pedido; só commita se algo mudou. Usa a chave anônima (pública, é a mesma do atlas.html):
+# as tabelas têm RLS de leitura pública — nada privado passa por aqui (eventos e jogadas ficam de fora).
+name: backup-conteudo
+on:
+  schedule: [{ cron: "0 5 * * *" }]
+  workflow_dispatch:
+permissions: { contents: write }
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Baixar tabelas (paginado de 1000 em 1000)
+        env:
+          SB: https://oolwrsxdwnzofinvjael.supabase.co/rest/v1
+          KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9vbHdyc3hkd256b2ZpbnZqYWVsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcyNTA2NTUsImV4cCI6MjEwMjgyNjY1NX0.u2UbK_N8N5rVOXtUIf2qL2Cvd4_W9lXIITUo0ytYdp0
+        run: |
+          set -e; mkdir -p conteudo
+          for t in capitulos blocos verbetes destaques rotulos desafios; do
+            ord=id; [ "$t" = desafios ] && ord=dia
+            : > conteudo/$t.parts; off=0
+            while :; do
+              curl -fsS "$SB/$t?select=*&order=$ord&limit=1000&offset=$off" -H "apikey: $KEY" -H "Authorization: Bearer $KEY" -H "Range-Unit: items" > conteudo/$t.page || { echo "falhou $t"; exit 1; }
+              n=$(jq length conteudo/$t.page); jq -c '.[]' conteudo/$t.page >> conteudo/$t.parts
+              [ "$n" -lt 1000 ] && break; off=$((off+1000))
+            done
+            jq -s 'sort_by(tostring)' conteudo/$t.parts > conteudo/$t.json; rm conteudo/$t.parts conteudo/$t.page
+            echo "$t: $(jq length conteudo/$t.json) linhas"
+          done
+      - name: Commitar se mudou
+        run: |
+          git config user.name "backup-conteudo"; git config user.email "backup@atlasbrexplora.app"
+          git add conteudo
+          git diff --cached --quiet && echo "sem mudanças" || git commit -m "backup do conteúdo · $(date -u +%F)" && git push
