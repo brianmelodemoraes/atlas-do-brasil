@@ -1,0 +1,7 @@
+/* ═══ v44: SKIN BREXPLORA — escuro, Plus Jakarta / Inter / Libre Baskerville itálico / JetBrains Mono, cartões 16px, CTA branca, verde #4ADE80 ═══
+   Bloco de sobreposição inserido antes de `#carregando {` no CSS principal do atlas.html (ver v44.py). Tokens em :root:
+   --paper #0A0A0B · --paper-hi #111113 · --paper-deep #161618 · --ink #F4F4F5 · --ink-soft #9E9EA3 · --ink-faint #6B6B70
+   --acc/--ok/--red #4ADE80 · --err #F05252 · --line rgba(255,255,255,.08) · --line2 .14 · --head Plus Jakarta · --serif Libre Baskerville · --sans Inter · --mono JetBrains Mono
+   Fontes em lib/ no R2: plus-jakarta-sans-latin.woff2 (600–800 variável), inter-latin.woff2 (400–600), libre-baskerville-latin-italic.woff2, jetbrains-mono-latin.woff2.
+   Logos: brexplora-logo.webp (wordmark 1368×471) e brexplora-marca.webp (o Brasil verde, 461×471) na raiz do R2.
+   Cópia completa do CSS + patch: https://atlasbrexplora.app/trivia-src-v44.zip */
