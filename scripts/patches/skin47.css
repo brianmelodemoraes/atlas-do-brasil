@@ -1,0 +1,72 @@
+/* ═══ v47: MÃO DE IPHONE — resposta ao toque, transições, barra de ação, progresso, sem cheiro de site ═══ */
+html { touch-action:manipulation; }
+body { overscroll-behavior:none; -webkit-touch-callout:none; }
+#v-jogo, #v-jogo * { -webkit-user-select:none; user-select:none; }
+#v-jogo input, #v-jogo textarea { -webkit-user-select:text; user-select:text; }
+/* estado pressionado: tudo que se toca afunda um pouco */
+.tv-chip, .es-op, .cx-chip, .pi-linha, .bg-cel, .gr-cel, .jg-btn, .cta-jogo, .modo, .vz-chip.mais, .fi-pistas .mais, .btn-q, .tr-ajuda, .tr-item, .hero-links span { transition:transform .09s ease, opacity .09s ease; }
+.tv-chip:active, .es-op:active, .cx-chip:active, .pi-linha:active, .bg-cel:active, .gr-cel:active, .cta-jogo:active, .modo:active, .vz-chip.mais:active, .fi-pistas .mais:active, .btn-q:active, .tr-ajuda:active, .tr-item:active { transform:scale(.965); }
+.jg-btn:active:not(:disabled) { transform:scale(.975); opacity:.9; }
+/* acerto salta, erro treme */
+@keyframes tr-pop { 0% { transform:scale(1); } 35% { transform:scale(1.07); } 100% { transform:scale(1); } }
+@keyframes tr-shake { 0%, 100% { transform:translateX(0); } 20% { transform:translateX(-7px); } 40% { transform:translateX(7px); } 60% { transform:translateX(-4px); } 80% { transform:translateX(4px); } }
+@keyframes tr-flash-err { 0% { background:rgba(240,82,82,.35); border-color:var(--err); } 100% { background:var(--paper-hi); border-color:var(--line2); } }
+.tv-chip.novo.imp, .cx-feito.novo, .gr-cel.novo.ok, .bg-cel.novo.ok, .es-op.ok, .pi-linha.ok, .rl-msg.ok { animation:tr-pop .38s cubic-bezier(.2,.8,.2,1); }
+.tv-chip.novo.erro, .gr-cel.novo.erro, .es-op.nao.esc, .pi-linha.erro, .cx-grid.treme, .rl-msg.erro { animation:tr-shake .42s ease; }
+.bg-cel.flash-erro { animation:tr-flash-err .9s ease-out, tr-shake .42s ease; }
+/* coração que se perde */
+@keyframes tr-heart { 0% { transform:scale(1); opacity:1; } 30% { transform:scale(1.5); opacity:1; } 100% { transform:scale(1); opacity:.25; } }
+.tv-vidas .h i { display:inline-block; } .tv-vidas .h i.novo { animation:tr-heart .7s ease-out; }
+/* transições: enigma novo entra da direita, lição sobe */
+@keyframes tr-entra { from { opacity:0; transform:translateX(26px); } to { opacity:1; transform:none; } }
+@keyframes tr-sobe { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:none; } }
+#jogo-corpo.entra { animation:tr-entra .32s cubic-bezier(.2,.8,.2,1); }
+#tr-fim.sobe > * { animation:tr-sobe .36s cubic-bezier(.2,.8,.2,1); }
+#tr-fim.sobe > * + * { animation-delay:.05s; animation-fill-mode:backwards; }
+.jg-fim.conta .grande { animation:tr-pop .5s cubic-bezier(.2,.8,.2,1); }
+@media (prefers-reduced-motion:reduce) { #jogo-corpo.entra, #tr-fim.sobe > *, .tv-chip, .es-op, .gr-cel, .bg-cel, .pi-linha, .cx-grid, .rl-msg, .tv-vidas .h i { animation:none !important; } }
+/* barra de progresso da rodada: 12 casinhas */
+.tr-prog { display:flex; gap:3px; margin:-2px 0 10px; }
+.tr-prog i { flex:1; height:4px; border-radius:2px; background:var(--line2); }
+.tr-prog i.ok { background:var(--ok); } .tr-prog i.erro { background:var(--err); }
+@keyframes tr-pulsa { 0%, 100% { opacity:.45; } 50% { opacity:1; } }
+.tr-prog i.atual { background:var(--ink); animation:tr-pulsa 1.4s ease-in-out infinite; }
+/* como jogar: compacto, só na primeira vez; depois vira o "?" */
+.tr-eb { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+.tr-ajuda { flex:none; width:26px; height:26px; border-radius:8px; border:1px solid var(--line2); color:var(--ink-soft); font-family:var(--mono); font-size:12px; display:flex; align-items:center; justify-content:center; cursor:pointer; margin:-4px -2px -4px 0; }
+.tr-ajuda.on { background:var(--ink); color:var(--paper); border-color:var(--ink); }
+.tr-como { font-size:12.5px; line-height:1.5; color:var(--ink-soft); background:var(--paper-deep); border-left:2px solid var(--acc); border-radius:0 10px 10px 0; padding:8px 11px; margin:0 0 10px; }
+.tr-como b { font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--acc); margin-right:6px; font-weight:500; }
+.tr-como.oculto { display:none; }
+/* barra de ação: o botão principal fica sempre à mão, embaixo, com o conteúdo rolando por trás */
+#v-jogo.fluxo .jg-btn.acao { position:sticky; bottom:calc(env(safe-area-inset-bottom) + 10px); z-index:4; box-shadow:0 -14px 18px -6px var(--paper-hi), 0 0 18px rgba(255,255,255,.10); }
+#v-jogo.fluxo .jg-btn.acao.sec { background:var(--paper-hi); }
+#v-jogo.fluxo .jg-btn.acao + .jg-btn { margin-top:8px; }
+/* alvos de 44 pt */
+.vz-chip.mais, .fi-pistas .mais { min-height:40px; display:inline-flex; align-items:center; }
+.tv-chip, .es-op, .cx-chip, .pi-linha { min-height:48px; }
+.tr-item { padding:9px 0; border-bottom:1px solid var(--line); cursor:pointer; }
+.tr-item .l { display:flex; align-items:center; gap:8px; font-size:13.5px; }
+.tr-item .l .s { flex:none; width:18px; text-align:center; font-family:var(--mono); }
+.tr-item .l .p { margin-left:auto; font-family:var(--mono); font-size:11px; color:var(--ink-soft); }
+.tr-item .l .seta { color:var(--ink-faint); font-size:11px; transition:transform .2s; }
+.tr-item.aberto .l .seta { transform:rotate(90deg); }
+.tr-item .lic { display:none; padding-top:8px; } .tr-item.aberto .lic { display:block; }
+.tr-item .lic .tv-licao { margin:0; }
+/* acerto: faixa curta que avança sozinha */
+.tr-ok { display:flex; align-items:center; gap:12px; margin-top:12px; padding:12px 14px; border-radius:12px; background:rgba(74,222,128,.12); border:1px solid rgba(74,222,128,.45); position:relative; overflow:hidden; animation:tr-pop .38s cubic-bezier(.2,.8,.2,1); }
+.tr-ok .pts { font-family:var(--head); font-weight:700; font-size:24px; letter-spacing:-.02em; color:var(--acc); }
+.tr-ok .txt { font-size:13px; color:var(--ink); line-height:1.35; }
+.tr-ok .txt small { display:block; color:var(--ink-soft); font-size:11.5px; }
+.tr-ok .saiba { margin-left:auto; flex:none; font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; color:var(--ink); border:1px solid var(--line2); border-radius:999px; padding:9px 12px; min-height:36px; display:flex; align-items:center; background:var(--paper-hi); }
+.tr-ok .barra { position:absolute; left:0; bottom:0; height:2px; background:var(--acc); width:100%; transform-origin:left; animation:tr-esvazia 1.5s linear forwards; }
+@keyframes tr-esvazia { from { transform:scaleX(1); } to { transform:scaleX(0); } }
+.tr-ok.parado .barra { animation:none; transform:scaleX(0); }
+/* relâmpago com cronômetro */
+.rl-tempo { height:3px; border-radius:2px; background:var(--line2); margin:0 0 10px; overflow:hidden; }
+@keyframes tr-tempo { 0% { transform:scaleX(1); background:var(--acc); } 65% { background:var(--acc); } 100% { transform:scaleX(0); background:var(--err); } }
+.rl-tempo i { display:block; height:100%; width:100%; transform-origin:left; animation:tr-tempo 10s linear forwards; }
+.rl-msg { text-align:center; margin-bottom:6px; font-size:13px; line-height:1.4; }
+.rl-msg.ok { color:var(--ok); } .rl-msg.erro { color:var(--err); }
+/* nomes longos nas Conexões (Rondonópolis) não quebram no meio */
+.cx-chip .n { font-size:12.5px; line-height:1.15; overflow-wrap:anywhere; hyphens:auto; }
