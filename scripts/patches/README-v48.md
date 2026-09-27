@@ -1,0 +1,10 @@
+# v48 — lançamento público
+
+Fontes completas (patch `v48.py` + `trivia48.js`, `pwa/`, `painel.html`, probes) em `https://atlasbrexplora.app/trivia-src-v48.zip`.
+
+1. **Impostor do dia** é o enigma-assinatura: `#jogo` abre direto nele (1–2 min, todo mundo o mesmo — curado em `trivias` ou gerado pela semente da data). Ao terminar, `trFimImpostor()`: título, pontos (contando), tempo, grade, placar do dia (`impostor_resumo`), lição reabrível, **Desafiar um amigo**, **Cartão para o Story**, **Rodada completa · mais 11 enigmas**. Estado: `est.tr.imp[dia] = {p, ok, t, erros, achados, cat, nImp, nomes}`; `RUN.fase` = `imp` → `rodada`. A sequência 🔥 conta no impostor (a rodada não conta duas vezes).
+2. **Desafio por link**: `#d/<dia>/<nome>/<pontos>/<tempo>` → `JOGO.desafio()` guarda `est.desafios[dia]`, mede `desafio_abriu` e leva ao mesmo enigma (`#jogo` hoje; `#jogo/trivia/<dia>` para dias passados, rodada efêmera que não mexe na de hoje). No fim, bloco `.tr-duelo` com os dois placares (pontos, depois tempo). Nome do jogador (`est.nome`) pedido uma vez ao compartilhar. Texto vai por `navigator.share` ou `wa.me`.
+3. **Cartão-imagem** 1080×1350 em canvas (marca, categoria, os 10 lugares sem entregar os impostores, resultado de quem manda, "Você acha os três?", URL); Web Share com arquivo, Capacitor Share no app, blob em nova aba no desktop.
+4. **Nome** Trivia by Brexplora (title, cabeçalhos, carregando, manifest, textos de share) + `og:title/description/image` (`og-card.png` 1200×630) para o preview do link no WhatsApp.
+5. **Boot sem WebGL**: `map` vira um Proxy mudo se o MapLibre falhar (`SEM_MAPA`); a trivia abre normal; `#atlas`/`#capitulo` avisam e voltam ao índice.
+6. **Medição**: eventos `impostor_ini`, `impostor_fim`, `rodada_ini`, `desafio_abriu`, `share{o:desafio|cartao}`; `dado.teste="1"` quando `localStorage.atlas_teste` existe (probes). Supabase: tabela `trivia_impostor` (dia+jogador único, insert público, coluna `de` = quem desafiou), RPCs `impostor_resumo(d)`, `jogadores_teste()`, `lancamento(chave, dias)` (funil, coortes D1/D3/D7, impostor por dia). `painel.html` ganhou a seção **Lançamento · o que importa** no topo.
