@@ -1,7 +1,7 @@
 {
   "name": "atlas-do-brasil",
-  "version": "1.0.0",
-  "description": "Atlas do Brasil · by Brexplora — atlas geográfico narrativo, nascido mobile",
+  "version": "1.56.0",
+  "description": "Trivia by Brexplora — jogo diário de geografia do Brasil sobre o Atlas do Brasil (mesmo HTML no site e no app)",
   "private": true,
   "scripts": {
     "libs": "bash scripts/fetch-lib.sh",
@@ -9,15 +9,18 @@
     "sync": "npx cap sync",
     "ios": "npx cap open ios",
     "android": "npx cap open android",
-    "assets": "npx @capacitor/assets generate --iconBackgroundColor '#EBDFC2' --iconBackgroundColorDark '#101820' --splashBackgroundColor '#EBDFC2' --splashBackgroundColorDark '#101820'",
+    "assets": "npx @capacitor/assets generate --iconBackgroundColor '#070A12' --iconBackgroundColorDark '#070A12' --splashBackgroundColor '#070A12' --splashBackgroundColorDark '#070A12'",
     "version:json": "node -e \"require('fs').writeFileSync('www/VERSION.json', JSON.stringify({v:+require('fs').readFileSync('VERSION','utf8').trim()}))\""
   },
   "dependencies": {
     "@capacitor/android": "^6.1.0",
     "@capacitor/app": "^6.0.0",
+    "@capacitor/browser": "^6.0.0",
     "@capacitor/core": "^6.1.0",
     "@capacitor/filesystem": "^6.0.0",
+    "@capacitor/haptics": "^6.0.0",
     "@capacitor/ios": "^6.1.0",
+    "@capacitor/keyboard": "^6.0.0",
     "@capacitor/local-notifications": "^6.0.0",
     "@capacitor/share": "^6.0.0",
     "@capacitor/splash-screen": "^6.0.0",
