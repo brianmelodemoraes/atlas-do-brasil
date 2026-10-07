@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<script>/* links antigos chegam com #d/…, #jogo, #atlas… → seguem direto para o app */ if (location.hash && location.hash.length > 1) location.replace('/atlas.html' + location.hash);</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Trivia by Brexplora · Geografia do Brasil, todo dia</title>
+<meta name="description" content="Um impostor por dia entre dez lugares do Brasil. Ache os três, aprenda o porquê e pinte o seu mapa. Jogo diário de geografia sobre um atlas de verdade: 5.570 municípios e 36 camadas oficiais. Sem cadastro.">
+<meta name="theme-color" content="#070A12">
+<link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-180.png">
+<meta property="og:title" content="Trivia by Brexplora · Geografia do Brasil, todo dia">
+<meta property="og:description" content="Um impostor por dia entre dez lugares do Brasil. Ache os três, aprenda o porquê e pinte o seu mapa. Sem cadastro.">
+<meta property="og:image" content="https://atlasbrexplora.app/og-card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:url" content="https://atlasbrexplora.app/"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="lib/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face { font-family:'Plus Jakarta Sans'; font-weight:600 800; font-display:swap; src:url(lib/plus-jakarta-sans-latin.woff2) format('woff2'); }
+@font-face { font-family:'Inter'; font-weight:400 600; font-display:swap; src:url(lib/inter-latin.woff2) format('woff2'); }
+@font-face { font-family:'Libre Baskerville'; font-style:italic; font-weight:400 700; font-display:swap; src:url(lib/libre-baskerville-latin-italic.woff2) format('woff2'); }
+@font-face { font-family:'JetBrains Mono'; font-weight:400 700; font-display:swap; src:url(lib/jetbrains-mono-latin.woff2) format('woff2'); }
+:root { --bg0:#070A12; --bg1:#141B33; --card:#121833; --card2:#1A2140; --txt:#F4F4F5; --sec:#B8C0DA; --mut:#9AA3C7; --apg:#6B7399; --verde:#4ADE80; --verde2:#7CF0A2; --ouro:#F5A524; --head:'Plus Jakarta Sans', system-ui, sans-serif; --serif:'Libre Baskerville', Georgia, serif; --mono:'JetBrains Mono', ui-monospace, monospace; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:var(--bg0) radial-gradient(120% 60% at 50% 0%, var(--bg1) 0%, var(--bg0) 60%) no-repeat; color:var(--txt); font-family:'Inter', system-ui, sans-serif; font-size:17px; line-height:1.55; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+a { color:inherit; text-decoration:none; }
+.wrap { width:min(1120px, 100% - 40px); margin:0 auto; }
+.eb { font-family:var(--mono); font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:var(--verde2); }
+h1, h2 { font-family:var(--head); font-weight:800; letter-spacing:-.035em; line-height:1.02; margin:0; }
+h1 { font-size:clamp(44px, 7vw, 84px); } h2 { font-size:clamp(32px, 4.6vw, 54px); }
+h1 i, h2 i { font-family:var(--serif); font-style:italic; font-weight:400; letter-spacing:0; color:var(--mut); }
+h1 b, h2 b { color:var(--verde2); font-weight:800; }
+p.lead { font-size:clamp(17px, 1.6vw, 21px); color:var(--sec); max-width:560px; margin:22px 0 0; }
+/* botões com volume (v49) */
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:12px; font-family:var(--head); font-weight:800; font-size:17px; letter-spacing:.02em; text-transform:uppercase; border-radius:18px; padding:18px 28px; min-height:60px; transition:transform .08s; position:relative; }
+.btn:active { transform:translateY(4px); }
+.btn.play { color:#06240F; background:linear-gradient(180deg,#5CF08E,#22C55E); box-shadow:0 7px 0 #157A3D, 0 22px 40px rgba(74,222,128,.22); }
+.btn.play:active { box-shadow:0 3px 0 #157A3D; }
+.btn.play .tri { width:0; height:0; border-left:14px solid #06240F; border-top:9px solid transparent; border-bottom:9px solid transparent; }
+.btn.play small { display:block; font-family:var(--mono); font-weight:400; font-size:10.5px; letter-spacing:.16em; margin-top:3px; opacity:.8; }
+.btn.esc { color:var(--txt); background:linear-gradient(180deg,#2A3358,#1A2140); box-shadow:0 7px 0 #0B0F1E, inset 0 1px 0 rgba(255,255,255,.12); }
+.btn.esc:active { box-shadow:0 3px 0 #0B0F1E; }
+/* nav */
+nav { display:flex; align-items:center; justify-content:space-between; padding:22px 0; }
+nav img { height:30px; }
+nav .links { display:flex; gap:26px; font-size:15px; color:var(--mut); }
+nav .links a:hover { color:var(--txt); }
+@media (max-width:640px) { nav .links { display:none; } }
+/* herói */
+.hero { display:grid; grid-template-columns:1.1fr .9fr; align-items:center; gap:40px; padding:40px 0 70px; min-height:min(88vh, 860px); }
+.hero .marca { width:120px; filter:drop-shadow(0 7px 0 #157A3D) drop-shadow(0 14px 0 #0E5A2C) drop-shadow(0 24px 40px rgba(74,222,128,.35)); transform:rotate(-6deg); animation:flutua 5s ease-in-out infinite; margin-bottom:26px; }
+@keyframes flutua { 0%,100% { transform:rotate(-6deg) translateY(0) } 50% { transform:rotate(-6deg) translateY(-10px) } }
+.hero .acoes { display:flex; flex-wrap:wrap; gap:14px; margin-top:34px; }
+.hero .lojas { margin-top:22px; font-family:var(--mono); font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--apg); }
+.hero .lojas b { color:var(--mut); font-weight:500; }
+.fone { width:min(340px, 100%); margin:0 auto; border-radius:46px; border:4px solid #1F2742; box-shadow:0 40px 90px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.04); overflow:hidden; background:#0B0F1E; aspect-ratio:9/16; }
+.fone img { width:100%; height:100%; display:block; object-fit:cover; }
+.hero .fone { transform:rotate(3deg); }
+@media (max-width:860px) { .hero { grid-template-columns:1fr; padding-top:16px; text-align:center; } .hero .marca { margin:0 auto 20px; } p.lead { margin-inline:auto; } .hero .acoes { justify-content:center; } .hero .fone { width:min(260px, 80%); transform:none; } }
+/* seções */
+section { padding:70px 0; }
+.sec-topo { max-width:640px; margin-bottom:38px; }
+.sec-topo p { color:var(--sec); margin:16px 0 0; font-size:18px; }
+.passos { display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; }
+.card { background:linear-gradient(180deg, var(--card2), var(--card)); border-radius:22px; padding:26px; box-shadow:0 12px 30px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.12); }
+.card .n { font-family:var(--head); font-weight:800; font-size:44px; color:var(--verde2); letter-spacing:-.03em; line-height:1; }
+.card h3 { font-family:var(--head); font-weight:800; font-size:22px; letter-spacing:-.02em; margin:14px 0 8px; }
+.card p { margin:0; color:var(--sec); font-size:16px; }
+@media (max-width:760px) { .passos { grid-template-columns:1fr; } }
+.dupla { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
+.dupla.inv > .texto { order:2; }
+.dupla .fones { display:flex; justify-content:center; gap:22px; }
+.dupla .fones .fone { width:min(250px, 44%); }
+.dupla .fones .fone:nth-child(2) { margin-top:48px; }
+@media (max-width:860px) { .dupla { grid-template-columns:1fr; gap:34px; } .dupla.inv > .texto { order:0; } .dupla .fones .fone { width:min(220px, 46%); } }
+.lista { margin:22px 0 0; padding:0; list-style:none; display:grid; gap:12px; }
+.lista li { display:flex; gap:14px; align-items:flex-start; color:var(--sec); }
+.lista li::before { content:''; flex:none; width:10px; height:10px; border-radius:50%; background:var(--verde); margin-top:9px; box-shadow:0 0 12px rgba(74,222,128,.6); }
+.lista b { color:var(--txt); font-weight:600; }
+.modos { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
+.modos span { font-family:var(--head); font-weight:700; font-size:14px; padding:10px 14px; border-radius:14px; background:linear-gradient(180deg,#1F2747,#161C36); box-shadow:0 4px 0 #0B0F1E, inset 0 1px 0 rgba(255,255,255,.1); }
+.modos span.hoje { color:#06240F; background:linear-gradient(180deg,#5CF08E,#22C55E); box-shadow:0 4px 0 #157A3D; }
+.nums { display:grid; grid-template-columns:repeat(2, 1fr); gap:14px; margin-top:30px; max-width:420px; }
+.nums div { background:linear-gradient(180deg, var(--card2), var(--card)); border-radius:18px; padding:18px 10px; text-align:center; box-shadow:0 6px 0 #0B0F1E, inset 0 1px 0 rgba(255,255,255,.12); }
+.nums .v { font-family:var(--head); font-weight:800; font-size:clamp(26px, 3vw, 34px); white-space:nowrap; color:var(--verde2); letter-spacing:-.02em; }
+.nums .k { font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--mut); margin-top:4px; }
+
+.pro { background:linear-gradient(135deg, #1A2140 0%, #121833 60%, #0E1326 100%); border-radius:28px; padding:clamp(28px, 4vw, 48px); display:grid; grid-template-columns:1.2fr .8fr; gap:30px; align-items:center; box-shadow:0 20px 50px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.12); border:1px solid rgba(245,165,36,.18); }
+.pro .eb { color:var(--ouro); }
+.pro .preco { font-family:var(--head); font-weight:800; font-size:40px; color:var(--ouro); letter-spacing:-.03em; }
+.pro .preco small { display:block; font-family:var(--mono); font-weight:400; font-size:11px; letter-spacing:.16em; color:var(--mut); margin-top:6px; }
+@media (max-width:760px) { .pro { grid-template-columns:1fr; } }
+.cta-final { text-align:center; padding:90px 0 70px; }
+.cta-final .marca { width:150px; filter:drop-shadow(0 18px 30px rgba(74,222,128,.35)); animation:flutua2 3s ease-in-out infinite; }
+@keyframes flutua2 { 0%,100% { transform:translateY(0) } 50% { transform:translateY(-8px) } }
+.cta-final h2 { margin-top:24px; }
+footer { border-top:1px solid rgba(255,255,255,.08); padding:30px 0 50px; color:var(--apg); font-size:14px; display:flex; flex-wrap:wrap; gap:14px 28px; justify-content:space-between; align-items:center; }
+footer .links { display:flex; flex-wrap:wrap; gap:18px; }
+footer a:hover { color:var(--txt); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a href="/"><img src="brexplora-logo.webp" alt="Brexplora"></a>
+    <div class="links"><a href="#como">Como funciona</a><a href="#modos">Modos</a><a href="#atlas">O atlas</a><a href="/atlas.html#sobre">Sobre</a><a href="/atlas.html#jogo" style="color:var(--verde2)">Jogar →</a></div>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <img class="marca" src="brexplora-marca.webp" alt="">
+      <div class="eb">Trivia by Brexplora</div>
+      <h1 style="margin-top:14px">Geografia do Brasil, <i>todo dia.</i></h1>
+      <p class="lead">Um impostor por dia entre dez lugares do Brasil. Ache os três que não pertencem, aprenda o porquê e pinte o seu mapa — sobre um atlas de verdade.</p>
+      <div class="acoes">
+        <a class="btn play" href="/atlas.html#jogo"><span class="tri"></span><span>Jogar o impostor de hoje<small>Grátis · sem cadastro · no navegador</small></span></a>
+        <a class="btn esc" href="/atlas.html#atlas">Abrir o atlas</a>
+      </div>
+      <div class="lojas">Em breve <b>App Store · Google Play</b></div>
+    </div>
+    <div class="fone"><img src="inicio-impostor.webp" alt="O Impostor do dia: dez lugares, três não pertencem" width="540" height="960"></div>
+  </header>
+
+  <section id="como">
+    <div class="sec-topo"><div class="eb">Como funciona</div><h2 style="margin-top:12px">Um enigma por dia. <i>Todo mundo o mesmo.</i></h2><p>Gerado dos dados oficiais do IBGE, da ANA e do DNIT: "ficam no Ceará", "são banhadas pelo São Francisco", "estão na BR-116", "têm mais de 500 mil habitantes".</p></div>
+    <div class="passos">
+      <div class="card"><div class="n">10</div><h3>lugares na tela</h3><p>Dez cidades do Brasil e uma categoria. Você tem um minuto.</p></div>
+      <div class="card"><div class="n">3</div><h3>não pertencem</h3><p>Toque nos impostores. Cada acerto vale pontos; cada erro custa uma vida.</p></div>
+      <div class="card"><div class="n">1</div><h3>lição no fim</h3><p>A lição explica cada lugar — e um botão mostra tudo no mapa de verdade.</p></div>
+    </div>
+  </section>
+
+  <section id="modos">
+    <div class="dupla">
+      <div class="texto">
+        <div class="eb">Dez modos de jogo</div>
+        <h2 style="margin-top:12px">Depois do impostor, <i>a rodada continua.</i></h2>
+        <p class="lead">No <b style="color:var(--txt)">Meio a Meio</b>, trace uma reta e deixe metade da população de cada lado. Em <b style="color:var(--txt)">Conexões</b>, quatro grupos de quatro. No modo sem parar, o nível sobe enquanto você acerta.</p>
+        <div class="modos"><span class="hoje">Impostor do dia</span><span>Meio a Meio</span><span>Conexões</span><span>Top 10</span><span>Vizinhos</span><span>Ficha misteriosa</span><span>Bingo</span><span>Grade 3×3</span><span>Pirâmide</span><span>Relâmpago</span></div>
+      </div>
+      <div class="fones"><div class="fone"><img src="inicio-meio.webp" alt="Meio a Meio: a reta que divide a população do Brasil ao meio" width="540" height="960"></div><div class="fone"><img src="inicio-modos.webp" alt="Os modos de jogo" width="540" height="960"></div></div>
+    </div>
+  </section>
+
+  <section id="meu">
+    <div class="dupla inv">
+      <div class="texto">
+        <div class="eb">Meu Brasil</div>
+        <h2 style="margin-top:12px">Cada acerto <i>pinta o seu mapa.</i></h2>
+        <p class="lead">Cada lugar que você aprende acende no seu Brasil, estado por estado. Dias seguidos viram sequência; pontos viram patentes.</p>
+        <ul class="lista">
+          <li><span><b>Sequência diária</b> com gelo, para não perder tudo por um dia.</span></li>
+          <li><span><b>Patentes de explorador</b>: de Curioso a Lenda do Atlas.</span></li>
+          <li><span><b>Ligas com amigos</b> e desafio pelo WhatsApp, placar lado a lado.</span></li>
+          <li><span><b>Sem cadastro.</b> Se quiser, uma conta opcional e sem senha guarda o progresso em outro aparelho.</span></li>
+        </ul>
+      </div>
+      <div class="fones"><div class="fone"><img src="inicio-meu.webp" alt="Meu Brasil: o mapa pintado estado por estado" width="540" height="960"></div><div class="fone"><img src="inicio-perfil.webp" alt="Perfil com as patentes" width="540" height="960"></div></div>
+    </div>
+  </section>
+
+  <section id="atlas">
+    <div class="dupla">
+      <div class="texto">
+        <div class="eb">Por trás do jogo</div>
+        <h2 style="margin-top:12px">Um atlas <i>de verdade.</i></h2>
+        <p class="lead">O jogo nasce do Atlas do Brasil: todos os municípios, dezenas de camadas oficiais — rios e bacias, biomas, relevo, rodovias, terras indígenas, semiárido, Amazônia Legal — e capítulos ilustrados em que o mapa acompanha o texto. Tudo aberto no Atlas Livre, camada por camada.</p>
+        <div class="nums"><div><div class="v">5.570</div><div class="k">municípios</div></div><div><div class="v">36</div><div class="k">camadas oficiais</div></div><div><div class="v">16</div><div class="k">capítulos</div></div><div><div class="v">34 mil</div><div class="k">fichas de lugares</div></div></div>
+        <div style="margin-top:28px"><a class="btn esc" href="/atlas.html#atlas">Explorar o Atlas Livre</a></div>
+      </div>
+      <div class="fones"><div class="fone"><img src="inicio-atlas.webp" alt="Atlas do Brasil com camadas de rios, biomas e rodovias" width="540" height="960"></div><div class="fone"><img src="inicio-resultado.webp" alt="Resultado do impostor com a lição e o botão Ver no mapa" width="540" height="960"></div></div>
+    </div>
+  </section>
+
+  <section id="pro">
+    <div class="pro">
+      <div>
+        <div class="eb">Trivia Pro · opcional</div>
+        <h2 style="margin-top:12px; font-size:clamp(28px,3.6vw,42px)">Vidas sem limite <i>e o arquivo dos impostores.</i></h2>
+        <p style="color:var(--sec); margin:16px 0 0">Vidas sem limite, os últimos 30 impostores para jogar quando quiser e dois gelos por semana — e você apoia um atlas aberto, sem anúncios, feito no Brasil. O Impostor do dia continua grátis para todo mundo, sempre.</p>
+      </div>
+      <div style="text-align:center"><div class="preco">R$ 9,90<small>por mês · ou R$ 49,90 por ano</small></div><div style="margin-top:14px; font-family:var(--mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--mut)">Em breve nas lojas</div></div>
+    </div>
+  </section>
+
+  <section class="cta-final">
+    <img class="marca" src="brexplora-marca.webp" alt="">
+    <div class="eb" style="margin-top:20px">Trivia by Brexplora</div>
+    <h2>O impostor de hoje <i>já está no ar.</i></h2>
+    <div style="margin-top:30px"><a class="btn play" href="/atlas.html#jogo"><span class="tri"></span><span>Jogar agora<small>atlasbrexplora.app</small></span></a></div>
+    <div class="hero lojas" style="display:block; min-height:0; padding:22px 0 0; font-family:var(--mono); font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--apg)">Em breve <b style="color:var(--mut); font-weight:500">App Store · Google Play</b></div>
+  </section>
+
+  <footer>
+    <div>© 2026 Brexplora · dados IBGE, ANA, DNIT, MMA e outros órgãos oficiais</div>
+    <div class="links"><a href="/atlas.html#sobre">Sobre e fontes</a><a href="/privacidade.html">Privacidade</a><a href="/termos.html">Termos</a><a href="mailto:brianmelodemoraes@gmail.com">Contato</a></div>
+  </footer>
+</div>
+</body>
+</html>
